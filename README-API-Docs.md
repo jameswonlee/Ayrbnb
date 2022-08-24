@@ -1,6 +1,9 @@
-# `<name of application here>`
+# `AirBnB`
 
 ## Database Schema Design
+
+<img src="airbnb-schema.png" alt="airbnb-schema-img" />
+
 
 `<insert database schema design here>`
 
