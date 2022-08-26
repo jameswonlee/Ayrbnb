@@ -38,8 +38,7 @@ router.post('/', validateSignup, async (req, res) => {
     return res.json({
         user,
     });
-}
-);
+});
 
 // Sign up
 router.post('/', async (req, res) => {
