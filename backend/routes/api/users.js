@@ -25,13 +25,19 @@ const validateSignup = [
         .exists({ checkFalsy: true })
         .isLength({ min: 6 })
         .withMessage('Password must be 6 characters or more.'),
+    check('firstName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a first name'),
+    check.apply('lastName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a last name'),
     handleValidationErrors
 ];
 
 // Sign up
 router.post('/', validateSignup, async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
+    const { email, password, username, firstName, lastName } = req.body;
+    const user = await User.signup({ email, username, firstName, lastName, password });
 
     await setTokenCookie(res, user);
 
@@ -40,17 +46,18 @@ router.post('/', validateSignup, async (req, res) => {
     });
 });
 
+// Not sure why I had this similar/duplicate router, so commented out for now
 // Sign up
-router.post('/', async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
+// router.post('/', async (req, res) => {
+//     const { email, password, username } = req.body;
+//     const user = await User.signup({ email, username, password });
 
-    await setTokenCookie(res, user);
+//     await setTokenCookie(res, user);
 
-    return res.json({
-        user
-    });
-});
+//     return res.json({
+//         user
+//     });
+// });
 
 
 module.exports = router;
