@@ -61,6 +61,21 @@ const requireAuth = function (req, _res, next) {
     return next(err);
   }
 
+  // Copied and pasted from Alec's walk0thru video since it was diff than mine.
+//   const requireAuth = [
+//     restoreUser,
+//     function (req, _res, next) {
+//     if (req.user) return next();
+  
+//     const err = new Error('Unauthorized');
+//     err.title = 'Unauthorized';
+//     err.errors = ['Unauthorized'];
+//     err.status = 401;
+//     return next(err);
+//   }
+// ]
+
+
 
 
 

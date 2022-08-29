@@ -19,6 +19,12 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 
+router.get('/test', requireAuth, (req, res) => {
+  res.json({
+    message: 'success'
+  })
+})
+
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });
   });
