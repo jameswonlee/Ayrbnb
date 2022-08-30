@@ -26,6 +26,16 @@ module.exports = {
       spotId: 3,
       url: "https://www.airbnb.com/rooms/35835653?location=Hollywood%20Hills%20West%2C%20Los%20Angeles%2C%20California%2C%20United%20States&check_in=2022-11-05&check_out=2022-11-06&federated_search_id=c8828646-a19f-4971-897a-0d8aaa1284cf&source_impression_id=p3_1661872439_bwpyG3L6FgGwuNou&modal=PHOTO_TOUR_SCROLLABLE&modalItem=1171154257",
       preview: true
+    },
+    {
+      spotId: 4,
+      url: "https://www.airbnb.com/rooms/41356396?check_in=2023-01-07&check_out=2023-01-08&federated_search_id=9d654bd3-1178-4f57-ab4b-4daec46675fc&source_impression_id=p3_1661877570_agx9YOaTY1u4P%2FJV&modal=PHOTO_TOUR_SCROLLABLE",
+      preview: true
+    },
+    {
+      spotId: 5,
+      url: "https://www.airbnb.com/rooms/624797674150739145?check_in=2022-12-03&check_out=2022-12-04&federated_search_id=38a35232-b857-4e20-8c87-2b7e13644887&source_impression_id=p3_1661877664_i8QUUD1fKj4MPni0&modal=PHOTO_TOUR_SCROLLABLE",
+      preview: true
     }
    ])
   },

@@ -29,6 +29,18 @@ module.exports = {
       userId: 3,
       review: "Breathingtaking views!",
       stars: 5
+    },
+    {
+      spotId: 4,
+      userId: 4,
+      review: "Dream home!",
+      stars: 5
+    },
+    {
+      spotId: 5,
+      userId: 5,
+      review: "Luxurious condo in BH",
+      stars: 5
     }
    ])
   },
