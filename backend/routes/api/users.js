@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
@@ -45,6 +45,8 @@ router.post('/', validateSignup, async (req, res) => {
         user,
     });
 });
+
+router.get('/')
 
 // Not sure why I had this similar/duplicate router, so commented out for now
 // Sign up
