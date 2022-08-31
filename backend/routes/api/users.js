@@ -46,7 +46,6 @@ router.post('/', validateSignup, async (req, res) => {
     });
 });
 
-router.get('/')
 
 // Not sure why I had this similar/duplicate router, so commented out for now
 // Sign up
