@@ -44,7 +44,7 @@ router.get('/', async (req, res) => {
 // })
 
 
-// Get all Spots owned by the Current User --- avgRating not working
+// Get all Spots owned by the Current User --- DONE!!!
 router.get('/current', requireAuth, async (req, res) => {
     const spots = await Spot.findAll({ where: { ownerId: req.user.id }, raw: true });
 
@@ -61,11 +61,8 @@ router.get('/current', requireAuth, async (req, res) => {
 
         const reviewCount = await Review.count({ where: { spotId: spot.id } });
         const totalStars = await Review.sum('stars', { where: { spotId: spot.id } });
-        
+
         spot.avgRating = parseInt(totalStars / reviewCount);
-        console.log(spot.avgRating)
-
-
     }
     res.json({ Spots: spots })
 })
