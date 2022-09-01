@@ -44,7 +44,7 @@ router.get('/', async (req, res) => {
 // })
 
 
-// Get all Spots owned by the Current User --- Needs previewImage
+// Get all Spots owned by the Current User --- Done!!!
 router.get('/current', requireAuth, async (req, res) => {
     const spots = await Spot.findAll({ where: { ownerId: req.user.id }, raw: true });
 
@@ -73,14 +73,30 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 
-// Get details of a Spot from an id
+// Get details of a Spot from an id --- DONE!!!
 router.get('/:spotId', async (req, res) => {
-    const response = {};
 
-    const spot = await Spot.findByPk(req.params.spotId);
+    const spot = await Spot.findByPk(req.params.spotId, {
+        include: [
+            {
+                model: SpotImage,
+                attributes: ['id', 'url', 'preview'],
+                as: 'SpotImages'
+            },
+            {
+                model: User,
+                as: 'Owner',
+                attributes: ['id', 'firstName', 'lastName']
+            }
+        ]
+    });
 
-    const images = await SpotImage.findByPk(req.params.spotId);
-    console.log(images);
+    if (!spot) {
+        return res.status(404).json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+    }
 
     return res.json(spot);
 })
