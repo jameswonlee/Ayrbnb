@@ -14,7 +14,7 @@ module.exports = {
    await queryInterface.bulkInsert('SpotImages', [
     {
       spotId: 1,
-      url: "https://www.airbnb.com/doheny"
+      url: "https://www.airbnb.com/doheny",
       preview: true
     },
     {
