@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE'
     },
     url: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(500)
     },
     preview: {
       type: DataTypes.BOOLEAN
