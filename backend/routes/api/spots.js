@@ -12,7 +12,7 @@ const spot = require('../../db/models/spot.js');
 // Get all Spots
 router.get('/', async (req, res) => {
     const allSpots = await Spot.findAll();
-  
+
 });
 
 
@@ -50,14 +50,14 @@ router.get('/current', requireAuth, async (req, res) => {
 
     for (let spot of spots) {
         const images = await SpotImage.findAll({ where: { spotId: spot.id }, raw: true });
-        
-        
+
+
         if (images) {
             for (let image of images) {
                 if (image.preview === true || image.preview === 1) {
                     spot.previewImage = image.url;
                 }
-            } 
+            }
             if (!spot.previewImage) {
                 spot.previewImage = null;
             }
@@ -139,8 +139,8 @@ router.post('/', requireAuth, async (req, res) => {
 
         return res.status(400).json({
             message: "Validation Error",
-                statusCode: 400,
-                errors
+            statusCode: 400,
+            errors
         })
     }
 })
@@ -181,6 +181,16 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 })
 
 
+// if (address) spot.address = address;
+// if (city) spot.city = city;
+// if (state) spot.state = state;
+// if (country) spot.country = country;
+// if (lat) spot.lat = lat;
+// if (lng) spot.lng = lng;
+// if (name) spot.name = name;
+// if (description) spot.description = description;
+// if (price) spot.price = price;
+
 
 // Edit a Spot --- DONE!!!!
 router.put('/:spotId', requireAuth, async (req, res) => {
@@ -197,22 +207,28 @@ router.put('/:spotId', requireAuth, async (req, res) => {
 
     if (spot.ownerId === req.user.id) {
         if (address && city && state && country && lat && lng && name && description && price) {
-            if (address) spot.address = address;
-            if (city) spot.city = city;
-            if (state) spot.state = state;
-            if (country) spot.country = country;
-            if (lat) spot.lat = lat;
-            if (lng) spot.lng = lng;
-            if (name) spot.name = name;
-            if (description) spot.description = description;
-            if (price) spot.price = price;
-    
+            spot.address = address;
+            spot.city = city;
+            spot.state = state;
+            spot.country = country;
+            spot.lat = lat;
+            spot.lng = lng;
+            spot.name = name;
+            spot.description = description;
+            spot.price = price;
+
             await spot.save();
             return res.json(spot);
-        }
-        else {
+
+        } else if (spot.ownerId !== req.user.id) {
+            return res.status(404).json({
+                message: "You do not have authorization to edit this spot",
+                statusCode: 400
+            })
+
+        } else {
             const errors = {};
-    
+
             if (!address) errors.address = "Street address is required";
             if (!city) errors.city = "City is required";
             if (!state) errors.state = "State is required";
@@ -222,20 +238,16 @@ router.put('/:spotId', requireAuth, async (req, res) => {
             if (!name) errors.name = "Name must be less than 50 characters";
             if (!description) errors.description = "Description is required";
             if (!price) errors.price = "Price per day is required";
-    
+
             return res.status(400).json({
                 message: "Validation Error",
                 statusCode: 400,
                 errors
             })
         }
-    } else {
-        res.status(404).json({
-            message: "Not authorized",
-            statusCode: 404
-        })
     }
 })
+
 
 
 // Delete a Spot --- DONE!!!
@@ -314,10 +326,10 @@ router.post('/:spotId/reviews', requireAuth, async (req, res) => {
 
     } else {
         const errors = {};
-        
+
         if (!review) errors.review = "Review text is required";
         if (!stars) errors.stars = "Stars must be an integer from 1 to 5";
-    
+
         return res.status(400).json({
             message: "Validation error",
             statusCode: 400,
