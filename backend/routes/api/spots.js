@@ -26,8 +26,9 @@ router.get('/', async (req, res) => {
                         SELECT url
                     FROM spotImages AS spotImage
                     WHERE spotImage.spotId = spot.id
-                    AND preview = true)`
-                ), 'previewImage'
+                    AND preview = true
+                    )`), 
+                    'previewImage'
                 ]
             ]
         }
@@ -72,19 +73,7 @@ router.get('/current', requireAuth, async (req, res) => {
 router.post('/', requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
-    const errors = {};
-
-    if (!address) errors.address = "Street address is required";
-    if (!city) errors.city = "City is required";
-    if (!state) errors.state = "State is required";
-    if (!country) errors.country = "Country is required";
-    if (!lat) errors.lat = "Latitude is not valid";
-    if (!lng) errors.lng = "Longitude is not valid";
-    if (!name) errors.name = "Name must be less than 50 characters";
-    if (!description) errors.description = "Description is required";
-    if (!price) errors.price = "Price per day is required";
-
-    if (typeof errors !== "undefined") {
+    if (address && city && state && country && lat && lng && name && description && price) {
         const newSpot = await Spot.create({
             ownerId: req.user.id,
             address,
@@ -97,17 +86,90 @@ router.post('/', requireAuth, async (req, res) => {
             description,
             price
         })
-
-        res.json(newSpot);
-
+        res.status(201).json(newSpot);
     } else {
+        const errors = {};
+
+        if (!address) errors.address = "Street address is required";
+        if (!city) errors.city = "City is required";
+        if (!state) errors.state = "State is required";
+        if (!country) errors.country = "Country is required";
+        if (!lat) errors.lat = "Latitude is not valid";
+        if (!lng) errors.lng = "Longitude is not valid";
+        if (!name) errors.name = "Name must be less than 50 characters";
+        if (!description) errors.description = "Description is required";
+        if (!price) errors.price = "Price per day is required";
+
         return res.status(400).json({
             message: "Validation Error",
             statusCode: 400,
             errors
         })
     }
+
+    // const errors = {};
+
+    // if (!address) errors.address = "Street address is required";
+    // if (!city) errors.city = "City is required";
+    // if (!state) errors.state = "State is required";
+    // if (!country) errors.country = "Country is required";
+    // if (!lat) errors.lat = "Latitude is not valid";
+    // if (!lng) errors.lng = "Longitude is not valid";
+    // if (!name) errors.name = "Name must be less than 50 characters";
+    // if (!description) errors.description = "Description is required";
+    // if (!price) errors.price = "Price per day is required";
+
+    // if (typeof errors !== "undefined") {
+    //     return res.status(400).json({
+    //         message: "Validation Error",
+    //         statusCode: 400,
+    //         errors
+    //     })
+    // } else {
+    //     const newSpot = await Spot.create({
+    //         ownerId: req.user.id,
+    //         address,
+    //         city,
+    //         state,
+    //         country,
+    //         lat,
+    //         lng,
+    //         name,
+    //         description,
+    //         price
+    //     })
+    //     res.status(201).json(newSpot);
+    // }
 })
+
+// if (!address) {
+//     errors.address = "Street address is required";
+// }
+// if (!city) {
+//     errors.city = "City is required";
+// }
+// if (!state) {
+//     errors.state = "State is required";
+// }
+// if (!country) {
+//     errors.country = "Country is required";
+// }
+// if (!lat) {
+//     errors.lat = "Latitude is not valid";
+// }
+// if (!lng) {
+//     errors.lng = "Longitude is not valid";
+// }
+// if (!name) {
+//     errors.name = "Name must be less than 50 characters";
+// }
+// if (!description) {
+//     errors.description = "Description is required";
+// }
+// if (!price) {
+//     errors.price = "Price per day is required";
+// }
+
 
 
 
