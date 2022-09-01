@@ -44,18 +44,22 @@ router.get('/', async (req, res) => {
 // })
 
 
-// Get all Spots owned by the Current User --- DONE!!!
+// Get all Spots owned by the Current User --- Needs previewImage
 router.get('/current', requireAuth, async (req, res) => {
     const spots = await Spot.findAll({ where: { ownerId: req.user.id }, raw: true });
 
     for (let spot of spots) {
         const images = await SpotImage.findAll({ where: { spotId: spot.id }, raw: true });
-
+        
+        
         if (images) {
             for (let image of images) {
                 if (image.preview === true || image.preview === 1) {
                     spot.previewImage = image.url;
                 }
+            } 
+            if (!spot.previewImage) {
+                spot.previewImage = null;
             }
         }
 
@@ -65,6 +69,13 @@ router.get('/current', requireAuth, async (req, res) => {
         spot.avgRating = parseInt(totalStars / reviewCount);
     }
     res.json({ Spots: spots })
+})
+
+
+
+// Get details of a Spot from an id
+router.get('/:spotId', async (req, res) => {
+    const spot = await Spot.findByPk(req.params.spotId);
 })
 
 
