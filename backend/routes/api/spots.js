@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
                     FROM spotImages AS spotImage
                     WHERE spotImage.spotId = spot.id
                     AND preview = true
-                    )`), 
+                    )`),
                     'previewImage'
                 ]
             ]
