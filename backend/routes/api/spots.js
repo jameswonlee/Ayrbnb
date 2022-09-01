@@ -145,51 +145,93 @@ router.post('/', requireAuth, async (req, res) => {
     }
 })
 
-
-
-
-// Add an Image to a Spot based on the Spot's id ---- DONE!!!
+// Add an Image to a Spot based on the Spot's id
 router.post('/:spotId/images', requireAuth, async (req, res) => {
     const { url, preview } = req.body;
-    // const { spotId } = req.params;
-    // console.log(spotId)
-
-    const spot = await Spot.findOne({
-        where: { id: parseInt(req.params.spotId, 10) }
-    })
+    const spot = await Spot.findByPk(req.params.spotId);
 
     if (spot) {
-        const spotImage = await SpotImage.create({
-            spotId: parseInt(req.params.spotId, 10),
-            url: url
-            // preview: preview
-        })
 
-        const spotImageResponse = {};
-        spotImageResponse.id = spotImage.id,
-            spotImageResponse.url = spotImage.url,
-            // spotImageResponse.preview = spotImage.preview;
+        if (spot.ownerId === req.user.id) {
+            const spotImage = await SpotImage.create({
+                spotId: parseInt(req.params.spotId, 10),
+                url: url,
+                // preview: preview
+            })
 
-            res.json(spotImageResponse)
-
-    } else {
-        res.status(404).json({
-            message: "Spot couldn't be found",
-            statusCode: 404
-        })
-    }
+            const response = {};
+            response.id = spotImage.id;
+            response.url = spotImage.url
+            
+            res.json(response)
+        }
+        else {
+            res.status(403).json({
+                message: "You do not have authorization to add images to this spot",
+                statusCode: 403
+            })
+        }
+    } 
+    res.status(404).json({
+        message: "Spot couldn't be found",
+        statusCode: 404
+    })
 })
 
 
-// if (address) spot.address = address;
-// if (city) spot.city = city;
-// if (state) spot.state = state;
-// if (country) spot.country = country;
-// if (lat) spot.lat = lat;
-// if (lng) spot.lng = lng;
-// if (name) spot.name = name;
-// if (description) spot.description = description;
-// if (price) spot.price = price;
+// Add an Image to a Spot based on the Spot's id ---- DONE!!!
+// router.post('/:spotId/images', requireAuth, async (req, res) => {
+//     const { url, preview } = req.body;
+//     // const { spotId } = req.params;
+//     // console.log(spotId)
+
+//     const spot = await Spot.findOne({
+//         where: { id: parseInt(req.params.spotId, 10) }
+//     })
+
+    // if (spot) {
+    //     if (spot.ownerId !== req.user.id) {
+    //         return res.status(400).json({
+    //             message: "You do not have authorization to add image to this spot"
+    //         })
+    //     } else {
+    //         const spotImage = await SpotImage.create({
+    //             spotId: parseInt(req.params.spotId, 10),
+    //             url: url
+    //             // preview: preview
+    //         })
+    
+    //         const spotImageResponse = {};
+    //         spotImageResponse.id = spotImage.id;
+    //         spotImageResponse.url = spotImage.url;
+    
+    //         return res.json(spotImageResponse);
+    //     }
+    // }
+
+
+
+// if (spot) {
+//     if (spot.ownerId === req.user.id) {
+//         const spotImage = await SpotImage.create({
+//             spotId: parseInt(req.params.spotId, 10),
+//             url: url
+//             // preview: preview
+//         })
+
+//         const spotImageResponse = {};
+//         spotImageResponse.id = spotImage.id,
+//         spotImageResponse.url = spotImage.url,
+//         // spotImageResponse.preview = spotImage.preview;
+
+//         return res.json(spotImageResponse);
+//     }
+// }
+// res.status(404).json({
+//     message: "Spot couldn't be found",
+//     statusCode: 404
+// })
+
 
 
 // Edit a Spot --- DONE!!!!
@@ -227,6 +269,7 @@ router.put('/:spotId', requireAuth, async (req, res) => {
             })
 
         } else {
+
             const errors = {};
 
             if (!address) errors.address = "Street address is required";
