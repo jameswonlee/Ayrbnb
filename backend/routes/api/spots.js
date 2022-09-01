@@ -11,35 +11,37 @@ const spot = require('../../db/models/spot.js');
 
 // Get all Spots
 router.get('/', async (req, res) => {
-
-    const spots = await Spot.findAll({
-        attributes: {
-            include: [
-                [sequelize.literal(`(
-                    SELECT AVG(stars)
-                    FROM reviews AS review
-                    WHERE review.spotId = spot.id
-                    )`),
-                    'avgRating'
-                ],
-                [sequelize.literal(`(
-                        SELECT url
-                    FROM spotImages AS spotImage
-                    WHERE spotImage.spotId = spot.id
-                    AND preview = true
-                    )`),
-                    'previewImage'
-                ]
-            ]
-        }
-    })
-
-    res.json({
-        Spots: spots
-    })
+    const allSpots = await Spot.findAll();
+  
 });
 
 
+
+// const spots = await Spot.findAll({
+//     attributes: {
+//         include: [
+//             [sequelize.literal(`(
+//                 SELECT AVG(stars)
+//                 FROM reviews AS review
+//                 WHERE review.spotId = spot.id
+//                 )`),
+//                 'avgRating'
+//             ],
+//             [sequelize.literal(`(
+//                     SELECT url
+//                 FROM spotImages AS spotImage
+//                 WHERE spotImage.spotId = spot.id
+//                 AND preview = true
+//                 )`),
+//                 'previewImage'
+//             ]
+//         ]
+//     }
+// })
+
+// res.json({
+//     Spots: spots
+// })
 
 
 // Get all Spots owned by the Current User --- avgRating not working
@@ -75,7 +77,23 @@ router.post('/', requireAuth, async (req, res) => {
 
     const errors = {};
 
-    if (address && city && state && country && lat && lng && name && description && price) {
+    if (!address) errors.address = "Street address is required";
+    if (!city) errors.city = "City is required";
+    if (!state) errors.state = "State is required";
+    if (!country) errors.country = "Country is required";
+    if (!lat) errors.lat = "Latitude is not valid";
+    if (!lng) errors.lng = "Longitude is not valid";
+    if (!name) errors.name = "Name must be less than 50 characters";
+    if (!description) errors.description = "Description is required";
+    if (!price) errors.price = "Price per day is required";
+
+    if (typeof errors !== "undefined") {
+        return res.status(400).json({
+            message: "Validation Error",
+            statusCode: 400,
+            errors
+        })
+    } else {
         const newSpot = await Spot.create({
             ownerId: req.user.id,
             address,
@@ -89,127 +107,62 @@ router.post('/', requireAuth, async (req, res) => {
             price
         })
         res.status(201).json(newSpot);
-    } else {
-        const errors = {};
-    
-        if (!address) errors.address = "Street address is required";
-        if (!city) errors.city = "City is required";
-        if (!state) errors.state = "State is required";
-        if (!country) errors.country = "Country is required";
-        if (!lat) errors.lat = "Latitude is not valid";
-        if (!lng) errors.lng = "Longitude is not valid";
-        if (!name) errors.name = "Name must be less than 50 characters";
-        if (!description) errors.description = "Description is required";
-        if (!price) errors.price = "Price per day is required";
-    
-        return res.status(400).json({
-            message: "Validation Error",
-            statusCode: 400,
-            errors
-        })
     }
 })
 
 
-// if (!address) errors.address = "Street address is required";
-//     if (!city) errors.city = "City is required";
-//     if (!state) errors.state = "State is required";
-//     if (!country) errors.country = "Country is required";
-//     if (!lat) errors.lat = "Latitude is not valid";
-//     if (!lng) errors.lng = "Longitude is not valid";
-//     if (!name) errors.name = "Name must be less than 50 characters";
-//     if (!description) errors.description = "Description is required";
-//     if (!price) errors.price = "Price per day is required";
-
-//     if (typeof errors !== "undefined") {
-//         return res.status(400).json({
-//             message: "Validation Error",
-//             statusCode: 400,
-//             errors
-//         })
-//     } else {
-//         const newSpot = await Spot.create({
-//             ownerId: req.user.id,
-//             address,
-//             city,
-//             state,
-//             country,
-//             lat,
-//             lng,
-//             name,
-//             description,
-//             price
-//         })
-//         res.status(201).json(newSpot);
-//     }
-
-
-
-
-
-
-// if (!address) {
-//     errors.address = "Street address is required";
-// }
-// if (!city) {
-//     errors.city = "City is required";
-// }
-// if (!state) {
-//     errors.state = "State is required";
-// }
-// if (!country) {
-//     errors.country = "Country is required";
-// }
-// if (!lat) {
-//     errors.lat = "Latitude is not valid";
-// }
-// if (!lng) {
-//     errors.lng = "Longitude is not valid";
-// }
-// if (!name) {
-//     errors.name = "Name must be less than 50 characters";
-// }
-// if (!description) {
-//     errors.description = "Description is required";
-// }
-// if (!price) {
-//     errors.price = "Price per day is required";
-// }
-
-
-
-
-
 // if (address && city && state && country && lat && lng && name && description && price) {
-//         spot = await Spot.create({
+//     const newSpot = await Spot.create({
 //         ownerId: req.user.id,
-//         address: address,
-//         city: city,
-//         state: state,
-//         country: country,
-//         lat: lat,
-//         lng: lng,
-//         name: name,
-//         description: description,
-//         price: price
+//         address,
+//         city,
+//         state,
+//         country,
+//         lat,
+//         lng,
+//         name,
+//         description,
+//         price
 //     })
-//     res.status(201).json(spot);
+//     res.status(201)
+//     .json(newSpot);
 
 // } else {
 //     const errors = {};
-//     err.errors = {};
 
 //     if (!address) {
-//         err.errors.address = "Street address is required"
+//         errors.address = "Street address is required";
 //     }
 //     if (!city) {
-//         err.errors.city = "City is required"
+//         errors.city = "City is required";
+//     }
+//     if (!state) {
+//         errors.state = "State is required";
+//     }
+//     if (!country) {
+//         errors.country = "Country is required";
+//     }
+//     if (!lat) {
+//         errors.lat = "Latitude is not valid";
+//     }
+//     if (!lng) {
+//         errors.lng = "Longitude is not valid";
+//     }
+//     if (!name) {
+//         errors.name = "Name must be less than 50 characters";
+//     }
+//     if (!description) {
+//         errors.description = "Description is required";
+//     }
+//     if (!price) {
+//         errors.price = "Price per day is required";
 //     }
 
-//     err.message = "Validation error",
-//     err.status = 400,
-//     err.title = "Validation error"
-//     next(err)
+//     return res.status(400).json({
+//         message: "Validation Error",
+//         statusCode: 400,
+//         errors
+//     })
 // }
 
 
