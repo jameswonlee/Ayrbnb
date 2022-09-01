@@ -1,4 +1,5 @@
 const express = require('express');
+const router = express.Router();
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
@@ -6,7 +7,6 @@ const { User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-const router = express.Router();
 
 const validateSignup = [
     check('email')
@@ -34,7 +34,9 @@ const validateSignup = [
     handleValidationErrors
 ];
 
-// Sign up
+
+
+// Sign Up a User
 router.post('/', validateSignup, async (req, res) => {
     const { email, password, username, firstName, lastName } = req.body;
     const user = await User.signup({ email, username, firstName, lastName, password });
@@ -46,7 +48,6 @@ router.post('/', validateSignup, async (req, res) => {
     });
 });
 
-router.get('/')
 
 // Not sure why I had this similar/duplicate router, so commented out for now
 // Sign up
