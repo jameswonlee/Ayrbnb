@@ -252,7 +252,7 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
     }
 
     if (spot.ownerId !== req.user.id) {
-        return res.status(404).json({
+        return res.status(403).json({
             message: "You need proper authorization to delete this spot"
         })
     }
