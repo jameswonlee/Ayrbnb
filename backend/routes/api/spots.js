@@ -59,8 +59,11 @@ router.get('/current', requireAuth, async (req, res) => {
             }
         }
 
-        const ratings = await Review.findAll({ where: { spotId: spot.id }, raw: true });
-
+        const reviewCount = await Review.count({ where: { spotId: spot.id } });
+        const totalStars = await Review.sum('stars', { where: { spotId: spot.id } });
+        
+        spot.avgRating = parseInt(totalStars / reviewCount);
+        console.log(spot.avgRating)
 
 
     }
@@ -71,7 +74,7 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 
-// Create a Spot
+// Create a Spot --- DONE!!!
 router.post('/', requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
