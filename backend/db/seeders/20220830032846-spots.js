@@ -72,7 +72,8 @@ module.exports = {
       name: "Roxbury",
       description: "Condo in Beverly Hills",
       price: 900.00
-    }
+    },
+    
    ])
   },
 
