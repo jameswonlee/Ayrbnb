@@ -75,7 +75,14 @@ router.get('/current', requireAuth, async (req, res) => {
 
 // Get details of a Spot from an id
 router.get('/:spotId', async (req, res) => {
+    const response = {};
+
     const spot = await Spot.findByPk(req.params.spotId);
+
+    const images = await SpotImage.findByPk(req.params.spotId);
+    console.log(images);
+
+    return res.json(spot);
 })
 
 
@@ -236,6 +243,14 @@ router.put('/:spotId', requireAuth, async (req, res) => {
             const errors = {};
     
             if (!address) errors.address = "Street address is required";
+            if (!city) errors.city = "City is required";
+            if (!state) errors.state = "State is required";
+            if (!country) errors.country = "Country is required";
+            if (!lat) errors.lat = "Latitude is not valid";
+            if (!lng) errors.lng = "Longitude is not valid";
+            if (!name) errors.name = "Name must be less than 50 characters";
+            if (!description) errors.description = "Description is required";
+            if (!price) errors.price = "Price per day is required";
     
             return res.status(400).json({
                 message: "Validation Error",
@@ -243,6 +258,11 @@ router.put('/:spotId', requireAuth, async (req, res) => {
                 errors
             })
         }
+    } else {
+        res.status(404).json({
+            message: "Not authorized",
+            statusCode: 404
+        })
     }
 })
 
