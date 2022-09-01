@@ -20,8 +20,19 @@ const validateLogin = [
 ];
 
 
+// Get the Current User / Restore session user
+router.get('/', restoreUser, (req, res) => {
+    const { user } = req;
+    if (user) {
+        return res.json({
+            user: user.toSafeObject()
+        });
+    } else return res.json({});
+});
 
-// Log in
+
+
+// Log in a User
 router.post('/', validateLogin, async (req, res, next) => {
     const { credential, password } = req.body;
     
@@ -43,15 +54,6 @@ router.post('/', validateLogin, async (req, res, next) => {
 });
 
 
-// Restore session user
-router.get('/', restoreUser, (req, res) => {
-    const { user } = req;
-    if (user) {
-        return res.json({
-            user: user.toSafeObject()
-        });
-    } else return res.json({});
-});
 
 
 router.post('/', async (req, res, next) => {
