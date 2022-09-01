@@ -2,15 +2,19 @@ const express = require('express');
 const router = express.Router();
 
 const { requireAuth } = require('../../utils/auth.js');
+const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = require('../../db/models');
 
-const { User, Spot, SpotImage, Review, sequelize } = require('../../db/models');
 const { next } = require('cli');
+const spot = require('../../db/models/spot.js');
+
+
 
 // Get all Spots
 router.get('/', async (req, res) => {
+    const results = {};
+
     const spots = await Spot.findAll({})
 
-    const spotObj = {};
     for (let i = 0; i < spots.length; i++) {
         let spot = spots[i];
 
@@ -22,10 +26,10 @@ router.get('/', async (req, res) => {
                 include: [[sequelize.fn("AVG", sequelize.col("stars")), "avgRating"]]
             }
         });
-        spotObj.avgRating = spotRating.avgRating
+        results.avgRating = spotRating.avgRating
    }
     return res.json({
-        Spots: spots
+        Spots: results
     })
 });
     
@@ -92,7 +96,35 @@ router.get('/', async (req, res) => {
     //     Spots: spots
     // })
 
-// Create a Spot
+
+// Get all Spots owned by the Current User --- previewImage and avgRating not working
+router.get('/current', requireAuth, async (req, res) => {
+    const spots = await Spot.findAll({where: {ownerId: req.user.id}, raw: true});
+
+    for (let spot of spots) {
+        const images = await SpotImage.findAll({where: {spotId: spot.id}, raw: true});
+
+        if (images) {
+            for (let image of images) {
+                if (image.preview === true || image.preview === 1) {
+                    spot.previewImage = image.url;
+                }
+            }
+        }
+
+        const ratings = await Review.findAll({where: {spotId: spot.id}, raw: true});
+
+
+
+    }
+    res.json({Spots: spots})
+})
+
+
+
+
+
+// Create a Spot ---> Needs error handling
 router.post('/', requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price} = req.body;
     let spot;
@@ -131,17 +163,14 @@ router.post('/', requireAuth, async (req, res) => {
 })
 
 
-// DONE!!! - Add an Image to a Spot based on the Spot's id / Create an Image for a Spot
+// Add an Image to a Spot based on the Spot's id ---- DONE!!!
 router.post('/:spotId/images', requireAuth, async (req, res) => {
     const { url, preview } = req.body;
     // const { spotId } = req.params;
     // console.log(spotId)
 
     const spot = await Spot.findOne({
-        where: {
-            id: parseInt(req.params.spotId, 10)
-        }
-    })
+        where: { id: parseInt(req.params.spotId, 10) } })
 
     if (spot) {
         const spotImage = await SpotImage.create({
@@ -165,18 +194,9 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     }
 })
 
-// Get all Spots owned by the Current User / Get Spots of Current User
-router.get('/current', requireAuth, async (req, res) => {
-    const spots = await Spot.findAll({
-        where: {
-            ownerId: req.user.id
-        }
-    })
-    res.json(spots)
-})
 
 
-// Edit a Spot
+// Edit a Spot ---- Needs error reponse/validations
 router.put('/:spotId', requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
@@ -201,7 +221,7 @@ router.put('/:spotId', requireAuth, async (req, res) => {
 })
 
 
-// Done!!! Delete a Spot
+// Delete a Spot --- DONE!!!
 router.delete('/:spotId', requireAuth, async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId);
 
@@ -220,6 +240,51 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
         })
     }
 })
+
+
+
+// Get all Reviews by a Spot's id
+router.get('/:spotId/reviews', async (req, res) => {
+
+})
+
+
+
+// Create a Review for a Spot based on the Spot's id
+router.post('/:spotId/reviews', requireAuth, async (req, res) => {
+    const { review, stars } = req.body;
+
+    const spot = await Spot.findByPk(req.params.spotId);
+
+    const newReview = await Review.create({
+        spotId: req.params.spotId,
+        userId: req.user.id,
+        review,
+        stars,
+    })
+
+    res.json(newReview);
+})
+
+
+
+
+// Get all Bookings for a Spot based on the Spot's id
+router.get('/:spotId/bookings', requireAuth, async (req, res) => {
+
+})
+
+
+
+
+// Create a Booking from a Spot based on the Spot's id
+router.post('/:spotId/bookings', requireAuth, async (req, res) => {
+
+})
+
+
+
+
 
 
 module.exports = router
