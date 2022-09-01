@@ -193,28 +193,46 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
 
 
-// Edit a Spot ---- Needs error reponse/validations
+// Edit a Spot --- DONE!!!!
 router.put('/:spotId', requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
     const spot = await Spot.findByPk(req.params.spotId);
 
-    if (spot) {
-        if (address) spot.address = address;
-        if (city) spot.city = city;
-        if (state) spot.state = state;
-        if (country) spot.country = country;
-        if (lat) spot.lat = lat;
-        if (lng) spot.lng = lng;
-        if (name) spot.name = name;
-        if (description) spot.description = description;
-        if (price) spot.price = price;
-
-        await spot.save();
-        return res.json(spot);
-
+    if (!spot) {
+        return res.status(404).json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
     }
 
+    if (spot.ownerId === req.user.id) {
+        if (address && city && state && country && lat && lng && name && description && price) {
+            if (address) spot.address = address;
+            if (city) spot.city = city;
+            if (state) spot.state = state;
+            if (country) spot.country = country;
+            if (lat) spot.lat = lat;
+            if (lng) spot.lng = lng;
+            if (name) spot.name = name;
+            if (description) spot.description = description;
+            if (price) spot.price = price;
+    
+            await spot.save();
+            return res.json(spot);
+        }
+        else {
+            const errors = {};
+    
+            if (!address) errors.address = "Street address is required";
+    
+            return res.status(400).json({
+                message: "Validation Error",
+                statusCode: 400,
+                errors
+            })
+        }
+    }
 })
 
 
