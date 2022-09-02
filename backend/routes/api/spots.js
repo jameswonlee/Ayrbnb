@@ -363,6 +363,31 @@ router.post('/:spotId/reviews', requireAuth, async (req, res) => {
 })
 
 
+// Get all Reviews by a Spot's id
+router.get('/:spotId/reviews', async (req, res) => {
+    const reviews = await Review.findAll({ 
+        where: { 
+            spotId: req.params.spotId 
+        },
+        include: {
+            model: ReviewImage,
+            attributes: {
+                exclude: ['reviewId', 'createdAt', 'updatedAt']
+            }
+        } 
+    });
+    
+    if (!reviews) {
+        return res.status(404).json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    return res.json(reviews);
+})
+
+
 
 
 // Get all Bookings for a Spot based on the Spot's id
