@@ -93,18 +93,18 @@ router.get('/:spotId', async (req, res) => {
             }
         ]
     });
-    
+
     if (!spot) {
         return res.status(404).json({
             message: "Spot couldn't be found",
             statusCode: 404
         })
     }
-    
+
     spot = spot.toJSON();
 
     spot.numReviews = await Review.count({ where: { spotId: spot.id } });
-    spot.avgStarRating = await Review.sum( 'stars', { where: { spotId: spot.id } });
+    spot.avgStarRating = await Review.sum('stars', { where: { spotId: spot.id } });
 
 
     return res.json(spot);
@@ -171,7 +171,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
             const response = {};
             response.id = spotImage.id;
             response.url = spotImage.url
-            
+
             res.json(response)
         }
         else {
@@ -180,7 +180,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
                 statusCode: 403
             })
         }
-    } 
+    }
     res.status(404).json({
         message: "Spot couldn't be found",
         statusCode: 404
@@ -278,7 +278,33 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
 
 // Get all Reviews by a Spot's id
 router.get('/:spotId/reviews', async (req, res) => {
+    const spot = await Spot.findByPk(req.params.spotId);
 
+    if (!spot) {
+        return res.status(404).json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+    }
+    const reviews = await Review.findAll({
+        where: { spotId: req.params.spotId },
+        include: [
+            {
+            model: User,
+            attributes: {
+                exclude: ['username', 'email', 'hashedPassword', 'createdAt', 'updatedAt']
+            }
+        },
+        {
+            model: ReviewImage,
+            attributes: {
+                exclude: ['reviewId', 'createdAt', 'updatedAt']
+            }
+        }
+    ]
+    });
+
+    res.json({Reviews: reviews})
 })
 
 

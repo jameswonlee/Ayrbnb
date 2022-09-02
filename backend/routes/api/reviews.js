@@ -9,7 +9,7 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 
 
 
-// Get all Reviews of the Current User -- previewImage and reviewImages not displaying
+// Get all Reviews of the Current User -- previewImage VALUE not displaying
 router.get('/current', requireAuth, async (req, res) => {
     const reviews = await Review.findAll({ where: { userId: req.user.id } });
 
@@ -38,15 +38,6 @@ router.get('/current', requireAuth, async (req, res) => {
                 }
             }
 
-        //     spotImages.forEach(image => {
-        //     if (image.preview === true || image.preview === 1) {
-        //         spot.previewImage = image.url; 
-        //     }
-        //     if (!spot.previewImage) {
-        //         spot.previewImage = null;
-        //     }
-        // })
-
         const reviewImages = await ReviewImage.findAll({
             where: {
                 reviewId: review.id,
@@ -72,7 +63,8 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 
-// Add an Image to a Review based on the Review's id --- DONE!!!
+// Add an Image to a Review based on the Review's id --- Stopped working - preview image value doesn't
+// show up. possibly due to env variable from previous test???
 router.post('/:reviewId/images', requireAuth, async (req, res) => {
     const { url } = req.body;
     
