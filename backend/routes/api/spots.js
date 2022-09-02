@@ -94,17 +94,18 @@ router.get('/:spotId', async (req, res) => {
         ]
     });
     
-    spot = spot.toJSON();
-
-    spot.numReviews = await Review.count({ where: { spotId: spot.id } });
-    spot.avgStarRating = await Review.sum( 'stars', { where: { spotId: spot.id } });
-
     if (!spot) {
         return res.status(404).json({
             message: "Spot couldn't be found",
             statusCode: 404
         })
     }
+    
+    spot = spot.toJSON();
+
+    spot.numReviews = await Review.count({ where: { spotId: spot.id } });
+    spot.avgStarRating = await Review.sum( 'stars', { where: { spotId: spot.id } });
+
 
     return res.json(spot);
 })
