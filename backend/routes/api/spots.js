@@ -7,6 +7,9 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 const { next } = require('cli');
 const spot = require('../../db/models/spot.js');
 
+// VSC automatically imported this without permission
+// const { where } = require('sequelize/types/sequelize.js');
+
 
 
 // Get all Spots
@@ -76,7 +79,7 @@ router.get('/current', requireAuth, async (req, res) => {
 // Get details of a Spot from an id --- DONE!!!
 router.get('/:spotId', async (req, res) => {
 
-    const spot = await Spot.findByPk(req.params.spotId, {
+    let spot = await Spot.findByPk(req.params.spotId, {
         include: [
             {
                 model: SpotImage,
@@ -85,11 +88,16 @@ router.get('/:spotId', async (req, res) => {
             },
             {
                 model: User,
-                as: 'Owner',
-                attributes: ['id', 'firstName', 'lastName']
+                attributes: ['id', 'firstName', 'lastName'],
+                as: 'Owner'
             }
         ]
     });
+    
+    spot = spot.toJSON();
+
+    spot.numReviews = await Review.count({ where: { spotId: spot.id } });
+    spot.avgStarRating = await Review.sum( 'stars', { where: { spotId: spot.id } });
 
     if (!spot) {
         return res.status(404).json({
