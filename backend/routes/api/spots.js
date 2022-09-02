@@ -7,8 +7,11 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 const { next } = require('cli');
 const spot = require('../../db/models/spot.js');
 
+const { Op } = require('sequelize');
+
 // VSC automatically imported this without permission
 // const { where } = require('sequelize/types/sequelize.js');
+
 
 
 
@@ -365,18 +368,18 @@ router.post('/:spotId/reviews', requireAuth, async (req, res) => {
 
 // Get all Reviews by a Spot's id
 router.get('/:spotId/reviews', async (req, res) => {
-    const reviews = await Review.findAll({ 
-        where: { 
-            spotId: req.params.spotId 
+    const reviews = await Review.findAll({
+        where: {
+            spotId: req.params.spotId
         },
         include: {
             model: ReviewImage,
             attributes: {
                 exclude: ['reviewId', 'createdAt', 'updatedAt']
             }
-        } 
+        }
     });
-    
+
     if (!reviews) {
         return res.status(404).json({
             message: "Spot couldn't be found",
@@ -387,6 +390,67 @@ router.get('/:spotId/reviews', async (req, res) => {
     return res.json(reviews);
 })
 
+
+// Create a Booking from a Spot based on the Spot's id --- DONE!!!
+router.post('/:spotId/bookings', requireAuth, async (req, res) => {
+    const spot = await Spot.findByPk(req.params.spotId);
+
+    if (!spot) {
+        return res.status(404).json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    if (spot.ownerId === req.user.id) {
+        return res.status(403).json({
+            message: "Can not book your own spot",
+            statusCode: 403
+        })
+    }
+
+    const { startDate, endDate } = req.body;
+
+    if (startDate >= endDate) {
+        return res.status(400).json({
+            message: "Validation error",
+            statusCode: 400,
+            errors: {
+                endDate: "endDate cannot be on or before startDate"
+            }
+        })
+    }
+
+    const existingBookings = await Booking.findAll({
+        where: {
+            spotId: req.params.spotId
+        }
+    })
+
+    for (let booking of existingBookings) {
+        if (Date.parse(startDate) >= Date.parse(booking.startDate) &&
+            Date.parse(endDate) <= Date.parse(booking.endDate)) {
+            return res.status(403).json({
+                message: "Sorry, this spot is already booked for the specified dates",
+                statusCode: 403,
+                errors: {
+                    startDate: "Start date conflicts with an existing booking",
+                    endDate: "End date conflicts with an existing booking"
+                }
+            })
+        }
+
+    }
+
+    const newBooking = await Booking.create({
+        spotId: req.params.spotId,
+        userId: req.user.id,
+        startDate,
+        endDate,
+    })
+
+    return res.json(newBooking);
+})
 
 
 

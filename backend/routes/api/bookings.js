@@ -7,7 +7,7 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 
 // Get all of the Current User's Bookings
 router.get('/current', requireAuth, async (req, res) => {
-
+    const bookings = await Booking.findAll({ where: { }})
 })
 
 
