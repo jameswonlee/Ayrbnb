@@ -9,43 +9,26 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 
 
 
-// Get all Reviews of the Current User -- 
+// Get all Reviews of the Current User -- previewImage and reviewImages not displaying
 router.get('/current', requireAuth, async (req, res) => {
-    const reviews = await Review.findAll({
-        where: { userId: req.user.id }
-    });
+    const reviews = await Review.findAll({ where: { userId: req.user.id } });
 
     const user = await User.findOne({
-        where: {
-            id: req.user.id
-        },
-        attributes: {
-            include: ['id', 'firstName', 'lastName']
-        }
+        where: { id: req.user.id },
+        attributes: { include: ['id', 'firstName', 'lastName'] }
     });
 
-    for (let i = 0; i < reviews.length; i++) {
-        let review = reviews[i];
+    // for (let i = 0; i < reviews.length; i++) {
+    //     let review = reviews[i];
 
-        // const spot = await Spot.findOne({
-        //     where: { id: review.spotId },
-        //     attributes: {
-        //         exclude: ['createdAt', 'updatedAt']
-        //     }
-        // })
+    for (let review of reviews) {
 
         const spot = await review.getSpot({
-            attributes: {
-                exclude: ['createdAt', 'updatedAt']
-            }
+            attributes: { exclude: ['description', 'createdAt', 'updatedAt'] }
         });
 
         const spotImages = await SpotImage.findAll({
-            where: {
-                spotId: spot.id
-            }
-
-        })
+            where: { spotId: spot.id } });
 
         spotImages.forEach(image => {
             if (image.preview === true || image.preview === 1) {
@@ -56,28 +39,21 @@ router.get('/current', requireAuth, async (req, res) => {
             }
         })
 
-        const reviewImages = await review.getReviewImages({
-            // where: {
-            //     reviewId: review.id,
-            //     attributes: ['id', 'url']
-            // }
+        const reviewImages = await ReviewImage.findAll({
+            where: {
+                reviewId: review.id,
+            },
+            attributes: ['id', 'url']
         })
-        // console.log(reviewImages)
-
-
-        // const reviewImages = await ReviewImage.findAll({
-        //     where: {
-        //         reviewId: review.id,
-        //         attributes: ['id', 'url']
-        //     }
-        // })
+      
+        review = review.toJSON();
 
         review.User = user;
         review.Spot = spot;
         review.ReviewImages = reviewImages;
 
         return res.json({
-            Reviews: review
+            Reviews: [review]
         })
     }
 })
@@ -85,7 +61,7 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 
-// Add an Image to a Review based on the Review's id
+// Add an Image to a Review based on the Review's id --- DONE!!!
 router.post('/:reviewId/images', requireAuth, async (req, res) => {
     const { url } = req.body;
     
