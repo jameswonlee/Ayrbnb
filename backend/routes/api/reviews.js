@@ -15,42 +15,53 @@ router.get('/current', requireAuth, async (req, res) => {
 
     const user = await User.findOne({
         where: { id: req.user.id },
-        attributes: { include: ['id', 'firstName', 'lastName'] }
+        attributes: { exclude: ['username'] },
+        raw: true
     });
-
-    // for (let i = 0; i < reviews.length; i++) {
-    //     let review = reviews[i];
 
     for (let review of reviews) {
 
         const spot = await review.getSpot({
-            attributes: { exclude: ['description', 'createdAt', 'updatedAt'] }
+            attributes: { exclude: ['description', 'createdAt', 'updatedAt'] },
+            raw: true
         });
 
         const spotImages = await SpotImage.findAll({
             where: { spotId: spot.id } });
 
-        spotImages.forEach(image => {
-            if (image.preview === true || image.preview === 1) {
-                spot.previewImage = image.url;
+            for (let spotImage of spotImages) {
+                if (spotImage.preview === true || spotImage.preview === 1) {
+                    spot.previewImage = spotImage.url
+                }
+                if (!spot.previewImage) {
+                    spot.previewImage = null;
+                }
             }
-            if (!spot.previewImage) {
-                spot.previewImage = null;
-            }
-        })
+
+        //     spotImages.forEach(image => {
+        //     if (image.preview === true || image.preview === 1) {
+        //         spot.previewImage = image.url; 
+        //     }
+        //     if (!spot.previewImage) {
+        //         spot.previewImage = null;
+        //     }
+        // })
 
         const reviewImages = await ReviewImage.findAll({
             where: {
                 reviewId: review.id,
             },
-            attributes: ['id', 'url']
+            attributes: ['id', 'url'],
+        
         })
       
         review = review.toJSON();
-
+        
         review.User = user;
+        console.log(review.User)
         review.Spot = spot;
         review.ReviewImages = reviewImages;
+        
 
         return res.json({
             Reviews: [review]
