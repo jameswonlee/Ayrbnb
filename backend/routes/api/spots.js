@@ -276,7 +276,7 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
 
 
 
-// Get all Reviews by a Spot's id
+// Get all Reviews by a Spot's id --- DONE!!!
 router.get('/:spotId/reviews', async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId);
 
@@ -290,21 +290,21 @@ router.get('/:spotId/reviews', async (req, res) => {
         where: { spotId: req.params.spotId },
         include: [
             {
-            model: User,
-            attributes: {
-                exclude: ['username', 'email', 'hashedPassword', 'createdAt', 'updatedAt']
+                model: User,
+                attributes: {
+                    exclude: ['username', 'email', 'hashedPassword', 'createdAt', 'updatedAt']
+                }
+            },
+            {
+                model: ReviewImage,
+                attributes: {
+                    exclude: ['reviewId', 'createdAt', 'updatedAt']
+                }
             }
-        },
-        {
-            model: ReviewImage,
-            attributes: {
-                exclude: ['reviewId', 'createdAt', 'updatedAt']
-            }
-        }
-    ]
+        ]
     });
 
-    res.json({Reviews: reviews})
+    res.json({ Reviews: reviews })
 })
 
 

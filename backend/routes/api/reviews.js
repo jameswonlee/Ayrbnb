@@ -4,6 +4,7 @@ const router = express.Router();
 const { requireAuth } = require('../../utils/auth.js');
 
 const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = require('../../db/models');
+const { next } = require('cli');
 
 
 
@@ -27,32 +28,33 @@ router.get('/current', requireAuth, async (req, res) => {
         });
 
         const spotImages = await SpotImage.findAll({
-            where: { spotId: spot.id } });
+            where: { spotId: spot.id }
+        });
 
-            for (let spotImage of spotImages) {
-                if (spotImage.preview === true || spotImage.preview === 1) {
-                    spot.previewImage = spotImage.url
-                }
-                if (!spot.previewImage) {
-                    spot.previewImage = null;
-                }
+        for (let spotImage of spotImages) {
+            if (spotImage.preview === true || spotImage.preview === 1) {
+                spot.previewImage = spotImage.url
             }
+            if (!spot.previewImage) {
+                spot.previewImage = null;
+            }
+        }
 
         const reviewImages = await ReviewImage.findAll({
             where: {
                 reviewId: review.id,
             },
             attributes: ['id', 'url'],
-        
+
         })
-      
+
         review = review.toJSON();
-        
+
         review.User = user;
         console.log(review.User)
         review.Spot = spot;
         review.ReviewImages = reviewImages;
-        
+
 
         return res.json({
             Reviews: [review]
@@ -67,19 +69,19 @@ router.get('/current', requireAuth, async (req, res) => {
 // show up. possibly due to env variable from previous test???
 router.post('/:reviewId/images', requireAuth, async (req, res) => {
     const { url } = req.body;
-    
+
     const review = await Review.findByPk(req.params.reviewId);
-    
+
     if (review) {
-        
+
         if (review.userId !== req.user.id) {
             return res.status(403).json({
                 message: "You must have authorization to add images to this review",
                 statusCode: 403
             })
-            
+
         } else if (review.userId === req.user.id) {
-            
+
             const reviewImages = await ReviewImage.findAll({ where: { reviewId: review.id } });
             if (reviewImages.length < 10) {
                 const newReviewImage = await ReviewImage.create({
@@ -111,9 +113,49 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
 
 
 
-// Edit a Review
+// Edit a Review --- DONE!!!
 router.put('/:reviewId', requireAuth, async (req, res) => {
     // require proper auth
+    const { review, stars } = req.body;
+
+    const editReview = await Review.findByPk(req.params.reviewId);
+
+    if (!editReview) {
+        return res.status(404).json({
+            message: "Review couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    if (editReview.userId === req.user.id) {
+
+        if (review && stars) {
+            editReview.review = review;
+            editReview.stars = stars;
+
+            await editReview.save();
+            return res.json(editReview)
+
+        } else {
+            const errors = {};
+
+            if (!review) errors.review = "Review text is required";
+            if (!stars) errors.stars = "Stars must be an integer from 1 to 5";
+
+            return res.status(400).json({
+                message: "Validation error",
+                statusCode: 400,
+                errors
+            })
+        }
+
+    } else {
+        return res.status(403).json({
+            message: "Not authorized to edit this review",
+            statusCode: 403
+        })
+    }
+
 })
 
 
