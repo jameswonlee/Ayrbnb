@@ -461,9 +461,6 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
 });
 
 
-// Edit a Booking
-
-
 
 
 
