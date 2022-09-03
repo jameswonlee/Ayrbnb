@@ -113,6 +113,12 @@ router.get('/:spotId', async (req, res) => {
     spot.numReviews = await Review.count({ where: { spotId: spot.id } });
     spot.avgStarRating = await Review.sum('stars', { where: { spotId: spot.id } });
 
+    // const reviewCount = await Review.count({where: { spotId: spot.id}});
+    // const totalStars = await Review.sum('stars', {where: {spotId: spot.id}});
+
+    // spot.numReviews = reviewCount;
+    // spot.avgStarRating = totalStars / reviewCount;
+
     return res.json(spot);
 })
 
@@ -454,14 +460,49 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
     })
 
     return res.json(newBooking);
-})
+});
+
+
+// Edit a Booking
 
 
 
-// Get all Bookings for a Spot based on the Spot's id
+
+
+// Get all Bookings for a Spot based on the Spot's id --- DONE!!!
 router.get('/:spotId/bookings', requireAuth, async (req, res) => {
+    const spotId = req.params.spotId;
 
-})
+    const spot = await Spot.findByPk(req.params.spotId);
+
+    if (!spot) {
+        return res.status(404).json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+    };
+
+    if (spot.ownerId !== req.user.id) {
+        const userBookings = await Booking.findAll({
+            where: {
+                spotId: spotId
+            },
+            attributes: ['spotId', 'startDate', 'endDate']
+        })
+        return res.json({ Bookings: userBookings });
+    };
+
+    if (spot.ownerId === req.user.id) {
+        const ownerBookings = await Booking.findAll({
+            include: {
+                model: User,
+                attributes: ['id', 'firstName', 'lastName']
+            },
+            where: { spotId: spotId }
+        });
+        return res.json({ Bookings: ownerBookings });
+    };
+});
 
 
 
