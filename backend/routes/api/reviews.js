@@ -10,7 +10,7 @@ const { next } = require('cli');
 
 
 
-// Get all Reviews of the Current User -- previewImage VALUE not displaying
+// Get all Reviews of the Current User -- DONE!!!
 router.get('/current', requireAuth, async (req, res) => {
     const reviews = await Review.findAll({ where: { userId: req.user.id } });
 
