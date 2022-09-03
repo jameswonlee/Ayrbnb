@@ -57,12 +57,14 @@ router.get('/', async (req, res) => {
 router.get('/current', requireAuth, async (req, res) => {
     const spots = await Spot.findAll({ where: { ownerId: req.user.id }, raw: true });
 
+    const userSpots = [];
+
     for (let spot of spots) {
         const images = await SpotImage.findAll({ where: { spotId: spot.id }, raw: true });
 
         if (images) {
             for (let image of images) {
-                if (image.preview === true || image.preview === 1) {
+                if (image.preview === 1 || image.preview === true) {
                     spot.previewImage = image.url;
                 }
             }
@@ -71,8 +73,8 @@ router.get('/current', requireAuth, async (req, res) => {
             }
         }
 
-        const totalStars = await Review.sum('stars', { where: { spotId: spot.id } });
-        const reviewCount = await Review.count({ where: { spotId: spot.id } });
+        const totalStars = await Review.sum('stars', { where: { spotId: spot.id }, raw: true });
+        const reviewCount = await Review.count({ where: { spotId: spot.id }, raw: true });
 
         spot.avgRating = parseInt(totalStars / reviewCount);
     }
@@ -171,21 +173,23 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
                 preview: preview
             })
 
+            console.log(spotImage)
+
             const response = {};
             response.id = spotImage.id;
             response.url = spotImage.url;
             response.preview = spotImage.preview;
 
-            res.json(response)
+            return res.json(response)
         }
         else {
-            res.status(403).json({
+            return res.status(403).json({
                 message: "You do not have authorization to add images to this spot",
                 statusCode: 403
             })
         }
     }
-    res.status(404).json({
+    return res.status(404).json({
         message: "Spot couldn't be found",
         statusCode: 404
     })
