@@ -15,69 +15,42 @@ const { Op } = require('sequelize');
 
 
 
-// Get all Spots
+// Get all Spots --- DONE!!!!
 router.get('/', async (req, res) => {
     let allSpots = [];
 
     const spots = await Spot.findAll();
 
-    for (let i = 0; i < spots.length; i++) {
-        let spot = spots[i];
+    for (let spot of spots) {
 
         const stars = await Review.findAll({
             where: {
                 spotId: spot.id
             },
-            attributes: [ [ sequelize.fn('AVG', sequelize.col('stars')), 'avgRating'] ],
+            attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']],
             raw: true
-        })
+        });
 
-        const image = await SpotImage.findByPk(spot.id, {
+        const spotImage = await SpotImage.findByPk(spot.id, {
             where: {
                 preview: true
             },
             attributes: ['url'],
             raw: true
-        })
+        });
 
         let spotData = spot.toJSON();
 
         spotData.avgRating = stars[0].avgRating;
-        spotData.previewImage = image.url;
-        
-        allSpots.push(spotData)
-    }
-    
-    return res.json({Spots: allSpots});
+        spotData.previewImage = spotImage.url;
+
+        allSpots.push(spotData);
+    };
+
+    return res.json({ Spots: allSpots });
 });
 
 
-
-// const spots = await Spot.findAll({
-//     attributes: {
-//         include: [
-//             [sequelize.literal(`(
-//                 SELECT AVG(stars)
-//                 FROM reviews AS review
-//                 WHERE review.spotId = spot.id
-//                 )`),
-//                 'avgRating'
-//             ],
-//             [sequelize.literal(`(
-//                     SELECT url
-//                 FROM spotImages AS spotImage
-//                 WHERE spotImage.spotId = spot.id
-//                 AND preview = true
-//                 )`),
-//                 'previewImage'
-//             ]
-//         ]
-//     }
-// })
-
-// res.json({
-//     Spots: spots
-// })
 
 
 // Get all Spots owned by the Current User --- Done!!!
@@ -195,12 +168,13 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
             const spotImage = await SpotImage.create({
                 spotId: parseInt(req.params.spotId, 10),
                 url: url,
-                // preview: preview
+                preview: preview
             })
 
             const response = {};
             response.id = spotImage.id;
-            response.url = spotImage.url
+            response.url = spotImage.url;
+            response.preview = spotImage.preview;
 
             res.json(response)
         }
