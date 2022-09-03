@@ -51,7 +51,6 @@ router.get('/current', requireAuth, async (req, res) => {
         review = review.toJSON();
 
         review.User = user;
-        console.log(review.User)
         review.Spot = spot;
         review.ReviewImages = reviewImages;
 
