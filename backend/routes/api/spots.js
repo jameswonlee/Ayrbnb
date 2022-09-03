@@ -57,8 +57,6 @@ router.get('/', async (req, res) => {
 router.get('/current', requireAuth, async (req, res) => {
     const spots = await Spot.findAll({ where: { ownerId: req.user.id }, raw: true });
 
-    const userSpots = [];
-
     for (let spot of spots) {
         const images = await SpotImage.findAll({ where: { spotId: spot.id }, raw: true });
 
