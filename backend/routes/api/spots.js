@@ -17,8 +17,38 @@ const { Op } = require('sequelize');
 
 // Get all Spots
 router.get('/', async (req, res) => {
-    const allSpots = await Spot.findAll();
+    let allSpots = [];
 
+    const spots = await Spot.findAll();
+
+    for (let i = 0; i < spots.length; i++) {
+        let spot = spots[i];
+
+        const stars = await Review.findAll({
+            where: {
+                spotId: spot.id
+            },
+            attributes: [ [ sequelize.fn('AVG', sequelize.col('stars')), 'avgRating'] ],
+            raw: true
+        })
+
+        const image = await SpotImage.findByPk(spot.id, {
+            where: {
+                preview: true
+            },
+            attributes: ['url'],
+            raw: true
+        })
+
+        let spotData = spot.toJSON();
+
+        spotData.avgRating = stars[0].avgRating;
+        spotData.previewImage = image.url;
+        
+        allSpots.push(spotData)
+    }
+    
+    return res.json({Spots: allSpots});
 });
 
 
@@ -57,7 +87,6 @@ router.get('/current', requireAuth, async (req, res) => {
     for (let spot of spots) {
         const images = await SpotImage.findAll({ where: { spotId: spot.id }, raw: true });
 
-
         if (images) {
             for (let image of images) {
                 if (image.preview === true || image.preview === 1) {
@@ -69,8 +98,8 @@ router.get('/current', requireAuth, async (req, res) => {
             }
         }
 
-        const reviewCount = await Review.count({ where: { spotId: spot.id } });
         const totalStars = await Review.sum('stars', { where: { spotId: spot.id } });
+        const reviewCount = await Review.count({ where: { spotId: spot.id } });
 
         spot.avgRating = parseInt(totalStars / reviewCount);
     }
@@ -95,7 +124,7 @@ router.get('/:spotId', async (req, res) => {
                 as: 'Owner'
             }
         ]
-    });
+    })
 
     if (!spot) {
         return res.status(404).json({
@@ -108,7 +137,6 @@ router.get('/:spotId', async (req, res) => {
 
     spot.numReviews = await Review.count({ where: { spotId: spot.id } });
     spot.avgStarRating = await Review.sum('stars', { where: { spotId: spot.id } });
-
 
     return res.json(spot);
 })
@@ -163,7 +191,6 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId);
 
     if (spot) {
-
         if (spot.ownerId === req.user.id) {
             const spotImage = await SpotImage.create({
                 spotId: parseInt(req.params.spotId, 10),
@@ -404,7 +431,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
 
     if (spot.ownerId === req.user.id) {
         return res.status(403).json({
-            message: "Can not book your own spot",
+            message: "You can't book your own spot",
             statusCode: 403
         })
     }
@@ -427,9 +454,9 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
         }
     })
 
-    for (let booking of existingBookings) {
-        if (Date.parse(startDate) >= Date.parse(booking.startDate) &&
-            Date.parse(endDate) <= Date.parse(booking.endDate)) {
+    for (let existingBooking of existingBookings) {
+        if (Date.parse(startDate) >= Date.parse(existingBooking.startDate) &&
+            Date.parse(endDate) <= Date.parse(existingBooking.endDate)) {
             return res.status(403).json({
                 message: "Sorry, this spot is already booked for the specified dates",
                 statusCode: 403,
@@ -439,7 +466,6 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
                 }
             })
         }
-
     }
 
     const newBooking = await Booking.create({
