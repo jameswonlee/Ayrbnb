@@ -50,9 +50,7 @@ router.get('/', async (req, res) => {
             where: {
                 spotId: spot.id
             },
-            // attributes: [[sequelize.fn('ROUND', sequelize.fn('AVG', sequelize.col('stars'))), 'avgRating']],
-            attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']],
-
+            attributes: [[sequelize.fn('ROUND', sequelize.fn('AVG', sequelize.col('stars'))), 'avgRating']],
             raw: true
         });
 
