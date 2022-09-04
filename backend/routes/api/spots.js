@@ -62,9 +62,7 @@ router.get('/', async (req, res) => {
             raw: true
         });
 
-        
         let spotData = spot.toJSON();
-        console.log(spotImage)
 
         spotData.avgRating = stars[0].avgRating;
         spotData.previewImage = spotImage.url;
