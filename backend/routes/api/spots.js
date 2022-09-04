@@ -502,14 +502,6 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
 
 
 
-// Create a Booking from a Spot based on the Spot's id
-router.post('/:spotId/bookings', requireAuth, async (req, res) => {
-
-})
-
-
-
-
 
 
 module.exports = router
