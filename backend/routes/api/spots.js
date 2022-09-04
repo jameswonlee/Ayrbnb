@@ -194,8 +194,6 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
                 preview: preview
             })
 
-            console.log(spotImage)
-
             const response = {};
             response.id = spotImage.id;
             response.url = spotImage.url;
@@ -506,12 +504,13 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
 
     if (spot.ownerId === req.user.id) {
         const ownerBookings = await Booking.findAll({
-            include: {
-                model: User,
-                attributes: ['id', 'firstName', 'lastName']
-            },
+            // include: {
+            //     model: User,
+            //     attributes: ['id', 'firstName', 'lastName']
+            // },
             where: { spotId: spotId }
-        });
+        })
+        console.log(ownerBookings)
         return res.json({ Bookings: ownerBookings });
     };
 });
