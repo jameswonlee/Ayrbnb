@@ -62,8 +62,7 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 
-// Add an Image to a Review based on the Review's id --- Stopped working - preview image value doesn't
-// show up. possibly due to env variable from previous test???
+// Add an Image to a Review based on the Review's id --- Done!!!
 router.post('/:reviewId/images', requireAuth, async (req, res) => {
     const { url } = req.body;
 
@@ -157,7 +156,7 @@ router.put('/:reviewId', requireAuth, async (req, res) => {
 
 
 
-// Delete a Review
+// Delete a Review --- DONE!!!
 router.delete('/:reviewId', requireAuth, async (req, res) => {
     // require proper auth
 

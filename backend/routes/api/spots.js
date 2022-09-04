@@ -15,8 +15,16 @@ const { Op } = require('sequelize');
 
 
 
-// Get all Spots --- DONE!!!!
+// Get all Spots --- Need to finish pagination
 router.get('/', async (req, res) => {
+    // const { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+
+    // page = parseInt(page, 10);
+    // size = pareseInt(size, 10);
+
+    // if (!page || page <= 0 || isNaN(page)) page = 1;
+    // if (!size || size <= 0 || isNaN(size)) size = 20
+
     let allSpots = [];
 
     const spots = await Spot.findAll();
@@ -276,15 +284,15 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
         return res.status(403).json({
             message: "You need proper authorization to delete this spot"
         })
+    } else {
+        await spot.destroy();
+
+        return res.json({
+            message: "Successfully deleted",
+            statusCode: 200
+        })
     }
-
-    await spot.destroy();
-
-    return res.json({
-        message: "Successfully deleted",
-        statusCode: 200
-    })
-})
+});
 
 
 
