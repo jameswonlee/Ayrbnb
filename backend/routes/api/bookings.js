@@ -47,7 +47,6 @@ router.get('/current', requireAuth, async (req, res) => {
 // Edit a Booking --- DONE!!!
 router.put('/:bookingId', requireAuth, async (req, res) => {
     const { startDate, endDate } = req.body;
-
     const booking = await Booking.findByPk(req.params.bookingId);
 
     if (!booking) {
@@ -89,7 +88,6 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
             }
         }
     });
-
 
     if (conflictBookings.length) {
         return res.status(403).json({
