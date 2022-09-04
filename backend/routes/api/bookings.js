@@ -7,17 +7,13 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 const { Op } = require('sequelize');
 
 
-// Get all of the Current User's Bookings --- DONE!!!
+// Get all of the Current User's Bookings
 router.get('/current', requireAuth, async (req, res) => {
     const bookings = await Booking.findAll({
         where: {
             userId: req.user.id
         },
         raw: true
-        // include: {
-        //     model: Spot,
-        //     attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price']
-        // }
     });
 
     for (let booking of bookings) {
@@ -44,7 +40,7 @@ router.get('/current', requireAuth, async (req, res) => {
 });
 
 
-// Edit a Booking --- DONE!!!
+// Edit a Booking 
 router.put('/:bookingId', requireAuth, async (req, res) => {
     const { startDate, endDate } = req.body;
     const booking = await Booking.findByPk(req.params.bookingId);
@@ -108,7 +104,7 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
 
 
 
-// Delete a Booking --- DONE!!!
+// Delete a Booking
 router.delete('/:bookingId', requireAuth, async (req, res) => {
     const booking = await Booking.findByPk(req.params.bookingId);
     

@@ -6,7 +6,7 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 
 
 
-// Delete a Review Image --- DONE!!!
+// Delete a Review Image
 router.delete('/:imageId', requireAuth, async (req, res) => {
     const reviewImage = await ReviewImage.findByPk(req.params.imageId);
 

@@ -10,7 +10,7 @@ const { next } = require('cli');
 
 
 
-// Get all Reviews of the Current User -- DONE!!!
+// Get all Reviews of the Current User
 router.get('/current', requireAuth, async (req, res) => {
     const reviews = await Review.findAll({ where: { userId: req.user.id } });
 
@@ -62,7 +62,7 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 
-// Add an Image to a Review based on the Review's id --- Done!!!
+// Add an Image to a Review based on the Review's id 
 router.post('/:reviewId/images', requireAuth, async (req, res) => {
     const { url } = req.body;
 
@@ -108,10 +108,8 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
 
 
 
-
-// Edit a Review --- DONE!!!
+// Edit a Review 
 router.put('/:reviewId', requireAuth, async (req, res) => {
-    // require proper auth
     const { review, stars } = req.body;
 
     const editReview = await Review.findByPk(req.params.reviewId);
@@ -156,10 +154,8 @@ router.put('/:reviewId', requireAuth, async (req, res) => {
 
 
 
-// Delete a Review --- DONE!!!
+// Delete a Review
 router.delete('/:reviewId', requireAuth, async (req, res) => {
-    // require proper auth
-
     const review = await Review.findByPk(req.params.reviewId);
 
     if (!review) {

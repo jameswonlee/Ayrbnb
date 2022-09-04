@@ -61,7 +61,7 @@ router.get('/', async (req, res) => {
 
 
 
-// Get all Spots owned by the Current User --- Done!!!
+// Get all Spots owned by the Current User
 router.get('/current', requireAuth, async (req, res) => {
     const spots = await Spot.findAll({ where: { ownerId: req.user.id }, raw: true });
 
@@ -89,7 +89,7 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 
-// Get details of a Spot from an id --- DONE!!!
+// Get details of a Spot from an id
 router.get('/:spotId', async (req, res) => {
 
     let spot = await Spot.findByPk(req.params.spotId, {
@@ -119,12 +119,6 @@ router.get('/:spotId', async (req, res) => {
     spot.numReviews = await Review.count({ where: { spotId: spot.id } });
     spot.avgStarRating = await Review.sum('stars', { where: { spotId: spot.id } });
 
-    // const reviewCount = await Review.count({where: { spotId: spot.id}});
-    // const totalStars = await Review.sum('stars', {where: {spotId: spot.id}});
-
-    // spot.numReviews = reviewCount;
-    // spot.avgStarRating = totalStars / reviewCount;
-
     return res.json(spot);
 })
 
@@ -132,7 +126,7 @@ router.get('/:spotId', async (req, res) => {
 
 
 
-// Create a Spot --- DONE!!!
+// Create a Spot
 router.post('/', requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
@@ -172,7 +166,7 @@ router.post('/', requireAuth, async (req, res) => {
     }
 })
 
-// Add an Image to a Spot based on the Spot's id --- DONE!!!
+// Add an Image to a Spot based on the Spot's id
 router.post('/:spotId/images', requireAuth, async (req, res) => {
     const { url, preview } = req.body;
     const spot = await Spot.findByPk(req.params.spotId);
@@ -209,7 +203,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
 
 
-// Edit a Spot --- DONE!!!!
+// Edit a Spot
 router.put('/:spotId', requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
@@ -268,7 +262,7 @@ router.put('/:spotId', requireAuth, async (req, res) => {
 
 
 
-// Delete a Spot --- DONE!!!
+// Delete a Spot
 router.delete('/:spotId', requireAuth, async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId);
 
@@ -296,7 +290,7 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
 
 
 
-// Get all Reviews by a Spot's id --- DONE!!!
+// Get all Reviews by a Spot's id
 router.get('/:spotId/reviews', async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId);
 
@@ -329,7 +323,7 @@ router.get('/:spotId/reviews', async (req, res) => {
 
 
 
-// Create a Review for a Spot based on the Spot's id --- DONE!!!
+// Create a Review for a Spot based on the Spot's id
 router.post('/:spotId/reviews', requireAuth, async (req, res) => {
     const { review, stars } = req.body;
 
@@ -408,7 +402,7 @@ router.get('/:spotId/reviews', async (req, res) => {
 })
 
 
-// Create a Booking from a Spot based on the Spot's id --- DONE!!!
+// Create a Booking from a Spot based on the Spot's id 
 router.post('/:spotId/bookings', requireAuth, async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId);
 
@@ -472,7 +466,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
 
 
 
-// Get all Bookings for a Spot based on the Spot's id --- DONE!!!
+// Get all Bookings for a Spot based on the Spot's id 
 router.get('/:spotId/bookings', requireAuth, async (req, res) => {
     const spotId = req.params.spotId;
 
