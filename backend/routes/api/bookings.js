@@ -134,7 +134,7 @@ router.delete('/:bookingId', requireAuth, async (req, res) => {
         })
     } else {
         return res.status(403).json({
-            message: "Must have authority to delete this booking",
+            message: "Not authorized to delete this booking",
             statusCode: 403
         })
     }
