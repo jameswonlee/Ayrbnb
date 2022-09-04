@@ -160,7 +160,30 @@ router.put('/:reviewId', requireAuth, async (req, res) => {
 // Delete a Review
 router.delete('/:reviewId', requireAuth, async (req, res) => {
     // require proper auth
-})
+
+    const review = await Review.findByPk(req.params.reviewId);
+
+    if (!review) {
+        return res.status(404).json({
+            message: "Review couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    if (review.userId === req.user.id) {
+        await review.destroy();
+
+        return res.json({
+            message: "Successfully deleted",
+            statusCode: 200
+        })
+    } else {
+        return res.status(403).json({
+            message: "You do not have authority to delete this review",
+            statusCode: 403
+        })
+    }
+});
 
 
 module.exports = router;
