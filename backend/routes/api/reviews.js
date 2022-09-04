@@ -52,7 +52,6 @@ router.get('/current', requireAuth, async (req, res) => {
         review.Spot = spot;
         review.ReviewImages = reviewImages;
 
-
         return res.json({
             Reviews: [review]
         })

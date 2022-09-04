@@ -15,19 +15,34 @@ const { Op } = require('sequelize');
 
 
 
-// Get all Spots --- Need to finish pagination
+// Get all Spots --- Need to finish pagination error handling
 router.get('/', async (req, res) => {
-    // const { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+    /*----- Pagination -------*/
+    let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
 
-    // page = parseInt(page, 10);
-    // size = pareseInt(size, 10);
+    const errors = {};
+    const pagination = {};
 
-    // if (!page || page <= 0 || isNaN(page)) page = 1;
-    // if (!size || size <= 0 || isNaN(size)) size = 20
+    page = parseInt(page, 10);
+    size = parseInt(size, 10);
+
+    if (!page || page <= 0 || isNaN(page)) page = 1;
+    if (!size || size <= 0 || isNaN(size)) size = 20;
+
+    // if (page <= 0) page = 1;
+    // if (size <= 0) size = 20;
+
+    if (page > 10) page = 10;
+    if (size > 20) size = 20;
+
+    pagination.limit = size;
+    pagination.offset = (page - 1) * size;
+
+    /*---------------------*/
 
     let allSpots = [];
 
-    const spots = await Spot.findAll();
+    const spots = await Spot.findAll({ ...pagination });
 
     for (let spot of spots) {
 
@@ -35,7 +50,7 @@ router.get('/', async (req, res) => {
             where: {
                 spotId: spot.id
             },
-            attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']],
+            attributes: [[sequelize.fn('ROUND', sequelize.fn('AVG', sequelize.col('stars'))), 'avgRating']],
             raw: true
         });
 
@@ -47,7 +62,9 @@ router.get('/', async (req, res) => {
             raw: true
         });
 
+        
         let spotData = spot.toJSON();
+        console.log(spotImage)
 
         spotData.avgRating = stars[0].avgRating;
         spotData.previewImage = spotImage.url;
@@ -55,7 +72,7 @@ router.get('/', async (req, res) => {
         allSpots.push(spotData);
     };
 
-    return res.json({ Spots: allSpots });
+    return res.json({ Spots: allSpots, page, size });
 });
 
 
