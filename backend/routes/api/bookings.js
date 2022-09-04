@@ -130,7 +130,8 @@ router.delete('/:bookingId', requireAuth, async (req, res) => {
         await booking.destroy();
 
         return res.json({
-            message: "Successfully deleted"
+            message: "Successfully deleted",
+            statusCode: 200
         })
     } else {
         return res.status(403).json({
