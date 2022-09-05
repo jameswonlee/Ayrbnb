@@ -103,7 +103,7 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
             statusCode: 404
         })
     }
-})
+});
 
 
 
