@@ -32,7 +32,7 @@ router.delete('/:imageId', requireAuth, async (req, res) => {
             statusCode: 404
         })
     }
-})
+});
 
 
 

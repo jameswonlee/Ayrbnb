@@ -56,7 +56,7 @@ router.get('/current', requireAuth, async (req, res) => {
             Reviews: [review]
         })
     }
-})
+});
 
 
 
@@ -148,8 +148,7 @@ router.put('/:reviewId', requireAuth, async (req, res) => {
             statusCode: 403
         })
     }
-
-})
+});
 
 
 
