@@ -29,8 +29,6 @@ router.get('/', async (req, res) => {
     if (!page || page <= 0 || isNaN(page)) page = 1;
     if (!size || size <= 0 || isNaN(size)) size = 20;
 
-    // if (page <= 0) page = 1;
-    // if (size <= 0) size = 20;
 
     if (page > 10) page = 10;
     if (size > 20) size = 20;
