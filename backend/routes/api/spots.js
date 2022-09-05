@@ -98,7 +98,7 @@ router.get('/current', requireAuth, async (req, res) => {
         spot.avgRating = parseInt(totalStars / reviewCount);
     }
     res.json({ Spots: spots })
-})
+});
 
 
 
@@ -133,7 +133,7 @@ router.get('/:spotId', async (req, res) => {
     spot.avgStarRating = await Review.sum('stars', { where: { spotId: spot.id } });
 
     return res.json(spot);
-})
+});
 
 
 
@@ -177,7 +177,7 @@ router.post('/', requireAuth, async (req, res) => {
             errors
         })
     }
-})
+});
 
 // Add an Image to a Spot based on the Spot's id
 router.post('/:spotId/images', requireAuth, async (req, res) => {
@@ -210,7 +210,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
         message: "Spot couldn't be found",
         statusCode: 404
     })
-})
+});
 
 
 
@@ -269,7 +269,7 @@ router.put('/:spotId', requireAuth, async (req, res) => {
             })
         }
     }
-})
+});
 
 
 
@@ -330,7 +330,7 @@ router.get('/:spotId/reviews', async (req, res) => {
     });
 
     res.json({ Reviews: reviews })
-})
+});
 
 
 
@@ -385,7 +385,7 @@ router.post('/:spotId/reviews', requireAuth, async (req, res) => {
             errors
         })
     }
-})
+});
 
 
 // Get all Reviews by a Spot's id
@@ -410,7 +410,7 @@ router.get('/:spotId/reviews', async (req, res) => {
     }
 
     return res.json(reviews);
-})
+});
 
 
 // Create a Booking from a Spot based on the Spot's id 
@@ -518,4 +518,4 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
 
 
 
-module.exports = router
+module.exports = router;
