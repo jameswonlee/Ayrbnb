@@ -9,10 +9,6 @@ const spot = require('../../db/models/spot.js');
 
 const { Op } = require('sequelize');
 
-// VSC automatically imported this without permission
-// const { where } = require('sequelize/types/sequelize.js');
-
-
 
 
 // Get all Spots --- Need to finish pagination error handling
