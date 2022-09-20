@@ -6,8 +6,9 @@ import SpotDetails from '../SpotDetails';
 
 function DisplayAllSpots() {
     const dispatch = useDispatch();
-    const allSpots = useSelector(state => Object.keys(state.spots)
+    const allSpots = useSelector(state => Object.keys(state.spots.spots)
         .map(id => state.spots[id]));
+        // const allSpots = useSelector(state => console.log('state', state));
     // console.log('allSpots', allSpots)
 
     useEffect(() => {

@@ -58,6 +58,7 @@ export const getUserSpots = () => async (dispatch) => {
 
     if (response.ok) {
         const spots = await response.json();
+        // console.log('spots', spots)
         dispatch(loadAll(spots));
         return spots;
     }
@@ -68,6 +69,7 @@ export const getSpotById = (spotId) => async (dispatch) => {
 
     if (response.ok) {
         const spot = await response.json();
+        console.log('spot', spot)
         dispatch(loadOne(spot));
         return spot;
     }
@@ -113,16 +115,17 @@ export const deleteSpot = (spotId) => async (dispatch) => {
 /* ------------------- Reducer --------------------- */
 
 // need to create initial state:
-const initialState = {};
+const initialState = { allSpots: null, currSpot: null };
 
 const spotsReducer = (state = initialState, action) => {
-    let newState = {};
+    let newState;
     switch (action.type) {
         case LOAD_ALL:
-            action.spots.Spots.forEach(spot => {
-                newState[spot.id] = spot;
-            })
-        
+            let newSpots = {};
+            action.spots.Spots.forEach(spot => newSpots[spot.id] = spot);
+            newState = {...state, spots: {...newSpots}};
+            console.log('newState', newState)
+            return newState;
         default:
             return state;
     }
