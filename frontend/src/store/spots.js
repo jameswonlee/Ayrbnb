@@ -1,46 +1,116 @@
 import { csrfFetch } from "./csrf";
 
 
-//Action Types
-const GET_ALL_SPOTS = 'spots/READ';
+/* ---------------- Action Types ----------------- */
+
+const LOAD_ALL = 'spots/LOAD_ALL';
+const LOAD_ONE = 'spots/LOAD_ONE';
+const ADD_ONE = 'spots/ADD_ONE';
+const REMOVE_ONE = 'spots/REMOVE_ONE';
 
 
 
-// Action Creators
-const getAllSpots = (allSpots) => {
+/* --------------- Action Creators --------------- */
+
+const loadAll = (spots) => {
     return {
-        type: GET_ALL_SPOTS,
-        allSpots
+        type: LOAD_ALL,
+        spots: spots
+    }
+}
+
+const loadOne = (spot) => {
+    return {
+        type: LOAD_ONE,
+        spot: spot
+    }
+}
+
+const addOne = (spot) => {
+    return {
+        type: ADD_ONE,
+        spot: spot
+    }
+}
+
+const removeOne = (spotId) => {
+    return {
+        type: REMOVE_ONE,
+        spot: spotId
     }
 }
 
 
-// Thunk Action Creators
-export const getAllSpotsThunk = () => async dispatch => {
-    const response = await fetch('/api/spots');
+
+/* -------------- Thunk Action Creators -------------- */
+
+export const getAllSpots = () => async (dispatch) => {
+    const response = await csrfFetch('/api/spots');
 
     if (response.ok) {
-        const allSpots = await response.json();
-        dispatch(getAllSpots(allSpots));
-        return allSpots;
+        const spots = await response.json();
+        dispatch(loadAll(spots));
+        return spots;
     }
 }
 
 
+export const getUserSpots = () => async (dispatch) => {
+    const response = await csrfFetch();
 
-// Reducer
+    if (response.ok) {
+        const spots = await response.json();
+        dispatch(loadAll(spots));
+        return spots;
+    }
+}
+
+export const getOneSpot = (spotId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}`);
+
+    if (response.ok) {
+        const spot = await response.json();
+        dispatch(loadOne(spot));
+        return spot;
+    }
+}
+
+export const createSpot = () => async (dispatch) => {
+    const response = await csrfFetch();
+
+    if (response.ok) {
+        const newSpot = await response.json();
+        dispatch(addOne(newSpot));
+        return newSpot;
+    }
+}
+
+export const deleteSpot = (spotId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}`, {
+        method: 'DELETE'
+    })
+}
+
+
+
+/* ------------------- Reducer --------------------- */
+
 // need to create initial state:
 const initialState = {};
 
 const spotsReducer = (state = initialState, action) => {
     let newState = {};
     switch (action.type) {
-        case GET_ALL_SPOTS:
-            action.allSpots.forEach(spot => {
+        case LOAD_ALL:
+            action.spots.forEach(spot => {
                 newState[spot.id] = spot;
             })
+        
         default:
             return state;
     }
 }
 
+
+
+export default spotsReducer;
