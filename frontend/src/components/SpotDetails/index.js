@@ -13,8 +13,6 @@ function SpotDetails({ spot }) {
         dispatch(getSpotById(spot.id))
     }
 
-    // console.log('spot', spot)
-
     return (
         <div className="single-spot-details" onClick={handleClick}>
             <NavLink to={`/spots/${spot.id}`}>
