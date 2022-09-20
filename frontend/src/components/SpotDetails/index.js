@@ -1,11 +1,11 @@
-import './SpotCard.css';
+import './SpotDetails.css';
 import { NavLink } from 'react-router-dom';
 
 
-function SpotCard({ spot }) {
+function SpotDetails({ spot }) {
     // console.log('spot', spot)
     return (
-        <div className="spot-container">
+        <div className="spot-details">
             <NavLink to={`/spots/${spot.id}`}>
             <img src={spot.previewImage}></img>
             </NavLink>
@@ -16,4 +16,4 @@ function SpotCard({ spot }) {
 
 
 
-export default SpotCard;
+export default SpotDetails;
