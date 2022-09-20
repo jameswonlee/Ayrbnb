@@ -3,37 +3,45 @@ import { csrfFetch } from "./csrf";
 
 /* ---------------- Action Types ----------------- */
 
-const LOAD_ALL = 'spots/LOAD_ALL';
-const LOAD_ONE = 'spots/LOAD_ONE';
-const ADD_ONE = 'spots/ADD_ONE';
-const REMOVE_ONE = 'spots/REMOVE_ONE';
+const LOAD_SPOTS = 'spots/LOAD_SPOTS';
+const LOAD_SPOT = 'spots/LOAD_SPOT';
+const ADD_SPOT = 'spots/ADD_SPOT';
+const UPDATE_SPOT = 'spots/UPDATE_SPOT';
+const REMOVE_SPOT = 'spots/REMOVE_SPOT';
 
 /* --------------- Action Creators --------------- */
 
-const loadAll = (spots) => {
+const loadSpots = (spots) => {
     return {
-        type: LOAD_ALL,
+        type: LOAD_SPOTS,
         spots: spots
     }
 }
 
-const loadOne = (spot) => {
+const loadSpot = (spot) => {
     return {
-        type: LOAD_ONE,
+        type: LOAD_SPOT,
         spot: spot
     }
 }
 
-const addOne = (spot) => {
+const addSpot = (spot) => {
     return {
-        type: ADD_ONE,
+        type: ADD_SPOT,
         spot: spot
     }
 }
 
-const removeOne = (spotId) => {
+const updateSpot = (updatedSpot) => {
     return {
-        type: REMOVE_ONE,
+        type: UPDATE_SPOT,
+        spot: updatedSpot
+    }
+}
+
+const removeSpot = (spotId) => {
+    return {
+        type: REMOVE_SPOT,
         spot: spotId
     }
 }
@@ -47,7 +55,7 @@ export const getAllSpots = () => async (dispatch) => {
 
     if (response.ok) {
         const spots = await response.json();
-        dispatch(loadAll(spots));
+        dispatch(loadSpots(spots));
         return spots;
     }
 }
@@ -59,7 +67,7 @@ export const getUserSpots = () => async (dispatch) => {
     if (response.ok) {
         const spots = await response.json();
         // console.log('spots', spots)
-        dispatch(loadAll(spots));
+        dispatch(loadSpot(spots));
         return spots;
     }
 }
@@ -70,7 +78,7 @@ export const getSpotById = (spotId) => async (dispatch) => {
     if (response.ok) {
         const spot = await response.json();
         console.log('spot', spot)
-        dispatch(loadOne(spot));
+        dispatch(loadSpot(spot));
         return spot;
     }
 }
@@ -84,12 +92,12 @@ export const createSpot = (newSpotDetails) => async (dispatch) => {
 
     if (response.ok) {
         const newSpot = await response.json();
-        dispatch(addOne(newSpot));
+        dispatch(addSpot(newSpot));
         return newSpot;
     }
 }
 
-export const updateSpot = (spotId, newSpotData) => async (dispatch) => {
+export const updateExistingSpot = (spotId, newSpotData) => async (dispatch) => {
     const { address, city, state, country, 
         lat, lng, name, description, price } = newSpotData;
 
@@ -98,6 +106,11 @@ export const updateSpot = (spotId, newSpotData) => async (dispatch) => {
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify()
     })
+
+    if (response.ok) {
+        const updatedSpot = await response.json();
+        dispatch(updateSpot(updatedSpot))
+    }
 }
 
 export const deleteSpot = (spotId) => async (dispatch) => {
@@ -106,7 +119,7 @@ export const deleteSpot = (spotId) => async (dispatch) => {
     })
 
     if (response.ok) {
-        dispatch(removeOne(spotId));
+        dispatch(removeSpot(spotId));
     }
 }
 
@@ -120,7 +133,7 @@ const initialState = { allSpots: null, currSpot: null };
 const spotsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case LOAD_ALL:
+        case LOAD_SPOTS:
             let newSpots = {};
             action.spots.Spots.forEach(spot => newSpots[spot.id] = spot);
             newState = {...state, spots: {...newSpots}};
