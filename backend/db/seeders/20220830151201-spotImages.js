@@ -19,12 +19,12 @@ module.exports = {
     },
     {
       spotId: 2,
-      url: "https://www.airbnb.com/hillchase",
+      url: "https://unsplash.com/photos/2d4lAQAlbDA",
       preview: true
     },
     {
       spotId: 3,
-      url: "https://www.airbnb.com/sunset",
+      url: "https://unsplash.com/photos/4ETshgrhbJw",
       preview: true
     },
     {
@@ -34,7 +34,7 @@ module.exports = {
     },
     {
       spotId: 5,
-      url: "https://www.airbnb.com/roxbury",
+      url: "https://unsplash.com/photos/RFDP7_80v5A",
       preview: true
     }
    ])
