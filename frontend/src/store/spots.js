@@ -56,7 +56,7 @@ export const getAllSpots = () => async (dispatch) => {
 
 
 export const getUserSpots = () => async (dispatch) => {
-    const response = await csrfFetch();
+    const response = await csrfFetch('/api/spots/current');
 
     if (response.ok) {
         const spots = await response.json();
@@ -75,8 +75,12 @@ export const getOneSpot = (spotId) => async (dispatch) => {
     }
 }
 
-export const createSpot = () => async (dispatch) => {
-    const response = await csrfFetch();
+export const createSpot = (spotData) => async (dispatch) => {
+    const response = await csrfFetch('/api/spots/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(spotData)
+    })
 
     if (response.ok) {
         const newSpot = await response.json();
@@ -84,6 +88,8 @@ export const createSpot = () => async (dispatch) => {
         return newSpot;
     }
 }
+
+// Update spot????
 
 export const deleteSpot = (spotId) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${spotId}`, {
@@ -106,10 +112,11 @@ const spotsReducer = (state = initialState, action) => {
     let newState = {};
     switch (action.type) {
         case LOAD_ALL:
-            action.spots.forEach(spot => {
+            action.spots.Spots.forEach(spot => {
                 newState[spot.id] = spot;
             })
-        
+            return newState;
+
         default:
             return state;
     }
