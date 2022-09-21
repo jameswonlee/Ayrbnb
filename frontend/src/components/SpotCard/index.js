@@ -6,9 +6,7 @@ import { getSpotById } from '../../store/spots';
 
 
 function SpotCard({ spot }) {
-    const dispatch = useDispatch();
-    // console.log('image', spot.previewImage)
-    
+    const dispatch = useDispatch();    
 
     return (
         <NavLink to={`/spots/${spot.id}`}>
@@ -17,8 +15,8 @@ function SpotCard({ spot }) {
             </div>
             <div>
                 <div>{spot.city}, {spot.state}</div>
-                <div>{spot.avgRating}</div>
-                <div>${spot.price}/night</div>
+                <div>★{spot.avgRating}</div>
+                <div>${spot.price} night</div>
             </div>
         </NavLink>
     )

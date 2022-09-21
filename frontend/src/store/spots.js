@@ -145,6 +145,7 @@ const spotsReducer = (state = initialState, action) => {
             return newState;
         case ADD_SPOT:
         // ADD_SPOT will also do same behavior as LOAD_SPOT
+        case UPDATE_SPOT:
         case LOAD_SPOT:
             let newSpot = {};
             newSpot[action.spot.id] = action.spot;

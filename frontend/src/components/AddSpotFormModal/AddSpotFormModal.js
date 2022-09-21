@@ -4,10 +4,8 @@ import { Modal } from "../../context/Modal";
 import AddSpotForm from './AddSpotForm';
 
 
-
-
 function AddSpotFormModal() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
 
     const clickHandler = () => {

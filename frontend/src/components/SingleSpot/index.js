@@ -3,13 +3,13 @@ import { useEffect } from 'react';
 import { getSpotById } from '../../store/spots';
 import { useParams } from 'react-router-dom';
 import ReviewsForSpot from '../Reviews';
+import UpdateSpotFormModule from '../UpdateSpotModal/UpdateSpotFormModal';
 
 
 function SingleSpot() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const spot = useSelector(state => state.spots.spots[spotId]);
-    console.log('spot', spot)
 
     useEffect(() => {
         dispatch(getSpotById(spotId))
@@ -23,6 +23,7 @@ function SingleSpot() {
             <p>${spot.price} night</p>
             <p>{spot.city}, {spot.state}, {spot.country}</p>
             <div><ReviewsForSpot spot={spot}/></div>
+            <div><UpdateSpotFormModule spot={spot}/></div>
         </section>
     )
 }
