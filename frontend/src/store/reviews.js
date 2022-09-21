@@ -86,13 +86,13 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 /* ------------------- Reducer --------------------- */
 
 // need to create initial state:
-const initialState = {}
+const initialState = { reviews: {}, reviewById: {} };
 
 const reviewsReducer = (state = initialState, action) => {
+    let newState;
     switch (action.type) {
         case LOAD_REVIEWS:
-        // console.log(action.reviews)
-
+            let newReviews = {};
         default:
             return state;
     }

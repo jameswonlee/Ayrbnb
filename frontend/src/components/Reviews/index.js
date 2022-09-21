@@ -5,19 +5,20 @@ import { getReviewsBySpotId } from "../../store/reviews";
 
 
 
-function ReviewsList() {
+function ReviewsForSpot() {
     const dispatch = useDispatch();
-    const reviews = useSelector(state => state.reviews);
+    const reviews = useSelector(state => console.log(state));
+    // console.log('reviews', reviews);
 
     useEffect(() => {
         dispatch(getReviewsBySpotId())
     })
 
     return (
-        <div></div>
+        <div>TEST!!!</div>
     )
 }
 
 
 
-export default ReviewsList;
+export default ReviewsForSpot;
