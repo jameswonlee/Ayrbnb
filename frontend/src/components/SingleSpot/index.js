@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { getSpotById } from '../../store/spots';
 import { useParams } from 'react-router-dom';
 import ReviewsForSpot from '../Reviews';
-import UpdateSpotFormModule from '../UpdateSpotModal/UpdateSpotFormModal';
+import UpdateSpotFormModal from '../UpdateSpotModal/UpdateSpotFormModal';
 import DeleteSpotButton from '../DeleteSpotButton/DeleteSpotButton';
 
 
@@ -34,7 +34,7 @@ function SingleSpot() {
 
                 {sessionUser && spot.ownerId === sessionUser.id &&
                     <div className="owner-options">
-                        <div><UpdateSpotFormModule spot={spot} /></div>
+                        <div><UpdateSpotFormModal spot={spot} /></div>
                         <div><DeleteSpotButton /></div>
                     </div>
                 }

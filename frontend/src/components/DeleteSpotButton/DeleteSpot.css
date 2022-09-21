@@ -1,0 +1,12 @@
+.delete-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-buttons > button {
+    margin-right: 1em;
+}
+
+.delete-buttons > button:last-of-type {
+    margin-right: 0;
+}
