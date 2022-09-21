@@ -10,7 +10,7 @@ function ReviewsForSpot() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const reviews = useSelector(state => state.reviews.reviews);
-    console.log('reviews', reviews);
+    // console.log('reviews', reviews);
 
     useEffect(() => {
         dispatch(getReviewsBySpotId(spotId))
