@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Modal } from "../../context/Modal";
-import AddSpotForm from './AddSpotForm';
+import DeleteSpotButtonForm from './DeleteSpotButtonForm';
 
 
-function AddSpotFormModal() {
+function DeleteSpotModal() {
     const [showModal, setShowModal] = useState(false);
 
     const clickHandler = () => {
@@ -12,18 +12,12 @@ function AddSpotFormModal() {
 
     return (
         <>
-            <button onClick={clickHandler}>Become a Host</button>
+            <button onClick={clickHandler}>Delete your listing</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <AddSpotForm />
+                    <DeleteSpotButtonForm />
                 </Modal>
             )}
         </>
     )
 }
-
-
-
-
-
-export default AddSpotFormModal;
