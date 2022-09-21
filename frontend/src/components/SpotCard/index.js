@@ -16,7 +16,7 @@ function SpotCard({ spot }) {
                 <img className="preview-image" src={spot.previewImage} />
             </div>
             <div>
-                <div>{spot.city},{spot.state}</div>
+                <div>{spot.city}, {spot.state}</div>
                 <div>{spot.avgRating}</div>
                 <div>${spot.price}/night</div>
             </div>
