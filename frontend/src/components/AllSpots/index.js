@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllSpots } from '../../store/spots';
 import SpotCard from '../SpotCard';
+import AddSpotFormModal from '../AddSpotFormModal';
 
 
 function DisplayAllSpots() {
@@ -11,9 +12,10 @@ function DisplayAllSpots() {
     //     .map(id => state.spots[id]));
 
     const allSpots = useSelector(state => Object.values(state.spots.spots));
-    // const spots = useSelector(state => console.log('state', state))
+    const spots = useSelector(state => console.log('state', state));
+    const sessionUser = useSelector(state => state.session.user);
 
-    console.log('DisplayAllSpots --> allSpots', allSpots)
+    // console.log('DisplayAllSpots --> allSpots', allSpots)
 
     useEffect(() => {
         dispatch(getAllSpots())
@@ -23,6 +25,7 @@ function DisplayAllSpots() {
     return (
         <div className="outer">
             <h1>Spots List</h1>
+            {sessionUser && <AddSpotFormModal />}
             <div className='spot-card'>
                 {allSpots.map(spot => (
                     <SpotCard key={spot.id} spot={spot} />

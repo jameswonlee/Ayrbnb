@@ -7,7 +7,7 @@ import { getSpotById } from '../../store/spots';
 
 function SpotCard({ spot }) {
     const dispatch = useDispatch();
-    console.log('image', spot.previewImage)
+    // console.log('image', spot.previewImage)
     
 
     return (

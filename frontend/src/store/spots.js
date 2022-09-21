@@ -78,7 +78,7 @@ export const getSpotById = (spotId) => async (dispatch) => {
 
     if (response.ok) {
         const spot = await response.json();
-        console.log('getSpotById --> spot', spot)
+        // console.log('getSpotById --> spot', spot)
         dispatch(loadSpot(spot));
         return spot;
     }
@@ -141,7 +141,14 @@ const spotsReducer = (state = initialState, action) => {
             action.spots.forEach(spot => newSpots[spot.id] = spot);
             // console.log('newSpots -->', newSpots)
             newState = { ...state, spots: { ...newSpots } };
-            console.log('newState', newState)
+            // console.log('newState', newState)
+            return newState;
+        case ADD_SPOT:
+        // ADD_SPOT will also do same behavior as LOAD_SPOT
+        case LOAD_SPOT:
+            let newSpot = {};
+            newSpot[action.spot.id] = action.spot;
+            newState = { ...state, spots: { ...state.spots, ...newSpot } };
             return newState;
         default:
             return state;
