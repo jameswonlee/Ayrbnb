@@ -78,6 +78,7 @@ function AddSpotForm() {
             step="0.01"
             placeholder="Price"
             />
+            <button>Start Hosting</button>
         </form>
     )
 }
