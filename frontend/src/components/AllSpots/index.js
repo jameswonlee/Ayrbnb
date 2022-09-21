@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllSpots } from '../../store/spots';
-import SpotDetails from '../SpotDetails';
+import SpotCard from '../SpotCard';
 
 
 function DisplayAllSpots() {
@@ -9,8 +9,9 @@ function DisplayAllSpots() {
 
     // const allSpots = useSelector(state => Object.keys(state.spots)
     //     .map(id => state.spots[id]));
-    const spots = useSelector(state => console.log('state', state))
-    const allSpots = useSelector(state => Object.values(state.spots));
+
+    const allSpots = useSelector(state => Object.values(state.spots.spots));
+    // const spots = useSelector(state => console.log('state', state))
 
     console.log('DisplayAllSpots --> allSpots', allSpots)
 
@@ -22,14 +23,11 @@ function DisplayAllSpots() {
     return (
         <div className="outer">
             <h1>Spots List</h1>
-            {/* <div>
+            <div className='spot-card'>
                 {allSpots.map(spot => (
-                    <div key={spot.id}>
-                        {console.log('JSX spot -->', spot)}
-                        <SpotDetails spot={spot}/>
-                    </div>
+                    <SpotCard key={spot.id} spot={spot} />
                 ))}
-            </div> */}
+            </div>
         </div>
     )
 }

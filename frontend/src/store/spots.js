@@ -78,7 +78,7 @@ export const getSpotById = (spotId) => async (dispatch) => {
 
     if (response.ok) {
         const spot = await response.json();
-        // console.log('getSpotById --> spot', spot)
+        console.log('getSpotById --> spot', spot)
         dispatch(loadSpot(spot));
         return spot;
     }
@@ -130,7 +130,7 @@ export const deleteSpot = (spotId) => async (dispatch) => {
 
 // need to create initial state:
 // const initialState = { allSpots: null, currSpot: null };
-const initialState = { spots: null, spotById: null };
+const initialState = { spots: {}, spotById: {} };
 
 const spotsReducer = (state = initialState, action) => {
     let newState;
@@ -139,7 +139,7 @@ const spotsReducer = (state = initialState, action) => {
             let newSpots = {};
             // console.log('action.spots --->', action.spots)
             action.spots.forEach(spot => newSpots[spot.id] = spot);
-            console.log('newSpots -->', newSpots)
+            // console.log('newSpots -->', newSpots)
             newState = { ...state, spots: { ...newSpots } };
             console.log('newState', newState)
             return newState;
