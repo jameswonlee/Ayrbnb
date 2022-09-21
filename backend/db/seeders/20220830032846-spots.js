@@ -27,18 +27,30 @@ module.exports = {
     },
     {
       ownerId: 2,
-      address: '1895 Hill Chase',
-      city: 'Atlanta',
-      state: 'GA',
-      country: 'USA',
-      lat: 34.04150,
-      lng: 84.27171,
-      name: 'Hampton Hall',
-      description: '3 story house with basement',
-      price: 900.00
+      address: "1000 Pacific Coast Hwy",
+      city: "Newport Beach",
+      state: "CA",
+      country: "USA",
+      lat: 34.28473,
+      lng: 117.82746,
+      name: "Newport",
+      description: "Oceanfront Home on the Beach",
+      price: 1388.00
     },
     {
       ownerId: 3,
+      address: '1895 Hill Chase',
+      city: 'Palm Springs',
+      state: 'CA',
+      country: 'USA',
+      lat: 34.04150,
+      lng: 184.27171,
+      name: 'Desert Palm',
+      description: 'Desert Home with Panoramic Views',
+      price: 851.00
+    },
+    {
+      ownerId: 4,
       address: '1489 Sunset Plaza Dr',
       city: 'Los Angeles',
       state: 'CA',
@@ -50,19 +62,19 @@ module.exports = {
       price: 2000.00
     },
     {
-      ownerId: 4,
+      ownerId: 5,
       address: '1800 Beverly Blvd',
       city: 'Los Angeles',
       state: "CA",
       country: 'USA',
       lat: 34.09738,
       lng: 117.78968,
-      name: 'Dream House',
+      name: 'Villa in Los Angeles',
       description: 'Modern McMansion',
       price: 1200.00
     },
     {
-      ownerId: 5,
+      ownerId: 6,
       address: "2400 Roxbury Dr",
       city: "Beverly Hills",
       state: "CA",
@@ -70,9 +82,22 @@ module.exports = {
       lat: 34.76456,
       lng: 117.39876,
       name: "Roxbury",
-      description: "Condo in Beverly Hills",
-      price: 900.00
+      description: "Townhouse in Beverly Hills",
+      price: 795.00
     },
+    {
+      ownerId: 7,
+      address: "8080 Malibu Canyon Pkwy",
+      city: "Malibu",
+      state: "CA",
+      country: "USA",
+      lat: 35.37463,
+      lng: 118.82847,
+      name: "Barefoot Malibu",
+      description: "Ocean View retreat",
+      price: 745.00
+    }
+    
     
    ])
   },

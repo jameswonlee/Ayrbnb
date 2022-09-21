@@ -19,7 +19,7 @@ module.exports = {
     },
     {
       spotId: 2,
-      url: "https://unsplash.com/photos/2d4lAQAlbDA",
+      url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-53196534/original/9a803ca2-e53b-464d-b7a6-9d41986e86d9.jpeg?",
       preview: true
     },
     {
