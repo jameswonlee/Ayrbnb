@@ -130,7 +130,7 @@ export const deleteSpot = (spotId) => async (dispatch) => {
 
 // need to create initial state:
 // const initialState = { allSpots: null, currSpot: null };
-const initialState = { spots: {}, spotById: {} };
+const initialState = { spots: {}, spotById: null };
 
 const spotsReducer = (state = initialState, action) => {
     let newState;
@@ -140,16 +140,14 @@ const spotsReducer = (state = initialState, action) => {
             // console.log('action.spots --->', action.spots)
             action.spots.forEach(spot => newSpots[spot.id] = spot);
             // console.log('newSpots -->', newSpots)
-            newState = { ...state, spots: { ...newSpots } };
+            newState = { ...state, spots: newSpots };
             // console.log('newState', newState)
             return newState;
         case ADD_SPOT:
         // ADD_SPOT will also do same behavior as LOAD_SPOT
         case UPDATE_SPOT:
         case LOAD_SPOT:
-            let newSpot = {};
-            newSpot[action.spot.id] = action.spot;
-            newState = { ...state, spots: { ...state.spots, ...newSpot } };
+            newState = { ...state, spotById: action.spot };
             return newState;
         default:
             return state;

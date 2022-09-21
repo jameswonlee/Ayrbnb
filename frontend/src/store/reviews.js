@@ -50,7 +50,7 @@ export const getReviewsBySpotId = (spotId) => async (dispatch) => {
     if (response.ok) {
         const reviews = await response.json();
         // console.log('reviews', reviews)
-        dispatch(loadReviews(reviews));
+        dispatch(loadReviews(reviews.Reviews));
         return reviews;
     }
 }
@@ -86,13 +86,14 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 /* ------------------- Reducer --------------------- */
 
 // need to create initial state:
-const initialState = { reviews: {}, reviewById: {} };
+const initialState = { reviews: {}, reviewById: null };
 
 const reviewsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case LOAD_REVIEWS:
-            let newReviews = {};
+            console.log('reviews', action.reviews)
+            newState = { ...state, reviews: action.reviews }
         default:
             return state;
     }

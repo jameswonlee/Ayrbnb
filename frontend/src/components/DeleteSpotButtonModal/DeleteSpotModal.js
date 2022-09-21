@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal } from "../../context/Modal";
 import DeleteSpotButtonForm from './DeleteSpotButtonForm';
 
-
+// Check if user === owner
 function DeleteSpotModal() {
     const [showModal, setShowModal] = useState(false);
 
@@ -21,3 +21,7 @@ function DeleteSpotModal() {
         </>
     )
 }
+
+
+
+export default DeleteSpotModal;

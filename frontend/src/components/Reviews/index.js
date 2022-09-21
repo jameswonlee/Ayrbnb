@@ -1,21 +1,23 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReviewsBySpotId } from "../../store/reviews";
+import { useParams } from 'react-router-dom';
 
 
 
 
 function ReviewsForSpot() {
     const dispatch = useDispatch();
-    const reviews = useSelector(state => console.log(state));
-    // console.log('reviews', reviews);
+    const { spotId } = useParams();
+    const reviews = useSelector(state => state.reviews.reviews);
+    console.log('reviews', reviews);
 
     useEffect(() => {
-        dispatch(getReviewsBySpotId())
+        dispatch(getReviewsBySpotId(spotId))
     })
 
     return (
-        <div>TEST!!!</div>
+        <div>Reviews will go here:</div>
     )
 }
 
