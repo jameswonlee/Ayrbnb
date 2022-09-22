@@ -1,10 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { updateExistingSpot } from '../../store/spots';
 
 
 function UpdateSpotForm() {
     const dispatch = useDispatch();
+    const history = useHistory();
+    // const { spot } = useParams();
+    const spot = useSelector(state => state.spots.spotById)
 
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
@@ -18,7 +22,8 @@ function UpdateSpotForm() {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        const newSpotDetails = {
+
+        const newSpotData = {
             address,
             city,
             state,
@@ -29,8 +34,10 @@ function UpdateSpotForm() {
             description,
             price,
         }
-        dispatch(updateExistingSpot(newSpotDetails))
+        dispatch(updateExistingSpot(spot.id, newSpotData));
+        history.push('/');
     }
+
 
     return (
         <form onSubmit={submitHandler}>
