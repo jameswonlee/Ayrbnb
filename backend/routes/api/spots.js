@@ -233,6 +233,7 @@ router.put('/:spotId', requireAuth, async (req, res) => {
 
     Object.entries(req.body).forEach(([key, value]) => {
         if (value) {
+
             spot[key] = value
         }
     })
