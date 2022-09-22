@@ -48,8 +48,9 @@ router.get('/', async (req, res) => {
             raw: true
         });
 
-        const spotImage = await SpotImage.findByPk(spot.id, {
+        const spotImage = await SpotImage.findOne({
             where: {
+                spotId: spot.id,
                 preview: true
             },
             attributes: ['url'],
