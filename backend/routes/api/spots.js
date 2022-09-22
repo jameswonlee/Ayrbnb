@@ -223,48 +223,65 @@ router.put('/:spotId', requireAuth, async (req, res) => {
         })
     }
 
-    if (spot.ownerId === req.user.id) {
-        if (address && city && state && country && lat && lng && name && description && price) {
-            spot.address = address;
-            spot.city = city;
-            spot.state = state;
-            spot.country = country;
-            spot.lat = lat;
-            spot.lng = lng;
-            spot.name = name;
-            spot.description = description;
-            spot.price = price;
+    if (spot.ownerId !== req.user.id) {
+        return res.status(403).json({
+            message: "You do not have authorization to edit this spot",
+            statusCode: 403
+        })
 
-            await spot.save();
-            return res.json(spot);
-
-        } else if (spot.ownerId !== req.user.id) {
-            return res.status(403).json({
-                message: "You do not have authorization to edit this spot",
-                statusCode: 403
-            })
-
-        } else {
-
-            const errors = {};
-
-            if (!address) errors.address = "Street address is required";
-            if (!city) errors.city = "City is required";
-            if (!state) errors.state = "State is required";
-            if (!country) errors.country = "Country is required";
-            if (!lat) errors.lat = "Latitude is not valid";
-            if (!lng) errors.lng = "Longitude is not valid";
-            if (!name) errors.name = "Name must be less than 50 characters";
-            if (!description) errors.description = "Description is required";
-            if (!price) errors.price = "Price per day is required";
-
-            return res.status(400).json({
-                message: "Validation Error",
-                statusCode: 400,
-                errors
-            })
-        }
     }
+
+    Object.entries(req.body).forEach(([key, value]) => {
+        if (value) {
+            spot[key] = value
+        }
+    })
+
+    await spot.save();
+    return res.json(spot);
+
+    // if (spot.ownerId === req.user.id) {
+    //     if (address && city && state && country && lat && lng && name && description && price) {
+    //         spot.address = address;
+    //         spot.city = city;
+    //         spot.state = state;
+    //         spot.country = country;
+    //         spot.lat = lat;
+    //         spot.lng = lng;
+    //         spot.name = name;
+    //         spot.description = description;
+    //         spot.price = price;
+
+    //         await spot.save();
+    //         return res.json(spot);
+
+    //     } else if (spot.ownerId !== req.user.id) {
+    //         return res.status(403).json({
+    //             message: "You do not have authorization to edit this spot",
+    //             statusCode: 403
+    //         })
+
+    //     } else {
+
+    //         const errors = {};
+
+    //         if (!address) errors.address = "Street address is required";
+    //         if (!city) errors.city = "City is required";
+    //         if (!state) errors.state = "State is required";
+    //         if (!country) errors.country = "Country is required";
+    //         if (!lat) errors.lat = "Latitude is not valid";
+    //         if (!lng) errors.lng = "Longitude is not valid";
+    //         if (!name) errors.name = "Name must be less than 50 characters";
+    //         if (!description) errors.description = "Description is required";
+    //         if (!price) errors.price = "Price per day is required";
+
+    //         return res.status(400).json({
+    //             message: "Validation Error",
+    //             statusCode: 400,
+    //             errors
+    //         })
+    //     }
+    // }
 });
 
 
