@@ -10,8 +10,8 @@ function DisplayAllSpots() {
     const dispatch = useDispatch();
 
     const allSpots = useSelector(state => Object.values(state.spots.spots));
-    const sessionUser = useSelector(state => state.session.user);
-    console.log('DisplayAllSpots --> allSpots', allSpots)
+    // const sessionUser = useSelector(state => state.session.user);
+    // console.log('DisplayAllSpots --> allSpots', allSpots)
 
     useEffect(() => {
         dispatch(getAllSpots())
@@ -19,7 +19,9 @@ function DisplayAllSpots() {
 
     return (
         <div className="content-wrapper">
-            {sessionUser && <AddSpotFormModal />}
+            <div className="become-a-host">
+                <AddSpotFormModal />
+            </div>
             <h1>Spots List</h1>
             <div className="all-spots">
                 <div className='spot-cards'>

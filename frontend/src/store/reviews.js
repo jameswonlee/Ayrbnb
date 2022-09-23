@@ -25,11 +25,9 @@ const addReview = (review) => {
     }
 }
 
-
 const removeReview = (reviewId) => {
     return {
         type: REMOVE_REVIEW,
-        // Change key????
         reviewId: reviewId
     }
 }
@@ -95,7 +93,9 @@ const reviewsReducer = (state = initialState, action) => {
             let newReviews = {};
             action.reviews.forEach(review => newReviews[review.id] = review)
             // console.log('reviews', action.reviews)
-            newState = { ...state, reviews: newReviews }
+            newState = { ...state, reviews: newReviews };
+            // console.log('newState', newState)
+            return newState;
         default:
             return state;
     }

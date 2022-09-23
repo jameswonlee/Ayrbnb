@@ -17,7 +17,6 @@ function SingleSpot() {
     useEffect(() => {
         dispatch(getSpotById(spotId))
     }, []);
-    // console.log('spot', spot)
     // console.log('spot.SpotImages--->', spot.SpotImages)
     return spot && (
         <div>

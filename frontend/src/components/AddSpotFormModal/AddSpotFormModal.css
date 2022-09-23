@@ -1,0 +1,16 @@
+.become-host-container {
+    display: flex;
+}
+
+.become-host-button {
+    background-color: white;
+    border: none;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 40px;
+    padding: 12px;
+}
+
+.become-host-button:hover {
+    background-color: rgb(241, 241, 241);
+}

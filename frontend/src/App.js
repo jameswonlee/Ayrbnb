@@ -20,13 +20,13 @@ function App() {
       <main>
         {isLoaded && (
           <Switch>
-            <Route path="/signup">
+            <Route path='/signup'>
               <SignupFormPage />
             </Route>
-            <Route path="/spots/:spotId">
+            <Route path='/spots/:spotId'>
               <SingleSpot />
             </Route>
-            <Route>
+            <Route path='/'>
               <DisplayAllSpots />
             </Route>
           </Switch>

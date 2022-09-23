@@ -5,12 +5,12 @@ import * as sessionActions from '../../store/session';
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
   };
-  
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -19,7 +19,7 @@ function ProfileButton({ user }) {
     };
 
     document.addEventListener('click', closeMenu);
-  
+
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -30,10 +30,12 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-      <i className="fa-solid fa-circle-user"></i>
-        {/* <i className="far fa-user"></i> */}
-      </button>
+      <div className="dropdown-menu">
+        <button className="user-menu" onClick={openMenu}>
+          <i id="hamburger-menu" class=" fas fa-sharp fa-solid fa-bars "></i>
+          <i id="user-icon" className="fas fa-user-circle user_icon fa-2x"></i>
+        </button>
+      </div>
       {showMenu && (
         <ul className="profile-dropdown">
           <li>{user.username}</li>
