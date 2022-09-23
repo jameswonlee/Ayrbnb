@@ -7,8 +7,8 @@ import { updateExistingSpot } from '../../store/spots';
 function UpdateSpotForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    // const { spot } = useParams();
-    const spot = useSelector(state => state.spots.spotById)
+    const { spotId } = useParams();
+    const spot = useSelector(state => state.spots.spots[spotId])
 
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
@@ -20,7 +20,7 @@ function UpdateSpotForm() {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
 
         const newSpotData = {
@@ -34,7 +34,7 @@ function UpdateSpotForm() {
             description,
             price,
         }
-        dispatch(updateExistingSpot(spot.id, newSpotData));
+        await dispatch(updateExistingSpot(spot.id, newSpotData));
         history.push('/');
     }
 

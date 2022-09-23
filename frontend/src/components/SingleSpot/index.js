@@ -11,14 +11,14 @@ function SingleSpot() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const spot = useSelector(state => state.spots.spotById);
+    const spot = useSelector(state => state.spots.spots[spotId]);
     // console.log('spot', spot)
 
     useEffect(() => {
         dispatch(getSpotById(spotId))
     }, []);
-
-
+    // console.log('spot', spot)
+    // console.log('spot.SpotImages--->', spot.SpotImages)
     return spot && (
         <div>
             <section>
@@ -26,7 +26,7 @@ function SingleSpot() {
                 <p>★{spot.avgStarRating}</p>
                 <p>{spot.description}</p>
                 <p>{spot.city}, {spot.state}, {spot.country}</p>
-                {spot.SpotImages.map(image => (
+                {spot.SpotImages?.map(image => (
                     <img key={image.id} src={image.url} />
                 ))}
                 <p>${spot.price} night</p>

@@ -19,9 +19,9 @@ function DisplayAllSpots() {
 
     return (
         <div className="content-wrapper">
+            {sessionUser && <AddSpotFormModal />}
             <h1>Spots List</h1>
             <div className="all-spots">
-                {sessionUser && <AddSpotFormModal />}
                 <div className='spot-cards'>
                     {allSpots.map(spot => (
                         <SpotCard key={spot.id} spot={spot} />
