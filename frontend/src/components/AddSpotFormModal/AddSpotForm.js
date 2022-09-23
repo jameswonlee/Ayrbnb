@@ -32,6 +32,7 @@ function AddSpotForm() {
             description,
             price,
         }
+        
         const spot = await dispatch(createSpot(newSpotDetails));
         if (spot) {
             await dispatch(addImageToSpot(spot.id, url, true));

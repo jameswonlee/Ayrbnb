@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import ReviewsForSpot from '../Reviews';
 import UpdateSpotFormModal from '../UpdateSpotModal/UpdateSpotFormModal';
 import DeleteSpotButton from '../DeleteSpotButton/DeleteSpotButton';
+import { getReviewsBySpotId } from '../../store/reviews';
 
 
 function SingleSpot() {
@@ -12,33 +13,60 @@ function SingleSpot() {
     const { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spots.spots[spotId]);
-    // console.log('spot', spot)
+    const reviews = useSelector(state => state.reviews.reviews);
+    const reviewCount = Object.keys(reviews).length;
+    console.log('reviewsCount', reviewCount);
+    console.log('spot', spot)
 
-    useEffect(() => {
-        dispatch(getSpotById(spotId))
+    useEffect(async () => {
+        const spot = await dispatch(getSpotById(spotId));
+        if (spot) {
+            await dispatch(getReviewsBySpotId(spotId));
+        }
     }, []);
-    // console.log('spot.SpotImages--->', spot.SpotImages)
+
     return spot && (
-        <div>
-            <section>
+        <div className="outer-container">
+            <div className="spot-name">
                 <h2>{spot.name}</h2>
+            </div>
+            <div className="stars-reviews-location">
                 <p>★{spot.avgStarRating}</p>
-                <p>{spot.description}</p>
+                <p>{reviewCount} reviews</p>
                 <p>{spot.city}, {spot.state}, {spot.country}</p>
+            </div>
+            <div>
                 {spot.SpotImages?.map(image => (
                     <img key={image.id} src={image.url} />
                 ))}
+            </div>
+            <div>
+                <h2>Entire home hosted by {spot.Owner.firstName}</h2>
+                <p>10 guests • 5 bedrooms • 5 beds • 6.5 baths</p>
+            </div>
+            <div className="description">
+                <p>{spot.description}</p>
+            </div>
+            <div className="price">
                 <p>${spot.price} night</p>
-                <div><ReviewsForSpot spot={spot} /></div>
+            </div>
+            <div className="reviews-outer">
+                <div className="avgRating-reviewcount">
+                    ★{spot.avgStarRating} • {reviewCount} reviews
+                </div>
+                <div>
+                    <ReviewsForSpot spot={spot} />
+                </div>
+            </div>
 
-                {sessionUser && spot.ownerId === sessionUser.id &&
-                    <div className="owner-options">
-                        <div><UpdateSpotFormModal spot={spot} /></div>
-                        <div><DeleteSpotButton /></div>
-                    </div>
-                }
+            {sessionUser && spot.ownerId === sessionUser.id &&
+                <div className="owner-options">
+                    <div><UpdateSpotFormModal spot={spot} /></div>
+                    <div><DeleteSpotButton /></div>
+                </div>
+            }
 
-            </section>
+
             <div>
 
             </div>
