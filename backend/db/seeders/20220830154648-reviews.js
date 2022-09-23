@@ -63,12 +63,14 @@ module.exports = {
     {
       spotId: 9,
       userId: 9,
-      review: "Tastefully designed"
+      review: "Tastefully designed",
+      stars: 5
     },
     {
       spotId: 10,
       userId: 9,
-      review: "Very clean and nice host"
+      review: "Very clean and nice host",
+      stars: 5
     }
    ])
   },
