@@ -58,20 +58,15 @@ function SingleSpot() {
                     <ReviewsForSpot spot={spot} />
                 </div>
             </div>
-
             {sessionUser && spot.ownerId === sessionUser.id &&
                 <div className="owner-options">
                     <div><UpdateSpotFormModal spot={spot} /></div>
                     <div><DeleteSpotButton /></div>
                 </div>
             }
-
-
             <div>
-
             </div>
         </div>
-
     )
 }
 
