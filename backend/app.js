@@ -1,3 +1,4 @@
+/*-------------------------- Setup --------------------------- */
 const express = require('express');
 require('express-async-errors');
 const morgan = require('morgan');
@@ -9,17 +10,15 @@ const cookieParser = require('cookie-parser');
 const { environment } = require('./config');
 const isProduction = environment === 'production';
 
-const routes = require('./routes');
-
-const { ValidationError } = require('sequelize');
-
 const app = express();
 
 app.use(morgan('dev'));
-
 app.use(cookieParser());
 app.use(express.json());
 
+const { ValidationError } = require('sequelize');
+
+/* -------------------------- Middleware --------------------- */
 // Security Middleware
 if (!isProduction) {
     // enable cors only in development
@@ -44,11 +43,14 @@ if (!isProduction) {
     })
   );
 
- 
-  
+  /* ------------------------- Routes ----------------------- */
+  const routes = require('./routes');
+
   app.use(routes); // Connect all the routes
 
 
+  /* ---------------- Error Handling Middleware ------------- */
+  // Catches bad requests and send to next error handler
   app.use((_req, _res, next) => {
     const err = new Error("The requested resource couldn't be found.");
     err.title = "Resource Not Found";
@@ -73,10 +75,11 @@ app.use((err, _req, res, _next) => {
   res.status(err.status || 500);
   console.error(err);
   res.json({
-    title: err.title || 'Server Error',
+    // title: err.title || 'Server Error',
     message: err.message,
+    statusCode: (err.status),
     errors: err.errors,
-    stack: isProduction ? null : err.stack
+    // stack: isProduction ? null : err.stack
   });
 });
 

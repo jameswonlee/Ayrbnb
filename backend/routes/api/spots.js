@@ -1,19 +1,56 @@
 const express = require('express');
 const router = express.Router();
-
 const { requireAuth } = require('../../utils/auth.js');
 const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = require('../../db/models');
+const { handleValidationErrors } = require('../../utils/validation');
+const { check } = require('express-validator');
 
-const { next } = require('cli');
-const spot = require('../../db/models/spot.js');
+// const { next } = require('cli');
+// const spot = require('../../db/models/spot.js');
+// const { Op } = require('sequelize');
 
-const { Op } = require('sequelize');
+const validateSpot = [
+    check('address')
+        .exists({ checkFalsy: true })
+        .withMessage('Street address is required'),
+    check('city')
+        .exists({ checkFalsy: true })
+        .withMessage('City is required'),
+    check('state')
+        .exists({ checkFalsy: true })
+        .withMessage('State is required'),
+    check('country')
+        .exists({ checkFalsy: true })
+        .withMessage('Country is required'),
+    check('lat')
+        .exists({ checkFalsy: true })
+        .withMessage('Latitude is required')
+        .isLength({ min: -90, max: 90 })
+        .withMessage('Latitude is not valid'),
+    check('lng')
+        .exists({ checkFalsy: true })
+        .withMessage('Longitude is required')
+        .isLength({ min: -180, max: 180 })
+        .withMessage('Longitude is not valid'),
+    check('name')
+        .exists({ checkFalsy: true })
+        .withMessage('Name is required')
+        .isLength({ max: 49 })
+        .withMessage('Name must be less than 50 characters'),
+    check('description')
+        .exists({ checkFalsy: true })
+        .withMessage('Description is required'),
+    check('price')
+        .exists({ checkFalsy: true })
+        .withMessage('Price per day is required'),
+    handleValidationErrors
+];
 
 
 
 // Get all Spots --- Need to finish pagination error handling
 router.get('/', async (req, res) => {
-    /*----- Pagination -------*/
+    /*------------- Pagination ------------*/
     let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
 
     const errors = {};
@@ -32,7 +69,7 @@ router.get('/', async (req, res) => {
     pagination.limit = size;
     pagination.offset = (page - 1) * size;
 
-    /*---------------------*/
+    /*----------------------------------------*/
 
     let allSpots = [];
 
@@ -135,7 +172,6 @@ router.get('/:spotId', async (req, res) => {
 
 
 
-
 // Create a Spot
 router.post('/', requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
@@ -176,6 +212,25 @@ router.post('/', requireAuth, async (req, res) => {
     }
 });
 
+// let err = {};
+// err.errors = {};
+
+// if (!address) err.errors.address = "Street address is required";
+// if (!city) err.errors.city = "City is required";
+// if (!state) err.errors.state = "State is required";
+// if (!country) err.errors.country = "Country is required";
+// if (!lat) err.errors.lat = "Latitude is not valid";
+// if (!lng) err.errors.lng = "Longitude is not valid";
+// if (!name) err.errors.name = "Name must be less than 50 characters";
+// if (!description) err.errors.description = "Description is required";
+// if (!price) err.errors.price = "Price per day is required";
+
+// err.title = "Validation Error";
+// err.message = "Validation Error";
+// err.status = 400;
+// return next(err);
+
+
 // Add an Image to a Spot based on the Spot's id
 router.post('/:spotId/images', requireAuth, async (req, res) => {
     const { url, preview } = req.body;
@@ -212,7 +267,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
 
 // Edit a Spot
-router.put('/:spotId', requireAuth, async (req, res) => {
+router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
     const spot = await Spot.findByPk(req.params.spotId);
@@ -225,46 +280,44 @@ router.put('/:spotId', requireAuth, async (req, res) => {
     }
 
     if (spot.ownerId === req.user.id) {
-        if (address && city && state && country && lat && lng && name && description && price) {
-            spot.address = address;
-            spot.city = city;
-            spot.state = state;
-            spot.country = country;
-            spot.lat = lat;
-            spot.lng = lng;
-            spot.name = name;
-            spot.description = description;
-            spot.price = price;
+        if (address) spot.address = address;
+        if (city) spot.city = city;
+        if (state) spot.state = state;
+        if (country) spot.country = country;
+        if (lat) spot.lat = lat;
+        if (lng) spot.lng = lng;
+        if (name) spot.name = name;
+        if (description) spot.description = description;
+        if (price) spot.price = price;
 
-            await spot.save();
-            return res.json(spot);
+        await spot.save();
+        return res.json(spot);
 
-        } else if (spot.ownerId !== req.user.id) {
-            return res.status(403).json({
-                message: "You do not have authorization to edit this spot",
-                statusCode: 403
-            })
+    } else if (spot.ownerId !== req.user.id) {
+        return res.status(403).json({
+            message: "You do not have authorization to edit this spot",
+            statusCode: 403
+        })
 
-        } else {
+    } else {
 
-            const errors = {};
+        const errors = {};
 
-            if (!address) errors.address = "Street address is required";
-            if (!city) errors.city = "City is required";
-            if (!state) errors.state = "State is required";
-            if (!country) errors.country = "Country is required";
-            if (!lat) errors.lat = "Latitude is not valid";
-            if (!lng) errors.lng = "Longitude is not valid";
-            if (!name) errors.name = "Name must be less than 50 characters";
-            if (!description) errors.description = "Description is required";
-            if (!price) errors.price = "Price per day is required";
+        if (!address) errors.address = "Street address is required";
+        if (!city) errors.city = "City is required";
+        if (!state) errors.state = "State is required";
+        if (!country) errors.country = "Country is required";
+        if (!lat) errors.lat = "Latitude is not valid";
+        if (!lng) errors.lng = "Longitude is not valid";
+        if (!name) errors.name = "Name must be less than 50 characters";
+        if (!description) errors.description = "Description is required";
+        if (!price) errors.price = "Price per day is required";
 
-            return res.status(400).json({
-                message: "Validation Error",
-                statusCode: 400,
-                errors
-            })
-        }
+        return res.status(400).json({
+            message: "Validation Error",
+            statusCode: 400,
+            errors
+        })
     }
 })
 

@@ -35,11 +35,18 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('password3')
       },
       {
-        username: 'marksmith',
-        email: 'marksmith@gmail.com',
-        firstName: 'Mark',
-        lastName: 'Smith',
-        hashedPassword: bcrypt.hashSync('password4')
+        username: 'johnlee',
+        email: 'johnlee@gmail.com',
+        firstName: 'John',
+        lastName: 'Lee',
+        hashedPassword: bcrypt.hashSync('password8')
+      },
+      {
+        username: 'janelee',
+        email: 'janelee@gmail.com',
+        firstName: 'Jane',
+        lastName: 'Lee',
+        hashedPassword: bcrypt.hashSync('password9')
       },
       {
         username: 'susanware',
@@ -49,10 +56,10 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('password5')
       },
       {
-        username: 'sunglee',
-        email: 'sunglee@gmail.com',
-        firstName: 'Sung',
-        lastName: 'Lee',
+        username: 'mikeware',
+        email: 'mikeware@gmail.com',
+        firstName: 'Mike',
+        lastName: 'Ware',
         hashedPassword: bcrypt.hashSync('password6')
       },
       {
@@ -63,26 +70,19 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('password7')
       },
       {
-        username: 'johnsmith',
-        email: 'johnsmith@gmail.com',
-        firstName: 'John',
-        lastName: 'Smith',
-        hashedPassword: bcrypt.hashSync('password8')
-      },
-      {
-        username: 'janedoe',
-        email: 'janedoe@gmail.com',
-        firstName: 'Jane',
-        lastName: 'Doe',
-        hashedPassword: bcrypt.hashSync('password9')
-      },
-      {
-        username: 'janedoe2',
-        email: 'janedoe2@gmail.com',
-        firstName: 'Jane',
-        lastName: 'Doe',
+        username: 'davidrogers',
+        email: 'davidrogers@gmail.com',
+        firstName: 'David',
+        lastName: 'Rogers',
         hashedPassword: bcrypt.hashSync('password10')
-      }
+      },
+      {
+        username: 'marksmith',
+        email: 'marksmith@gmail.com',
+        firstName: 'Mark',
+        lastName: 'Smith',
+        hashedPassword: bcrypt.hashSync('password4')
+      },
     ]);
   },
 

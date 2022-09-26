@@ -7,9 +7,6 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 const { next } = require('cli');
 
 
-
-
-
 // Get all Reviews of the Current User
 router.get('/current', requireAuth, async (req, res) => {
     const reviews = await Review.findAll({ where: { userId: req.user.id } });
