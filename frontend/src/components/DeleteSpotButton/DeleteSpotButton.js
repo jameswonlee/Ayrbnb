@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
 import { deleteSpot } from '../../store/spots';
 import { Modal } from "../../context/Modal";
 import './DeleteSpot.css'
 
 
-
 function DeleteSpotButton() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const spot = useSelector(state => state.spots.spotById);
+    const { spotId } = useParams();    
     const [shown, setShown] = useState(false);
 
     const showModal = () => {
@@ -22,13 +21,13 @@ function DeleteSpotButton() {
     }
 
     const deleteClickHandler = (e) => {
-        dispatch(deleteSpot(spot.id));
+        dispatch(deleteSpot(spotId));
         alert('Spot successfully deleted');
         history.push('/');
     }
 
     return (
-        <div className="delete-button-wrapper">
+        <div className="delete-button-content">
             <button className="delete-button" onClick={showModal}>
                 Delete Spot
             </button>

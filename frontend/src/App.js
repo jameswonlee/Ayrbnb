@@ -29,6 +29,9 @@ function App() {
             <Route path='/'>
               <DisplayAllSpots />
             </Route>
+            <Route>
+              Page Not Found!
+            </Route>
           </Switch>
         )}
       </main>

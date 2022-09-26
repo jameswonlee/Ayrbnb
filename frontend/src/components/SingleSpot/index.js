@@ -15,8 +15,7 @@ function SingleSpot() {
     const spot = useSelector(state => state.spots.spots[spotId]);
     const reviews = useSelector(state => state.reviews.reviews);
     const reviewCount = Object.keys(reviews).length;
-    console.log('reviewsCount', reviewCount);
-    console.log('spot', spot)
+    // console.log('reviewsCount', reviewCount);
 
     useEffect(async () => {
         const spot = await dispatch(getSpotById(spotId));
@@ -41,8 +40,7 @@ function SingleSpot() {
                 ))}
             </div>
             <div>
-                <h2>Entire home hosted by {spot.Owner.firstName}</h2>
-                <p>10 guests • 5 bedrooms • 5 beds • 6.5 baths</p>
+                <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
             </div>
             <div className="description">
                 <p>{spot.description}</p>

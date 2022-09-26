@@ -163,6 +163,10 @@ const spotsReducer = (state = initialState, action) => {
             spot.SpotImages.push(action.spotImage)
             newState = { ...state, spots: { ...state.spots, [action.spotId]:spot }}
             return newState;
+        case REMOVE_SPOT:
+            newState = { ...state, spots: { ...state.spots }};
+            delete newState.spots[action.spot];
+            return newState;
         default:
             return state;
     }

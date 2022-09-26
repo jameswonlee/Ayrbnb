@@ -15,7 +15,7 @@ function UpdateSpotFormModule() {
             <button onClick={clickHandler}>Edit Your Listing</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <UpdateSpotForm />
+                    <UpdateSpotForm setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>

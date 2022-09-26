@@ -34,6 +34,7 @@ function AddSpotForm() {
         }
         
         const spot = await dispatch(createSpot(newSpotDetails));
+        
         if (spot) {
             await dispatch(addImageToSpot(spot.id, url, true));
             history.push(`/spots/${spot.id}`);
