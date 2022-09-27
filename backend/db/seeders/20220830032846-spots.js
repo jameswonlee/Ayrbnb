@@ -106,7 +106,7 @@ module.exports = {
       lat: 36.83674,
       lng: 117.98283,
       name: 'Hollywood Home',
-      description: 'Modern home on the hill',
+      description: 'Home on the hill',
       price: 2620.00
     },
     {
@@ -118,7 +118,7 @@ module.exports = {
       lat: 36.48575,
       lng: 118.92837,
       name: 'WeHo Villa',
-      description: 'Modern Private Villa',
+      description: 'Private Villa',
       price: 1290.00
     },
     {

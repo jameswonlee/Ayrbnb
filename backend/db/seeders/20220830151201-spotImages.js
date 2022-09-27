@@ -149,7 +149,7 @@ module.exports = {
     },
     {
       spotId: 6,
-      url: "https://a0.muscache.com/im/pictures/fa66c733-f094-489e-9c5b-9994e8a61e2f.jpg?",
+      url: "https://a0.muscache.com/im/pictures/922f1d1d-a519-4fe6-88d1-c3ebe646a185.jpg?",
       preview: false
     },
     {
@@ -199,7 +199,7 @@ module.exports = {
     },
     {
       spotId: 8,
-      url: "https://a0.muscache.com/im/pictures/e3aba5f7-f7f3-44c0-b389-cc46530f8862.jpg?im_w=1440",
+      url: "https://a0.muscache.com/im/pictures/e3aba5f7-f7f3-44c0-b389-cc46530f8862.jpg?",
       preview: false
     },
     {
