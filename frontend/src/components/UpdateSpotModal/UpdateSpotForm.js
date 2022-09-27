@@ -23,8 +23,6 @@ function UpdateSpotForm({ setShowModal }) {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        setValidationErrors([]);
-
         const errors = [];
 
         if (name.length >= 50) errors.push("Name must be less than 50 characters");
@@ -33,7 +31,7 @@ function UpdateSpotForm({ setShowModal }) {
 
         setValidationErrors(errors);
 
-        if (validationErrors.length === 0) {
+        if (errors.length === 0) {
             const newSpotData = {
                 address,
                 city,
@@ -49,7 +47,7 @@ function UpdateSpotForm({ setShowModal }) {
             if (updatedSpot) {
                 alert("Spot successfully updated!");
                 setShowModal(false)
-                history.replace(`/spots/${updatedSpot.id}`);
+                // history.push(`/spots/${updatedSpot.id}`);
             }
         }
     }
@@ -65,58 +63,84 @@ function UpdateSpotForm({ setShowModal }) {
                     )}
                 <input
                     type="text"
-                    onChange={e => setAddress(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setAddress(e.target.value)
+                    }}
                     value={address}
                     placeholder="Address" />
                 <input
                     type="text"
-                    onChange={e => setCity(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setCity(e.target.value)
+                    }}
                     value={city}
                     placeholder="City" />
                 <input
                     type="text"
-                    onChange={e => setState(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setState(e.target.value)
+                    }}
                     value={state}
                     placeholder="State" />
                 <input
                     type="text"
-                    onChange={e => setCountry(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setCountry(e.target.value)
+                    }}
                     value={country}
                     placeholder="Country" />
                 <input
                     type="number"
-                    onChange={e => setLat(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setLat(e.target.value)
+                    }}
                     value={lat}
                     step="0.00001"
                     placeholder="Latitude"
                 />
                 <input
                     type="number"
-                    onChange={e => setLng(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setLng(e.target.value)
+                    }}
                     value={lng}
                     placeholder="Longitude"
                 />
                 <input
                     type="text"
-                    onChange={e => setName(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setName(e.target.value)
+                    }}
                     value={name}
                     placeholder="Spot Name" />
                 <input
                     type="text"
-                    onChange={e => setDescription(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setDescription(e.target.value)
+                    }}
                     value={description}
                     placeholder="Description" />
                 <input
                     type="number"
-                    onChange={e => setPrice(e.target.value)}
+                    onChange={e => {
+                        setValidationErrors([]);
+                        setPrice(e.target.value)
+                    }}
                     value={price}
                     step="0.01"
                     placeholder="Price"
                 />
                 <button
                     disabled={!!validationErrors.length}
-                    className="submit-button"
-                >
+                    className="submit-button">
                     Submit
                 </button>
             </form>
