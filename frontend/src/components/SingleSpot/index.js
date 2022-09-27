@@ -16,6 +16,8 @@ function SingleSpot() {
     const reviews = useSelector(state => state.reviews.reviews);
     const reviewCount = Object.keys(reviews).length;
     const [notFound, setNotFound] = useState(false);
+    console.log('reviews', reviews);
+    console.log('sessionUser', sessionUser)
 
     const doEffect = async () => {
         try {
@@ -58,7 +60,7 @@ function SingleSpot() {
                     <div className="price">
                         <p>${spot.price} night</p>
                     </div>
-                    <div className="reviews-outer">
+                    <div className="outer-container">
                         <div className="avgRating-reviewcount">
                             ★{spot.avgStarRating} • {reviewCount} reviews
                         </div>
@@ -72,8 +74,6 @@ function SingleSpot() {
                             <div><DeleteSpotButton /></div>
                         </div>
                     }
-                    <div>
-                    </div>
                 </div>
             )}
             {notFound && <h1>PAGE NOT FOUND</h1>}

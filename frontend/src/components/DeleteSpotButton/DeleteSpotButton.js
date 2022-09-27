@@ -33,13 +33,13 @@ function DeleteSpotButton() {
             </button>
             {shown &&
                 <Modal onClose={hideModal}>
-                    <div className="dropdown">Are you sure you want to delete this spot?
+                    <div className="confirm-delete">Are you sure you want to delete this spot?
                         This action can't be undone.
-                        <div className='delete-buttons'>
-                            <button onClick={deleteClickHandler}>
+                        <div className='buttons'>
+                            <button className="delete-button" onClick={deleteClickHandler}>
                                 Confirm Delete
                             </button>
-                            <button onClick={hideModal}>
+                            <button className="cancel-button" onClick={hideModal}>
                                 Cancel
                             </button>
                         </div>

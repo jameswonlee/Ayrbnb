@@ -74,6 +74,7 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 
     if (response.ok) {
         const message = await response.json();
+        // console.log('message', message)
         dispatch(removeReview(reviewId));
         return message;
     }
@@ -95,6 +96,10 @@ const reviewsReducer = (state = initialState, action) => {
             // console.log('reviews', action.reviews)
             newState = { ...state, reviews: newReviews };
             // console.log('newState', newState)
+            return newState;
+        case REMOVE_REVIEW:
+            newState = { ...state, reviews: state.reviews };
+            delete newState.reviews[action.reviewId];
             return newState;
         default:
             return state;

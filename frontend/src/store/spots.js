@@ -51,7 +51,7 @@ const updateSpot = (updatedSpot) => {
 const removeSpot = (spotId) => {
     return {
         type: REMOVE_SPOT,
-        spot: spotId
+        spotId: spotId
     }
 }
 
@@ -176,7 +176,7 @@ const spotsReducer = (state = initialState, action) => {
             return newState;
         case REMOVE_SPOT:
             newState = { ...state, spots: { ...state.spots } };
-            delete newState.spots[action.spot];
+            delete newState.spots[action.spotId];
             return newState;
         default:
             return state;
