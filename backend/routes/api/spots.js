@@ -78,8 +78,8 @@ router.get('/', async (req, res) => {
             where: {
                 spotId: spot.id
             },
-            attributes: [[sequelize.fn('ROUND', sequelize.fn('AVG', sequelize.col('stars'))), 'avgRating']],
-            // attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']],
+            // attributes: [[sequelize.fn('ROUND', sequelize.fn('AVG', sequelize.col('stars'))), 'avgRating']],
+            attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']],
             raw: true
         });
 
@@ -159,7 +159,6 @@ router.get('/:spotId', async (req, res) => {
             statusCode: 404
         })
     }
-
     spot = spot.toJSON();
 
     spot.numReviews = await Review.count({ where: { spotId: spot.id } });

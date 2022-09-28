@@ -132,6 +132,18 @@ module.exports = {
       name: 'Alfred',
       description: 'Modern Alfred Villa w Pool, Spa, and Gym',
       price: 1499.00
+    },
+    {
+      ownerId: 1,
+      address: '2020 Mulholland Dr',
+      city: 'Los Angeles',
+      state: 'CA',
+      country: 'United States',
+      lat: 35.83746,
+      lng: 117.73646,
+      name: 'Premier Villa',
+      description: "Multi-Million Mulholland Dr Getaway w/ infinity pool",
+      price: 1624.00
     }
     
     
