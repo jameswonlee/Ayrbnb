@@ -16,8 +16,6 @@ function SingleSpot() {
     const reviews = useSelector(state => state.reviews.reviews);
     const reviewCount = Object.keys(reviews).length;
     const [notFound, setNotFound] = useState(false);
-    console.log('reviews', reviews);
-    console.log('sessionUser', sessionUser)
 
     const doEffect = async () => {
         try {
@@ -42,17 +40,17 @@ function SingleSpot() {
                         <h2>{spot.name}</h2>
                     </div>
                     <div className="stars-reviews-location">
-                        <p>★{spot.avgStarRating}</p>
-                        <p>{reviewCount} reviews</p>
-                        <p>{spot.city}, {spot.state}, {spot.country}</p>
+                        <p>★{spot.avgStarRating} · {reviewCount} reviews · Superhost 
+                        · {spot.city}, {spot.state}, {spot.country}</p>
                     </div>
-                    <div>
+                    <div className="images">
                         {spot.SpotImages?.map(image => (
                             <img key={image.id} src={image.url} />
                         ))}
                     </div>
-                    <div>
+                    <div className="under-image-details">
                         <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
+                        <p>8 guests · 5 bedrooms · 5 beds · 5.5 baths</p>
                     </div>
                     <div className="description">
                         <p>{spot.description}</p>
@@ -60,11 +58,11 @@ function SingleSpot() {
                     <div className="price">
                         <p>${spot.price} night</p>
                     </div>
-                    <div className="outer-container">
+                    <div className="review-outer-container">
                         <div className="avgRating-reviewcount">
-                            ★{spot.avgStarRating} • {reviewCount} reviews
+                            ★{Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
                         </div>
-                        <div>
+                        <div className="reviews">
                             <ReviewsForSpot spot={spot} />
                         </div>
                     </div>

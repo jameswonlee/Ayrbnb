@@ -116,7 +116,7 @@ function AddSpotForm() {
                     type="text"
                     onChange={e => setUrl(e.target.value)}
                     value={url}
-                    placeholder="Url" />
+                    placeholder="Image Url" />
                 <button
                     disabled={!!validationErrors.length}
                     className="create-spot-button">

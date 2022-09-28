@@ -31,7 +31,7 @@ function ReviewsForSpot() {
                         <div key={review.id} className="review">
                             {review.review}
                             {sessionUser.id === review.User.id &&
-                                <div>
+                                <div className="delete-modal">
                                     <DeleteReviewModal review={review}/>
                                 </div>
                             }
