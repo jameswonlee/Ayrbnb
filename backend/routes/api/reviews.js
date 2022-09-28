@@ -105,7 +105,7 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
 
 
 // Edit a Review 
-router.put('/:reviewId', requireAuth, async (req, res) => {
+router.put('/:reviewId', requireAuth, async (req, res, next) => {
     const { review, stars } = req.body;
 
     const editReview = await Review.findByPk(req.params.reviewId);
@@ -127,16 +127,16 @@ router.put('/:reviewId', requireAuth, async (req, res) => {
             return res.json(editReview)
 
         } else {
-            const errors = {};
+            const err = {};
+            err.errors = {};
 
-            if (!review) errors.review = "Review text is required";
-            if (!stars) errors.stars = "Stars must be an integer from 1 to 5";
+            if (!review) err.errors.review = "Review text is required";
+            if (!stars) err.errors.stars = "Stars must be an integer from 1 to 5";
 
-            return res.status(400).json({
-                message: "Validation error",
-                statusCode: 400,
-                errors
-            })
+            err.title = "Validation Error",
+            err.message = "Validation Error",
+            err.status = 400;
+            return next(err);
         }
 
     } else {
