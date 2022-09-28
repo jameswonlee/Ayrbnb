@@ -16,6 +16,24 @@ module.exports = {
       spotId: 1,
       userId: 10,
       review: "Lovely home in West Hollywood!",
+      stars: 4
+    },
+    {
+      spotId: 1,
+      userId: 9,
+      review: "This place was awesome!",
+      stars: 5
+    },
+    {
+      spotId: 1,
+      userId: 8,
+      review: "Amazing!",
+      stars: 5
+    },
+    {
+      spotId: 1,
+      userId: 7,
+      review: "Excellent location and amazing views!",
       stars: 5
     },
     {

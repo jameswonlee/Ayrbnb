@@ -81,7 +81,9 @@ router.get('/', async (req, res) => {
             where: {
                 spotId: spot.id
             },
-            attributes: [[sequelize.fn('ROUND', sequelize.fn('AVG', sequelize.col('stars'))), 'avgRating']],
+            // Removed 'ROUND' in order for front-end project to display avgRating to decimal points
+            // attributes: [[sequelize.fn('ROUND', sequelize.fn('AVG', sequelize.col('stars'))), 'avgRating']],
+            attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']],
             raw: true
         });
 
@@ -161,10 +163,12 @@ router.get('/:spotId', async (req, res) => {
         })
     }
 
+    
     spot = spot.toJSON();
-
     spot.numReviews = await Review.count({ where: { spotId: spot.id } });
-    spot.avgStarRating = await Review.sum('stars', { where: { spotId: spot.id } });
+    const reviewSum = await Review.sum('stars', { where: { spotId: spot.id } });
+    
+    spot.avgStarRating = reviewSum/spot.numReviews;
 
     return res.json(spot);
 });
