@@ -6,6 +6,7 @@ import ReviewsForSpot from '../Reviews';
 import UpdateSpotFormModal from '../UpdateSpotModal/UpdateSpotFormModal';
 import DeleteSpotButton from '../DeleteSpotButton/DeleteSpotButton';
 import { getReviewsBySpotId } from '../../store/reviews';
+import CreateReviewModal from '../CreateReview/CreateReviewModal';
 
 
 function SingleSpot() {
@@ -40,8 +41,8 @@ function SingleSpot() {
                         <h2>{spot.name}</h2>
                     </div>
                     <div className="stars-reviews-location">
-                        <p>★{spot.avgStarRating} · {reviewCount} reviews · Superhost 
-                        · {spot.city}, {spot.state}, {spot.country}</p>
+                        <p>★{spot.avgStarRating} · {reviewCount} reviews · Superhost
+                            · {spot.city}, {spot.state}, {spot.country}</p>
                     </div>
                     <div className="images">
                         {spot.SpotImages?.map(image => (
@@ -61,6 +62,9 @@ function SingleSpot() {
                     <div className="review-outer-container">
                         <div className="avgRating-reviewcount">
                             ★{Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
+                        </div>
+                        <div>
+                            <CreateReviewModal spot={spot}/>
                         </div>
                         <div className="reviews">
                             <ReviewsForSpot spot={spot} />
