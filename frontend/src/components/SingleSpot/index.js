@@ -17,6 +17,7 @@ function SingleSpot() {
     const reviews = useSelector(state => state.reviews.reviews);
     const reviewCount = Object.keys(reviews).length;
     const [notFound, setNotFound] = useState(false);
+    console.log('sessionUser', sessionUser)
 
     const doEffect = async () => {
         try {
@@ -63,9 +64,11 @@ function SingleSpot() {
                         <div className="avgRating-reviewcount">
                             ★{Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
                         </div>
-                        <div>
-                            <CreateReviewModal spot={spot}/>
-                        </div>
+                        {sessionUser && spot.Owner?.id !== sessionUser.id &&
+                            <div>
+                                <CreateReviewModal spot={spot} />
+                            </div>
+                        }
                         <div className="reviews">
                             <ReviewsForSpot spot={spot} />
                         </div>
