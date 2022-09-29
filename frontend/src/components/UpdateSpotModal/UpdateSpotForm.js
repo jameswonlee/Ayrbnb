@@ -25,13 +25,19 @@ function UpdateSpotForm({ setShowModal }) {
         e.preventDefault();
         const errors = [];
 
-        if (name.length >= 50) errors.push("Name must be less than 50 characters");
-        if (lat < -90 || lat > 90) errors.push("Latitude must be between -90.0 and 90.0");
-        if (lng < -180 || lng > 180) errors.push("Longitude must be between -180.0 and 180.0");
+        if (!address.length) errors.push("Address is required");
+        if (!city.length) errors.push("City is required");
+        if (!state.length) errors.push("State is required");
+        if (!country.length) errors.push("Country is required");
+        if (!lat || lat < -90 || lat > 90) errors.push("Latitude must be between -90.0 and 90.0");
+        if (!lng || lng < -180 || lng > 180) errors.push("Longitude must be between -180.0 and 180.0");
+        if (!name.length) errors.push("Name is required");
+        if (!description.length) errors.push("Description is required");
+        if (!price) errors.push("Price is required");
 
         setValidationErrors(errors);
 
-        if (errors.length === 0) {
+        if (!errors.length) {
             const newSpotData = {
                 address,
                 city,
