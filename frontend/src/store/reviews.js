@@ -48,7 +48,7 @@ export const getReviewsBySpotId = (spotId) => async (dispatch) => {
 
     if (response.ok) {
         const reviews = await response.json();
-        // console.log('reviews', reviews)
+        console.log('getReviewBySpotId ----- >reviews', reviews)
         dispatch(loadReviews(reviews.Reviews));
         return reviews;
     }
@@ -111,8 +111,8 @@ const reviewsReducer = (state = initialState, action) => {
             newState = {
                 ...state,
                 reviews: {
-                    ...state.reviews, [action.review.id]: { 
-                        ...action.review, 
+                    ...state.reviews, [action.review.id]: {
+                        ...action.review,
                         User: action.user
                     }
                 }
