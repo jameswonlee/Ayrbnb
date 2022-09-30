@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createReviewForSpot } from '../../store/reviews';
 import './CreateReviewForm.css';
@@ -6,12 +6,13 @@ import './CreateReviewForm.css';
 
 function CreateReviewForm({ spot, setShowModal }) {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
 
     const [review, setReview] = useState("");
     const [stars, setStars] = useState("");
     const [validationErrors, setValidationErrors] = useState([]);
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         const errors = [];
 
@@ -21,9 +22,18 @@ function CreateReviewForm({ spot, setShowModal }) {
         setValidationErrors(errors);
 
         if (!errors.length) {
-            dispatch(createReviewForSpot(review, stars, spot.id));
-            alert("Review successfully created!");
-            setShowModal(false);
+            try {
+                await dispatch(createReviewForSpot(review, stars, spot.id, sessionUser));
+                alert("Review successfully created!");
+                setShowModal(false);
+            } catch(e) {
+                // console.log('e.json', e.json)
+                const response = await e.json();
+                // console.log('response', response);
+                const otherErrors = errors.slice();
+                otherErrors.push(response.message);
+                setValidationErrors(otherErrors);
+            }
         }
     }
 

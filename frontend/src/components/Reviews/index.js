@@ -9,8 +9,10 @@ function ReviewsForSpot() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
+    // console.log('sessionUser', sessionUser)
     const reviewsData = useSelector(state => state.reviews.reviews);
     const reviews = Object.values(reviewsData);
+    // console.log('reviews', reviews)
 
     useEffect(() => {
         dispatch(getReviewsBySpotId(spotId))
@@ -20,12 +22,12 @@ function ReviewsForSpot() {
     return (
         <div className="reviews-outer-container">
             <div className="reviews">{reviews.map(review => (
-                <div className="reviews">
+                <div key={review.id} className="reviews">
                     <div className="user-name">
                         {review.User.firstName}
-                        <div key={review.id} className="review">
+                        <div className="review">
                             {review.review}
-                            {sessionUser.id === review.User.id &&
+                            {sessionUser?.id === review.User.id &&
                                 <div className="delete-modal">
                                     <DeleteReviewModal review={review}/>
                                 </div>
