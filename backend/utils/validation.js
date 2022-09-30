@@ -23,6 +23,11 @@ const handleValidationErrors = (req, _res, next) => {
             .array()
             .map((error) => `${error.msg}`);
 
+        // const errorsObj = {};
+        // validationErrors.array().forEach(error => {
+        //     errorsObj[error.title] = error.msg;
+        // });
+
         const err = Error('Validation error');
         err.errors = errors;
         err.status = 400;

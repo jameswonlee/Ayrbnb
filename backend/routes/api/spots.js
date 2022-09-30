@@ -189,6 +189,7 @@ router.post('/', requireAuth, validateSpot, async (req, res, next) => {
             description,
             price
         })
+        
         res.status(201).json(newSpot);
 
     // } else {
