@@ -69,7 +69,7 @@ function SingleSpot() {
                             </div>
                         }
                         <div className="reviews">
-                            <ReviewsForSpot spot={spot} />
+                            <ReviewsForSpot reviews={reviews} spot={spot} />
                         </div>
                     </div>
                     {sessionUser && spot.ownerId === sessionUser.id &&

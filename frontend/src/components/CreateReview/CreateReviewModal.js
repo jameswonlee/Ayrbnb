@@ -18,8 +18,6 @@ function CreateReviewModal({ spot }) {
                     <CreateReviewForm setShowModal={setShowModal} spot={spot}/>
                 </Modal>
             )}
-
-
         </div>
     )
 }

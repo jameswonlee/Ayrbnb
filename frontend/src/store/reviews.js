@@ -48,7 +48,7 @@ export const getReviewsBySpotId = (spotId) => async (dispatch) => {
 
     if (response.ok) {
         const reviews = await response.json();
-        console.log('getReviewBySpotId ----- >reviews', reviews)
+        // console.log('getReviewBySpotId ----- >reviews', reviews)
         dispatch(loadReviews(reviews.Reviews));
         return reviews;
     }

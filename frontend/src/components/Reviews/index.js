@@ -9,18 +9,18 @@ function ReviewsForSpot() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    // console.log('sessionUser', sessionUser)
     const reviewsData = useSelector(state => state.reviews.reviews, (left, right) => {
 
         if (JSON.stringify(left) != JSON.stringify(right)) {
-            console.log("States are different", { left, right })
+            // console.log("States are different", { left, right })
             return false
         } else {
-            console.log("States are the same", { left, right })
-
+            // console.log("States are the same", { left, right })
             return true;
         }
     });
+    // console.log('reviewsData', reviewsData)
+
     const reviews = Object.values(reviewsData);
 
     useEffect(() => {
@@ -30,8 +30,7 @@ function ReviewsForSpot() {
 
     return (
         <div className="reviews-outer-container">
-            {console.log({ reviewsData })}
-            <div className="reviews">{Object.values(reviewsData).map(review => (
+            <div className="reviews">{reviews.map(review => (
                 <div key={review.id} className="reviews">
                     <div className="user-name">
                         {review.User.firstName}
