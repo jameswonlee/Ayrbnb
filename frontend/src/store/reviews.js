@@ -91,23 +91,37 @@ const initialState = { reviews: {}, reviewById: null };
 const reviewsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case LOAD_REVIEWS:
+        case LOAD_REVIEWS: {
             let newReviews = {};
             action.reviews.forEach(review => newReviews[review.id] = review)
-            // console.log('reviews', action.reviews)
             newState = { ...state, reviews: newReviews };
-            // console.log('newState', newState)
             return newState;
+        }
         case REMOVE_REVIEW:
-            newState = { ...state };
-            // console.log('state', state)
-            delete newState.reviews[action.reviewId];
-            // console.log('newState2', newState)
-            // console.log('newState', newState)
+            // This delete causes bugs in STATE:
+            // delete newState.reviews[action.reviewId];
+
+            // Alternative remove method:
+            const { [action.reviewId]: deletedReview, ...rest } = state.reviews;
+            newState = {
+                ...state,
+                reviews: rest
+            }
+
+            // Alternative remove method2:
+            // let newReviews = {};
+            // const reviewIdKeys = Object.keys(newState.reviews);
+            // const filteredReviewIdKeys = reviewIdKeys.filter((reviewId) => {
+            //     return reviewId != action.reviewId
+            // });
+            // filteredReviewIdKeys.forEach(reviewIdKey => {
+            //     newReviews[reviewIdKey] = newState.reviews[reviewIdKey]
+            // })
+            // newState = { ...state, reviews: newReviews}
+
             return newState;
         case ADD_REVIEW:
             newState = { ...state }
-            // console.log('newState3', newState)
             newState = {
                 ...state,
                 reviews: {
@@ -117,8 +131,6 @@ const reviewsReducer = (state = initialState, action) => {
                     }
                 }
             }
-            // console.log('newState4', newState)
-            // console.log('ADD REVIEW - newState', newState)
             return newState;
         default:
             return state;

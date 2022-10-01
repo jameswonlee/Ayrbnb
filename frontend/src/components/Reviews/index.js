@@ -8,17 +8,10 @@ import DeleteReviewModal from "./DeleteReviewModal";
 function ReviewsForSpot() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
+    const reduxState = useSelector(state => state)
+    // console.log('reduxState', reduxState)
     const sessionUser = useSelector(state => state.session.user);
-    const reviewsData = useSelector(state => state.reviews.reviews, (left, right) => {
-
-        if (JSON.stringify(left) != JSON.stringify(right)) {
-            // console.log("States are different", { left, right })
-            return false
-        } else {
-            // console.log("States are the same", { left, right })
-            return true;
-        }
-    });
+    const reviewsData = useSelector(state => state.reviews.reviews);
     // console.log('reviewsData', reviewsData)
 
     const reviews = Object.values(reviewsData);

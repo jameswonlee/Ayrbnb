@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import AddSpotFormModal from '../AddSpotFormModal/AddSpotFormModal';
 import './Navigation.css';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -24,9 +25,14 @@ function Navigation({ isLoaded }){
 
   return (
     <ul>
-      <li>
+      <li className="navigation-menu">
         <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
+        <div className="menu">
+          <div className="become-a-host">
+            <AddSpotFormModal />
+          </div>
+          {isLoaded && sessionLinks}
+        </div>
       </li>
     </ul>
   );

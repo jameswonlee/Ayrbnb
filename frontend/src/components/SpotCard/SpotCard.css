@@ -1,3 +1,7 @@
 .preview-image {
     height: 200px;
 }
+
+.city-price p {
+    margin: 10px 0px;
+}

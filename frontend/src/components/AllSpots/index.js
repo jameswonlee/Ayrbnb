@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllSpots } from '../../store/spots';
 import SpotCard from '../SpotCard';
-import AddSpotFormModal from '../AddSpotFormModal/AddSpotFormModal';
 import './AllSpots.css'
 
 
@@ -19,9 +18,7 @@ function DisplayAllSpots() {
 
     return (
         <div className="content-wrapper">
-            <div className="become-a-host">
-                <AddSpotFormModal />
-            </div>
+           
             <h1>Spots List</h1>
             <div className="all-spots">
                 <div className='spot-cards'>

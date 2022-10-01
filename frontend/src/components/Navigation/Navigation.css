@@ -1,0 +1,21 @@
+.navigation-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-dropdown {
+    position: absolute;
+    right: 1%;
+    bottom: 1%;
+    top: 8%;
+    height: 100px;
+    width: 200px;
+}
+
+.menu {
+    display: flex;
+}
+
+.become-a-host {
+    margin-right: 25px;
+}
