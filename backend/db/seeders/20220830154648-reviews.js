@@ -263,7 +263,121 @@ module.exports = {
       review: "This spot has amazing views!",
       stars: 5
     },
-    
+    {
+      spotId: 11,
+      userId: 9,
+      review: "Such a nice home with amazing pool",
+      stars: 5
+    },
+    {
+      spotId: 11,
+      userId: 2,
+      review: "My family and I had a wonderful time at this home",
+      stars: 5
+    },
+    {
+      spotId: 11,
+      userId: 4,
+      review: "My favorite part about the home was the firepit!",
+      stars: 5
+    },
+    {
+      spotId: 12,
+      userId: 6,
+      review: "The ultimate luxury home.",
+      stars: 5,
+    },
+    {
+      spotId: 12,
+      userId: 8,
+      review: "The most amazing home gym!",
+      stars: 5
+    },
+    {
+      spotId: 12,
+      userId: 5,
+      review: "Nice open floorplan. Good for entertaining.",
+      stars: 4
+    },
+    {
+      spotId: 12,
+      userId: 7,
+      review: "Loved everything about this home!",
+      stars: 5
+    },
+    {
+      spotId: 13,
+      userId: 8,
+      review: "Loved the minimalistic style.",
+      stars: 4
+    },
+    {
+      spotId: 13,
+      userId: 9,
+      review: "The views were spectacular. I could see from DTLA to the ocean!",
+      stars: 5
+    },
+    {
+      spotId: 13,
+      userId: 10,
+      review: "Modern home with amazing views!",
+      stars: 5
+    },
+    {
+      spotId: 13,
+      userId: 4,
+      review: "This house is exceptional and made for the perfect weekend getaway!",
+      stars: 5
+    },
+    {
+      spotId: 14,
+      userId: 2,
+      review: "The host was very helpful and great at communicating",
+      stars: 5
+    },
+    {
+      spotId: 14,
+      userId: 1,
+      review: "Great location in Hollywood",
+      stars: 4
+    },
+    {
+      spotId: 14,
+      userId: 5,
+      review: "The infinity pool is amazing!",
+      stars: 5
+    },
+    {
+      spotId: 14,
+      userId: 3,
+      review: "Amazing views!",
+      stars: 5
+    },
+    {
+      spotId: 15,
+      userId: 6,
+      review: "The finest home in all of Beverly Hills!",
+      stars: 5
+    },
+    {
+      spotId: 15,
+      userId: 7,
+      review: "This home is totally worth the price",
+      stars: 5
+    },
+    {
+      spotId: 15,
+      userId: 8,
+      review: "I rent this home for my birthday every year and it never gets old!",
+      stars: 5
+    },
+    {
+      spotId: 15,
+      userId: 9,
+      review: "The walk in closets were insane!",
+      stars: 5
+    }
+  
    ])
   },
 

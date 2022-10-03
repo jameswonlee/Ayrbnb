@@ -144,6 +144,54 @@ module.exports = {
       name: 'Premier Villa',
       description: "Multi-Million Mulholland Dr Getaway w/ infinity pool",
       price: 1624.00
+    },
+    {
+      ownerId: 2,
+      address: '3480 Benedict Canyon Dr',
+      city: 'Los Angeles',
+      state: 'CA',
+      country: 'United States',
+      lat: 36.28748,
+      lng: 118.82736,
+      name: 'Luxury Home',
+      description: 'Modern 3-story estate in Franklin Hills',
+      price: 1717.00
+    },
+    {
+      ownerId: 3,
+      address: '2484 N Bedford Dr',
+      city: 'Beverly Hills',
+      state: 'CA',
+      country: 'United States',
+      lat: 35.73656,
+      lng: 117.18171,
+      name: 'Beverly Hills Villa',
+      description: 'Mid-century architectural home with sweeping DTLA to ocean views!',
+      price: 1439.00
+    },
+    {
+      ownerId: 4,
+      address: '9480 Hutton Dr',
+      city: 'Hollywood',
+      state: 'CA',
+      country: 'United States',
+      lat: 36.83746,
+      lng: 118.82747,
+      name: 'Hollywood Hills Sanctuary',
+      description: 'Sleek 3 level villa in the Hollywood Hills',
+      price: 2467.00
+    },
+    {
+      ownerId: 5,
+      address: '2484 Arby Dr',
+      city: 'Beverly Hills',
+      state: 'CA',
+      country: 'United States',
+      lat: 36.84756,
+      lng: 118.83747,
+      name: 'Lux Vacation Rental',
+      description: 'Beverly Hills Estate with Breathtaking Views',
+      price: 6500.00
     }
     
     
