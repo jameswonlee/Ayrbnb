@@ -3,7 +3,16 @@
     justify-content: space-between;
 }
 
-.profile-dropdown {
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100px;
+    width: 70px;
+    /* justify-content: space-between; */
+}
+
+.dropdown-menu {
     position: absolute;
     right: 1%;
     bottom: 1%;
@@ -19,3 +28,27 @@
 .become-a-host {
     margin-right: 25px;
 }
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    color: rgb(86, 84, 84);
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    box-shadow: 0 0 5px rgb(191, 190, 190);
+    box-shadow: 0 0 5px gray;
+}
+
+.user-menu:hover {
+    box-shadow: 1px 2px 8px gray;
+}
+
