@@ -21,7 +21,7 @@ function AddSpotFormModal() {
                 </button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <AddSpotForm />
+                        <AddSpotForm setShowModal={setShowModal}/>
                     </Modal>
                 )}
             </div>

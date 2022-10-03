@@ -1,7 +1,17 @@
+.outer-container {
+    width: 250px;
+}
+
 .preview-image {
-    height: 200px;
+    height: 250px;
+    width: 300px;
+    border-radius: 20px;
 }
 
 .city-price p {
     margin: 10px 0px;
+}
+
+.preview-spot-details-outer {
+    width: 250px;
 }

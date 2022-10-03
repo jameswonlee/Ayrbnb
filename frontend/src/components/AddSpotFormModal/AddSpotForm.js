@@ -4,7 +4,7 @@ import { addImageToSpot, createSpot } from '../../store/spots';
 import { useHistory } from 'react-router-dom';
 
 
-function AddSpotForm() {
+function AddSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -59,7 +59,8 @@ function AddSpotForm() {
             const spot = await dispatch(createSpot(newSpotDetails));
             if (spot) {
                 await dispatch(addImageToSpot(spot.id, url, true));
-                alert('Spot successfully created!')
+                setShowModal(false);
+                alert('Spot successfully created!');
                 history.push(`/spots/${spot.id}`);
             }
         }
