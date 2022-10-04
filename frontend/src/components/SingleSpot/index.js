@@ -7,6 +7,7 @@ import UpdateSpotFormModal from '../UpdateSpotModal/UpdateSpotFormModal';
 import DeleteSpotButton from '../DeleteSpotButton/DeleteSpotButton';
 import { getReviewsBySpotId } from '../../store/reviews';
 import CreateReviewModal from '../CreateReview/CreateReviewModal';
+import './SingleSpot.css';
 
 
 function SingleSpot() {
@@ -33,6 +34,7 @@ function SingleSpot() {
         doEffect();
     }, []);
 
+
     return (
         <>
             {spot && (
@@ -45,13 +47,21 @@ function SingleSpot() {
                             · {spot.city}, {spot.state}, {spot.country}</p>
                     </div>
                     <div className="images">
-                        {spot.SpotImages?.map(image => (
-                            <img key={image.id} src={image.url} />
-                        ))}
+                        {spot.SpotImages?.map((image, i) => {
+                            if (image.preview === true) return (
+                                <img className="spot-image" src={image.url} key={image.id} />
+                            );
+                        })}
+                        <div className="small-images">
+                            {spot.SpotImages?.map((image, i) => {
+                                if (image.preview !== true) return (
+                                    (<img key={image.id} className="image" src={image.url} />)
+                                )
+                            })}
+                        </div>
                     </div>
                     <div className="under-image-details">
                         <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
-                        <p>8 guests · 5 bedrooms · 5 beds · 5.5 baths</p>
                     </div>
                     <div className="description">
                         <p>{spot.description}</p>

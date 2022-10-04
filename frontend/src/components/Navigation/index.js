@@ -28,10 +28,13 @@ function Navigation({ isLoaded }) {
       <li className="navigation-menu">
         <NavLink exact to="/">Home</NavLink>
         <div className="menu">
-          <div className="become-a-host">
-            <AddSpotFormModal />
-          </div>
-          {isLoaded && sessionLinks}
+          {sessionUser &&
+            <div className="become-a-host">
+              <AddSpotFormModal />
+            </div>
+          }
+          {isLoaded &&
+            <ProfileButton user={sessionUser}/>}
         </div>
       </li>
     </ul>

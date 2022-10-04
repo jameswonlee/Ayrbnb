@@ -1,0 +1,26 @@
+/* .outer-container {
+    display: flex;
+} */
+
+.images {
+    display: flex;
+    /* grid-template-columns: repeat(4, 1fr); */
+    /* grid-template-rows: repeat(2, 1fr); */
+}
+
+.spot-image {
+    max-height: 510px;
+    width: 700px;
+}
+
+.image {
+    height: 250px;
+    width: 350px;
+}
+
+.small-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding-left: 10px;
+}

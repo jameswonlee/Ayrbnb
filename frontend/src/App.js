@@ -15,7 +15,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="center">
       <Navigation isLoaded={isLoaded} />
       <main>
         {isLoaded && (
@@ -35,8 +35,7 @@ function App() {
           </Switch>
         )}
       </main>
-
-    </>
+    </div>
   );
 }
 

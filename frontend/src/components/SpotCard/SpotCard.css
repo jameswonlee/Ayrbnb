@@ -1,5 +1,5 @@
 .outer-container {
-    width: 250px;
+    width: 300px;
 }
 
 .preview-image {
@@ -12,6 +12,17 @@
     margin: 10px 0px;
 }
 
-.preview-spot-details-outer {
-    width: 250px;
+.avg-rating p {
+    margin: 10px 0px;
 }
+
+.preview-spot-details-outer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* .avg-rating {
+    display: flex;
+    align-items: flex-end;;
+} */

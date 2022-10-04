@@ -23,7 +23,6 @@ function AddSpotForm({ setShowModal }) {
     const validImageTypes = ['jpg', 'jpeg', 'png', 'heic'];
     const imageUrl = url.split('.');
     const imageFileType = imageUrl[imageUrl.length - 1];
-    // console.log('imageFileType', imageFileType)
 
     const submitHandler = async (e) => {
         e.preventDefault();
