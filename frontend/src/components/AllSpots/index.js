@@ -10,7 +10,6 @@ function DisplayAllSpots() {
 
     const allSpots = useSelector(state => Object.values(state.spots.spots));
     // const sessionUser = useSelector(state => state.session.user);
-    // console.log('DisplayAllSpots --> allSpots', allSpots)
 
     useEffect(() => {
         dispatch(getAllSpots())
@@ -18,7 +17,7 @@ function DisplayAllSpots() {
 
     return (
         <div className="content-wrapper">
-            <h1>Spots List</h1>
+            {/* <h1>Spots List</h1> */}
             <div className="all-spots">
                 <div className='spot-cards'>
                     {allSpots.map(spot => (

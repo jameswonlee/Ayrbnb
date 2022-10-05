@@ -47,15 +47,16 @@ function SingleSpot() {
                             · {spot.city}, {spot.state}, {spot.country}</p>
                     </div>
                     <div className="images">
-                        {spot.SpotImages?.map((image, i) => {
+                        {spot.SpotImages?.map((image, index) => {
                             if (image.preview === true) return (
-                                <img className="spot-image" src={image.url} key={image.id} />
+                                <img className="main-image" src={image.url} key={image.id} />
                             );
                         })}
                         <div className="small-images">
-                            {spot.SpotImages?.map((image, i) => {
+                            {spot.SpotImages?.map((image, index) => {
                                 if (image.preview !== true) return (
-                                    (<img key={image.id} className="image" src={image.url} />)
+                                    (<img key={image.id}
+                                        className={`image spot-image${index + 1}`} src={image.url} />)
                                 )
                             })}
                         </div>

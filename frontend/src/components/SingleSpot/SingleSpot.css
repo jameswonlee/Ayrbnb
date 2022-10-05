@@ -8,14 +8,24 @@
     /* grid-template-rows: repeat(2, 1fr); */
 }
 
-.spot-image {
+.main-image {
     max-height: 510px;
     width: 700px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .image {
     height: 250px;
     width: 350px;
+}
+
+.spot-image3 {
+    border-top-right-radius: 20px;
+}
+
+.spot-image5 {
+    border-bottom-right-radius: 20px;
 }
 
 .small-images {
@@ -24,3 +34,5 @@
     gap: 10px;
     padding-left: 10px;
 }
+
+/* .spot-image-1 */
