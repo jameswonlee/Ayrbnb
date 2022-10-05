@@ -5,7 +5,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import AddSpotFormModal from '../AddSpotFormModal/AddSpotFormModal';
 import './Navigation.css';
-import logo from '../images/airbnb-logo.png';
+import logo from '../../images/airbnb-logo.png';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -25,9 +25,12 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
+    <div className="nav">
       <li className="nav-bar">
-        <NavLink exact to="/">Home</NavLink>
+        <NavLink exact to="/">
+          <img src={logo} className="logo">
+          </img>
+        </NavLink>
         <div className="menu">
           {sessionUser &&
             <div className="become-a-host">
@@ -35,10 +38,10 @@ function Navigation({ isLoaded }) {
             </div>
           }
           {isLoaded &&
-            <ProfileButton user={sessionUser}/>}
+            <ProfileButton user={sessionUser} />}
         </div>
       </li>
-    </ul>
+    </div>
   );
 }
 
