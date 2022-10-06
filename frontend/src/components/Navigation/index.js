@@ -32,15 +32,19 @@ function Navigation({ isLoaded }) {
           </img>
         </NavLink>
         <div className="menu">
-          {sessionUser &&
+          {/* {sessionUser &&
             <div className="become-a-host">
               <AddSpotFormModal />
             </div>
-          }
+          } */}
+            <div className="become-a-host">
+              <AddSpotFormModal />
+            </div>
           {isLoaded &&
             <ProfileButton user={sessionUser} />}
         </div>
       </li>
+      <hr className="hr"/>
     </div>
   );
 }

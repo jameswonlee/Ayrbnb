@@ -26,7 +26,8 @@ function LoginForm({ setShowModal }) {
 
   const demoUserLogin = (e) => {
     e.preventDefault();
-    return dispatch(sessionActions.login({ credential: 'demo-user', password: 'password'}));
+    dispatch(sessionActions.login({ credential: 'demo-user', password: 'password' }));
+    setShowModal(false);
   }
 
 
