@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { addImageToSpot, createSpot } from '../../store/spots';
 import { useHistory } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 function AddSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user)
 
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");

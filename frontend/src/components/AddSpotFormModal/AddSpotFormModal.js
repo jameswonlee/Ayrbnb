@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import { Modal } from "../../context/Modal";
 import AddSpotForm from './AddSpotForm';
 import './AddSpotFormModal.css'
+import NotLoggedIn from './NotLoggedIn';
 
 
 function AddSpotFormModal() {
-    // const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
 
     const clickHandler = () => {
@@ -21,7 +22,12 @@ function AddSpotFormModal() {
                 </button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <AddSpotForm setShowModal={setShowModal}/>
+                        {sessionUser
+                            ?
+                            <AddSpotForm setShowModal={setShowModal} />
+                            :
+                            <NotLoggedIn />
+                        }
                     </Modal>
                 )}
             </div>
