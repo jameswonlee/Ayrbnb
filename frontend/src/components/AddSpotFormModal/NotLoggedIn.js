@@ -1,6 +1,11 @@
+
+
 function NotLoggedIn() {
     return (
-        <div>You must be logged in to start hosting!</div>
+        <div className="container">
+            <h2>You must be logged in to start hosting!</h2>
+        </div>
+
     )
 }
 
