@@ -1,7 +1,9 @@
 /* .become-a-host {
     display: flex;
 } */
-
+.content-wrapper {
+    padding-top: 20px;
+}
 
 .spot-cards {
     display: grid;
