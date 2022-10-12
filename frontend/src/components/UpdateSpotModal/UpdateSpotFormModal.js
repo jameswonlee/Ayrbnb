@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Modal } from "../../context/Modal";
 import UpdateSpotForm from './UpdateSpotForm';
 
 
-function UpdateSpotFormModule() {
+function UpdateSpotFormModule({ spot }) {
+    // const spot = useSelector(state => state.spots.spots[spot.id]);
     const [showModal, setShowModal] = useState(false);
 
     const clickHandler = () => {

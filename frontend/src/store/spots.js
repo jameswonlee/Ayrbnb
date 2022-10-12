@@ -139,7 +139,6 @@ export const deleteSpot = (spotId) => async (dispatch) => {
     }
 }
 
-
 /* ------------------- Reducer --------------------- */
 
 const initialState = { spots: {}, spotById: null };
