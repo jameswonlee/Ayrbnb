@@ -6,7 +6,7 @@ import { updateExistingSpot } from '../../store/spots';
 
 function UpdateSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const { spotId } = useParams();
     const spot = useSelector(state => state.spots.spots[spotId])
 

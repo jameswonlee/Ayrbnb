@@ -2,6 +2,12 @@
     display: flex;
     justify-content: space-between;
     height: 60px;
+    padding-bottom: 20px;
+}
+
+.nav {
+    border-bottom: solid;
+    color: rgb(235, 233, 233)
 }
 
 .profile-menu {

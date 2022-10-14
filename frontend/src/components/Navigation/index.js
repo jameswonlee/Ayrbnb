@@ -44,7 +44,7 @@ function Navigation({ isLoaded }) {
             <ProfileButton user={sessionUser} />}
         </div>
       </li>
-      <hr className="hr"/>
+      {/* <hr className="hr"/> */}
     </div>
   );
 }
