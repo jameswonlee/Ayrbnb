@@ -5,7 +5,7 @@ import ProfileButton from './ProfileButton';
 // import LoginFormModal from '../LoginFormModal';
 import AddSpotFormModal from '../AddSpotFormModal/AddSpotFormModal';
 import './Navigation.css';
-import logo from '../../images/airbnb-logo.png';
+import logo from '../../images/ayrbnb-logo.png';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
