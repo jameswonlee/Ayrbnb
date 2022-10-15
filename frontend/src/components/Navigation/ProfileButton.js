@@ -37,24 +37,24 @@ function ProfileButton({ user }) {
   let sessionLinks;
   if (!sessionUser) {
     sessionLinks = (
-      <div className="login-container">
+      <div className="login-container dropdown-menu">
         <div className="login">
-          <button onClick={(e) => {
+          <button className="login-button" onClick={(e) => {
             e.stopPropagation();
             setShowModal(true)
             closeMenu()
           }}>Log In</button>
         </div>
-        <div className="login"><NavLink to="/signup">Sign Up</NavLink></div>
+        <div className="login login-button"><NavLink to="/signup">Sign Up</NavLink></div>
       </div>
     );
   } else {
     sessionLinks = (
       <div className="dropdown-menu">
-        <div>Hello, {user.firstName}</div>
-        <div>Account: {user.email}</div>
+        <div className="text-black mb-1">Hello, {user.firstName}</div>
+        <div className="text-black mb-1">Account: {user.email}</div>
         <div>
-          <button onClick={logout}>Log Out</button>
+          <button className="logout-button" onClick={logout}>Log Out</button>
         </div>
       </div>
     )

@@ -1,7 +1,8 @@
-.outer-container {
+.spot-card-outer-container {
     width: 300px;
     text-decoration: none;
-    color:black
+    color:black;
+    margin: auto;
 }
 
 .preview-image {
@@ -12,10 +13,6 @@
 
 .city-price p {
     margin: 10px 0px;
-}
-
-p {
-    font: bold;
 }
 
 .avg-rating p {

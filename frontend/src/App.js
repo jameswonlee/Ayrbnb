@@ -15,27 +15,29 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="center">
+    <>
       <Navigation isLoaded={isLoaded} />
-      <main>
-        {isLoaded && (
-          <Switch>
-            <Route path='/signup'>
-              <SignupFormPage />
-            </Route>
-            <Route path='/spots/:spotId'>
-              <SingleSpot />
-            </Route>
-            <Route exact path='/'>
-              <DisplayAllSpots />
-            </Route>
-            <Route>
-              Page Not Found!
-            </Route>
-          </Switch>
-        )}
-      </main>
-    </div>
+      <div className="center">
+        <main>
+          {isLoaded && (
+            <Switch>
+              <Route path='/signup'>
+                <SignupFormPage />
+              </Route>
+              <Route path='/spots/:spotId'>
+                <SingleSpot />
+              </Route>
+              <Route exact path='/'>
+                <DisplayAllSpots />
+              </Route>
+              <Route>
+                Page Not Found!
+              </Route>
+            </Switch>
+          )}
+        </main>
+      </div>
+    </>
   );
 }
 

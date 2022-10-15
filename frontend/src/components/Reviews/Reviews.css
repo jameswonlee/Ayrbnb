@@ -1,0 +1,16 @@
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 50%;
+}
+
+.review-content {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getReviewsBySpotId } from "../../store/reviews";
 import { useParams } from 'react-router-dom';
 import DeleteReviewModal from "./DeleteReviewModal";
+import './Reviews.css';
 
 
 function ReviewsForSpot() {
@@ -22,23 +23,23 @@ function ReviewsForSpot() {
 
 
     return (
-        <div className="reviews-outer-container">
-            <div className="reviews">{reviews.map(review => (
-                <div key={review.id} className="reviews">
+        <div className="reviews">{reviews.map(review => (
+            <div key={review.id} className="review-card">
+                <div className="review-content">
                     <div className="user-name">
                         {review.User.firstName}
-                        <div className="review">
-                            {review.review}
-                            {sessionUser?.id === review.User.id &&
-                                <div className="delete-modal">
-                                    <DeleteReviewModal review={review} />
-                                </div>
-                            }
-                        </div>
+                    </div>
+                    <div className="review">
+                        {review.review}
+                        {sessionUser?.id === review.User.id &&
+                            <div className="delete-modal">
+                                <DeleteReviewModal review={review} />
+                            </div>
+                        }
                     </div>
                 </div>
-            ))}
             </div>
+        ))}
         </div>
     )
 }

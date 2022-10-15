@@ -56,7 +56,7 @@ function SingleSpot() {
                             {spot.SpotImages?.map((image, index) => {
                                 if (image.preview !== true) return (
                                     (<img key={image.id}
-                                        className={`image spot-image${index + 1}`} src={image.url} />)
+                                        className={`image spot-image`} src={image.url} style={{ paddingBottom: index > 1 ? 0 : "10px" }} />)
                                 )
                             })}
                         </div>
@@ -79,9 +79,7 @@ function SingleSpot() {
                                 <CreateReviewModal spot={spot} />
                             </div>
                         }
-                        <div className="reviews">
-                            <ReviewsForSpot reviews={reviews} spot={spot} />
-                        </div>
+                        <ReviewsForSpot reviews={reviews} spot={spot} />
                     </div>
                     {sessionUser && spot.ownerId === sessionUser.id &&
                         <div className="owner-options">
