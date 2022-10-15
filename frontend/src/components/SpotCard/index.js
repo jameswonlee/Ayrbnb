@@ -5,7 +5,6 @@ import React from 'react';
 
 
 function SpotCard({ spot }) {
-    // const dispatch = useDispatch();
 
     return (
         <NavLink to={`/spots/${spot.id}`} className="outer-container">
