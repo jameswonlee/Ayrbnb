@@ -30,7 +30,7 @@ module.exports = {
     },
     {
       reviewId: 17,
-      url: "https://a0.muscache.com/im/pictures/miso/Hosting-49859984/original/cf0b6e5d-b928-4702-801e-9f0a96fd80cb.jpeg"
+      url: "https://a0.muscache.com/im/pictures/ccd4eea9-9a5c-448c-9064-16f8a32f517d.jpg"
     },
     {
       reviewId: 21,

@@ -57,7 +57,7 @@ module.exports = {
       country: 'United States',
       lat: 34.09746,
       lng: 118.38199,
-      name: 'West Hollywood Modern Luxury 5 BR Villa w/Pool',
+      name: 'West Hollywood Modern Luxury 5 BR Villa w/ Pool',
       description: "Stunning luxury Villa in the heart of West Hollywood. Centrally located to all the best attractions, entertainment, restaurants and shopping! Beautiful professionally designed 5 bedroom, 6.5 bath Villa sleeps 10 & features a distinctive blend of modern style with Hollywood glamour. Amenities include a secluded private backyard with a salt water pool, hot tub, BBQ grill, outdoor fireplace and al fresco dining.",
       price: 1890.00
     },
