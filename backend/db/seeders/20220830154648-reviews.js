@@ -111,25 +111,25 @@ module.exports = {
     {
       spotId: 5,
       userId: 6,
-      review: "Luxurious home with a pool!",
-      stars: 5
+      review: "This home is breathtaking gorgeous but we did have a few issues. In all fairness, the host was responsive when contacted but it was having to reach out daily that took away from the full vacation enjoyment. There are some things that are broken in the home. Be sure to do a full inspection prior to booking.",
+      stars: 3
     },
     {
       spotId: 5,
       userId: 2,
-      review: "House was very neat and clean.",
+      review: "This house is absolutely stunning! The view is even more incredible than it looks in pictures - especially when the sun sets in the evening. The neighborhood is very quiet and we all slept like babies. Everyone's jaws nearly hit the floor when we first walked in. Thank you, Jane, for a great stay!",
       stars: 4
     },
     {
       spotId: 5,
       userId: 8,
-      review: "Simple elegant home in LA.",
+      review: "This house is beautiful, far exceeds pictures.. sweeping panoramic views of LA that peaks at sunset. Modern finishes throughout the house, and host was more than helpful and communicative. Highly recommend!",
       stars: 4
     },
     {
       spotId: 5,
       userId: 10,
-      review: "Clean home. Nice host.",
+      review: "This place tops it. Big spacious house great pool and hot tub it has an amazing view of downtown. Amazing theater room it was overall amazing. The host was great she walked us through all the functions of the home. We most definitely recommend and would absolutely love to stay again. Thank you for your hospitality.",
       stars: 4
     },
     {

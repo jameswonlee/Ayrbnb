@@ -69,8 +69,8 @@ module.exports = {
       country: 'United States',
       lat: 34.09738,
       lng: 117.78968,
-      name: 'Villa in Los Angeles',
-      description: 'Modern McMansion',
+      name: 'Hollywood Hills Glam Paradise w/ Pool & Views',
+      description: "Located high atop the star-studded Sunset Plaza Drive only minutes away from Beverly Hills and Rodeo Drive, this luxurious masterpiece offers unparalleled panoramic views of LA and stretches all the way to the Pacific Ocean. Indoor/outdoor living room experience with a lush master suite and luxurious guest bedrooms each equipped with full shower bathrooms.",
       price: 1200.00
     },
     {
