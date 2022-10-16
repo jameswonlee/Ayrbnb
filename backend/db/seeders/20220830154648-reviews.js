@@ -21,13 +21,13 @@ module.exports = {
     {
       spotId: 1,
       userId: 9,
-      review: "Amazing property with great views of the Hollywood sign. Great spacious bedrooms. The sauna in the master bathroom was just everything! This house is a chef's dream. There's literally every appliance you could possibly dream of. I will definitely be staying here again soon. Thank you for the gracious hospitality!",
+      review: "This house is amazing, exactly as described and there is even a view of the Hollywood sign. It's an incredibly spacious house and very comfortable to stay in. Centrally located in LA, close to almost everything.",
       stars: 5
     },
     {
       spotId: 1,
       userId: 8,
-      review: "This house is amazing, exactly as described and there is even a view of the Hollywood sign. It's an incredibly spacious house and very comfortable to stay in. Centrally located in LA, close to almost everything.",
+      review: "Amazing property with great views of the Hollywood sign. Great spacious bedrooms. The sauna in the master bathroom was just everything! This house is a chef's dream. There's literally every appliance you could possibly dream of. I will definitely be staying here again soon. Thank you for the gracious hospitality!",
       stars: 5
     },
     {
@@ -63,48 +63,49 @@ module.exports = {
     {
       spotId: 3,
       userId: 8,
-      review: "Luxury home on the beach!",
+      review: "Incredible property. Clean, private, attentive managment, perfect for older kids (9+ age), nice location w direct beach access - could not have booked a better home for the value. Cannot wait to book our next stay!",
       stars: 5
     },
     {
       spotId: 3,
       userId: 10,
-      review: "Amazing beach house in Malibu!",
+      review: "Amazing house with stunning views. Deck was spectacular with ocean views. House looks as photographed with very nice decor and amenities. Close drive to great restaurants but also feels like a nice escape. Sound of ocean drowns out any PCH noise. Definitely would come back.",
       stars: 4
     },
     {
       spotId: 3,
       userId: 9,
-      review: "Love that it was walking distance to Nobu restaurant!",
+      review: "This house was spectacular! The location was great and the views were unmatched. Close proximity to so many great restaurants, shops and beaches. The house was very clean and well maintained. You can tell a lot of thought was put into the design and decor. Simply beautiful.",
       stars: 5
     },
     {
       spotId: 3,
       userId: 6,
-      review: "Love the direct access to the beach."
+      review: "The house is luxurious and the location is great. Host is quick to respond to any inquiries and is very helpful. Nothing like hearing ocean waves all day long - would stay again and again.",
+      stars: 4
     },
     {
       spotId: 4,
       userId: 7,
-      review: "Dream home. Dream pool!",
+      review: "We absolutely loved this house! It's centrally located, modern, very clean and Sean was great at responding! If you're looking for a place in LA, this house is for you. My husband and I stayed here for the weekend and was very pleased. We were able to visit Universal Studios during the day and have dinner in Beverly Hills the same day!",
       stars: 5
     },
     {
       spotId: 4,
       userId: 2,
-      review: "Nice cozy villa in LA.",
+      review: "The house is beautiful, very modern design. Very private. Great neighborhood. Walk to everything. Quiet. The AC system wasn't working well, but the manager said they will fix it. The weather during our stay was mild so it didn't matter that much. I would definitely stay there again.",
       stars: 4,
     },
     {
       spotId: 4,
       userId: 3,
-      review: "Had a wonderful time staying in this Mc-Mansion in LA!",
+      review: "Had a great time here with family. The space and roof are ideal and the location couldn't be more convenient to Melrose and the shops and restaurants. Very easy to contact someone if you need anything and they always followed up with us in regards to our stay to make sure it was great.",
       stars: 5
     },
     {
       spotId: 4,
       userId: 9,
-      review: "My family and I had a great time. Amazing pool!",
+      review: "Beautiful place. Kind host. Took my executive team for a business trip to LA and this place didn't disappoint! Will definitely be back!",
       stars: 5
     },
     {

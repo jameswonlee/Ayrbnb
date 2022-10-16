@@ -45,8 +45,8 @@ module.exports = {
       country: 'United States',
       lat: 34.04150,
       lng: 184.27171,
-      name: 'Carbon Beach Retreat',
-      description: 'Beach Suite in Malibu',
+      name: 'Carbon Beach Retreat | Ocean Front Malibu Pad w/ Rooftop Patio',
+      description: "A cliffside home off the Pacific Coast Highway with oceanfront views is usually what comes to mind when you think of Malibu, and that's exactly what you get when you stay here! Modern design, sleek interiors, and floor-to-ceiling windows facing the water set an incredible, upscale ambiance for an incredible time with your guests.",
       price: 851.00
     },
     {
@@ -57,8 +57,8 @@ module.exports = {
       country: 'United States',
       lat: 34.09746,
       lng: 118.38199,
-      name: 'Villa',
-      description: 'Luxurious home with pool',
+      name: 'West Hollywood Modern Luxury 5 BR Villa w/Pool',
+      description: "Stunning luxury Villa in the heart of West Hollywood. Centrally located to all the best attractions, entertainment, restaurants and shopping! Beautiful professionally designed 5 bedroom, 6.5 bath Villa sleeps 10 & features a distinctive blend of modern style with Hollywood glamour. Amenities include a secluded private backyard with a salt water pool, hot tub, BBQ grill, outdoor fireplace and al fresco dining.",
       price: 1890.00
     },
     {
