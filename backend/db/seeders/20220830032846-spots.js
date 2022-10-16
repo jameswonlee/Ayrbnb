@@ -22,7 +22,7 @@ module.exports = {
       lat: 34.07598,
       lng: 118.39019,
       name: 'Tomoko Home',
-      description: "Tucked away in LA's peaceful Franklin Hills neighborhood, this modern 3 story estate is the perfect place for your next getaway. The lux 4BR home features a gourmet kitchen, home theater, modern gym & private backyard.",
+      description: "Tucked away in LA's peaceful Franklin Hills neighborhood, this modern 3 story estate is the perfect place for your next getaway. This lux 4BR home features a gourmet kitchen, home theater, modern gym and private backyard.",
       price: 1629.00
     },
     {
@@ -33,8 +33,8 @@ module.exports = {
       country: 'United States',
       lat: 34.28473,
       lng: 117.82746,
-      name: "Newport",
-      description: "Dream House w Breathtaking Views",
+      name: "Newport Beach Oceanfront Luxury Home",
+      description: "Enjoy paradise found in this luxury, oceanfront beach house. This beautiful home is a visual masterpiece, offering panoramic ocean views, Balboa Pier, Catalina Island, the Newport Beach coastline, and the most beautiful sunsets you will ever witness. The contemporary open floor plan includes every modern convenience providing you and your family the ultimate 5 star experience.",
       price: 1388.00
     },
     {
@@ -93,8 +93,8 @@ module.exports = {
       country: 'United States',
       lat: 35.37463,
       lng: 118.82847,
-      name: "Barefoot Malibu",
-      description: "Modern Mediterranean Villa on the sand",
+      name: "Oceanfront Villa with sauna and private beach",
+      description: "Oceanfront Villa is located 20 minutes from the closest and most convenient private airport to Malibu. Featuring staggering panoramic ocean views and direct access to a quiet private beach. Behind the gate lies a private courtyard with a Panoramic View Barrel Sauna, a large jacuzzi, and 2 massive outdoor decks overlooking the Pacific Ocean with a large built-in fireplace on the rooftop deck.",
       price: 2500.00
     },
     {
@@ -189,8 +189,8 @@ module.exports = {
       country: 'United States',
       lat: 36.84756,
       lng: 118.83747,
-      name: 'Lux Vacation Rental',
-      description: 'Beverly Hills Estate with Breathtaking Views',
+      name: 'Beverly Hills Estate With Breathtaking views',
+      description: 'This new contemporary estate was constructed using the finest materials featuring breathtaking views of the city from DTLA to the ocean from nearly every room in the house. Designed to exemplify the beauty of organic elements, this architectural triumph is perched high up on the hillside in the coveted Beverly Hills area.',
       price: 6500.00
     },
     {
