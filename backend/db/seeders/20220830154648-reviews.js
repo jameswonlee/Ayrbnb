@@ -15,7 +15,7 @@ module.exports = {
     {
       spotId: 1,
       userId: 10,
-      review: "No other word than spectacular can describe this home. It's design, build and decor. The location and views are fantastic. The care and maintenance is impeccable. And turns out, the owner James, is an amazing coder!",
+      review: "No other word than spectacular can describe this home. It's design, build and decor. The location and views are fantastic. The care and maintenance is impeccable. And turns out, the owner James is a highly skilled software developer!",
       stars: 4
     },
     {
@@ -33,7 +33,7 @@ module.exports = {
     {
       spotId: 1,
       userId: 7,
-      review: "What an incredible home and view! The home is nestled up above Sunset Blvd and has spectacular views from every room and has an amazing pool + spa. My fiancé and I rented the home to celebrate our engagement and we couldn't have chosen a better location. She felt like a queen during our stay.",
+      review: "What an incredible home and view! The home is nestled up above Sunset Blvd and has spectacular views from every room and has an amazing pool + spa. My fiancé and I rented the home to celebrate our engagement and we couldn't have chosen a better location. She felt like a queen during our stay. The staff were kind, attentive and readily available if we had any questions. I would highly recommend this home.",
       stars: 5
     },
     {

@@ -22,7 +22,7 @@ module.exports = {
       lat: 34.07598,
       lng: 118.39019,
       name: 'Tomoko Home',
-      description: "Tucked away in LA's peaceful Franklin Hills neighborhood, this modern 3 story estate is the perfect place for your next getaway. The lux 4BR home features a gourmet kitchen, home theater, modern gym & private backyard",
+      description: "Tucked away in LA's peaceful Franklin Hills neighborhood, this modern 3 story estate is the perfect place for your next getaway. The lux 4BR home features a gourmet kitchen, home theater, modern gym & private backyard.",
       price: 1629.00
     },
     {
