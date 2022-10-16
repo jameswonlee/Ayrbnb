@@ -14,7 +14,7 @@ module.exports = {
    await queryInterface.bulkInsert('ReviewImages', [
     {
       reviewId: 1,
-      url: "https://a0.muscache.com/im/pictures/33b3d2ad-52a9-4799-9c26-943a15099202.jpg"
+      url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-46569587/original/d6a8b675-ecfb-4f4c-856b-eb3a5d4deda3.jpeg"
     },
     {
       reviewId: 5,
@@ -71,6 +71,10 @@ module.exports = {
     {
       reviewId: 57,
       url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-706047820221786677/original/d3c94900-5e51-4279-8f2e-fefc4653f1e2.jpeg"
+    },
+    {
+      reviewId: 61,
+      url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-46569587/original/8db200cd-d5dd-4125-be2d-f7cce13ed416.jpeg"
     }
    ])
   },

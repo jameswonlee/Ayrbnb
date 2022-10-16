@@ -15,49 +15,49 @@ module.exports = {
     {
       spotId: 1,
       userId: 10,
-      review: "Lovely home in West Hollywood!",
+      review: "No other word than spectacular can describe this home. It's design, build and decor. The location and views are fantastic. The care and maintenance is impeccable. And turns out, the owner James, is an amazing coder!",
       stars: 4
     },
     {
       spotId: 1,
       userId: 9,
-      review: "This place was awesome!",
+      review: "Amazing property with great views of the Hollywood sign. Great spacious bedrooms. The sauna in the master bathroom was just everything! This house is a chef's dream. There's literally every appliance you could possibly dream of. I will definitely be staying here again soon. Thank you for the gracious hospitality!",
       stars: 5
     },
     {
       spotId: 1,
       userId: 8,
-      review: "Amazing!",
+      review: "This house is amazing, exactly as described and there is even a view of the Hollywood sign. It's an incredibly spacious house and very comfortable to stay in. Centrally located in LA, close to almost everything.",
       stars: 5
     },
     {
       spotId: 1,
       userId: 7,
-      review: "Excellent location and amazing views!",
+      review: "What an incredible home and view! The home is nestled up above Sunset Blvd and has spectacular views from every room and has an amazing pool + spa. My fiancé and I rented the home to celebrate our engagement and we couldn't have chosen a better location. She felt like a queen during our stay. The staff were kind, attentive and readily available if we had any questions. I would highly recommend this home.",
       stars: 5
     },
     {
       spotId: 2,
       userId: 9,
-      review: "Nice spacious home on the beach",
+      review: "The setting is absolutely magnificent, overlooking Newport Beaches, and Lagoon in the distance. We would definitely stay there again! The house is an architectural wonder, mid century modern style, with exquisite landscaping, and beautiful decor.",
       stars: 5
     },
     {
       spotId: 2,
       userId: 8,
-      review: "Loved the outdoor entertainment area with direct access to the beach",
+      review: "This is such an amazing place to stay. I highly recommend. Great views. Great location. Very clean. The patio with the fire pit is amazing. 10/10",
       stars: 4
     },
     {
       spotId: 2,
       userId: 7,
-      review: "Newport Beach's finest beach home!",
+      review: "Wonderful and quirky beach house with great location in bustling New Port Beach. Great patio and living space. For on the beach and pets ok, pretty hard to beat. Would stay again.",
       stars: 5
     },
     {
       spotId: 2,
       userId: 6,
-      review: "Home was great. Host was not.",
+      review: "This home positioned as a luxury beach house and one of the nicest rentals in Newport. I would say it's an average beach house at best.",
       stars: 3
     },
     {
@@ -182,25 +182,25 @@ module.exports = {
     {
       spotId: 8,
       userId: 3,
-      review: "Gorgeous views",
+      review: "This house was off the charts beautiful. The perfect location and setting for a family trip to rejuvenate. Time slowed down here, the view is absolutely spectacular!",
       stars: 5
     },
     {
       spotId: 8,
       userId: 1,
-      review: "The view was just breathtaking!",
+      review: "This was an amazing house. Very close to everything while also be perched on a hill with a lot of privacy. We'd love to stay there again.",
       stars: 5
     },
     {
       spotId: 8,
       userId: 2,
-      review: "This house is amazing! I could have stayed for weeks.",
+      review: "Beautiful view, architecture, and interior design. Lived up to the photos! This house is amazing! I could have stayed for weeks.",
       stars: 5
     },
     {
       spotId: 8,
       userId: 9,
-      review: "It's all about the view!",
+      review: "This place is off the charts gorgeous. The view is amazing, the house is well-designed, modern, clean and comfortable. It has all the amenities you could want and more. Plenty of space, very quiet, beautiful views and sunsets. I would go back in a heartbeat.",
       stars: 5
     },
     {
@@ -375,6 +375,30 @@ module.exports = {
       spotId: 15,
       userId: 9,
       review: "The walk in closets were insane!",
+      stars: 5
+    },
+    {
+      spotId: 16,
+      userId: 3,
+      review: "Needs review",
+      stars: 4
+    },
+    {
+      spotId: 16,
+      userId: 5,
+      review: "Needs review",
+      stars: 4
+    },
+    {
+      spotId: 16,
+      userId: 6,
+      review: "Needs review",
+      stars: 5
+    },
+    {
+      spotId: 16,
+      userId: 7,
+      review: "Needs review",
       stars: 5
     }
   

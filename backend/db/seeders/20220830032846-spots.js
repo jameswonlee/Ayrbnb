@@ -22,8 +22,8 @@ module.exports = {
       lat: 34.07598,
       lng: 118.39019,
       name: 'Tomoko Home',
-      description: 'LUX Villa w Pool',
-      price: 1223.00
+      description: "Tucked away in LA's peaceful Franklin Hills neighborhood, this modern 3 story estate is the perfect place for your next getaway. The lux 4BR home features a gourmet kitchen, home theater, modern gym & private backyard",
+      price: 1629.00
     },
     {
       ownerId: 2,
@@ -192,6 +192,18 @@ module.exports = {
       name: 'Lux Vacation Rental',
       description: 'Beverly Hills Estate with Breathtaking Views',
       price: 6500.00
+    },
+    {
+      ownerId: 1,
+      address: "2484 Sunset Plaza Dr",
+      city: "West Hollywood",
+      state: "CA",
+      country: "United States",
+      lat: 36.27364,
+      lng: 118.38374,
+      name: "LUXURY HOME",
+      description: "Luxury home with pool & spa, theater, and city views",
+      price: 1223.00
     }
     
     
