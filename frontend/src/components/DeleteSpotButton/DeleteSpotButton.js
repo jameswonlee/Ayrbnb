@@ -9,7 +9,7 @@ import './DeleteSpot.css'
 function DeleteSpotButton() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { spotId } = useParams();    
+    const { spotId } = useParams();
     const [shown, setShown] = useState(false);
 
     const showModal = () => {
@@ -33,13 +33,14 @@ function DeleteSpotButton() {
             </button>
             {shown &&
                 <Modal onClose={hideModal}>
-                    <div className="confirm-delete">Are you sure you want to delete this spot?
-                        This action can't be undone.
-                        <div className='buttons'>
-                            <button className="delete-button" onClick={deleteClickHandler}>
+                    <div className="delete-spot">
+                        <h3>Are you sure you want to delete this spot?</h3>
+                        <p>This action can't be undone.</p>
+                        <div className='delete-buttons'>
+                            <button className="confirm-delete-button" onClick={deleteClickHandler}>
                                 Confirm Delete
                             </button>
-                            <button className="cancel-button" onClick={hideModal}>
+                            <button className="cancel-delete-button" onClick={hideModal}>
                                 Cancel
                             </button>
                         </div>

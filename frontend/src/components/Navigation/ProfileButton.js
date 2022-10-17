@@ -34,6 +34,7 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    alert("You have been logged out")
   };
 
   let sessionLinks;

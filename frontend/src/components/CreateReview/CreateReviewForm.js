@@ -52,7 +52,7 @@ function CreateReviewForm({ spot, setShowModal }) {
                     setReview(e.target.value)
                 }}
                 value={review}
-                placeholder="Your... Review... Here..."
+                placeholder="Your review here..."
                 />
                 <input 
                 type="number"
@@ -66,7 +66,7 @@ function CreateReviewForm({ spot, setShowModal }) {
                 placeholder="Star Rating"/>
                 <button
                 disabled={!!validationErrors.length}
-                className="submit-button">
+                className="submit-review-button">
                     Submit Review
                 </button>
             </form>

@@ -1,0 +1,18 @@
+.update-spot-form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 725px;
+    width: 700px;
+}
+
+.update-submit-button {
+    height: 50px;
+    width: 100%;
+    background-color: rgb(215, 4, 102);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: large;
+    margin-top: 3px;
+}

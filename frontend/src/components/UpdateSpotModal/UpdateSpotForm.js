@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { updateExistingSpot } from '../../store/spots';
+import './UpdateSpotForm.css';
 
 
 function UpdateSpotForm({ setShowModal }) {
@@ -60,9 +61,9 @@ function UpdateSpotForm({ setShowModal }) {
 
 
     return (
-        <div className="form-container">
-            <h1>Edit Spot Details</h1>
+        <div className="update-spot-form-container">
             <form onSubmit={submitHandler} className="edit-form">
+            <h1>Edit Spot Details</h1>
                 {validationErrors.length > 0 &&
                     validationErrors.map((error) =>
                         <li key={error}>{error}</li>
@@ -146,7 +147,7 @@ function UpdateSpotForm({ setShowModal }) {
                 />
                 <button
                     disabled={!!validationErrors.length}
-                    className="submit-button">
+                    className="update-submit-button">
                     Submit
                 </button>
             </form>
