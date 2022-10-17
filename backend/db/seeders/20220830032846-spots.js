@@ -106,7 +106,7 @@ module.exports = {
       lat: 36.83674,
       lng: 117.98283,
       name: 'Hollywood Home',
-      description: 'Home on the hill',
+      description: "This modern masterpiece sits minutes from the iconic Sunset Strip with unobstructed views stretching from West Hollywood to the Pacific Ocean. This newly renovated 5 bed, 6 bath estate offers luxury lined living.",
       price: 2620.00
     },
     {
