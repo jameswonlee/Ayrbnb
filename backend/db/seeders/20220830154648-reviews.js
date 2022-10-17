@@ -205,12 +205,6 @@ module.exports = {
       stars: 5
     },
     {
-      spotId: 8,
-      userId: 10,
-      review: "Loved the outdoor fire pit.",
-      stars: 5
-    },
-    {
       spotId: 9,
       userId: 2,
       review: "Tastefully designed",
