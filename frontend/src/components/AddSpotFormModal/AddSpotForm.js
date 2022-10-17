@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { addImageToSpot, createSpot } from '../../store/spots';
 import { useHistory } from 'react-router-dom';
+import './AddSpotForm.css';
 
 
 function AddSpotForm({ setShowModal }) {
@@ -67,104 +68,102 @@ function AddSpotForm({ setShowModal }) {
     }
 
     return (
-        <div className="form-container">
-            <form onSubmit={submitHandler} className="create-spot-form">
-                <h1>Create a Spot</h1>
-                {validationErrors.length > 0 &&
-                    validationErrors.map(error =>
-                        <li key={error}>{error}</li>
-                    )}
-                <input
-                    type="text"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setAddress(e.target.value)
-                    }}
-                    value={address}
-                    placeholder="Address" />
-                <input
-                    type="text"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setCity(e.target.value)
-                    }}
-                    value={city}
-                    placeholder="City" />
-                <input
-                    type="text"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setState(e.target.value)
-                    }}
-                    value={state}
-                    placeholder="State" />
-                <input
-                    type="text"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setCountry(e.target.value)
-                    }}
-                    value={country}
-                    placeholder="Country" />
-                <input
-                    type="number"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setLat(e.target.value)
-                    }}
-                    value={lat}
-                    step="0.00001"
-                    placeholder="Latitude"
-                />
-                <input
-                    type="number"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setLng(e.target.value)
-                    }}
-                    value={lng}
-                    placeholder="Longitude"
-                />
-                <input
-                    type="text"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setName(e.target.value)
-                    }}
-                    value={name}
-                    placeholder="Name" />
-                <input
-                    type="text"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setDescription(e.target.value)
-                    }}
-                    value={description}
-                    placeholder="Description" />
-                <input
-                    type="number"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setPrice(e.target.value)
-                    }}
-                    value={price}
-                    step="0.01"
-                    placeholder="Price" />
-                <input
-                    type="text"
-                    onChange={e => {
-                        setValidationErrors([]);
-                        setUrl(e.target.value)
-                    }}
-                    value={url}
-                    placeholder="Image Url" />
-                <button
-                    disabled={!!validationErrors.length}
-                    className="create-spot-button">
-                    Start Hosting
-                </button>
-            </form>
-        </div>
+        <form onSubmit={submitHandler} className="create-spot-form">
+            <h2>Open your door to hosting</h2>
+            {validationErrors.length > 0 &&
+                validationErrors.map(error =>
+                    <li key={error}>{error}</li>
+                )}
+            <input
+                type="text"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setAddress(e.target.value)
+                }}
+                value={address}
+                placeholder="Address" />
+            <input
+                type="text"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setCity(e.target.value)
+                }}
+                value={city}
+                placeholder="City" />
+            <input
+                type="text"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setState(e.target.value)
+                }}
+                value={state}
+                placeholder="State" />
+            <input
+                type="text"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setCountry(e.target.value)
+                }}
+                value={country}
+                placeholder="Country" />
+            <input
+                type="number"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setLat(e.target.value)
+                }}
+                value={lat}
+                step="0.00001"
+                placeholder="Latitude"
+            />
+            <input
+                type="number"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setLng(e.target.value)
+                }}
+                value={lng}
+                placeholder="Longitude"
+            />
+            <input
+                type="text"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setName(e.target.value)
+                }}
+                value={name}
+                placeholder="Name" />
+            <input
+                type="text"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setDescription(e.target.value)
+                }}
+                value={description}
+                placeholder="Description" />
+            <input
+                type="number"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setPrice(e.target.value)
+                }}
+                value={price}
+                step="0.01"
+                placeholder="Price" />
+            <input
+                type="text"
+                onChange={e => {
+                    setValidationErrors([]);
+                    setUrl(e.target.value)
+                }}
+                value={url}
+                placeholder="Image Url" />
+            <button
+                disabled={!!validationErrors.length}
+                className="create-spot-button">
+                Start Hosting
+            </button>
+        </form>
     )
 }
 

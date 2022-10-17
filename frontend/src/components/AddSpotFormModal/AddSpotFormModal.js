@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Modal } from "../../context/Modal";
+import LoginForm from '../LoginFormModal/LoginForm';
 import AddSpotForm from './AddSpotForm';
 import './AddSpotFormModal.css'
-import NotLoggedIn from './NotLoggedIn';
 
 
 function AddSpotFormModal() {
@@ -26,7 +26,7 @@ function AddSpotFormModal() {
                             ?
                             <AddSpotForm setShowModal={setShowModal} />
                             :
-                            <NotLoggedIn />
+                            <LoginForm />
                         }
                     </Modal>
                 )}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import './LoginForm.css';
 
 function LoginForm({ setShowModal }) {
   const dispatch = useDispatch();
@@ -33,35 +34,39 @@ function LoginForm({ setShowModal }) {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
+      <h2>
+        Welcome to Ayrbnb
+      </h2>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
       <div>
-        <label>
-          Username or Email
+
+        <label className="user-login">
+          <input
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            placeholder="Username or email"
+            required
+          />
         </label>
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
       </div>
       <div>
         <label>
-          Password
+          <input
+            type="password"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
       </div>
       <div>
-        <button type="submit" className="login-buttons">Log In</button>
+        <button type="submit" className="login-buttons">Continue</button>
       </div>
       <div>
         <button onClick={demoUserLogin} className="login-buttons">Demo User</button>
