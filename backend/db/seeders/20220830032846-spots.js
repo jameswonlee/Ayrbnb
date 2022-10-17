@@ -21,7 +21,7 @@ module.exports = {
       country: 'United States',
       lat: 34.07598,
       lng: 118.39019,
-      name: 'Tomoko Home',
+      name: 'Tomoko Home | Pool & Spa | Theater | City Views',
       description: "Tucked away in LA's peaceful Franklin Hills neighborhood, this modern 3 story estate is the perfect place for your next getaway. This lux 4BR home features a gourmet kitchen, home theater, modern gym and private backyard.",
       price: 1629.00
     },
