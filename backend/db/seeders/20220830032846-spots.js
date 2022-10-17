@@ -153,9 +153,9 @@ module.exports = {
       country: 'United States',
       lat: 36.28748,
       lng: 118.82736,
-      name: 'Luxury Home',
-      description: 'Modern 3-story estate in Franklin Hills',
-      price: 1717.00
+      name: 'Villa Blue',
+      description: "One of the most coveted properties available, offering unparalleled views & proximity to the legendary Sunset Strip. Enjoy the senses in every room, all upon a flowing indoor-outdoor floor plan. No corner was cut in achieving unrivaled scale & quality, swathed in the best money can buy.",
+      price: 4000.00
     },
     {
       ownerId: 3,

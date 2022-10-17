@@ -279,25 +279,25 @@ module.exports = {
     {
       spotId: 12,
       userId: 6,
-      review: "The ultimate luxury home.",
+      review: "One of the best villas in LA, magnificent views especially at night. Lovely swimming pool and jacuzzi. Urban design, great taste of decoration and interior design, extremely cozy bed. Would recommend to friends and family.",
       stars: 5,
     },
     {
       spotId: 12,
       userId: 8,
-      review: "The most amazing home gym!",
+      review: "Not only is this an awesome unit it's exactly the way it looks in the pictures. The owner went out of his way to take care of us and I would suggest this home to anybody looking for a great place to stay.",
       stars: 5
     },
     {
       spotId: 12,
       userId: 5,
-      review: "Nice open floorplan. Good for entertaining.",
+      review: "Very responsive hosts, clean and beautiful home! The check in /out process was easy and seamless. Definitely going to come back!",
       stars: 4
     },
     {
       spotId: 12,
       userId: 7,
-      review: "Loved everything about this home!",
+      review: "Highly recommend, amazing home, the owner was really great and treats you like family so you enjoy your stay. The home was in perfect condition and you won't be disappointed.",
       stars: 5
     },
     {

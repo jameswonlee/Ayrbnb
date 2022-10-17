@@ -58,7 +58,7 @@ module.exports = {
     },
     {
       reviewId: 45,
-      url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-46569587/original/d6a8b675-ecfb-4f4c-856b-eb3a5d4deda3.jpeg"
+      url: "https://a0.muscache.com/im/pictures/25e1702c-28cf-478e-ba66-6488d8406b4a.jpg"
     },
     {
       reviewId: 49,
