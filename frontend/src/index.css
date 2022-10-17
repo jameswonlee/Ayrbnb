@@ -15,3 +15,11 @@
 .mb-1 {
     margin-bottom: 8px;
 }
+
+.text-gray {
+    color: rgb(95, 94, 94)
+}
+
+.text-not-as-black {
+    color: rgb(40, 39, 39);
+}

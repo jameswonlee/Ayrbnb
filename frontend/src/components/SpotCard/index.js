@@ -13,9 +13,9 @@ function SpotCard({ spot }) {
             </div>
             <div className="preview-spot-details-outer">
                 <div className="city-price">
-                    <p><strong>{spot.city}, {spot.state}</strong></p>
-                    <p>{spot.country}</p>
-                    <p><strong>${spot.price} night</strong></p>
+                    <p><strong className="text-not-as-black">{spot.city}, {spot.state}</strong></p>
+                    <p className="text-gray">{spot.country}</p>
+                    <p>${spot.price} night</p>
                 </div>
                 <div className="avg-rating">
                     <p>★{Number(spot.avgRating).toFixed(2)}</p>
@@ -24,6 +24,7 @@ function SpotCard({ spot }) {
         </NavLink>
     )
 }
+
 
 
 {/* <div className="outer-container">
