@@ -158,27 +158,27 @@ module.exports = {
     },
     {
       spotId: 7,
-      userId: 4,
-      review: "This house is even better than the photos! Celebrated my 30th birthday here with friends and we were all blown away by the location - right on the water, with enough room for everyone. Can't wait to book this place again.",
+      userId: 2,
+      review: "James gave me the opportunity to use his place to propose to my gf. The place looks even better in person! James was very responsive. Overall place was great, location great and I would definitely stay again.",
       stars: 5
     },
     {
       spotId: 7,
-      userId: 3,
-      review: "Beautiful house in an amazing location. We enjoyed the views- we would see dolphins swimming multiple times a day, daily. It was just beautiful to be on the balcony and really enjoyed all the amenities.",
+      userId: 7,
+      review: "Our family stayed at James' house for 10 days while on a vacation to LA. The house is absolutely perfect. You feel like a celebrity in it! It is in a really good neighbourhood, very safe, within walking distance of so much (the famous Grove, Farmers Market, Beverly Center and to a ton of really great restaurants).",
       stars: 5
-    },
-    {
-      spotId: 7,
-      userId: 5,
-      review: "We had a great stay at Mike's home. Centrally located, we were able to get to Malibu Pier and Santa Monica super quick! It was so nice having 2 parking spots. The house was fabulous and Mike was attentive to any questions and needs that came up during our stay.",
-      stars: 3
     },
     {
       spotId: 7,
       userId: 8,
-      review: "Wow wow! The location doesn't get better than this if you are looking for a house on the ocean. It's about as close to the ocean as it gets. We got lucky with having low tide and were able to walk almost 2 miles on the beach in the morning.",
-      stars: 4
+      review: "Beautiful house, but wasn't a huge fan of my stay. Owner kept rushing us to checkout for their next guest that was checking in. The cleaning crew walked into the house before checkout when I specifically told the owner we didn't want the cleaning crew cleaning while we were there before checkout. When we told them if they could wait until 11am they got mad.",
+      stars: 3
+    },
+    {
+      spotId: 7,
+      userId: 9,
+      review: "The place was amazing! Property was huge with high tech, pool was big and can be heated, everything was clean upon check-in and James was quick at responding. Place is much nicer than the pics. We had a blast!",
+      stars: 5
     },
     {
       spotId: 8,
@@ -356,27 +356,27 @@ module.exports = {
     },
     {
       spotId: 15,
-      userId: 2,
-      review: "James gave me the opportunity to use his place to propose to my gf. The place looks even better in person! James was very responsive. Overall place was great, location great and I would definitely stay again.",
+      userId: 4,
+      review: "This house is even better than the photos! Celebrated my 30th birthday here with friends and we were all blown away by the location - right on the water, with enough room for everyone. Can't wait to book this place again.",
       stars: 5
     },
     {
       spotId: 15,
-      userId: 7,
-      review: "Our family stayed at James' house for 10 days while on a vacation to LA. The house is absolutely perfect. You feel like a celebrity in it! It is in a really good neighbourhood, very safe, within walking distance of so much (the famous Grove, Farmers Market, Beverly Center and to a ton of really great restaurants).",
+      userId: 3,
+      review: "Beautiful house in an amazing location. We enjoyed the views- we would see dolphins swimming multiple times a day, daily. It was just beautiful to be on the balcony and really enjoyed all the amenities.",
       stars: 5
     },
     {
       spotId: 15,
-      userId: 8,
-      review: "Beautiful house, but wasn't a huge fan of my stay. Owner kept rushing us to checkout for their next guest that was checking in. The cleaning crew walked into the house before checkout when I specifically told the owner we didn't want the cleaning crew cleaning while we were there before checkout. When we told them if they could wait until 11am they got mad.",
+      userId: 5,
+      review: "We had a great stay at Mike's home. Centrally located, we were able to get to Malibu Pier and Santa Monica super quick! It was so nice having 2 parking spots. The house was fabulous and Mike was attentive to any questions and needs that came up during our stay.",
       stars: 3
     },
     {
       spotId: 15,
-      userId: 9,
-      review: "The place was amazing! Property was huge with high tech, pool was big and can be heated, everything was clean upon check-in and James was quick at responding. Place is much nicer than the pics. We had a blast!",
-      stars: 5
+      userId: 8,
+      review: "Wow wow! The location doesn't get better than this if you are looking for a house on the ocean. It's about as close to the ocean as it gets. We got lucky with having low tide and were able to walk almost 2 miles on the beach in the morning.",
+      stars: 4
     },
     {
       spotId: 16,

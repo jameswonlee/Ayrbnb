@@ -86,16 +86,16 @@ module.exports = {
       price: 1650.00
     },
     {
-      ownerId: 7,
-      address: "8080 Malibu Canyon Pkwy",
-      city: "Malibu",
-      state: "CA",
+      ownerId: 1,
+      address: '2484 Arby Dr',
+      city: 'Beverly Hills',
+      state: 'CA',
       country: 'United States',
-      lat: 35.37463,
-      lng: 118.82847,
-      name: "Oceanfront Villa with sauna and private beach",
-      description: "Oceanfront Villa is located 20 minutes from the closest and most convenient private airport to Malibu. Featuring staggering panoramic ocean views and direct access to a quiet private beach. Behind the gate lies a private courtyard with a Panoramic View Barrel Sauna, a large jacuzzi, and 2 massive outdoor decks overlooking the Pacific Ocean with a large built-in fireplace on the rooftop deck.",
-      price: 2500.00
+      lat: 36.84756,
+      lng: 118.83747,
+      name: 'Beverly Hills Estate With Breathtaking views',
+      description: 'This new contemporary estate was constructed using the finest materials featuring breathtaking views of the city from DTLA to the ocean from nearly every room in the house. Designed to exemplify the beauty of organic elements, this architectural triumph is perched high up on the hillside in the coveted Beverly Hills area.',
+      price: 6500.00
     },
     {
       ownerId: 8,
@@ -182,16 +182,16 @@ module.exports = {
       price: 2467.00
     },
     {
-      ownerId: 5,
-      address: '2484 Arby Dr',
-      city: 'Beverly Hills',
-      state: 'CA',
+      ownerId: 7,
+      address: "8080 Malibu Canyon Pkwy",
+      city: "Malibu",
+      state: "CA",
       country: 'United States',
-      lat: 36.84756,
-      lng: 118.83747,
-      name: 'Beverly Hills Estate With Breathtaking views',
-      description: 'This new contemporary estate was constructed using the finest materials featuring breathtaking views of the city from DTLA to the ocean from nearly every room in the house. Designed to exemplify the beauty of organic elements, this architectural triumph is perched high up on the hillside in the coveted Beverly Hills area.',
-      price: 6500.00
+      lat: 35.37463,
+      lng: 118.82847,
+      name: "Oceanfront Villa with sauna and private beach",
+      description: "Oceanfront Villa is located 20 minutes from the closest and most convenient private airport to Malibu. Featuring staggering panoramic ocean views and direct access to a quiet private beach. Behind the gate lies a private courtyard with a Panoramic View Barrel Sauna, a large jacuzzi, and 2 massive outdoor decks overlooking the Pacific Ocean with a large built-in fireplace on the rooftop deck.",
+      price: 2500.00
     },
     {
       ownerId: 1,

@@ -38,7 +38,7 @@ module.exports = {
     },
     {
       reviewId: 25,
-      url: "https://a0.muscache.com/im/pictures/miso/Hosting-716094518642442603/original/587200b3-c94c-4526-8722-f7e8b7ebe79c.jpeg"
+      url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-706047820221786677/original/d3c94900-5e51-4279-8f2e-fefc4653f1e2.jpeg"
     },
     {
       reviewId: 29,
@@ -70,7 +70,7 @@ module.exports = {
     },
     {
       reviewId: 57,
-      url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-706047820221786677/original/d3c94900-5e51-4279-8f2e-fefc4653f1e2.jpeg"
+      url: "https://a0.muscache.com/im/pictures/miso/Hosting-716094518642442603/original/587200b3-c94c-4526-8722-f7e8b7ebe79c.jpeg"
     },
     {
       reviewId: 61,
