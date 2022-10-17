@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 function AddSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
-    const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session.user);
 
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");

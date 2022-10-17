@@ -4,12 +4,14 @@ import * as sessionActions from '../../store/session';
 import LoginForm from '../LoginFormModal/LoginForm';
 import { Modal } from '../../context/Modal';
 import { NavLink } from "react-router-dom";
+import SignupFormPage from "../SignupFormPage";
 import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
 
   const openMenu = () => {
@@ -45,7 +47,15 @@ function ProfileButton({ user }) {
             closeMenu()
           }}>Log In</button>
         </div>
-        <div className="login login-button"><NavLink to="/signup">Sign Up</NavLink></div>
+        <div>
+          <button className="sign-up login login-button" onClick={(e) => {
+             e.stopPropagation();
+             setShowSignUpModal(true)
+             closeMenu()
+          }}>
+            Sign Up
+          </button>
+        </div>
       </div>
     );
   } else {
@@ -69,7 +79,12 @@ function ProfileButton({ user }) {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <LoginForm setShowModal={setShowModal}/>
+          <LoginForm setShowModal={setShowModal} />
+        </Modal>
+      )}
+      {showSignUpModal && (
+        <Modal onClose={() => setShowSignUpModal(false)}>
+          <SignupFormPage setShowSignUpModal={setShowSignUpModal}/>
         </Modal>
       )}
       {showMenu && sessionLinks}
@@ -78,3 +93,6 @@ function ProfileButton({ user }) {
 }
 
 export default ProfileButton;
+
+
+{/* <div className="login login-button"><NavLink to="/signup">Sign Up</NavLink></div> */}

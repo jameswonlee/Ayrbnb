@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
-function SignupFormPage() {
+function SignupFormPage({ setShowSignUpModal }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -22,6 +22,9 @@ function SignupFormPage() {
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, firstName, lastName, username, password }))
+      .then(() => {
+        setShowSignUpModal(false);
+      })
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
