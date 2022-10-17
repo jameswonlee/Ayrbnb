@@ -14,3 +14,37 @@
     height: 100%;
     padding: 10px;
 }
+
+.confirm-delete-review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 550px;
+    padding: 25px;
+}
+
+.review-delete-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.review-delete-button, .review-delete-cancel {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: rgb(215, 4, 102);
+    color: white;
+    font-size: large;
+    border-radius: 6px;
+} 
+
+.review-delete-button {
+  margin-right: 2px;
+}
+
+.review-delete-cancel {
+    margin-left: 2px;
+}

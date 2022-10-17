@@ -18,6 +18,7 @@
     justify-content: center;
     height: 200px;
     width: 500px;
+    padding: 25px;
 }
 
 .delete-buttons {

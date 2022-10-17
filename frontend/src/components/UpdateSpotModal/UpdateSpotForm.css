@@ -4,6 +4,7 @@
     flex-direction: column;
     height: 725px;
     width: 700px;
+    padding: 25px;
 }
 
 .update-submit-button {

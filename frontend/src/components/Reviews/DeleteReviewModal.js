@@ -33,13 +33,15 @@ function DeleteReviewModal({ review }) {
             </button>
             {shown && (
                 <Modal onClose={hideModal}>
-                    <div className="confirm-delete">
-                        Are you sure you want to delete your review?
-                        <div className="buttons">
-                            <button className="delete-button" onClick={deleteClickHandler}>
+                    <div className="confirm-delete-review">
+                        <h2>
+                            Are you sure you want to delete your review?
+                        </h2>
+                        <div className="review-delete-buttons">
+                            <button className="review-delete-button" onClick={deleteClickHandler}>
                                 Confirm Delete
                             </button>
-                            <button className="cancel-button" onClick={hideModal}>
+                            <button className="review-delete-cancel" onClick={hideModal}>
                                 Cancel
                             </button>
                         </div>

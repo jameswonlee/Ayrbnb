@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 880px;
+    height: 800px;
     width: 600px;
+    padding: 25px;
 }
 
 .create-spot-button {

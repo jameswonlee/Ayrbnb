@@ -5,6 +5,8 @@
     /* align-items: center; */
     height: 400px;
     width: 500px;
+    /* margin: 20px; */
+    padding: 25px;
 }
 
 .login-buttons {
