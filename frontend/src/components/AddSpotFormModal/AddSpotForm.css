@@ -15,5 +15,10 @@
     font-size: 1em;
     border-radius: 6px;
     border: none;
-    margin-top: 2px;
+    margin-top: 32px;
+}
+
+.become-host-title {
+    margin-top: 0px;
+    margin-bottom: 24px;
 }

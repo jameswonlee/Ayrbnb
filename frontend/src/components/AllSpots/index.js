@@ -16,16 +16,20 @@ function DisplayAllSpots() {
     }, [])
 
     return (
-        <div className="content-wrapper">
-            {/* <h1>Spots List</h1> */}
-            <div className="all-spots">
-                <div className='spot-cards'>
-                    {allSpots.map(spot => (
-                        <SpotCard key={spot.id} spot={spot} />
-                    ))}
+        <div className="center">
+            <main>
+                <div className="content-wrapper">
+                    {/* <h1>Spots List</h1> */}
+                    <div className="all-spots">
+                        <div className='spot-cards'>
+                            {allSpots.map(spot => (
+                                <SpotCard key={spot.id} spot={spot} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </main >
+        </div >
     )
 }
 

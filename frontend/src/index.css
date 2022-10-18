@@ -2,10 +2,10 @@
 
 
 * {
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: initial;
+    -moz-osx-font-smoothing: grayscale;;
 }
-
-
 
 .center {
     margin: 100px 100px;

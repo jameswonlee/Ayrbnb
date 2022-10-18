@@ -1,3 +1,11 @@
+/* Need to remove this styling in order to do media queries */
+
+
+.outer-container {
+    max-width: 1400px;
+    margin: auto;
+}
+
 .images {
     display: flex;
     border-radius: 17px;
@@ -8,7 +16,7 @@
     object-fit: cover;
     max-height: 510px;
     max-width: 700px;
-    width: 100%;
+    width: 50%;
 }
 
 .image {

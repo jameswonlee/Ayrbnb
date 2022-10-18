@@ -23,16 +23,18 @@ function ReviewsForSpot() {
         <div className="reviews">{reviews.map(review => (
             <div key={review.id} className="review-card">
                 <div className="review-content">
-                    <div className="user-name">
-                        {review.User.firstName}
-                    </div>
-                    <div className="review">
-                        {review.review}
-                        {sessionUser?.id === review.User.id &&
-                            <div className="delete-modal">
-                                <DeleteReviewModal review={review} />
-                            </div>
-                        }
+                    <div className="review-padding">
+                        <div className="user-name">
+                            {review.User.firstName}
+                        </div>
+                        <div className="review">
+                            {review.review}
+                            {sessionUser?.id === review.User.id &&
+                                <div className="delete-modal">
+                                    <DeleteReviewModal review={review} />
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

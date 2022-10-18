@@ -69,7 +69,7 @@ function AddSpotForm({ setShowModal }) {
 
     return (
         <form onSubmit={submitHandler} className="create-spot-form">
-            <h2>Open your door to hosting</h2>
+            <h2 className="become-host-title">Open your door to hosting</h2>
             {validationErrors.length > 0 &&
                 validationErrors.map(error =>
                     <li key={error}>{error}</li>

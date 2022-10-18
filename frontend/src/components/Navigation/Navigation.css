@@ -31,7 +31,7 @@
     background-color: white;
     /* border: 1px solid gray; */
     width: 250px;
-    top: 43px;
+    top: 48px;
     right: 0;
     border-radius: 7px;
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
@@ -40,11 +40,12 @@
 
 .menu {
     display: flex;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .become-a-host {
     margin-right: 25px;
+    margin-top: 2px;
 }
 
 .login-button, .logout-button {
@@ -78,18 +79,17 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 40px;
-    width: 75px;
+    height: 45px;
+    width: 80px;
     color: rgb(86, 84, 84);
-    border-radius: 20px;
-    border: none;
+    border-radius: 22px;
+    border: 1px solid rgb(202, 201, 201);
     background-color: white;
-    box-shadow: 0 0 3px gray;
+
 }
 
 .user-menu:hover {
-    /* box-shadow: 0px 2px 2px 2px rgb(213, 212, 212); */
-    box-shadow: 0px 3px 6px rgb(213, 212, 212);
+    box-shadow: 0px 2px 6px rgb(201, 200, 200);
 }
 
 .logo {

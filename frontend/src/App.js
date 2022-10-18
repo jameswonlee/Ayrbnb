@@ -17,8 +17,8 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      <div className="center">
-        <main>
+      {/* <div className="center">
+        <main> */}
           {isLoaded && (
             <Switch>
               {/* <Route path='/signup'>
@@ -35,8 +35,8 @@ function App() {
               </Route>
             </Switch>
           )}
-        </main>
-      </div>
+        {/* </main>
+      </div> */}
     </>
   );
 }
