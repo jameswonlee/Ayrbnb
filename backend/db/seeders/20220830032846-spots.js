@@ -93,7 +93,7 @@ module.exports = {
       country: 'United States',
       lat: 36.84756,
       lng: 118.83747,
-      name: 'Beverly Hills Estate With Breathtaking views',
+      name: 'Beverly Hills Estate With Breathtaking Views',
       description: 'This new contemporary estate was constructed using the finest materials featuring breathtaking views of the city from DTLA to the ocean from nearly every room in the house. Designed to exemplify the beauty of organic elements, this architectural triumph is perched high up on the hillside in the coveted Beverly Hills area.',
       price: 6500.00
     },
