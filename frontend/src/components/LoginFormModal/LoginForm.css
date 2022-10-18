@@ -15,7 +15,7 @@
     height: 50px;
     width: 100%;
     border-radius: 6px;
-    font-size: large;
+    font-size: 1em;
     border: none;
     margin-top: 5px;
 }
@@ -27,6 +27,6 @@ input {
     margin-top: px;
     border-color: gray;
     /* font-weight: bold; */
-    font-size: larger;
+    font-size: large;
     margin-top: 3px;
 }

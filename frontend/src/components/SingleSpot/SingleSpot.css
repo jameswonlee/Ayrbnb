@@ -25,6 +25,10 @@
     flex-wrap: wrap;
 }
 
+.spot-name {
+    font-size: larger;
+}
 
-
-/* .spot-image-1 */
+.stars-reviews-location {
+    font-size: large;
+}

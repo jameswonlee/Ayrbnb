@@ -62,7 +62,12 @@ function SingleSpot() {
                         </div>
                     </div>
                     <div className="under-image-details">
-                        <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
+                        <h2>Entire home hosted by {spot.Owner?.firstName}</h2>                            {sessionUser && spot.ownerId === sessionUser.id &&
+                            <div className="owner-options">
+                                <div><UpdateSpotFormModal spot={spot} /></div>
+                                <div><DeleteSpotButton /></div>
+                            </div>
+                        }
                     </div>
                     <div className="description">
                         <p>{spot.description}</p>
@@ -81,12 +86,6 @@ function SingleSpot() {
                         }
                         <ReviewsForSpot reviews={reviews} spot={spot} />
                     </div>
-                    {sessionUser && spot.ownerId === sessionUser.id &&
-                        <div className="owner-options">
-                            <div><UpdateSpotFormModal spot={spot} /></div>
-                            <div><DeleteSpotButton /></div>
-                        </div>
-                    }
                 </div>
             )}
             {notFound && <h1>PAGE NOT FOUND</h1>}

@@ -25,7 +25,13 @@
     justify-content: space-between;
 }
 
-/* .avg-rating {
-    display: flex;
-    align-items: flex-end;;
-} */
+.city-state {
+    font-size: large;
+    font-weight: 500;
+}
+
+.price {
+    font-weight: 400;
+}
+
+
