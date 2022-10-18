@@ -12,7 +12,7 @@ function ProfileButton({ user }) {
   const [showModal, setShowModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
-  console.log('sessionUser', sessionUser)
+  // console.log('sessionUser', sessionUser)
 
   const openMenu = () => {
     if (showMenu) return;
@@ -62,7 +62,7 @@ function ProfileButton({ user }) {
   } else {
     sessionLinks = (
       <div className="dropdown-menu">
-        <div className="text-black mb-1">Hello, {user.firstName}</div>
+        <div className="text-black mb-1">Hello {user.firstName}</div>
         <div className="text-black mb-1">Account: {user.email}</div>
         <div>
           <button className="logout-button" onClick={logout}>Log Out</button>

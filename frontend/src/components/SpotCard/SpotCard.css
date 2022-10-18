@@ -26,9 +26,11 @@
 }
 
 .city-state {
-    font-size: large;
+    font-size: medium;
     font-weight: 500;
 }
+
+
 
 .price {
     font-weight: 400;
