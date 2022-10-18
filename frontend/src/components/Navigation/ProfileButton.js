@@ -12,6 +12,7 @@ function ProfileButton({ user }) {
   const [showModal, setShowModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
+  console.log('sessionUser', sessionUser)
 
   const openMenu = () => {
     if (showMenu) return;
@@ -49,9 +50,9 @@ function ProfileButton({ user }) {
         </div>
         <div>
           <button className="sign-up login login-button" onClick={(e) => {
-             e.stopPropagation();
-             setShowSignUpModal(true)
-             closeMenu()
+            e.stopPropagation();
+            setShowSignUpModal(true)
+            closeMenu()
           }}>
             Sign Up
           </button>
@@ -75,7 +76,11 @@ function ProfileButton({ user }) {
     <div className="profile-menu">
       <button className="user-menu" onClick={openMenu}>
         <i id="hamburger-menu" className=" fas fa-sharp fa-solid fa-bars "></i>
+        {/* {sessionUser?.id === 1 &&
+          <i id="user-icon" className="fas fa-user-circle user_icon fa-2x"></i>
+        } */}
         <i id="user-icon" className="fas fa-user-circle user_icon fa-2x"></i>
+
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
@@ -84,7 +89,7 @@ function ProfileButton({ user }) {
       )}
       {showSignUpModal && (
         <Modal onClose={() => setShowSignUpModal(false)}>
-          <SignupFormPage setShowSignUpModal={setShowSignUpModal}/>
+          <SignupFormPage setShowSignUpModal={setShowSignUpModal} />
         </Modal>
       )}
       {showMenu && sessionLinks}
@@ -95,4 +100,4 @@ function ProfileButton({ user }) {
 export default ProfileButton;
 
 
-{/* <div className="login login-button"><NavLink to="/signup">Sign Up</NavLink></div> */}
+{/* <div className="login login-button"><NavLink to="/signup">Sign Up</NavLink></div> */ }

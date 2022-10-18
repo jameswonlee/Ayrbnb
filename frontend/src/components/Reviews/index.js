@@ -9,11 +9,8 @@ import './Reviews.css';
 function ReviewsForSpot() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
-    const reduxState = useSelector(state => state)
-    // console.log('reduxState', reduxState)
     const sessionUser = useSelector(state => state.session.user);
     const reviewsData = useSelector(state => state.reviews.reviews);
-    // console.log('reviewsData', reviewsData)
 
     const reviews = Object.values(reviewsData);
 

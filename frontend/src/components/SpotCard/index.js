@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './SpotCard.css';
 import React from 'react';
-// import { useDispatch } from 'react-redux';
 
 
 function SpotCard({ spot }) {
