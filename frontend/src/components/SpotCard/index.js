@@ -27,4 +27,5 @@ function SpotCard({ spot }) {
 
 
 
+
 export default SpotCard;
