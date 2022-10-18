@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import LoginForm from '../LoginFormModal/LoginForm';
 import { Modal } from '../../context/Modal';
-import { NavLink } from "react-router-dom";
 import SignupFormPage from "../SignupFormPage";
 import './Navigation.css';
 
