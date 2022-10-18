@@ -11,6 +11,7 @@ function ReviewsForSpot() {
     const { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const reviewsData = useSelector(state => state.reviews.reviews);
+    const girlNames = ["Jane", "Susan", "Jessica"];
 
     const reviews = Object.values(reviewsData);
 
@@ -20,11 +21,17 @@ function ReviewsForSpot() {
 
 
     return (
-        <div className="reviews">{reviews.map(review => (
+        <div className="reviews">{reviews.map((review, index) => (
             <div key={review.id} className="review-card">
                 <div className="review-content">
                     <div className="review-padding">
                         <div className="user-name">
+                            <img 
+                            width={50}
+                            height={50}
+                            src={`https://randomuser.me/api/portraits/${girlNames.includes(review.User.firstName) ? "women" : "men"}/${index + 1}.jpg`} 
+                            className="user-image">
+                            </img>
                             {review.User.firstName}
                         </div>
                         <div className="review">

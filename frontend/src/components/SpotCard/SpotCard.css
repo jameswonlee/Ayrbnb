@@ -30,7 +30,13 @@
     font-weight: 500;
 }
 
+.price span {
+    font-weight: 300;
+}
 
+.user-image {
+    border-radius: 100%;
+}
 
 /* .price {
     

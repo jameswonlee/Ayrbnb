@@ -14,7 +14,7 @@ function SpotCard({ spot }) {
                 <div className="city-price">
                     <p className="city-state"><strong>{spot.city}, {spot.state}</strong></p>
                     <p className="country text-gray">{spot.country}</p>
-                    <p className="price"><strong>${spot.price}</strong> night</p>
+                    <p className="price"><strong>${spot.price}</strong><span> night</span></p>
                 </div>
                 <div className="avg-rating">
                     <p>★{Number(spot.avgRating).toFixed(2)}</p>
