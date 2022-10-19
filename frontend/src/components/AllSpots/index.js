@@ -19,7 +19,6 @@ function DisplayAllSpots() {
         <div className="center">
             <main>
                 <div className="content-wrapper">
-                    {/* <h1>Spots List</h1> */}
                     <div className="all-spots">
                         <div className='spot-cards'>
                             {allSpots.map(spot => (

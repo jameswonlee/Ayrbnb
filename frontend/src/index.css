@@ -1,6 +1,5 @@
 /* TODO Add site wide styles */
 
-
 * {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: initial;
@@ -20,7 +19,7 @@
 }
 
 .text-gray {
-    color: rgb(95, 94, 94)
+    color: rgb(160, 158, 158)
 }
 
 .text-not-as-black {

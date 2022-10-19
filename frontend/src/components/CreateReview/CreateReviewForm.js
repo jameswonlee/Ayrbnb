@@ -38,9 +38,9 @@ function CreateReviewForm({ spot, setShowModal }) {
     }
 
     return (
-        <div className="form-container">
+        <div className="review-form">
             <form onSubmit={submitHandler}>
-                <h2>Write your review</h2>
+                <h2 className="write-review-title">Write your review</h2>
                 {validationErrors.length > 0 &&
                 validationErrors.map(error => 
                     <li key={error}>{error}</li>

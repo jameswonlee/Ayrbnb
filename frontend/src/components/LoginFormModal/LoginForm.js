@@ -34,7 +34,7 @@ function LoginForm({ setShowModal }) {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <h2>
+      <h2 className="login-title">
         Welcome to Ayrbnb
       </h2>
       <ul>
@@ -66,7 +66,7 @@ function LoginForm({ setShowModal }) {
         </label>
       </div>
       <div>
-        <button type="submit" className="login-buttons">Continue</button>
+        <button type="submit" className="login-buttons continue">Continue</button>
       </div>
       <div>
         <button onClick={demoUserLogin} className="login-buttons">Demo User</button>

@@ -1,8 +1,6 @@
-/* Need to remove this styling in order to do media queries */
-
 
 .outer-container {
-    max-width: 1400px;
+    max-width: 1250px;
     margin: auto;
 }
 

@@ -35,7 +35,7 @@ function SignupFormPage({ setShowSignUpModal }) {
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
-      <h2>Welcome to Ayrbnb</h2>
+      <h2 className="welcome-header">Welcome to Ayrbnb</h2>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
