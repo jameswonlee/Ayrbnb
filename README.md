@@ -102,7 +102,7 @@ npm install
 npm start
  ```
 <!-- 📱  -->
-# Contact
+## Contact
 <img src=https://i.imgur.com/w9xwrCT.png width=20>[GitHub](https://github.com/jameswonlee)
 <img src=https://i.imgur.com/2ffGJqj.png width=20> [LinkedIn](https://www.linkedin.com/in/jameswonlee/)
 
