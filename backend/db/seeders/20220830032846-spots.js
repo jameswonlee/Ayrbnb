@@ -26,7 +26,7 @@ module.exports = {
       price: 1629.00
     },
     {
-      ownerId: 2,
+      ownerId: 11,
       address: "1000 Pacific Coast Hwy",
       city: "Newport Beach",
       state: "CA",

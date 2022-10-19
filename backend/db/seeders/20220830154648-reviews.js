@@ -74,7 +74,7 @@ module.exports = {
     },
     {
       spotId: 3,
-      userId: 9,
+      userId: 11,
       review: "This house was spectacular! The location was great and the views were unmatched. Close proximity to so many great restaurants, shops and beaches. The house was very clean and well maintained. You can tell a lot of thought was put into the design and decor. Simply beautiful.",
       stars: 5
     },
