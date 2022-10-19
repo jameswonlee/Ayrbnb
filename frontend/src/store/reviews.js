@@ -85,7 +85,6 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 
 /* ------------------- Reducer --------------------- */
 
-// need to create initial state:
 const initialState = { reviews: {}, reviewById: null };
 
 const reviewsReducer = (state = initialState, action) => {
