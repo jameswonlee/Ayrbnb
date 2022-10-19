@@ -45,9 +45,9 @@ module.exports = {
       country: 'United States',
       lat: 34.04150,
       lng: 184.27171,
-      name: 'Carbon Beach Retreat | Ocean Front Malibu Pad w/ Rooftop Patio',
-      description: "A cliffside home off the Pacific Coast Highway with oceanfront views is usually what comes to mind when you think of Malibu, and that's exactly what you get when you stay here! Modern design, sleek interiors, and floor-to-ceiling windows facing the water set an incredible, upscale ambiance for an incredible time with your guests.",
-      price: 851.00
+      name: 'Malibu Beach Oasis',
+      description: "This Malibu Beach Oasis has easy access to the ocean, amazing views, and the privacy that your A-listers will appreciate. With 18-foot ceilings and massive openings to ocean-facing terraces, this sprawling beach house is the perfect place to host. Strap in for refreshing dips in the pool, a friendly competition in the game room, and incredible sunsets. In the morning, hit the home gym or just relax in the theatre.",
+      price: 5260.00
     },
     {
       ownerId: 4,
