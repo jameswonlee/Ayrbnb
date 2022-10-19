@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Modal } from "../../context/Modal";
 import UpdateSpotForm from './UpdateSpotForm';
+import './UpdateSpotFormModal.css';
 
 
 function UpdateSpotFormModule({ spot }) {
@@ -14,7 +15,7 @@ function UpdateSpotFormModule({ spot }) {
 
     return (
         <>
-            <button onClick={clickHandler}>Edit Your Listing</button>
+            <button onClick={clickHandler} className="edit-spot-button">Edit Your Listing</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <UpdateSpotForm setShowModal={setShowModal}/>

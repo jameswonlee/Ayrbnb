@@ -1,0 +1,17 @@
+.create-review-button {
+    background-color: white;
+    border: none;
+    height: 25px;
+    border-radius: 35px;
+}
+
+.create-review-button:hover {
+    background-color: rgb(244, 242, 242);
+    cursor: pointer;
+}
+
+.create-review-container {
+    margin-top: -30px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}

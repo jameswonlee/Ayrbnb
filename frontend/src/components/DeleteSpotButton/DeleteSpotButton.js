@@ -28,8 +28,8 @@ function DeleteSpotButton() {
 
     return (
         <div className="delete-button-content">
-            <button className="delete-button" onClick={showModal}>
-                Delete Spot
+            <button className="delete-spot-button" onClick={showModal}>
+                Delete Your Spot
             </button>
             {shown &&
                 <Modal onClose={hideModal}>

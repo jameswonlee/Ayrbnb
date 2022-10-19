@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteReview } from "../../store/reviews";
+import './Reviews.css';
 
 
 function DeleteReviewModal({ review }) {
@@ -27,14 +28,14 @@ function DeleteReviewModal({ review }) {
     }
 
     return (
-        <div className="edit-review-outer">
-            <button className="edit-review-button" onClick={showModal}>
+        <div className="delete-review-outer">
+            <button className="delete-review-button" onClick={showModal}>
                 Delete your review
             </button>
             {shown && (
                 <Modal onClose={hideModal}>
                     <div className="confirm-delete-review">
-                        <h2>
+                        <h2 className="confirm-delete-question">
                             Are you sure you want to delete your review?
                         </h2>
                         <div className="review-delete-buttons">

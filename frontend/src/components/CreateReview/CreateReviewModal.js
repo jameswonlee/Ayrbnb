@@ -1,6 +1,7 @@
 import { Modal } from "../../context/Modal";
 import { useState } from 'react';
 import CreateReviewForm from "./CreateReviewForm";
+import './CreateReviewModal.css';
 
 
 function CreateReviewModal({ spot }) {
@@ -11,8 +12,8 @@ function CreateReviewModal({ spot }) {
     }
 
     return (
-        <div>
-            <button onClick={clickHandler}>Write a review</button>
+        <div className="create-review-container">
+            <button onClick={clickHandler} className="create-review-button">Write a review</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CreateReviewForm setShowModal={setShowModal} spot={spot}/>

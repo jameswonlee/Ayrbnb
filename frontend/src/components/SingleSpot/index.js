@@ -62,23 +62,29 @@ function SingleSpot() {
                         </div>
                     </div>
                     <div className="under-image-details">
-                        <h2>Entire home hosted by {spot.Owner?.firstName}</h2>                            {sessionUser && spot.ownerId === sessionUser.id &&
-                            <div className="owner-options">
-                                <div><UpdateSpotFormModal spot={spot} /></div>
-                                <div><DeleteSpotButton /></div>
+                        {sessionUser && spot.ownerId === sessionUser.id ?
+                            <div className="spot-owner">
+                                <h2>You are the owner of this spot</h2>
+                                <div className="owner-options">
+                                    <div><UpdateSpotFormModal spot={spot} /></div>
+                                    <div><DeleteSpotButton /></div>
+                                </div>
+
                             </div>
+                            :
+                            <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
                         }
                     </div>
                     <div className="description">
                         <p>{spot.description}</p>
                     </div>
-                    <div className="price">
-                        <p>${spot.price} night</p>
-                    </div>
-                    <div className="review-outer-container">
-                        <div className="avgRating-reviewcount">
+                    <div className="price-star-rating-container">
+                        <div className="avgRating-reviewCount">
                             ★{Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
                         </div>
+                        <p className="spot-price"><strong>${spot.price}</strong><span> night</span></p>
+                    </div>
+                    <div className="review-outer-container">
                         {sessionUser && spot.Owner?.id !== sessionUser.id &&
                             <div>
                                 <CreateReviewModal spot={spot} />

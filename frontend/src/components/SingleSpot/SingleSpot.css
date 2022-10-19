@@ -39,4 +39,41 @@
     font-size: large;
 }
 
+.spot-owner {
+    display: flex;
+    flex-direction: column;
+}
+
+.owner-options {
+    display: flex;
+    margin-left: 40px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.description {
+    border-bottom: solid;
+    border-bottom-color: rgb(238, 235, 235);
+    padding-bottom: 10px;
+}
+
+.price-star-rating-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.avgRating-reviewCount {
+    margin-top: 30px;
+}
+
+.spot-price {
+    margin-right: 40px;
+    margin-top: 35px;
+}
+
+.review-outer-container {
+    margin-top: 20px;
+}
+
 

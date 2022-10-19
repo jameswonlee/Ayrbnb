@@ -22,8 +22,12 @@
     align-items: center;
     justify-content: center;
     height: 200px;
-    width: 550px;
+    width: 600px;
     padding: 25px;
+}
+
+.confirm-delete-question {
+    margin-bottom: 50px;
 }
 
 .review-delete-buttons {
@@ -59,4 +63,30 @@
 
 .review-padding {
     padding: 20px;
+}
+
+.user-name {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.review-user-name {
+    margin-left: 12px;
+    margin-top: 10px;
+}
+
+.delete-review-modal {
+    margin-top: 5px;
+}
+
+.delete-review-button {
+    background-color: white;
+    border: none;
+    border-radius: 35px;
+    height: 25px;
+}
+
+.delete-review-button:hover {
+    background-color: rgb(245, 242, 242);
+    cursor: pointer;
 }

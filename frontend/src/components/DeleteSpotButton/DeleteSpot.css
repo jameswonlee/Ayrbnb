@@ -56,5 +56,17 @@
 
 .delete-warning-message {
     margin-bottom: 30px;
- 
+}
+
+.delete-spot-button {
+    height: 25px;
+    margin-left: 2px;
+    background-color: white;
+    border-radius: 35px;
+    border: none;
+}
+
+.delete-spot-button:hover {
+    background-color: rgb(245, 242, 242);
+    cursor: pointer;
 }

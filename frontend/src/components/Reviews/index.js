@@ -26,22 +26,22 @@ function ReviewsForSpot() {
                 <div className="review-content">
                     <div className="review-padding">
                         <div className="user-name">
-                            <img 
-                            width={50}
-                            height={50}
-                            src={`https://randomuser.me/api/portraits/${girlNames.includes(review.User.firstName) ? "women" : "men"}/${index + 1}.jpg`} 
-                            className="user-image">
+                            <img
+                                width={50}
+                                height={50}
+                                src={`https://randomuser.me/api/portraits/${girlNames.includes(review.User.firstName) ? "women" : "men"}/${index + 1}.jpg`}
+                                className="user-image">
                             </img>
-                            {review.User.firstName}
+                            <span className="review-user-name">{review.User.firstName}</span>
                         </div>
                         <div className="review">
                             {review.review}
+                        </div>
                             {sessionUser?.id === review.User.id &&
-                                <div className="delete-modal">
+                                <div className="delete-review-modal">
                                     <DeleteReviewModal review={review} />
                                 </div>
                             }
-                        </div>
                     </div>
                 </div>
             </div>

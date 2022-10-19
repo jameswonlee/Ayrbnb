@@ -1,0 +1,12 @@
+.edit-spot-button {
+    height: 25px;
+    margin-right: 2px;
+    background-color: white;
+    border-radius: 35px;
+    border: none;
+}
+
+.edit-spot-button:hover {
+    background-color: rgb(245, 242, 242);
+    cursor: pointer;
+}
