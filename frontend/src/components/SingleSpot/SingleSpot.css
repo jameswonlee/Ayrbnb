@@ -65,11 +65,13 @@
 
 .avgRating-reviewCount {
     margin-top: 30px;
+    font-size: large;
 }
 
 .spot-price {
     margin-right: 40px;
     margin-top: 35px;
+    font-size: larger;
 }
 
 .review-outer-container {
