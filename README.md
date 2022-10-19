@@ -77,7 +77,7 @@ https://github.com/jameswonlee/airbnb-clone.git
 ```sh
 npm install
 ```
-3. Copy the contents of the .env.example file to create a .env file at the root of the backend folder.
+3. Copy the contents of the .env.example file and create a .env file at the root of the backend folder.
 ```sh
 cp .env.example .env
 ```
