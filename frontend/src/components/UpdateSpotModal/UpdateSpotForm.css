@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 750px;
+    height: 880px;
     width: 700px;
     padding: 30px;
 }
@@ -19,5 +19,5 @@
 }
 
 .edit-spot-title {
-    padding-bottom: 12px;
+    padding-bottom: 20px;
 }
