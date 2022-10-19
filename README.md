@@ -4,7 +4,7 @@
 # About
 Ayrbnb is a fullstack application "clone" inspired by the [Airbnb](http://www.airbnb.com) website. Ayrbnb is a platform where users go to find or host vacation rentals from anywhere around the world.
 
-# Live site:
+# Live site
 [**www.airbnb-james-lee.herokuapp.com**](http://www.airbnb-james-lee.herokuapp.com)
 
 <!-- 🔗  -->
