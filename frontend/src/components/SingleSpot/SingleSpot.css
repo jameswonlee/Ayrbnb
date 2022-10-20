@@ -33,11 +33,39 @@
 
 .spot-name {
     font-size: larger;
+    margin-top: 30px;
+}
+
+.superhost {
+    font-weight: 200;
+    text-decoration: none;
 }
 
 .stars-reviews-location {
-    font-size: large;
+    font-size: medium;
+    margin-top: -8px;
+    margin-bottom: 30px;
 }
+
+.review-count {
+    text-decoration: underline;
+}
+
+.city {
+    text-decoration: underline;
+}
+
+.state {
+    text-decoration: underline;
+}
+
+.country {
+    text-decoration: underline;
+}
+
+/* .stars-reviews-location span{
+    text-decoration: underline;
+} */
 
 .spot-owner {
     display: flex;
@@ -65,13 +93,17 @@
 
 .avgRating-reviewCount {
     margin-top: 30px;
-    font-size: large;
+    font-size: larger;
 }
 
 .spot-price {
     margin-right: 40px;
     margin-top: 35px;
     font-size: larger;
+}
+
+.spot-price span {
+    font-weight: 300;
 }
 
 .review-outer-container {

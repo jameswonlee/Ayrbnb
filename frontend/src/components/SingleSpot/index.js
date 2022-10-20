@@ -43,8 +43,12 @@ function SingleSpot() {
                         <h2>{spot.name}</h2>
                     </div>
                     <div className="stars-reviews-location">
-                        <p>★{spot.avgStarRating} · {reviewCount} reviews · Superhost
-                            · {spot.city}, {spot.state}, {spot.country}</p>
+                        <p>★{spot.avgStarRating} · <span
+                            className="review-count">{reviewCount} reviews</span> · <span
+                                className="superhost">Superhost</span> · <span
+                                    className="city">{spot.city},</span>
+                            <span className="state"> {spot.state}, </span>
+                            <span className="country">{spot.country}</span></p>
                     </div>
                     <div className="images">
                         {spot.SpotImages?.map((image, index) => {
