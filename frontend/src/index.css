@@ -6,10 +6,6 @@
     -moz-osx-font-smoothing: grayscale;;
 }
 
-.center {
-    margin: 100px 100px;
-}
-
 .text-black {
     color: black;
 }
@@ -28,12 +24,15 @@
 
 .footer {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: sticky;
     bottom: 0;
     background-color: white;
-    height: 30px;
+    height: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 /* .links:visited {

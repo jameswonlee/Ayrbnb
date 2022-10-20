@@ -5,6 +5,13 @@
     margin-right: -20px;
 }
 
+@media(max-width: 860px) {
+    .reviews {
+        flex-direction: column;
+    }
+}
+
+
 .review-card {
     flex-grow: 1;
     flex-shrink: 1;
@@ -89,9 +96,10 @@
 
 .delete-review-button {
     background-color: white;
-    border: none;
+    border: 1px solid rgb(210, 210, 210);
     border-radius: 35px;
     height: 25px;
+    margin-left: -3px;
 }
 
 .delete-review-button:hover {

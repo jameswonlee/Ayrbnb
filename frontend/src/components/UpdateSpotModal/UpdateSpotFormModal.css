@@ -3,7 +3,7 @@
     margin-right: 2px;
     background-color: white;
     border-radius: 35px;
-    border: none;
+    border: 1px solid rgb(210, 210, 210);
 }
 
 .edit-spot-button:hover {

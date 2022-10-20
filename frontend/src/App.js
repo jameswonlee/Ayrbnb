@@ -22,9 +22,6 @@ function App() {
         <main> */}
       {isLoaded && (
         <Switch>
-          {/* <Route path='/signup'>
-                <SignupFormPage />
-              </Route> */}
           <Route path='/spots/:spotId'>
             <SingleSpot />
           </Route>
