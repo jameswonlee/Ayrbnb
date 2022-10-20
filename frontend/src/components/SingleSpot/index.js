@@ -68,14 +68,14 @@ function SingleSpot() {
                         </div>
                     </div>
                     <div className="under-image-details">
-                        {sessionUser && spot.ownerId === sessionUser.id ?
+                        {sessionUser && spot.ownerId === sessionUser.id
+                            ?
                             <div className="spot-owner">
                                 <h2>You are the owner of this spot</h2>
                                 <div className="owner-options">
                                     <div><UpdateSpotFormModal spot={spot} /></div>
                                     <div><DeleteSpotButton /></div>
                                 </div>
-
                             </div>
                             :
                             <h2>Entire home hosted by {spot.Owner?.firstName}</h2>

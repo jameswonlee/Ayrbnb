@@ -13,4 +13,5 @@
 
 .become-host-button:hover {
     background-color: rgb(246, 243, 243);
+    cursor: pointer;
 }
