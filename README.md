@@ -1,4 +1,8 @@
-<img width="577" alt="ayrbnb_v7" src="https://user-images.githubusercontent.com/99856702/196315104-4da1b6d6-81f2-4a37-90e2-87a8819245d2.png">
+<!-- <img src="https://user-images.githubusercontent.com/99856702/196315104-4da1b6d6-81f2-4a37-90e2-87a8819245d2.png"> -->
+
+![ayrbnb-logo]
+
+[ayrbnb-logo]: ./frontend/src/images/ayrbnb-logo.png
 
 
 # About
@@ -15,8 +19,8 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 * [Redux State Shape](https://github.com/jameswonlee/airbnb-clone/wiki/Redux-Store-Shape)
 
 <!-- 🖥️  -->
-# Built With
-### Frameworks, Platforms, Libraries:
+# Tech Stack
+### Frameworks, Platforms, & Libraries:
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -36,8 +40,7 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 ### Asset Design:
 ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)
 
-==================================================================================
-
+---------------------------------------------------------------
 ## Roadmap of Features:
 - [x] Spots
     - [x] Load all spots
@@ -65,8 +68,7 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
     - [ ] Delete a review image
 - [ ] Search
 
-==================================================================================
-
+-------------------------------------------------------------------
 
 ### Getting Started
 1. Clone repository.
