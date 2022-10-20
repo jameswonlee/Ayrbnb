@@ -60,7 +60,9 @@ function SingleSpot() {
                             {spot.SpotImages?.map((image, index) => {
                                 if (image.preview !== true) return (
                                     (<img key={image.id}
-                                        className={`image spot-image`} src={image.url} style={{ paddingBottom: index > 1 ? 0 : "10px" }} />)
+                                        className={`image spot-image`}
+                                        src={image.url}
+                                        style={{ paddingBottom: index > 1 ? 0 : "10px" }} />)
                                 )
                             })}
                         </div>
