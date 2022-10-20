@@ -25,3 +25,49 @@
 .text-not-as-black {
     color: rgb(40, 39, 39);
 }
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    height: 30px;
+}
+
+/* .links:visited {
+    text-decoration: none;
+} */
+
+.footer-about {
+    margin-top: 5px;
+}
+
+.footer-links {
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.links-github {
+    text-decoration: none;
+    color: black;
+}
+
+.links-linkedin {
+    text-decoration: none;
+    color: #0a66c2;
+}
+
+
+
+/* .footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+} */
+
