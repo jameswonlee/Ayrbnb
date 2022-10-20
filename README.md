@@ -2,7 +2,7 @@
 
 
 # About
-Ayrbnb is a fullstack application "clone" inspired by the [Airbnb](http://www.airbnb.com) website. Ayrbnb is a platform where users go to find or host vacation rentals from anywhere around the world.
+Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.airbnb.com) website. Ayrbnb is a platform where users go to host their homes or find vacation rentals.
 
 # Live site
 [**www.airbnb-james-lee.herokuapp.com**](http://www.airbnb-james-lee.herokuapp.com)
@@ -49,7 +49,7 @@ Ayrbnb is a fullstack application "clone" inspired by the [Airbnb](http://www.ai
 - [ ] Reviews
     - [x] Load all reviews for a spot
     - [x] Create a review
-    - [x] Update a review
+    - [ ] Update a review
     - [x] Delete a review
     - [ ] List all reviews of current user
 - [ ] Bookings
@@ -66,7 +66,7 @@ Ayrbnb is a fullstack application "clone" inspired by the [Airbnb](http://www.ai
 - [ ] Search
 
 ==================================================================================
-___
+
 
 ### Getting Started
 1. Clone repository.
@@ -77,11 +77,11 @@ https://github.com/jameswonlee/airbnb-clone.git
 ```sh
 npm install
 ```
-3. Copy the contents of the .env.example file and create a .env file at the root of the backend folder.
+3. Create a .env file at the root of the backend folder and copy the contents from the .env.example file.
 ```sh
 cp .env.example .env
 ```
-4. Migrate and seed the necessary files/data.
+4. Migrate files and seed the data.
  ```sh
 npx dotenv sequelize db:migrate
  ```
