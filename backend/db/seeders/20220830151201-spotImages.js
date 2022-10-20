@@ -79,12 +79,12 @@ module.exports = {
     },
     {
       spotId: 3,
-      url: "https://a0.muscache.com/im/pictures/1bcb9e68-6966-4bcd-8c64-41ecef24acf1.jpg",
+      url: "https://a0.muscache.com/im/pictures/a1a439ea-ca05-49d4-bb64-b57b6f44f9d7.jpg",
       preview: false
     },
     {
       spotId: 3,
-      url: "https://a0.muscache.com/im/pictures/a1a439ea-ca05-49d4-bb64-b57b6f44f9d7.jpg",
+      url: "https://a0.muscache.com/im/pictures/1bcb9e68-6966-4bcd-8c64-41ecef24acf1.jpg",
       preview: false
     },
     {
