@@ -58,6 +58,10 @@
     border: none;
 }
 
+.login-button:hover {
+    cursor: pointer;
+}
+
 .login, .login a {
     text-decoration: none;
     text-align: center;
@@ -72,6 +76,10 @@
     border: none;
     height: 40px;
     font-size: 1em;
+}
+
+.logout-button:hover {
+    cursor: pointer;
 }
 
 

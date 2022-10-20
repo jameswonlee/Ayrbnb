@@ -18,6 +18,10 @@
     margin-top: 32px;
 }
 
+.update-submit-button:hover {
+    cursor: pointer;
+}
+
 .edit-spot-title {
     padding-bottom: 20px;
 }

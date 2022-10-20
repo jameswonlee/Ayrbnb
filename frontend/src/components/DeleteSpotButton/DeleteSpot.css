@@ -70,3 +70,11 @@
     background-color: rgb(245, 242, 242);
     cursor: pointer;
 }
+
+.confirm-delete-button:hover {
+    cursor: pointer;
+}
+
+.cancel-delete-button:hover {
+    cursor: pointer;
+}

@@ -18,6 +18,10 @@
     margin-top: 32px;
 }
 
+.create-spot-button:hover {
+    cursor: pointer;
+}
+
 .become-host-title {
     margin-top: 0px;
     margin-bottom: 24px;

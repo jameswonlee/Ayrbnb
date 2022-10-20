@@ -9,6 +9,10 @@
     margin-top: 32px;
 }
 
+.signup-submit-button:hover {
+    cursor: pointer;
+}
+
 .signup-form {
     width: 600px;
     height: 600px;

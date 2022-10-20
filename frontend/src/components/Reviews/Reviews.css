@@ -50,8 +50,16 @@
   margin-right: 2px;
 }
 
+.review-delete-button:hover {
+    cursor: pointer;
+}
+
 .review-delete-cancel {
     margin-left: 2px;
+}
+
+.review-delete-cancel:hover {
+    cursor: pointer;
 }
 
 .review {

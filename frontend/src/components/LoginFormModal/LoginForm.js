@@ -66,10 +66,10 @@ function LoginForm({ setShowModal }) {
         </label>
       </div>
       <div>
-        <button type="submit" className="login-buttons continue">Continue</button>
+        <button type="submit" className="login-form-buttons continue">Continue</button>
       </div>
       <div>
-        <button onClick={demoUserLogin} className="login-buttons">Demo User</button>
+        <button onClick={demoUserLogin} className="login-form-buttons">Demo User</button>
       </div>
     </form>
   );
