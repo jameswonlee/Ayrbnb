@@ -17,7 +17,7 @@ function ReviewsForSpot() {
 
     useEffect(() => {
         dispatch(getReviewsBySpotId(spotId))
-    }, []);
+    }, [reviewsData]);
 
 
     return (

@@ -55,10 +55,16 @@
 }
 
 .superhost {
-    font-weight: 200;
+    font-weight: 300;
     text-decoration: none;
 }
 
+.superhost-badge {
+    height: 15px;
+    width: 11px;
+    /* padding-top: 10px; */
+    margin-bottom: -2px;
+}
 .stars-reviews-location {
     font-size: medium;
     margin-top: -8px;

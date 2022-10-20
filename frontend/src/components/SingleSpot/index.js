@@ -7,6 +7,7 @@ import UpdateSpotFormModal from '../UpdateSpotModal/UpdateSpotFormModal';
 import DeleteSpotButton from '../DeleteSpotButton/DeleteSpotButton';
 import { getReviewsBySpotId } from '../../store/reviews';
 import CreateReviewModal from '../CreateReview/CreateReviewModal';
+import superhostBadge from '../../images/superhost-badge.png';
 import './SingleSpot.css';
 
 
@@ -34,6 +35,10 @@ function SingleSpot() {
         doEffect();
     }, []);
 
+    // useEffect(() => {
+    //     dispatch(getSpotById(spotId))
+    // }, [])
+
 
     return (
         <>
@@ -43,10 +48,11 @@ function SingleSpot() {
                         <h2>{spot.name}</h2>
                     </div>
                     <div className="stars-reviews-location">
-                        <p>★{spot.avgStarRating} · <span
-                            className="review-count">{reviewCount} reviews</span> · <span
-                                className="superhost">Superhost</span> · <span
-                                    className="city">{spot.city},</span>
+                        <p>★ {spot.avgStarRating} · <span
+                            className="review-count">{reviewCount} reviews</span> &nbsp; · &nbsp;<img
+                                src={superhostBadge} className="superhost-badge"></img>
+                            <span className="superhost">&nbsp; Superhost&nbsp;</span> · &nbsp;&nbsp;<span
+                                className="city">{spot.city},</span>
                             <span className="state"> {spot.state}, </span>
                             <span className="country">{spot.country}</span></p>
                     </div>
