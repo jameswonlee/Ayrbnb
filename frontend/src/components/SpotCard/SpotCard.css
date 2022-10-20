@@ -38,8 +38,8 @@
     border-radius: 100%;
 }
 
-/* .price {
-    
-} */
+.avg-rating > p {
+    margin-top: 8px;
+}
 
 

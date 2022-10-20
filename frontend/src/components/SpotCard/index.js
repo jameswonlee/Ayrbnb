@@ -17,7 +17,7 @@ function SpotCard({ spot }) {
                     <p className="price"><strong>${spot.price}</strong><span> night</span></p>
                 </div>
                 <div className="avg-rating">
-                    <p>★{Number(spot.avgRating).toFixed(2)}</p>
+                    <p>★ {Number(spot.avgRating).toFixed(2)}</p>
                 </div>
             </div>
         </NavLink>
