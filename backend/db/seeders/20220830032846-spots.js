@@ -81,8 +81,8 @@ module.exports = {
       country: 'United States',
       lat: 34.76456,
       lng: 117.39876,
-      name: "Roxbury",
-      description: "Hollywood Hills Modern Sanctuary",
+      name: "Hollywood Hills Modern Sanctuary | Jaw Dropping View",
+      description: "Modern construction, 6,500 sqft, Hollywood Hills Sanctuary home perfect for 12 guests. Featuring new jetted hot tub, pool table, theater, 5 bedrooms with en suite bathrooms, 6 baths, several view-side balconies, rooftop hot tub, 2 car garage + 3 car driveway (parking for 6 on property)",
       price: 1650.00
     },
     {

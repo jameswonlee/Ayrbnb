@@ -135,25 +135,25 @@ module.exports = {
     {
       spotId: 6,
       userId: 5,
-      review: "Stunning views",
+      review: "This house is AMAZING! The views are breathtaking. It was super clean and has all the bells and whistles. I couldn't have had a better stay and look forward to staying again soon.",
       stars: 5
     },
     {
       spotId: 6,
       userId: 1,
-      review: "Amazing house on the hill. Best views of LA!",
+      review: "The location was incredible, with views of all of LA and the surrounding hills and neighborhoods. The house itself was very comfortable, with plenty of space for parking and room for guests. Sunrises and sunsets were incredible, and night views of the city provided the perfect backdrop for evening entertaining. Can't say enough how fun it was staying at this spot!",
       stars: 5
     },
     {
       spotId: 6,
       userId: 9,
-      review: "It's all about the view!",
+      review: "Wow, this was the best experience that I have ever had with an Airbnb. Susan was such a gracious host and attended to our every need. The views of this place was none that I could imagine nor explain. 10 Stars if it was possible.",
       stars: 4
     },
     {
       spotId: 6,
       userId: 7,
-      review: "Best views in LA",
+      review: "Absolutely amazing house with amazing views!!! Susan was very attentive to our needs and accommodations and the house provided everything a guest would ever need. Definitely hope to stay here again soon!!",
       stars: 5
     },
     {
