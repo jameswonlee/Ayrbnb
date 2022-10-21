@@ -91,10 +91,12 @@ function SingleSpot() {
                         <p>{spot.description}</p>
                     </div>
                     <div className="price-star-rating-container">
-                        <div className="avgRating-reviewCount">
-                            ★{Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
-                        </div>
-                        <p className="spot-price"><strong>${spot.price}</strong><span> night</span></p>
+                        <h2 className="avgRating-reviewCount">
+                            ★ {Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
+                        </h2>
+                        {/* <p className="spot-price"><strong>${spot.price}</strong><span> night</span></p> */}
+                        <h2 className="spot-price">${spot.price}<span> night</span></h2>
+
                     </div>
                     <div className="review-outer-container">
                         {sessionUser && spot.Owner?.id !== sessionUser.id &&
