@@ -33,11 +33,7 @@ function SingleSpot() {
 
     useEffect(() => {
         doEffect();
-    }, []);
-
-    // useEffect(() => {
-    //     dispatch(getSpotById(spotId))
-    // }, [])
+    }, [spotId]);
 
 
     return (
