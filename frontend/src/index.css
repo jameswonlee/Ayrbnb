@@ -29,8 +29,8 @@
     align-items: center;
     position: sticky;
     bottom: 0;
-    background-color: white;
-    height: 20px;
+    background-color: rgb(250, 250, 250);
+    height: 10px;
     padding-bottom: 30px;
     padding-top: 30px;
 }
