@@ -33,8 +33,7 @@ function SingleSpot() {
 
     useEffect(() => {
         doEffect();
-    }, [spotId]);
-
+    }, [spotId, reviewCount]);
 
     return (
         <>
@@ -44,13 +43,24 @@ function SingleSpot() {
                         <h2>{spot.name}</h2>
                     </div>
                     <div className="stars-reviews-location">
-                        <p>★ {spot.avgStarRating} · <span
-                            className="review-count">{reviewCount} reviews</span> &nbsp; · &nbsp;<img
-                                src={superhostBadge} className="superhost-badge"></img>
-                            <span className="superhost">&nbsp; Superhost&nbsp;</span> · &nbsp;&nbsp;<span
-                                className="city">{spot.city},</span>
-                            <span className="state"> {spot.state}, </span>
-                            <span className="country">{spot.country}</span></p>
+                        {spot.avgStarRating
+                            ?
+                            <p>★ {spot.avgStarRating} · <span
+                                className="review-count">{reviewCount} reviews</span> &nbsp; · &nbsp;<img
+                                    src={superhostBadge} className="superhost-badge"></img>
+                                <span className="superhost">&nbsp; Superhost&nbsp;</span> · &nbsp;&nbsp;<span
+                                    className="city">{spot.city},</span>
+                                <span className="state"> {spot.state}, </span>
+                                <span className="country">{spot.country}</span>
+                            </p>
+                            :
+                            <p>
+                                <span
+                                    className="city">{spot.city},</span>
+                                <span className="state"> {spot.state}, </span>
+                                <span className="country">{spot.country}</span>
+                            </p>
+                        }
                     </div>
                     <div className="images">
                         {spot.SpotImages?.map((image, index) => {
@@ -87,12 +97,20 @@ function SingleSpot() {
                         <p>{spot.description}</p>
                     </div>
                     <div className="price-star-rating-container">
-                        <h2 className="avgRating-reviewCount">
+                        {/* <h2 className="avgRating-reviewCount">
                             ★ {Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
-                        </h2>
-                        {/* <p className="spot-price"><strong>${spot.price}</strong><span> night</span></p> */}
+                        </h2> */}
+                        {spot.avgStarRating
+                            ?
+                            <h2 className="avgRating-reviewCount">
+                                ★ {Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
+                            </h2>
+                            :
+                            <h2 className="avgRating-reviewCount">
+                                No reviews (yet)
+                            </h2>
+                        }
                         <h2 className="spot-price">${spot.price}<span> night</span></h2>
-
                     </div>
                     <div className="review-outer-container">
                         {sessionUser && spot.Owner?.id !== sessionUser.id &&
