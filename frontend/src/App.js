@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import DisplayAllSpots from "./components/AllSpots";
@@ -15,11 +14,14 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (window.location.protocol === "http:" && window.location.host === "airbnb-james-lee.herokuapp.com") {
-      window.location = "https://airbnb-james-lee.herokuapp.com"
-    }
-  }, []);
+  // Redirects users to the HTTPS website 
+  // - because on mobile, users were unable to login to account from HTTP website:
+
+  // useEffect(() => {
+  //   if (window.location.protocol === "http:" && window.location.host === "airbnb-james-lee.herokuapp.com") {
+  //     window.location = "https://airbnb-james-lee.herokuapp.com"
+  //   }
+  // }, []);
 
   return (
     <>
