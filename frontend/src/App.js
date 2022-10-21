@@ -18,9 +18,8 @@ function App() {
   useEffect(() => {
     if (window.location.protocol === "http:" && window.location.host === "airbnb-james-lee.herokuapp.com") {
       window.location = "https://airbnb-james-lee.herokuapp.com"
-      console.log("HELLLLLLO")
     }
-  }, [])
+  }, []);
 
   return (
     <>
