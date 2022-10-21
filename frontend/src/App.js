@@ -17,11 +17,11 @@ function App() {
   // Redirects users to the HTTPS website 
   // - because on mobile, users were unable to login to account from HTTP website:
 
-  // useEffect(() => {
-  //   if (window.location.protocol === "http:" && window.location.host === "airbnb-james-lee.herokuapp.com") {
-  //     window.location = "https://airbnb-james-lee.herokuapp.com"
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (window.location.protocol === "http:" && window.location.host === "airbnb-james-lee.herokuapp.com") {
+      window.location = "https://airbnb-james-lee.herokuapp.com"
+    }
+  }, []);
 
   return (
     <>
