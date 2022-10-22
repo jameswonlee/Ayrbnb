@@ -40,6 +40,14 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 ### Asset Design:
 ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)
 
+# Sample Features
+
+- ### Log in as Demo User (mobile)
+
+![mobile-demo-user]
+
+[mobile-demo-user]: ./demo/mobile-demo-user-login.gif
+
 ---------------------------------------------------------------
 ## Roadmap of Features:
 - [x] Spots
