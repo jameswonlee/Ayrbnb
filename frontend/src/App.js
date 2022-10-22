@@ -22,7 +22,7 @@ function App() {
       window.location = "https://airbnb-james-lee.herokuapp.com"
     }
   }, []);
-
+  
   return (
     <>
       <Navigation isLoaded={isLoaded} />
