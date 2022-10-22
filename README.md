@@ -46,8 +46,6 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 
 <img src=https://i.imgur.com/UJ8o0Tj.gif>
 
-<img src=https://i.imgur.com/FnHkFNP.gif>
-
 ---------------------------------------------------------------
 ## Roadmap of Features:
 - [x] Spots
