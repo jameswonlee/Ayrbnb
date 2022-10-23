@@ -97,6 +97,10 @@
     align-items: center;
 }
 
+.spot-price-container {
+    /* margin-top: 20px; */
+}
+
 .owner-options {
     display: flex;
     margin-left: 0px;

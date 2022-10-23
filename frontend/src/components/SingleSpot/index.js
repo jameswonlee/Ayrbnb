@@ -94,7 +94,7 @@ function SingleSpot() {
                                 <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
                             </div>
                         }
-                        <div>
+                        <div className="spot-price-container">
                             <h2 className="spot-price">${spot.price}<span> night</span></h2>
                         </div>
                     </div>

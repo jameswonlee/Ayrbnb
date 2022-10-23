@@ -44,7 +44,8 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 
 - ### Log in as Demo User (mobile)
 
-![](https://imgur.com/UJ8o0Tj.gif)
+<!-- ![](https://imgur.com/UJ8o0Tj.gif) -->
+![](https://imgur.com/Rimbv9F.gif)
 <!-- <img src="https://imgur.com/UJ8o0Tj.gif"> -->
 <!-- <img src=https://i.imgur.com/UJ8o0Tj.gif> -->
 <!-- [Imgur](https://imgur.com/UJ8o0Tj) -->
@@ -55,7 +56,7 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
     - [x] Load all spots
     - [x] Load details of single spot
     - [x] Create a spot
-    - [x] List current user's spots
+    - [ ] List current user's spots
     - [x] Update current user's spot
     - [x] Delete current user's spot
 - [ ] Reviews
