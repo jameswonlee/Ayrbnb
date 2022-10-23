@@ -90,13 +90,18 @@ function SingleSpot() {
                                 </div>
                             </div>
                             :
-                            <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
+                            <div className="spot-owner">
+                                <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
+                            </div>
                         }
+                        <div>
+                            <h2 className="spot-price">${spot.price}<span> night</span></h2>
+                        </div>
                     </div>
                     <div className="description">
                         <p>{spot.description}</p>
                     </div>
-                    <div className="price-star-rating-container">
+                    <div className="rating-container">
                         {/* <h2 className="avgRating-reviewCount">
                             ★ {Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
                         </h2> */}
@@ -110,7 +115,6 @@ function SingleSpot() {
                                 No reviews (yet)
                             </h2>
                         }
-                        <h2 className="spot-price">${spot.price}<span> night</span></h2>
                     </div>
                     <div className="review-outer-container">
                         {sessionUser && spot.Owner?.id !== sessionUser.id &&

@@ -88,13 +88,13 @@
 }
 
 .under-image-details {
-    margin-top: 60px;
-}
-
-.spot-owner {
+    margin-top: 40px;
+    padding-bottom: 30px;
+    border-bottom: solid;
+    border-bottom-color: rgb(238, 235, 235);
     display: flex;
-    flex-direction: column;
-    margin-top: -20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .owner-options {
@@ -108,9 +108,10 @@
     border-bottom: solid;
     border-bottom-color: rgb(238, 235, 235);
     padding-bottom: 30px;
+    margin-top: 40px;
 }
 
-.price-star-rating-container {
+.rating-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -123,10 +124,9 @@
 }
 
 .spot-price {
-    margin-right: 40px;
-    margin-top: 35px;
+    margin-right: 10px;
+    margin-top: -1px;
     font-weight: 500;
-    /* font-size: larger; */
 }
 
 .spot-price span {
