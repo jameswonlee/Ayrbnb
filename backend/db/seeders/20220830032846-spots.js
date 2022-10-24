@@ -117,8 +117,8 @@ module.exports = {
       country: 'United States',
       lat: 36.48575,
       lng: 118.92837,
-      name: 'WeHo Villa',
-      description: 'Private Villa',
+      name: 'The Masterpiece Melrose Villa',
+      description: "Modern Masterpiece showcasing contemporary architectural design with quality craftsmanship. Situated near Melrose, it is walking distance to some of LA's essential dining spots. Smart home automation by Control4, built-in surround sound system, intercom, and LED energy-efficient lighting. Experience the open floor plan with seamless indoor-outdoor transition via a Fleetwood luxury multi-slide and pocket door, Italian kitchen cabinets, high-end German appliances by Miele.",
       price: 1290.00
     },
     {
@@ -129,8 +129,8 @@ module.exports = {
       country: 'United States',
       lat: 37.84938,
       lng: 117.83748,
-      name: 'Alfred',
-      description: 'Modern Alfred Villa w Pool, Spa, and Gym',
+      name: 'White Modern Villa - with BBQ/pool',
+      description: "This stylish and cozy 5 bedroom, 4.5 bath home family-friendly villa located near Beverly Hills, Rodeo Dr and The Grove offers everything you need in a home. Equipped with open space kitchen, high ceilings, modern appliances, pool, a home décor with an attention to detail and everything your heart desires! 1 bedroom is in a separate guest house w/ kitchen with a private patio door that can lead to the pool. It's the perfect home for families & travelers looking for a clean and cozy home in LA.",
       price: 1499.00
     },
     {
@@ -141,8 +141,8 @@ module.exports = {
       country: 'United States',
       lat: 35.83746,
       lng: 117.73646,
-      name: 'Premier Villa',
-      description: "Multi-Million Mulholland Dr Getaway w/ infinity pool",
+      name: "Multi-Million Mulholland Dr Getaway w/ infinity pool",
+      description: "This is the house of your dreams with views of Los Angeles from both sides. Included in the house is a gym, high powered steam room, double driveways, and the perfect infinity pool. Our spacious outdoor area also has a BBQ station, dining table, and modern fireplaces. If your looking for style and comfort you are gonna want to stay here. We offer WIFI, indoor and outdoors TV with all your favorite streaming services, and a surround sound SONOS system.",
       price: 1624.00
     },
     {
@@ -165,8 +165,8 @@ module.exports = {
       country: 'United States',
       lat: 35.73656,
       lng: 117.18171,
-      name: 'Beverly Hills Villa',
-      description: 'Mid-century architectural home with sweeping DTLA to ocean views!',
+      name: 'MODERN BEVERLY HILLS ESTATE | POOL AND SPA | THEATER',
+      description: "Experience luxury and serenity throughout this modern new construction home in the heart of coveted Beverly Grove. This privately gated home sits steps away from LA's most favored dining and shopping experiences. Mid-century architectural home with sweeping DTLA to ocean views!",
       price: 1439.00
     },
     {
@@ -177,8 +177,8 @@ module.exports = {
       country: 'United States',
       lat: 36.83746,
       lng: 118.82747,
-      name: 'Hollywood Hills Sanctuary',
-      description: 'Sleek 3 level villa in the Hollywood Hills',
+      name: '♛ MODERN LUXURY W/ HUGE ROOFTOP, SHOPS, CULTURE ❀',
+      description: "Welcome to heaven! Escape to a 2,000 foot roof top deck with a BBQ for a night in the comfort of the home or to your backyard with a Cabana, a movie theatre, & Baja pool for the perfect relaxation. Complete with a smart home system, smart Sonos music and lighting, formal entry/gated. Furniture has been updated and a new movie theatre has been built since the photos were taken.",
       price: 2467.00
     },
     {
@@ -201,8 +201,8 @@ module.exports = {
       country: "United States",
       lat: 36.27364,
       lng: 118.38374,
-      name: "LUXURY HOME",
-      description: "Luxury home with pool & spa, theater, and city views",
+      name: "Modern Luxury Home",
+      description: "This ultra-modern retreat has spacious bedrooms, high ceilings and floor to ceiling windows throughout. Perfect for family get togethers, a work group or a retreat with friends. Enjoy the modern decor, unique finishes and overall a quality experience!",
       price: 1223.00
     }
     

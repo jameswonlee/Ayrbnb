@@ -207,73 +207,73 @@ module.exports = {
     {
       spotId: 9,
       userId: 2,
-      review: "Tastefully designed",
+      review: "Communication with the host was smooth and they were very accommodating. I would definitely recommend this place for people who are looking for a relaxing time away from home.",
       stars: 5
     },
     {
       spotId: 9,
       userId: 10,
-      review: "Nice modern home in Los Angeles",
+      review: "We absolutely loveeeeeee this home !!! It was in the perfect location and easy to get to all our favorite spots! The house was impeccable!!!! Super duper clean, the layout is incredibly beautiful and spacious! The staff are also extremely helpful and very responsive. I highly recommend this home away from home to truly enjoy and love your stay in one of my favorite domestic cities!!!!!! You'll love and adore it totally! Thank you all tremendously!",
       stars: 4
     },
     {
       spotId: 9,
       userId: 2,
-      review: "The pool was shaded which was nice.",
+      review: "My friends and I booked this amazing home at the very last minute after a tiring weekend of camping at EDC Vegas. The host was not only very responsive but also super understanding and accomodating to some of our needs that day.",
       stars: 4
     },
     {
       spotId: 9,
       userId: 4,
-      review: "Loved the outdoor entertainment area.",
+      review: "Absolutely loved everything about this property! So modern and stylist. We loved the kitchen, it had just about every pot, pan and utensil we needed. The pool was so relaxing and we loved the outdoor dining area. The master bedroom and bathroom was everything!!",
       stars: 4
     },
     {
       spotId: 10,
       userId: 1,
-      review: "Very clean and nice host",
+      review: "Beautiful, clean, and spacious home in a great location. There were many little details that really made the place special, from a sonos system throughout the entire house, to snacks and drinks being left by the previous guests for us the enjoy. We thoroughly enjoyed our stay.",
       stars: 5
     },
     {
       spotId: 10,
       userId: 6,
-      review: "Nice modern home in LA.",
+      review: "We really enjoyed our stay. The house is modern, clean, comfortable, and incredibly spacious. It's very centrally located yet feels private and secluded. We would definitely return!",
       stars: 5
     },
     {
       spotId: 10,
       userId: 2,
-      review: "Nice, modern, clean.",
+      review: "I have nothing but wonderful things to say about this home. As soon as you step in, all you would say is WOW!!! Very well appointed, and very clean! Mark is a gracious host who is always quick to answer questions and make sure you have everything you need. By far, this is the best AirBnB experience we have had.",
       stars: 4
     },
     {
       spotId: 10,
       userId: 3,
-      review: "Loved the saltwater pool.",
+      review: "Great, tasteful modern house in a convenient location and neighborhood. Easy access to most of LA spots, from Westside to Downtown. Proximal to great restaurants and shopping in Culver City, Century City and Beverly Hills. Was great to be able to accommodate our large family of 6 plus our dog with privacy we wouldn't have been able to get from a hotel. Nicely finished bathrooms, kitchen, and interior. Beautiful backyard with a deck was great for a taste of indoor-outdoor living.",
       stars: 4
     },
     {
       spotId: 11,
       userId: 10,
-      review: "This spot has amazing views!",
-      stars: 5
+      review: "Great check in, we paid extra for the pool and hot tub to be heated. When we got there it wasn't turned on and the hot tub had half the water level missing. We texted one of the hosts and he came and filled it up. We had to refill it the next day as well but then it seemed to maintain its water level. That was the only minor issue we had. Otherwise what a wonderful house. The views are amazing. Location is great! Definitely worth it.",
+      stars: 3
     },
     {
       spotId: 11,
       userId: 9,
-      review: "Such a nice home with amazing pool",
+      review: "This is an amazing property in a great location. The host responded quickly and assisted us when needed. We had no need to leave the home.",
       stars: 5
     },
     {
       spotId: 11,
       userId: 2,
-      review: "My family and I had a wonderful time at this home",
+      review: "Incredibly pleased and impressed by the home and exceptional service. The view is breathtaking and the home is peaceful and quiet. From booking to check in to check out communication was seamless and the hosts were wonderful. I would definitely stay there or at another of their homes again.",
       stars: 5
     },
     {
       spotId: 11,
       userId: 4,
-      review: "My favorite part about the home was the firepit!",
+      review: "The check in was easy. And the house is gorgeous. You can't beat the views and for all you hikers, it's one block away from the back side of Runyon Canyon. It's worth it to heat the pool.",
       stars: 5
     },
     {
@@ -303,49 +303,49 @@ module.exports = {
     {
       spotId: 13,
       userId: 8,
-      review: "Loved the minimalistic style.",
+      review: "The house was beautiful and great price for all that you get!!! The location is a bit sketchy. We did not feel safe, we always had people looking in the windows and waving while we did office work. But, maybe, what can do you when you stay next to Fairfax & Melrose. Had a hard time with all of the iPads and, connecting music to the tv took a while every single day we were there. The lady barged in right at 11:59am, while our check out was 12pm. So….. Very on time, I guess. They also charged $40 for table scratches which just seemed like a way to get money.",
       stars: 4
     },
     {
       spotId: 13,
       userId: 9,
-      review: "The views were spectacular. I could see from DTLA to the ocean!",
+      review: "Their places are just the most amazing, nothing is missing, everything you need is available and when ever you need something, they are right away available. Definitely not the last time I stay here!",
       stars: 5
     },
     {
       spotId: 13,
       userId: 10,
-      review: "Modern home with amazing views!",
+      review: "This is the second home we rented from Jessica in the Hollywood Hills and both times they were great. She is highly communicative, responsive and professional. We had a small issue and they sent someone to the house to rectify it in an hour. I would and will rent from them again for sure",
       stars: 5
     },
     {
       spotId: 13,
       userId: 4,
-      review: "This house is exceptional and made for the perfect weekend getaway!",
+      review: "This place is just the most amazing, nothing is missing, everything you need is available and when ever you need something, they are right away available. Definitely not the last time I stay here! This house is exceptional and made for the perfect weekend getaway!",
       stars: 5
     },
     {
       spotId: 14,
       userId: 2,
-      review: "The host was very helpful and great at communicating",
+      review: "I am in love with this Airbnb. It is located close to everything. John was extremely accommodating, he allowed me to have my personal chef and the backyard was perfect for relaxing. The pool and spa heat up very fast. The home is modern and beautiful. I will book every time I'm in LA. Also kid friendly. My 3 years son had a blast.",
       stars: 5
     },
     {
       spotId: 14,
       userId: 1,
-      review: "Great location in Hollywood",
+      review: "John's place was as advertised and absolutely fabulous! The location, luxury finishes, backyard oasis, rooftop, chef's kitchen were all on-point! He was also very attentive and quick to respond to the few questions we had. We had 7 family members stay there - all were wowed and would stay there again!",
       stars: 4
     },
     {
       spotId: 14,
       userId: 5,
-      review: "The infinity pool is amazing!",
+      review: "The communication with the host is unmatched! John went above and beyond for my family and I and we were highly satisfied and happy! Would absolutely rent from him again!",
       stars: 5
     },
     {
       spotId: 14,
       userId: 3,
-      review: "Amazing views!",
+      review: "This is a beautiful home in such a great location!! The view from the roof is amazing & truly breath taking! It's a very clean home with comfortable pillows that actually makes you feel well rested. The location is great & perfect short walk to many shops and restaurants! I would 100% stay here again and recommend this home to anyone who wants a location closer to the Hollywood sign that is still near the shops on Fairfax & Rodeo dr. (less than 5mins)",
       stars: 5
     },
     {
@@ -375,25 +375,25 @@ module.exports = {
     {
       spotId: 16,
       userId: 3,
-      review: "Needs review",
+      review: "Quick and easy check-in and the management team were accommodating on requests and responded quickly. Space was freshly cleaned and as described in the listing. Would definitely stay again!",
       stars: 4
     },
     {
       spotId: 16,
       userId: 5,
-      review: "Needs review",
+      review: "Amazing house. Very clean and the backyard is an Oasis. Perfect location. James and his team were available at all times and responsive. Overall amazing experience.",
       stars: 4
     },
     {
       spotId: 16,
       userId: 6,
-      review: "Needs review",
+      review: "This was a great stay overall! The home was beautiful, neighborhood was mostly quiet despite some construction next door, outdoor space was great as well. Only complaint being that we weren't able to figure out how to use the hot tub and one of the fireplaces during our stay. Would still recommend and would stay here again.",
       stars: 5
     },
     {
       spotId: 16,
       userId: 7,
-      review: "Needs review",
+      review: "The house is very spacious, well equipped and clean indoors. The host is very communicative and prompt in responding to questions. The location is great as it is close to several amenities (bakery, Target, groceries, LACMA museum etc.). The swimming pool is a very pleasant feature and made our stay enjoyable.",
       stars: 5
     }
   
