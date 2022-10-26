@@ -166,6 +166,7 @@ const spotsReducer = (state = initialState, action) => {
         case ADD_SPOT:
         case LOAD_SPOT:
             newState = { ...state, spots: { ...state.spots, [action.spot.id]: action.spot } };
+            // newState = { spots: { ...state.spots, [action.spot.id]: action.spot } };
             return newState;
         case ADD_IMG:
             const existingSpot = state.spots[action.spotId];
