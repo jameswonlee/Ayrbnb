@@ -8,6 +8,7 @@
     padding-top: 20px;
 }
 
+
 .nav {
     border-bottom: solid;
     color: rgb(235, 233, 233);
@@ -47,7 +48,17 @@
 .become-a-host {
     margin-right: 25px;
     margin-top: 2px;
-   
+}
+
+@media(max-width: 700px) {
+    .nav-bar {
+        margin-left: -70px !important;
+        /* margin-right: -20px !important; */
+    }
+
+    .menu {
+        margin-left: 10px;
+    }
 }
 
 .login-button, .logout-button {
@@ -113,11 +124,5 @@ hr {
     color: pink;
 }
 
-@media(max-width: 700px) {
-    .nav-bar {
-        margin-left: 0 !important;
-        margin-right: 15px !important;
-    }
-}
 
 
