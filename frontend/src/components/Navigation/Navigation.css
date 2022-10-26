@@ -42,7 +42,8 @@
 .menu {
     display: flex;
     margin-top: 5px;
-    margin-right: 90px;
+    margin-right: 5%;
+    /* margin-right: 90px; */
     /* width: 200px; */
 }
 
@@ -53,8 +54,8 @@
 
 @media(max-width: 700px) {
     .nav-bar {
-        margin-left: -80px !important;
-        /* margin-right: -20px !important; */
+        margin-left: -20% !important;
+        margin-right: 0% !important;
     }
 
     .menu {
@@ -118,7 +119,8 @@
 .logo {
     height: 50px;
     width: 140px;
-    margin-left: 90px;
+    /* margin-left: 90px; */
+    margin-left: 60%;
 }
 
 hr {
