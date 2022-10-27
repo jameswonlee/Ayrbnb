@@ -122,9 +122,20 @@ npm install
 npm start
  ```
 <!-- 📱  -->
-## Contact
-<img src=https://i.imgur.com/w9xwrCT.png width=20>[GitHub](https://github.com/jameswonlee)
-<img src=https://i.imgur.com/2ffGJqj.png width=20> [LinkedIn](https://www.linkedin.com/in/jameswonlee/)
+## Contact Me:
+
+[![linked in][github-icon]][github-url-james]
+[![linked in][linkedin-icon]][linkedin-url-james]
+
+<!-- <img src=https://i.imgur.com/w9xwrCT.png width=20>[GitHub](https://github.com/jameswonlee)
+<img src=https://i.imgur.com/2ffGJqj.png width=20> [LinkedIn](https://www.linkedin.com/in/jameswonlee/) -->
+
+
+<!-- Images -->
+[linkedin-icon]: https://skillicons.dev/icons?i=linkedin
+[github-icon]: https://skillicons.dev/icons?i=github
+[linkedin-url-james]: https://linkedin.com/in/jameswonlee/
+[github-url-james]: https://github.com/jameswonlee
 
 
 
