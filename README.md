@@ -12,14 +12,14 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 [**www.airbnb-james-lee.herokuapp.com**](http://www.airbnb-james-lee.herokuapp.com)
 
 <!-- 🔗  -->
-# Wiki Links
+# 🔗 Wiki Links
 * [API Documentation](https://github.com/jameswonlee/airbnb-clone/blob/main/backend/README-API-Docs.md#airbnb-clone)
 * [Database Schema](https://github.com/jameswonlee/airbnb-clone/wiki/Database-Schema)
 * [Features List](https://github.com/jameswonlee/airbnb-clone/wiki/Features-List)
 * [Redux State Shape](https://github.com/jameswonlee/airbnb-clone/wiki/Redux-Store-Shape)
 
 <!-- 🖥️  -->
-# Tech Stack
+# 🖥️ Tech Stack
 ### Frameworks, Platforms, & Libraries:
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
@@ -29,6 +29,7 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
+	![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
 ### Database:
@@ -88,7 +89,7 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 
 -------------------------------------------------------------------
 
-### Getting Started
+## ▶️ Getting Started
 1. Clone repository.
 ```
 https://github.com/jameswonlee/airbnb-clone.git
@@ -122,7 +123,7 @@ npm install
 npm start
  ```
 <!-- 📱  -->
-## Contact Me!
+## 📱 Connect With Me!
 
 [![linked in][github-icon]][github-url]
 [![linked in][linkedin-icon]][linkedin-url]
