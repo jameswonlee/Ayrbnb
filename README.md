@@ -4,6 +4,7 @@
 
 [ayrbnb-logo]: ./frontend/src/images/ayrbnb-logo.png
 
+<br>
 
 # About
 Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.airbnb.com) website. Ayrbnb is a platform where users go to host their homes or find vacation rentals.
@@ -11,12 +12,16 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 <!-- ## Live site -->
 [**www.airbnb-james-lee.herokuapp.com**](http://www.airbnb-james-lee.herokuapp.com)
 
+<br>
+
 <!-- 🔗  -->
 # 🔗 Wiki Links
 * [API Documentation](https://github.com/jameswonlee/airbnb-clone/blob/main/backend/README-API-Docs.md#airbnb-clone)
 * [Database Schema](https://github.com/jameswonlee/airbnb-clone/wiki/Database-Schema)
 * [Features List](https://github.com/jameswonlee/airbnb-clone/wiki/Features-List)
 * [Redux State Shape](https://github.com/jameswonlee/airbnb-clone/wiki/Redux-Store-Shape)
+
+<br>
 
 <!-- 🖥️  -->
 # 🖥️ Tech Stack
@@ -45,6 +50,7 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
+<br>
 
 # Sample Features
 
@@ -52,11 +58,14 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 
 ![desktop-login](https://imgur.com/pa3ATgw.gif)
 
+<br>
+
 - ### Log in as Demo User (mobile)
 
 ![mobile-login-large](https://imgur.com/0xIYfpc.gif)
 <!-- ![mobile-login-small](https://imgur.com/GwLHuwG.gif) -->
 
+<br>
 
 ---------------------------------------------------------------
 ## Roadmap of Features:
@@ -87,6 +96,8 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 - [ ] Search
 
 -------------------------------------------------------------------
+
+<br>
 
 ## ▶️ Getting Started
 1. Clone repository.
@@ -121,6 +132,9 @@ npm install
  ```sh
 npm start
  ```
+
+ <br>
+
 <!-- 📱  -->
 ## 📱 Connect With Me!
 
