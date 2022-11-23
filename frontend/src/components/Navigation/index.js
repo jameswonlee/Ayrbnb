@@ -18,11 +18,6 @@ function Navigation({ isLoaded }) {
           </img>
         </NavLink>
         <div className="menu">
-          {/* {sessionUser &&
-            <div className="become-a-host">
-              <AddSpotFormModal />
-            </div>
-          } */}
           <div className="become-a-host">
             <AddSpotFormModal />
           </div>
@@ -30,7 +25,6 @@ function Navigation({ isLoaded }) {
             <ProfileButton user={sessionUser} />}
         </div>
       </div>
-      {/* <hr className="hr"/> */}
     </div>
   );
 }

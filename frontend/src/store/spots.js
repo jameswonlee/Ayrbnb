@@ -64,7 +64,6 @@ export const getAllSpots = () => async (dispatch) => {
 
     if (response.ok) {
         const spots = await response.json();
-        // console.log('getAllSpots ---> spots.Spots', spots.Spots)
         dispatch(loadAllSpots(spots.Spots));
         return spots;
     }
@@ -76,7 +75,6 @@ export const getSpotById = (spotId) => async (dispatch) => {
 
     if (response.ok) {
         const spot = await response.json();
-        // console.log('getSpotById --> spot', spot)
         dispatch(loadSpot(spot));
         return spot;
     }
