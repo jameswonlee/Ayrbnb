@@ -9,7 +9,6 @@ function DisplayAllSpots() {
     const dispatch = useDispatch();
 
     const allSpots = useSelector(state => Object.values(state.spots.spots));
-    // const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(getAllSpots())

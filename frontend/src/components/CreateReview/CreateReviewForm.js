@@ -27,9 +27,7 @@ function CreateReviewForm({ spot, setShowModal }) {
                 alert("Review successfully created!");
                 setShowModal(false);
             } catch(e) {
-                // console.log('e.json', e.json)
                 const response = await e.json();
-                // console.log('response', response);
                 const otherErrors = errors.slice();
                 otherErrors.push(response.message);
                 setValidationErrors(otherErrors);

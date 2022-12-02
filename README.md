@@ -103,7 +103,7 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 ## ▶️ Getting Started
 1. Clone repository.
 ```
-https://github.com/jameswonlee/airbnb-clone.git
+https://github.com/jameswonlee/ayrbnb.git
 ```
 2. cd into the backend folder and npm install dependencies.
 ```sh
