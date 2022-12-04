@@ -18,8 +18,8 @@ function App() {
   // - because on mobile, users were unable to login to account from HTTP website:
 
   useEffect(() => {
-    if (window.location.protocol === "http:" && window.location.host === "airbnb-james-lee.herokuapp.com") {
-      window.location = "https://airbnb-james-lee.herokuapp.com"
+    if (window.location.protocol === "http:" && window.location.host === "ayrbnb-james-lee.herokuapp.com") {
+      window.location = "https://ayrbnb-james-lee.herokuapp.com"
     }
   }, []);
   
