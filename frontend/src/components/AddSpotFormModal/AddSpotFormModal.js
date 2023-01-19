@@ -18,7 +18,7 @@ function AddSpotFormModal() {
         <>
             <div className="become-host-container">
                 <button className="become-host-button" onClick={clickHandler}>
-                    Become a Host
+                    Ayrbnb your home
                 </button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>

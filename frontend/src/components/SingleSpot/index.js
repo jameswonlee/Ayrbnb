@@ -9,7 +9,7 @@ import { getReviewsBySpotId } from '../../store/reviews';
 import CreateReviewModal from '../CreateReview/CreateReviewModal';
 import superhostBadge from '../../images/superhost-badge.png';
 import './SingleSpot.css';
-
+import MapContainer from '../Maps';
 
 function SingleSpot() {
     const dispatch = useDispatch();
@@ -123,6 +123,19 @@ function SingleSpot() {
                             </div>
                         }
                         <ReviewsForSpot reviews={reviews} spot={spot} />
+                    </div>
+                    <div className="maps-outer-container">
+                        <div>
+                            <div className="maps-heading-text">
+                                Where you'll be
+                            </div>
+                            <div className="maps-city-state">
+                                {spot.city}, {spot.state}, United States
+                            </div>
+                        </div>
+                        <div className="maps-container">
+                            <MapContainer spot={spot} />
+                        </div>
                     </div>
                 </div>
             )}

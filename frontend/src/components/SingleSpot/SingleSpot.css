@@ -1,6 +1,6 @@
 
 .outer-container {
-    max-width: 1000px;
+    max-width: 1100px;
     /* max-width: 986px; */
     margin: auto;
 }
@@ -140,6 +140,30 @@
 
 .review-outer-container {
     margin-top: 10px;
+    border-bottom: solid;
+    border-color: rgb(238, 235, 235);
+    padding-bottom: 20px;
+}
+
+.maps-outer-container {
+    padding-top: 40px;
+}
+
+.maps-heading-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.maps-city-state {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: rgb(87, 86, 86);
+    margin-top: 20px;
+}
+
+.maps-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 
