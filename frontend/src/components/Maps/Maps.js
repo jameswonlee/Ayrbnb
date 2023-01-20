@@ -17,8 +17,6 @@ const Maps = ({ apiKey, spot }) => {
     lng: spot.lng
   }
 
-
-
   return (
     <>
       {isLoaded && (
@@ -32,5 +30,7 @@ const Maps = ({ apiKey, spot }) => {
     </>
   );
 };
+
+
 
 export default React.memo(Maps);

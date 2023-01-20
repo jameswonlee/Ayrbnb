@@ -23,4 +23,6 @@ const MapContainer = ({ spot }) => {
   );
 };
 
+
+
 export default MapContainer;
