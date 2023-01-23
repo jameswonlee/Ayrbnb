@@ -17,6 +17,10 @@ const Maps = ({ apiKey, spot }) => {
     lng: spot.lng
   }
 
+  // console.log('heellooooooo')
+  console.log('center', center)
+  console.log('isLoaded', isLoaded)
+
   return (
     <>
       {isLoaded && (
