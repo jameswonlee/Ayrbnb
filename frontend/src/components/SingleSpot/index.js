@@ -6,10 +6,15 @@ import ReviewsForSpot from '../Reviews';
 import UpdateSpotFormModal from '../UpdateSpotModal/UpdateSpotFormModal';
 import DeleteSpotButton from '../DeleteSpotButton/DeleteSpotButton';
 import { getReviewsBySpotId } from '../../store/reviews';
+import CreateBooking from '../Bookings/CreateBooking';
 import CreateReviewModal from '../CreateReview/CreateReviewModal';
-import superhostBadge from '../../images/superhost-badge.png';
-import './SingleSpot.css';
 import MapContainer from '../Maps';
+import superhostBadge from '../../images/superhost-badge.png';
+import selfCheckInIcon from '../../icons/self-check-in.ico';
+import superhostIcon from '../../icons/superhost.ico';
+import aircoverIcon from '../../icons/aircover.ico';
+import freeCancellationIcon from '../../icons/free-cancellation.ico';
+import './SingleSpot.css';
 
 function SingleSpot() {
     const dispatch = useDispatch();
@@ -35,10 +40,10 @@ function SingleSpot() {
         doEffect();
     }, [spotId, reviewCount]);
 
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    // window.scrollTo({
+    //     top: 0,
+    //     behavior: 'smooth'
+    // });
 
     return (
         <>
@@ -84,41 +89,96 @@ function SingleSpot() {
                             })}
                         </div>
                     </div>
-                    <div className="under-image-details">
-                        {sessionUser && spot.ownerId === sessionUser.id
-                            ?
-                            <div className="spot-owner">
-                                <h2>You are the owner of this spot</h2>
-                                <div className="owner-options">
-                                    <div><UpdateSpotFormModal spot={spot} /></div>
-                                    <div><DeleteSpotButton /></div>
+                    <div className="spot-details-and-booking-container">
+                        <div className="under-image-details-left">
+                            <div className="under-image-details">
+                                {sessionUser && spot.ownerId === sessionUser.id
+                                    ?
+                                    <div className="spot-owner">
+                                        <h2 className="spot-owner-text">You are the owner of this spot</h2>
+                                        <div className="owner-options">
+                                            <div><UpdateSpotFormModal spot={spot} /></div>
+                                            <div><DeleteSpotButton /></div>
+                                        </div>
+                                    </div>
+                                    :
+                                    <div className="spot-owner">
+                                        <div className="spot-owner-text">Entire home hosted by {spot.Owner?.firstName}</div>
+                                        <div className="spot-bed-bath-count">10 guests · 5 bedrooms · 5 beds · 5.5 baths</div>
+                                    </div>
+                                }
+                                {/* <div className="spot-price-container">
+                            <h2 className="spot-price">${spot.price}<span> night</span></h2>
+                        </div> */}
+                            </div>
+                            <div className="spot-features-container">
+                                <div className="self-check-in-container">
+                                    <div className="self-check-in-icon-container">
+                                        <img src={selfCheckInIcon} alt="" className="self-check-in-icon" />
+                                    </div>
+                                    <div className="self-check-in-text">
+                                        <div className="self-check-in-header">
+                                            Self check-in
+                                        </div>
+                                        <div className="self-check-in-description">
+                                            Check yourself in with the lockbox.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="superhost-container">
+                                    <div className="superhost-icon-container">
+                                        <img src={superhostIcon} alt="" className="superhost-icon" />
+                                    </div>
+                                    <div className="superhost-text">
+                                        <div className="superhost-header">
+                                            {spot.Owner?.firstName} is a Superhost
+                                        </div>
+                                        <div className="superhost-description">
+                                            Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="free-cancellation-container">
+                                    <div className="superfree-cancellation-container">
+                                        <img src={freeCancellationIcon} alt="" className="free-cancellation-icon" />
+                                    </div>
+                                    <div className="free-cancellation-text">
+                                        <div className="free-cancellation-header">
+                                            Free cancellation for 48 hours.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            :
-                            <div className="spot-owner">
-                                <h2>Entire home hosted by {spot.Owner?.firstName}</h2>
+                            <div className="aircover-container">
+                                <div className="aircover-icon">
+                                    <img src={aircoverIcon} alt="" className="aircover-icon"/>
+                                </div>
+                                <div className="aircover-description">
+                                    Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues
+                                    like trouble checking in.
+                                </div>
                             </div>
-                        }
-                        <div className="spot-price-container">
-                            <h2 className="spot-price">${spot.price}<span> night</span></h2>
+                            <div className="description">
+                                <p>{spot.description}</p>
+                            </div>
+
                         </div>
-                    </div>
-                    <div className="description">
-                        <p>{spot.description}</p>
+                        <div className="under-image-details-right">
+                            <CreateBooking />
+
+                        </div>
+
                     </div>
                     <div className="rating-container">
-                        {/* <h2 className="avgRating-reviewCount">
-                            ★ {Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
-                        </h2> */}
                         {spot.avgStarRating
                             ?
-                            <h2 className="avgRating-reviewCount">
+                            <div className="avgRating-reviewCount">
                                 ★ {Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
-                            </h2>
+                            </div>
                             :
-                            <h2 className="avgRating-reviewCount">
+                            <div className="avgRating-reviewCount">
                                 No reviews (yet)
-                            </h2>
+                            </div>
                         }
                     </div>
                     <div className="review-outer-container">

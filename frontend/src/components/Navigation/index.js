@@ -13,10 +13,12 @@ function Navigation({ isLoaded }) {
   return (
     <div className="nav">
       <div className="nav-bar">
-        <NavLink exact to="/" className="nav-link">
-          <img src={logo} className="logo">
-          </img>
-        </NavLink>
+        <div>
+          <NavLink exact to="/" className="nav-link">
+            <img src={logo} className="logo">
+            </img>
+          </NavLink>
+        </div>
         <div className="menu">
           <div className="become-a-host">
             <AddSpotFormModal />
