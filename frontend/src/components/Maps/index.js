@@ -15,6 +15,7 @@ const MapContainer = ({ spot }) => {
   }, [dispatch, key]);
 
   console.log('HEYYYYYYYYY')
+  console.log('key', key)
 
   if (!key) {
     return null;
