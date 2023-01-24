@@ -5,13 +5,13 @@ import { getKey } from '../../store/maps';
 import Maps from './Maps';
 
 const MapContainer = ({ spot }) => {
-  const key = useSelector((state) => state.maps.key);
+  const key = useSelector((state) => console.log('STATE', state.maps.key));
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!key) {
+    // if (!key) {
       dispatch(getKey());
-    }
+    // }
   }, [dispatch, key]);
 
   console.log('HEYYYYYYYYY')
