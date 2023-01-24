@@ -14,8 +14,6 @@ function ProfileButton({ user }) {
   const sessionUser = useSelector(state => state.session.user);
   const girlNames = ["Jane", "Susan", "Jessica"];
 
-  // console.log('sessionUser', sessionUser)
-
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -81,8 +79,8 @@ function ProfileButton({ user }) {
         {sessionUser
           ?
           <img
-            width={37}
-            height={37}
+            width={28}
+            height={28}
             src={`https://randomuser.me/api/portraits/${girlNames.includes(sessionUser.firstName)
               ? "women" : "men"}/${40}.jpg`}
             className="user-image">
@@ -107,7 +105,6 @@ function ProfileButton({ user }) {
   );
 }
 
+
+
 export default ProfileButton;
-
-
-{/* <div className="login login-button"><NavLink to="/signup">Sign Up</NavLink></div> */ }

@@ -164,10 +164,8 @@ function SingleSpot() {
 
                         </div>
                         <div className="under-image-details-right">
-                            <CreateBooking />
-
+                            <CreateBooking spot={spot} />
                         </div>
-
                     </div>
                     <div className="rating-container">
                         {spot.avgStarRating
@@ -199,7 +197,7 @@ function SingleSpot() {
                             </div>
                         </div>
                         <div className="maps-container">
-                            <MapContainer spot={spot} />
+                            <MapContainer spot={spot} reviews={reviews} />
                         </div>
                     </div>
                 </div>

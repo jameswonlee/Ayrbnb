@@ -1,0 +1,17 @@
+.create-booking-outer-container {
+    background-color: pink;
+    height: 495px;
+    width: 370px;
+    margin-top: 50px;
+    border-radius: 8px;
+}
+
+.create-booking-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.create-booking-start-end-dates-container {
+    display: flex;
+}

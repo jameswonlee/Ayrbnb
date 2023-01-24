@@ -301,4 +301,10 @@
     color: rgb(49, 49, 49);
 }
 
+.spot-details-and-booking-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 

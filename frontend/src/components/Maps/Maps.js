@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '1100px',
@@ -17,9 +17,14 @@ const Maps = ({ apiKey, spot }) => {
     lng: Number(spot.lng)
   }
 
-  // console.log('heellooooooo')
-  console.log('center', center)
-  console.log('isLoaded', isLoaded)
+  const svgMarker = {
+    fillColor: "red",
+    fillOpacity: 1,
+    strokeWeight: 0,
+    rotation: 0,
+    scale: 2,
+  }
+  
 
   return (
     <>
@@ -28,8 +33,12 @@ const Maps = ({ apiKey, spot }) => {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={15}
-          position={center}
-        />
+        >
+           <Marker
+      icon={svgMarker}
+      position={center}
+    />
+        </GoogleMap>
       )}
     </>
   );

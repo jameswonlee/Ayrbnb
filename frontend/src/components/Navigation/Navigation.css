@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-between;
     height: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin-left: 50px;
     margin-right: 50px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .nav {
@@ -48,9 +48,9 @@
 }
 
 .logo {
-    height: 50px;
-    width: 140px;
-    margin-left: 35%;
+    height: 40px;
+    width: 108px;
+    margin-left: 45%;
 }
 
 @media(max-width: 700px) {
@@ -109,8 +109,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 45px;
-    width: 85px;
+    height: 41px;
+    width: 82px;
     color: rgb(86, 84, 84);
     border-radius: 22px;
     border: 1px solid rgb(202, 201, 201);
@@ -123,6 +123,9 @@
     cursor: pointer;
 }
 
+.nav-link-container {
+    margin-top: 5px;
+}
 
 .nav-link {
     margin-left: 3%;

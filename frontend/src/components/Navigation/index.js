@@ -13,7 +13,7 @@ function Navigation({ isLoaded }) {
   return (
     <div className="nav">
       <div className="nav-bar">
-        <div>
+        <div className="nav-link-container">
           <NavLink exact to="/" className="nav-link">
             <img src={logo} className="logo">
             </img>
