@@ -38,12 +38,13 @@ function SingleSpot() {
 
     useEffect(() => {
         doEffect();
+        
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }, [spotId, reviewCount]);
 
-    // window.scrollTo({
-    //     top: 0,
-    //     behavior: 'smooth'
-    // });
 
     return (
         <>

@@ -1,17 +1,252 @@
 .create-booking-outer-container {
-    background-color: pink;
-    height: 495px;
+    height: 490px;
     width: 370px;
     margin-top: 50px;
-    border-radius: 8px;
+    border-radius: 10px;
+    border: solid;
+    border-color: rgb(230, 229, 229);
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
 }
 
 .create-booking-top {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 330px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.create-booking-start-end-dates-container {
+.create-booking-spot-price-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.create-booking-spot-rating-container {
+    margin-top: 30px;
+}
+
+.create-booking-spot-price {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.create-booking-spot-price-night {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.create-booking-average-rating {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.create-booking-review-count {
+    color: gray;
+    text-decoration: underline;
+}
+
+.create-booking-review-count:hover {
+    cursor: pointer;
+}
+
+.create-booking-middle {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-booking-start-end-dates {
+    display: flex;
+    height: 55px;
+}
+
+.create-booking-start-end-guests-container {
+    background-color: white;
+    border: solid;
+    border-color: rgb(205, 205, 205);
+    border-radius: 8px;
+    width: 330px;
+}
+
+.create-booking-start-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 165px;
+}
+
+.create-booking-start-date-input {
+    border: none;
+    height: 27px;
+    width: 140px;
+    font-size: 0.85rem;
+    margin-top: -2px;
+    color: rgb(85, 85, 85);
+}
+
+.create-booking-end-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.create-booking-end-date-input {
+    border: none;
+    height: 27px;
+    width: 140px;
+    font-size: 0.85rem;
+    margin-top: -2px;
+    color: rgb(85, 85, 85);
+}
+
+.create-booking-check-in {
+    font-size: 0.6rem;
+    font-weight: 700;
+    margin-left: 9px;
+    color: rgb(65, 64, 64);
+    margin-top: 4px;
+}
+
+.create-booking-check-out {
+    font-size: 0.6rem;
+    font-weight: 700;
+    margin-left: 9px;
+    color: rgb(65, 64, 64);
+    margin-top: 4px;
+}
+
+.create-booking-start-date {
+    border-right: solid;
+    border-right-color: rgb(205, 205, 205);
+}
+
+.create-booking-guests {
+    background-color: white;
+    height: 55px;
+    border-top: solid;
+    border-top-color: rgb(205, 205, 205);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.create-booking-guests-text {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: rgb(65, 64, 64);
+    margin-top: 12px;
+    margin-left: 9px;
+}
+
+.create-booking-guests-select {
+    font-size: 0.7rem;
+    width: 310px;
+    border: none;
+    margin-left: 6px;
+    font-size: 0.85rem;
+}
+
+.create-booking-button-container {
+    margin-top: 15px;
+}
+
+.create-booking-button {
+    width: 330px;
+    border-radius: 8px;
+    height: 48px;
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+}
+
+.create-booking-button:hover {
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
+    cursor: pointer;
+}
+
+.create-booking-bottom {
+    margin-top: 20px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.create-booking-nightly-rate-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.create-booking-cleaning-fee-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.create-booking-service-fee-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.create-booking-nightly-rate-text {
+    text-decoration: underline;
+    text-decoration-color: rgb(50, 50, 50);
+    color: rgb(50, 50, 50);
+    font-size: 0.95rem;
+}
+
+.create-booking-cleaning-fee-text {
+    font-size: 0.95rem;
+    text-decoration: underline;
+    text-decoration-color: rgb(50, 50, 50);
+    color: rgb(50, 50, 50);
+}
+
+.create-booking-service-fee-text {
+    font-size: 0.95rem;
+    text-decoration: underline;
+    text-decoration-color: rgb(50, 50, 50);
+    color: rgb(50, 50, 50);
+}
+
+.create-booking-taxes-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid;
+    border-bottom-width: thin;
+    border-color: rgb(205, 205, 205);
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.create-booking-taxes-text {
+    font-size: 0.95rem;
+    text-decoration: underline;
+    text-decoration-color: rgb(50, 50, 50);
+    color: rgb(50, 50, 50);
+}
+
+.create-booking-total-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+
+    
 }
