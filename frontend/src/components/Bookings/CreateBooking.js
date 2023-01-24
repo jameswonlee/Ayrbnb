@@ -14,8 +14,10 @@ function CreateBooking({ spot }) {
     const reviewsData = useSelector(state => state.reviews.reviews);
     const reviewCount = Object.keys(reviewsData).length;
 
-    const [startDate, setStartDate] = useState(dayjs().format("YYYY-MM-DD"));
-    const [endDate, setEndDate] = useState(dayjs().add(1, 'day').format("YYYY-MM-DD"));
+    const [startDate, setStartDate] = useState(dayjs().add(1, 'day').format("YYYY-MM-DD"));
+    const [endDate, setEndDate] = useState(dayjs().add(2, 'day').format("YYYY-MM-DD"));
+    const [guests, setGuests] = useState(2);
+    const [validationErrors, setValidationErrors] = useState([]);
 
     const scrollToReviews = () => {
         window.scrollTo({
@@ -24,7 +26,6 @@ function CreateBooking({ spot }) {
         });
     }
 
-
     useEffect(() => {
         dispatch(getReviewsBySpotId(spot.id))
     }, [dispatch]);
@@ -32,6 +33,31 @@ function CreateBooking({ spot }) {
     const calculateNights = () => {
         return Number(Date.parse(endDate) - Date.parse(startDate)) / 86400000
     }
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        const errors = [];
+
+        if (!startDate) errors.push("Select a check-in date");
+        if (!endDate) errors.push("Select a checkout date");
+        if (dayjs(startDate).isBefore(dayjs())) errors.push("Please select a future start date");
+        if (dayjs(startDate).isSame(dayjs(endDate))) errors.push("1 night minimum");
+        if (dayjs(endDate).isBefore(dayjs(startDate))) errors.push("Please select valid start and end dates");
+
+        setValidationErrors(errors);
+
+        // if (!errors.length) {
+        //     const newReservationDetails = {
+        //         reservation_time: dayjs(`${date} ${time}`).utc().format("YYYY-MM-DD HH:mm:ss"),
+        //         party_size: partySize
+        //     }
+
+        // const updatedReservation = await dispatch(changeReservation(newReservationDetails, reservationId));
+        // if (updatedReservation) {
+        //     history.push(`/reservations/${reservationId}`)
+        // }
+    }
+
 
 
 
@@ -48,7 +74,12 @@ function CreateBooking({ spot }) {
                     </span>
                 </div>
             </div>
-
+            <div className="create-booking-errors-container">
+                {validationErrors.length > 0 &&
+                    validationErrors.map(error =>
+                        <div key={error}>{error}</div>
+                    )}
+            </div>
             <div className="create-booking-middle">
                 <div className="create-booking-start-end-guests-container">
                     <div className="create-booking-start-end-dates">
@@ -56,7 +87,10 @@ function CreateBooking({ spot }) {
                             <span className="create-booking-check-in">CHECK-IN</span>
                             <input
                                 type="date"
-                                onChange={e => setStartDate(e.target.value)}
+                                onChange={e => {
+                                    setValidationErrors("")
+                                    setStartDate(e.target.value)
+                                }}
                                 value={startDate}
                                 placeholder="Start date"
                                 className="create-booking-start-date-input"
@@ -66,7 +100,10 @@ function CreateBooking({ spot }) {
                             <span className="create-booking-check-out">CHECKOUT</span>
                             <input
                                 type="date"
-                                onChange={e => setEndDate(e.target.value)}
+                                onChange={e => {
+                                    setValidationErrors("")
+                                    setEndDate(e.target.value)
+                                }}
                                 value={endDate}
                                 placeholder="End date"
                                 className="create-booking-end-date-input"
@@ -78,23 +115,23 @@ function CreateBooking({ spot }) {
                             GUESTS
                         </div>
                         <div className="create-booking-guests-select-container">
-                            <select className="create-booking-guests-select">
-                                <option>1 guest</option>
-                                <option>2 guests</option>
-                                <option>3 guests</option>
-                                <option>4 guests</option>
-                                <option>5 guests</option>
-                                <option>6 guests</option>
-                                <option>7 guests</option>
-                                <option>8 guests</option>
-                                <option>9 guests</option>
-                                <option>10 guests</option>
+                            <select value={guests} onChange={e => setGuests(e.target.value)} className="create-booking-guests-select">
+                                <option value="1">1 guest</option>
+                                <option value="2">2 guests</option>
+                                <option value="3">3 guests</option>
+                                <option value="4">4 guests</option>
+                                <option value="5">5 guests</option>
+                                <option value="6">6 guests</option>
+                                <option value="7">7 guests</option>
+                                <option value="8">8 guests</option>
+                                <option value="9">9 guests</option>
+                                <option value="10">10 guests</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div className="create-booking-button-container">
-                    <button className="create-booking-button">
+                    <button onClick={submitHandler} className="create-booking-button">
                         Reserve
                     </button>
                 </div>
@@ -143,7 +180,7 @@ function CreateBooking({ spot }) {
                         Total after taxes
                     </div>
                     <div>
-                        ${(spot.price * calculateNights() + 500 + 510.78 + 509.62).toFixed(2)} 
+                        ${(spot.price * calculateNights() + 500 + 510.78 + 509.62).toFixed(2)}
                     </div>
                 </div>
             </div>

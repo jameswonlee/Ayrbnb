@@ -88,7 +88,7 @@
 
 .spot-bed-bath-count {
     font-size:0.95rem;
-    font-weight: 300;
+    font-weight: 400;
     color: rgb(1, 1, 1);
     margin-top: 8px;
 }
@@ -226,6 +226,7 @@
 .superhost-icon {
     height: 30px;
     width: 26px;
+    margin-top: 2px;
 }
 
 .superhost-container {

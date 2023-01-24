@@ -108,9 +108,6 @@ function SingleSpot() {
                                         <div className="spot-bed-bath-count">10 guests · 5 bedrooms · 5 beds · 5.5 baths</div>
                                     </div>
                                 }
-                                {/* <div className="spot-price-container">
-                            <h2 className="spot-price">${spot.price}<span> night</span></h2>
-                        </div> */}
                             </div>
                             <div className="spot-features-container">
                                 <div className="self-check-in-container">
@@ -145,7 +142,7 @@ function SingleSpot() {
                                     </div>
                                     <div className="free-cancellation-text">
                                         <div className="free-cancellation-header">
-                                            Free cancellation for 48 hours.
+                                            Free cancellation for 48 hours
                                         </div>
                                     </div>
                                 </div>

@@ -45,7 +45,7 @@ function App() {
       </div> */}
       <footer className="footer">
         <div className="footer-about">
-          An Airbnb 'clone' by James Lee
+          An Airbnb clone by James Lee
         </div>
         <div className="footer-links">
           <a id="github" className="links-github" href="https://github.com/jameswonlee" target="_blank">

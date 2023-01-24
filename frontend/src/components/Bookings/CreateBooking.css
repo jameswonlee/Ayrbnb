@@ -1,5 +1,6 @@
 .create-booking-outer-container {
-    height: 490px;
+    /* height: 490px; */
+    height: auto;
     width: 370px;
     margin-top: 50px;
     border-radius: 10px;
@@ -83,7 +84,7 @@
     width: 140px;
     font-size: 0.85rem;
     margin-top: -2px;
-    color: rgb(85, 85, 85);
+    color: rgb(91, 91, 91);
 }
 
 .create-booking-end-date {
@@ -98,7 +99,7 @@
     width: 140px;
     font-size: 0.85rem;
     margin-top: -2px;
-    color: rgb(85, 85, 85);
+    color: rgb(91, 91, 91);
 }
 
 .create-booking-check-in {
@@ -145,6 +146,8 @@
     border: none;
     margin-left: 6px;
     font-size: 0.85rem;
+    color: rgb(91, 91, 91);
+
 }
 
 .create-booking-button-container {
@@ -247,6 +250,15 @@
     margin-right: 20px;
     font-size: 1rem;
     font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
-    
+.create-booking-errors-container {
+    color: red;
+    font-size: 0.8rem;
+    margin-left: 20px;
+    margin-top: -20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
