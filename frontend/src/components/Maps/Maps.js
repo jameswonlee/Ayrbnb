@@ -13,8 +13,8 @@ const Maps = ({ apiKey, spot }) => {
   });
 
   const center = {
-    lat: spot.lat,
-    lng: spot.lng
+    lat: Number(spot.lat),
+    lng: Number(spot.lng)
   }
 
   // console.log('heellooooooo')
