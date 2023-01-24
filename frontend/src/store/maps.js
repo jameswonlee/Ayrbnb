@@ -18,7 +18,6 @@ export const getKey = () => async (dispatch) => {
 const initialState = { key: null };
 
 const mapsReducer = (state = initialState, action) => {
-    console.log('action.payload', action)
   switch (action.type) {
     case LOAD_API_KEY:
       return { key: action.payload };
