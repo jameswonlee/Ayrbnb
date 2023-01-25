@@ -21,7 +21,7 @@ function CreateBooking({ spot }) {
 
     const scrollToReviews = () => {
         window.scrollTo({
-            top: 1320,
+            top: 1280,
             behavior: 'smooth'
         });
     }
@@ -135,6 +135,9 @@ function CreateBooking({ spot }) {
                         Reserve
                     </button>
                 </div>
+                <div className="create-booking-wont-be-charged-yet">
+                    You won't be charged yet
+                </div>
             </div>
             <div className="create-booking-bottom">
                 <div className="create-booking-nightly-rate-container">
@@ -155,7 +158,7 @@ function CreateBooking({ spot }) {
                     <div className="create-booking-cleaning-fee-text">
                         Cleaning fee
                     </div>
-                    <div>
+                    <div className="create-booking-cleaning-fee">
                         $500
                     </div>
                 </div>
@@ -163,24 +166,16 @@ function CreateBooking({ spot }) {
                     <div className="create-booking-service-fee-text">
                         Service fee
                     </div>
-                    <div>
-                        $510.78
-                    </div>
-                </div>
-                <div className="create-booking-taxes-container">
-                    <div className="create-booking-taxes-text">
-                        Taxes
-                    </div>
-                    <div>
-                        $509.62
+                    <div className="create-booking-service-fee">
+                        $489
                     </div>
                 </div>
                 <div className="create-booking-total-container">
                     <div>
-                        Total after taxes
+                        Total before taxes
                     </div>
                     <div>
-                        ${(spot.price * calculateNights() + 500 + 510.78 + 509.62).toFixed(2)}
+                        ${(spot.price * calculateNights() + 500 + 489)}
                     </div>
                 </div>
             </div>

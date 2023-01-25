@@ -45,6 +45,13 @@ function SingleSpot() {
         });
     }, [spotId, reviewCount]);
 
+    const scrollToReviews = () => {
+        window.scrollTo({
+            top: 1280,
+            behavior: 'smooth'
+        });
+    }
+
     // useEffect(() => {
     //     const nav = document.querySelector('nav');
     //     nav.classList.toggle('single-spot-max-width');
@@ -63,7 +70,7 @@ function SingleSpot() {
                     <div className="stars-reviews-location">
                         {spot.avgStarRating
                             ?
-                            <p className="spot-avg-rating">★ {spot.avgStarRating} · <span
+                            <p className="spot-avg-rating">★ {spot.avgStarRating} · <span onClick={scrollToReviews}
                                 className="review-count">{reviewCount} reviews</span>&nbsp; · &nbsp;<img
                                     src={superhostBadge} className="superhost-badge"></img>
                                 <span className="superhost">&nbsp; Superhost&nbsp;</span>·&nbsp;&nbsp;<span

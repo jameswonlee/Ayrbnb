@@ -80,6 +80,10 @@
     font-weight: 500;
 }
 
+.review-count:hover {
+    cursor: pointer;
+}
+
 .city {
     text-decoration: underline;
     font-weight: 500;
