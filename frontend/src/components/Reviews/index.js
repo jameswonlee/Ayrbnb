@@ -27,8 +27,8 @@ function ReviewsForSpot() {
                     <div className="review-padding">
                         <div className="user-name">
                             <img
-                                width={50}
-                                height={50}
+                                width={40}
+                                height={40}
                                 src={`https://randomuser.me/api/portraits/${girlNames.includes(review.User.firstName) ? "women" : "men"}/${index + 1}.jpg`}
                                 className="user-image">
                             </img>

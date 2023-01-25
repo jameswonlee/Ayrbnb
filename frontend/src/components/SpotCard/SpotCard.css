@@ -1,5 +1,6 @@
 .spot-card-outer-container {
-    width: 320px;
+    width: 330px;
+    height: 395px;
     text-decoration: none;
     color:black;
     margin-right: 10px;
@@ -7,13 +8,18 @@
 }
 
 .preview-image {
-    height: 260px;
-    width: 290px;
+    height: 290px;
+    width: 310px;
     border-radius: 20px;
 }
 
 .city-price p {
-    margin: 10px 0px;
+    margin: 6px 0px;
+}
+
+.avg-rating {
+    font-size: 0.87rem;
+    font-weight: 400;
 }
 
 .avg-rating p {
@@ -32,12 +38,23 @@
 }
 
 .city-state {
-    font-size: medium;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.spot-country {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.price {
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 .price span {
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 0.9rem;
 }
 
 .user-image {

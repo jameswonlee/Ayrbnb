@@ -3,7 +3,7 @@
     justify-content: space-between;
     height: 60px;
     padding-bottom: 10px;
-    margin-left: 50px;
+    padding-left: 50px;
     margin-right: 50px;
     padding-top: 10px;
 }
@@ -14,6 +14,7 @@
     position: sticky;
     top: 0;
     background-color: white;
+    justify-content: center;
 }
 
 .profile-menu {
@@ -39,7 +40,7 @@
 .menu {
     display: flex;
     margin-top: 5px;
-    margin-right: 5.5%;
+    margin-right: 3.5%;
 }
 
 .become-a-host {
@@ -50,7 +51,7 @@
 .logo {
     height: 40px;
     width: 108px;
-    margin-left: 45%;
+    margin-left: 30%;
 }
 
 @media(max-width: 700px) {
@@ -64,12 +65,12 @@
     }
 }
 
-@media(min-width: 1691px) {
+/* @media(min-width: 1691px) {
     .nav-bar {
-        margin-left: 3% !important;
-        margin-right: 3% !important;
+        margin-left: 4.2% !important;
+        margin-right: 4% !important;
     }
-}
+} */
 
 .login-button, .logout-button {
     width: 100%;

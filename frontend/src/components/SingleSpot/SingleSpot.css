@@ -49,41 +49,52 @@
 }
 
 .spot-name {
-    font-size: larger;
+    font-size: 1.7rem;
     margin-top: 30px;
+    font-weight: 500;
 }
 
 .superhost {
-    font-weight: 300;
+    font-weight: 400;
     text-decoration: none;
 }
 
 .superhost-badge {
     height: 15px;
-    width: 11px;
+    width: 9.5px;
     margin-bottom: -2px;
 }
 
+.spot-avg-rating {
+    font-weight: 500;
+}
+
 .stars-reviews-location {
-    font-size: medium;
+    font-size: 0.85rem;
     margin-top: -8px;
     margin-bottom: 30px;
 }
 
 .review-count {
     text-decoration: underline;
+    font-weight: 500;
 }
 
 .city {
     text-decoration: underline;
+    font-weight: 500;
 }
 
 .state {
     text-decoration: underline;
+    font-weight: 500;
+
 }
 
 .country {
     text-decoration: underline;
+    font-weight: 500;
+
 }
 
 .spot-bed-bath-count {
@@ -119,8 +130,8 @@
     border-bottom-color: rgb(238, 235, 235);
     padding-bottom: 25px;
     margin-top: 32px;
-    font-size: 1rem;
-    font-weight: 300;
+    font-size: 0.95rem;
+    font-weight: 400;
     color: rgb(0, 0, 0);
 }
 
@@ -172,7 +183,7 @@
 .maps-city-state {
     font-size: 0.95rem;
     font-weight: 400;
-    color: rgb(87, 86, 86);
+    color: rgb(30, 30, 30);
     margin-top: 20px;
 }
 
@@ -297,9 +308,9 @@
 
 .aircover-description {
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 15px;
-    color: rgb(49, 49, 49);
+    color: rgb(65, 65, 65);
 }
 
 .spot-details-and-booking-container {
@@ -307,5 +318,9 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+/* .single-spot-max-width {
+    max-width: 1300px;
+} */
 
 

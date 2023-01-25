@@ -38,12 +38,19 @@ function SingleSpot() {
 
     useEffect(() => {
         doEffect();
-        
+
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     }, [spotId, reviewCount]);
+
+    // useEffect(() => {
+    //     const nav = document.querySelector('nav');
+    //     nav.classList.toggle('single-spot-max-width');
+
+    //     return () => nav.classList.toggle('single-spot-max-width');
+    // }, []);
 
 
     return (
@@ -51,17 +58,24 @@ function SingleSpot() {
             {spot && (
                 <div className="outer-container">
                     <div className="spot-name">
-                        <h2>{spot.name}</h2>
+                        <div>{spot.name}</div>
                     </div>
                     <div className="stars-reviews-location">
                         {spot.avgStarRating
                             ?
-                            <p>★ {spot.avgStarRating} · <span
-                                className="review-count">{reviewCount} reviews</span> &nbsp; · &nbsp;<img
+                            <p className="spot-avg-rating">★ {spot.avgStarRating} · <span
+                                className="review-count">{reviewCount} reviews</span>&nbsp; · &nbsp;<img
                                     src={superhostBadge} className="superhost-badge"></img>
-                                <span className="superhost">&nbsp; Superhost&nbsp;</span> · &nbsp;&nbsp;<span
+                                <span className="superhost">&nbsp; Superhost&nbsp;</span>·&nbsp;&nbsp;<span
                                     className="city">{spot.city},</span>
-                                <span className="state"> {spot.state}, </span>
+                                <span className="state">
+                                    {spot.state == "CA"
+                                        ?
+                                        <span> California, </span>
+                                        :
+                                        <span>{spot.state}, </span>
+                                    }
+                                </span>
                                 <span className="country">{spot.country}</span>
                             </p>
                             :
@@ -149,7 +163,7 @@ function SingleSpot() {
                             </div>
                             <div className="aircover-container">
                                 <div className="aircover-icon">
-                                    <img src={aircoverIcon} alt="" className="aircover-icon"/>
+                                    <img src={aircoverIcon} alt="" className="aircover-icon" />
                                 </div>
                                 <div className="aircover-description">
                                     Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues

@@ -16,7 +16,7 @@ function DisplayAllSpots() {
 
     return (
         <div className="center">
-            <main>
+            {/* <main> */}
                 <div className="content-wrapper">
                     <div className="all-spots">
                         <div className='spot-cards'>
@@ -26,7 +26,7 @@ function DisplayAllSpots() {
                         </div>
                     </div>
                 </div>
-            </main >
+            {/* </main > */}
         </div >
     )
 }

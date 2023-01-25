@@ -12,9 +12,16 @@ function SpotCard({ spot }) {
             </div>
             <div className="preview-spot-details-outer">
                 <div className="city-price">
-                    <p className="city-state"><strong>{spot.city}, {spot.state}</strong></p>
+                    <p className="city-state">{spot.city},
+                        {spot.state == "CA"
+                            ?
+                            <span> California</span>
+                            :
+                            <span>{spot.state}</span>
+                        }
+                    </p>
                     <p className="spot-country text-gray">{spot.country}</p>
-                    <p className="price"><strong>${spot.price}</strong><span> night</span></p>
+                    <p className="price">${spot.price}<span> night</span></p>
                 </div>
                 <div className="avg-rating">
                     {spot.avgRating
