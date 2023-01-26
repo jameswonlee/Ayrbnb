@@ -15,7 +15,7 @@ function Bookings() {
     const upcomingBookings = userBookings.filter(booking => dayjs().isBefore(booking.startDate))
     const pastBookings = userBookings.filter(booking => dayjs(booking.startDate).isBefore(dayjs()));
     const spots = useSelector(state => Object.values(state.spots.spots));
-    console.log('spots', spots)
+    // console.log('spots', spots)
 
     useEffect(() => {
         dispatch(getUserBookings());
@@ -41,7 +41,7 @@ function Bookings() {
                     </div>
                     <div className="bookings-reservation-container">
                         {upcomingBookings.map(booking => (
-                            <div onClick={() => routeToTripConfirmation(booking.id)} className="bookings-reservation bookings-upcoming-reservation">
+                            <div onClick={() => routeToTripConfirmation(booking.id)} className="bookings-reservation bookings-upcoming-reservation" key={booking.id}>
                                 <div className="bookings-reservation-left">
                                     <div className="bookings-reservation-left-top">
                                         <div className="bookings-reservation-spot-name">
@@ -98,7 +98,7 @@ function Bookings() {
                     </div>
                     <div className="bookings-reservation-container">
                         {pastBookings.map(booking => (
-                            <div className="bookings-reservation">
+                            <div className="bookings-reservation" key={booking.id}>
                                 <div className="bookings-reservation-left">
                                     <div className="bookings-reservation-left-top">
                                         <div className="bookings-reservation-spot-name">

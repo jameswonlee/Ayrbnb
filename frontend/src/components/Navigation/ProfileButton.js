@@ -67,12 +67,21 @@ function ProfileButton({ user }) {
   } else {
     sessionLinks = (
       <div className="dropdown-menu">
-        <div className="text-black mb-1">Hello {user.firstName}</div>
-        <div className="text-black mb-1">Account: {user.email}</div>
-        <div onClick={routeToUserBookings}className="dropdown-my-bookings">Trips</div>
-        <div>
-          <button className="logout-button" onClick={logout}>Log Out</button>
+        <div className="dropdown-menu-upper">
+          <div className="dropdown-menu-options">Profile: {user.firstName}</div>
+          <div className="dropdown-menu-options">Account: {user.email}</div>
+          <div>Username: {user.username}</div>
         </div>
+        <div className="dropdown-menu-border-bottom"></div>
+        <div className="dropdown-menu-middle">
+          <div onClick={routeToUserBookings} className="dropdown-menu-options clickable-option">Trips</div>
+          <div className="dropdown-menu-options clickable-option">Airbnb your home</div>
+          <div className="logout-button" onClick={logout}>Log Out</div>
+        </div>
+        {/* <div className="dropdown-menu-lower">
+          <div></div>
+          <div></div>
+        </div> */}
       </div>
     )
   }

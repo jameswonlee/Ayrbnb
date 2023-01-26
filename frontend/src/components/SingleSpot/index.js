@@ -24,7 +24,7 @@ function SingleSpot() {
     const reviews = useSelector(state => state.reviews.reviews);
     const reviewCount = Object.keys(reviews).length;
     const [notFound, setNotFound] = useState(false);
-    const userHasReview = Object.values(reviews).find(review => review.User.id === sessionUser.id);
+    const userHasReview = Object.values(reviews).find(review => review.User?.id === sessionUser?.id);
 
     const doEffect = async () => {
         try {

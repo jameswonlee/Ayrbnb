@@ -32,20 +32,6 @@ router.get('/current', requireAuth, async (req, res) => {
                     as: 'Owner'
                 }
             ],
-            // include: [
-            //     {
-            //         model: User,
-            //         attributes: {
-            //             exclude: ['username', 'email', 'hashedPassword', 'createdAt', 'updatedAt']
-            //         }
-            //     },
-            //     {
-            //         model: ReviewImage,
-            //         attributes: {
-            //             exclude: ['reviewId', 'createdAt', 'updatedAt']
-            //         }
-            //     }
-            // ],
             raw: true
         });
         const images = await SpotImage.findAll({ where: { spotId: spot.id } });
