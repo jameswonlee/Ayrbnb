@@ -103,7 +103,7 @@ module.exports = {
       city: "Los Angeles",
       state: 'CA',
       country: "United States",
-      lat: 36.09642,
+      lat: 34.09642,
       lng: -118.40011,
       name: 'Modern Sunset - Hollywood Home | Spectacular Views',
       description: "This modern masterpiece sits minutes from the iconic Sunset Strip with unobstructed views stretching from West Hollywood to the Pacific Ocean. This newly renovated 5 bed, 6 bath estate offers luxury lined living.",
