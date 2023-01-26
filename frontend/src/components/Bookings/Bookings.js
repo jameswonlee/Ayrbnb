@@ -1,0 +1,163 @@
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getUserBookings } from '../../store/bookings';
+import { getAllSpots } from '../../store/spots';
+import './Bookings.css';
+import dayjs from 'dayjs';
+
+
+function Bookings() {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user);
+    const userBookings = useSelector(state => Object.values(state.bookings));
+    const upcomingBookings = userBookings.filter(booking => dayjs().isBefore(booking.startDate))
+    const pastBookings = userBookings.filter(booking => dayjs(booking.startDate).isBefore(dayjs()));
+    const spots = useSelector(state => Object.values(state.spots.spots));
+    console.log('spots', spots)
+
+    useEffect(() => {
+        dispatch(getUserBookings());
+        dispatch(getAllSpots());
+    }, [dispatch]);
+
+    if (!userBookings) return null;
+
+    const routeToTripConfirmation = (bookingId) => {
+        history.push(`/user/${sessionUser.id}/trips/${bookingId}`);
+    }
+
+
+    return (
+        <div className="bookings-outer-container">
+            <div className="bookings-trips-header">
+                Trips
+            </div>
+            {upcomingBookings.length > 0 &&
+                <div className="bookings-reservations-container">
+                    <div className="bookings-reservations-header">
+                        Upcoming reservations
+                    </div>
+                    <div className="bookings-reservation-container">
+                        {upcomingBookings.map(booking => (
+                            <div onClick={() => routeToTripConfirmation(booking.id)} className="bookings-reservation bookings-upcoming-reservation">
+                                <div className="bookings-reservation-left">
+                                    <div className="bookings-reservation-left-top">
+                                        <div className="bookings-reservation-spot-name">
+                                            {booking.Spot?.name.includes('|')
+                                                ?
+                                                <div>
+                                                    {booking.Spot?.name.split('|')[0]}
+                                                </div>
+                                                :
+                                                <div>
+                                                    {booking.Spot?.name}
+                                                </div>
+                                            }
+                                        </div>
+                                        <div className="bookings-reservation-owner">
+                                            Entire home hosted by {booking.Spot['Owner.firstName']}
+                                        </div>
+                                    </div>
+                                    <div className="bookings-reservation-left-border-bottom">
+                                    </div>
+                                    <div className="bookings-reservation-left-bottom">
+                                        <div className="bookings-reservation-left-bottom-left">
+                                            <div>{dayjs(booking.startDate).format("MMM")} {dayjs(booking.startDate).format("DD")} -</div>
+                                            <div>{dayjs(booking.endDate).format("MMM")} {dayjs(booking.endDate).format("DD")}</div>
+                                            <div className="bookings-reservation-year">{dayjs(booking.startDate).format("YYYY")}</div>
+                                        </div>
+                                        <div className="bookings-reservation-left-border-right">
+                                        </div>
+                                        <div className="bookings-reservation-left-bottom-right">
+                                            <div className="bookings-reservation-city-state">{booking.Spot.city},
+                                                {booking.Spot.state == "CA"
+                                                    ?
+                                                    <span> California</span>
+                                                    :
+                                                    <span>{booking.Spot.state}</span>
+                                                }</div>
+                                            <div className="bookings-reservation-country">{booking.Spot.country}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bookings-reservations-right">
+                                    <img src={booking.Spot.previewImage} className="bookings-reservation-preview-image" />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            }
+
+            {pastBookings.length > 0 &&
+                <div className="bookings-reservations-container">
+                    <div className="bookings-reservations-header">
+                        Past reservations
+                    </div>
+                    <div className="bookings-reservation-container">
+                        {pastBookings.map(booking => (
+                            <div className="bookings-reservation">
+                                <div className="bookings-reservation-left">
+                                    <div className="bookings-reservation-left-top">
+                                        <div className="bookings-reservation-spot-name">
+                                            {booking.Spot.name.includes('|')
+                                                ?
+                                                <div>
+                                                    {booking.Spot.name.split('|')[0]}
+                                                </div>
+                                                :
+                                                <div>
+                                                    {booking.Spot.name}
+                                                </div>
+                                            }
+                                        </div>
+
+                                        <div className="bookings-reservation-owner">
+                                            Entire home hosted by {booking.Spot['Owner.firstName']}
+                                        </div>
+                                    </div>
+                                    <div className="bookings-reservation-left-border-bottom">
+                                    </div>
+                                    <div className="bookings-reservation-left-bottom">
+                                        <div className="bookings-reservation-left-bottom-left">
+                                            <div>{dayjs(booking.startDate).format("MMM")} {dayjs(booking.startDate).format("DD")} -</div>
+                                            <div>{dayjs(booking.endDate).format("MMM")} {dayjs(booking.endDate).format("DD")}</div>
+                                            <div className="bookings-reservation-year">{dayjs(booking.startDate).format("YYYY")}</div>
+                                        </div>
+                                        <div className="bookings-reservation-left-border-right">
+                                        </div>
+                                        <div className="bookings-reservation-left-bottom-right">
+                                            <div className="bookings-reservation-city-state">{booking.Spot.city},
+                                                {booking.Spot.state == "CA"
+                                                    ?
+                                                    <span> California</span>
+                                                    :
+                                                    <span>{booking.Spot.state}</span>
+                                                }</div>
+                                            <div className="bookings-reservation-country">{booking.Spot.country}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bookings-reservations-right">
+                                    <img src={booking.Spot.previewImage} className="bookings-reservation-preview-image" />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            }
+
+            {!upcomingBookings && !pastBookings &&
+                <div className="bookings-no-trips-container">
+
+                </div>
+            }
+
+        </div>
+    )
+}
+
+
+export default Bookings;

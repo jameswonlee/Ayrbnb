@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import LoginForm from '../LoginFormModal/LoginForm';
 import { Modal } from '../../context/Modal';
@@ -8,6 +9,7 @@ import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
@@ -36,6 +38,10 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  const routeToUserBookings = () => {
+    history.push(`/user/${sessionUser.id}/trips`);
+  }
+
   let sessionLinks;
   if (!sessionUser) {
     sessionLinks = (
@@ -45,7 +51,7 @@ function ProfileButton({ user }) {
             e.stopPropagation();
             setShowModal(true)
             closeMenu()
-          }}>Log In</button>
+          }}>Log in</button>
         </div>
         <div>
           <button className="sign-up login login-button" onClick={(e) => {
@@ -53,7 +59,7 @@ function ProfileButton({ user }) {
             setShowSignUpModal(true)
             closeMenu()
           }}>
-            Sign Up
+            Sign up
           </button>
         </div>
       </div>
@@ -63,6 +69,7 @@ function ProfileButton({ user }) {
       <div className="dropdown-menu">
         <div className="text-black mb-1">Hello {user.firstName}</div>
         <div className="text-black mb-1">Account: {user.email}</div>
+        <div onClick={routeToUserBookings}className="dropdown-my-bookings">Trips</div>
         <div>
           <button className="logout-button" onClick={logout}>Log Out</button>
         </div>

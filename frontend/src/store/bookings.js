@@ -110,7 +110,7 @@ export const deleteBooking = (bookingId) => async (dispatch) => {
 
 /* ------------------- Reducer --------------------- */
 
-const initialState = { bookings: {} };
+const initialState = {};
 
 const bookingsReducer = (state=initialState, action) => {
     let newState = {};

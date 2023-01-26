@@ -25,6 +25,7 @@
     font-size: 1em;
     border: none;
     margin-top: 6px;
+    font-weight: 500;
 }
 
 .login-form-buttons:hover {

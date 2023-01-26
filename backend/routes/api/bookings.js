@@ -23,8 +23,29 @@ router.get('/current', requireAuth, async (req, res) => {
                 id: booking.spotId,
             },
             attributes: {
-                exclude: ['description', 'createdAt', 'updatedAt']
+                exclude: ['description', 'createdAt', 'updatedAt'],
             },
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'firstName', 'lastName'],
+                    as: 'Owner'
+                }
+            ],
+            // include: [
+            //     {
+            //         model: User,
+            //         attributes: {
+            //             exclude: ['username', 'email', 'hashedPassword', 'createdAt', 'updatedAt']
+            //         }
+            //     },
+            //     {
+            //         model: ReviewImage,
+            //         attributes: {
+            //             exclude: ['reviewId', 'createdAt', 'updatedAt']
+            //         }
+            //     }
+            // ],
             raw: true
         });
         const images = await SpotImage.findAll({ where: { spotId: spot.id } });

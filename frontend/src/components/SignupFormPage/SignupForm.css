@@ -5,8 +5,9 @@
     color: white;
     border-radius: 6px;
     border: none;
-    font-size: 1em;
+    font-size: 0.9em;
     margin-top: 32px;
+    font-weight: 500;
 }
 
 .signup-submit-button:hover {

@@ -1,0 +1,114 @@
+.bookings-outer-container {
+    height: auto;
+    margin-left: 178px;
+    padding-bottom: 20px;
+}
+
+.bookings-trips-header {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.bookings-reservations-container {
+    margin-top: 40px;
+    height: auto;
+    border-bottom: solid;
+    padding-bottom: 50px;
+    margin-right: 100px;
+    border-color: rgb(227, 227, 227);
+}
+
+.bookings-upcoming-reservation:hover {
+    cursor: pointer;
+}
+
+.bookings-reservation-container {
+    margin-top: 30px;
+}
+
+.bookings-reservations-header {
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+
+.bookings-reservation {
+    width: 860px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 25px 12px;
+    height: 210px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.bookings-reservation-spot-name {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.bookings-reservation-left-top {
+    margin-left: 25px;
+    padding-top: 30px;
+}
+
+.bookings-reservation-owner {
+    font-size: 0.85rem;
+    color: gray;
+}
+
+.bookings-reservation-left-bottom {
+    display: flex;
+    flex-direction: row;
+    width: 430px;
+}
+
+.bookings-reservation-left-border-bottom {
+    border-bottom: solid;
+    width: 380px;
+    border-color: rgb(227, 227, 227);
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+.bookings-reservation-left-bottom-left {
+    margin-top: 16px;
+    margin-left: 22px;
+    font-size: 0.85rem;
+    color: gray;
+}
+
+.bookings-reservation-left-border-right {
+    border-right: solid;
+    height: 60px;
+    margin-left: 20px;
+    margin-top: 16px;
+    border-color: rgb(227, 227, 227);
+}
+
+.bookings-reservation-preview-image {
+    object-fit: cover;
+    height: 209px;
+    width: 427px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-right: 1px;
+}
+
+.bookings-reservation-year {
+    margin-left: 3px;
+}
+
+.bookings-reservation-city-state {
+    font-size: 1.05rem;
+    color: rgb(72, 72, 72);
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.bookings-reservation-country {
+    font-size: 0.9rem;
+    color: gray;
+    margin-left: 20px;
+}

@@ -24,6 +24,7 @@ function SingleSpot() {
     const reviews = useSelector(state => state.reviews.reviews);
     const reviewCount = Object.keys(reviews).length;
     const [notFound, setNotFound] = useState(false);
+    const userHasReview = Object.values(reviews).find(review => review.User.id === sessionUser.id);
 
     const doEffect = async () => {
         try {
@@ -190,7 +191,7 @@ function SingleSpot() {
                         {spot.avgStarRating
                             ?
                             <div className="avgRating-reviewCount">
-                                ★ {Number(spot.avgStarRating).toFixed(2)} • {reviewCount} reviews
+                                ★ {Number(spot.avgStarRating).toFixed(1)} • {reviewCount} reviews
                             </div>
                             :
                             <div className="avgRating-reviewCount">
@@ -199,7 +200,7 @@ function SingleSpot() {
                         }
                     </div>
                     <div className="review-outer-container">
-                        {sessionUser && spot.Owner?.id !== sessionUser.id &&
+                        {sessionUser && spot.Owner?.id !== sessionUser.id && !userHasReview &&
                             <div>
                                 <CreateReviewModal spot={spot} />
                             </div>

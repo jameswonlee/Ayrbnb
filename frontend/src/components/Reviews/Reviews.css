@@ -11,7 +11,6 @@
     }
 }
 
-
 .review-card {
     flex-grow: 1;
     flex-shrink: 1;
@@ -35,6 +34,7 @@
 
 .confirm-delete-question {
     margin-bottom: 50px;
+    font-weight: 500;
 }
 
 .review-delete-buttons {
@@ -49,8 +49,9 @@
     border: none;
     background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
     color: white;
-    font-size: 1em;
+    font-size: 0.9em;
     border-radius: 6px;
+    font-weight: 500;
 } 
 
 .review-delete-button {
@@ -102,14 +103,17 @@
 }
 
 .delete-review-button {
-    background-color: white;
+    background-color: rgb(217 11 101);
     border: 1px solid rgb(210, 210, 210);
-    border-radius: 35px;
-    height: 25px;
+    border-radius: 6px;
+    height: 28px;
     margin-left: -3px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .delete-review-button:hover {
-    background-color: rgb(245, 242, 242);
+    background-color: rgb(131, 7, 61);
     cursor: pointer;
 }

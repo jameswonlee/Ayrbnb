@@ -57,7 +57,7 @@ module.exports = {
       country: 'United States',
       lat: 34.09752,
       lng: -118.38157,
-      name: 'West Hollywood Modern Luxury 5 BR Villa w/ Pool',
+      name: 'West Hollywood Modern Luxury | 5 BR Villa w/ Pool',
       description: "Stunning luxury Villa in the heart of West Hollywood. Centrally located to all the best attractions, entertainment, restaurants and shopping! Beautiful professionally designed 5 bedroom, 6.5 bath Villa sleeps 10 & features a distinctive blend of modern style with Hollywood glamour. Amenities include a secluded private backyard with a salt water pool, hot tub, BBQ grill, outdoor fireplace and al fresco dining.",
       price: 1890.00
     },
@@ -69,7 +69,7 @@ module.exports = {
       country: 'United States',
       lat: 34.09543,
       lng: -118.38864,
-      name: 'Hollywood Hills Glam Paradise w/ Pool & Views',
+      name: 'Hollywood Hills Glam Paradise | Pool & Views',
       description: "Located high atop the star-studded Sunset Plaza Drive only minutes away from Beverly Hills and Rodeo Drive, this luxurious masterpiece offers unparalleled panoramic views of LA and stretches all the way to the Pacific Ocean. Indoor/outdoor living room experience with a lush master suite and luxurious guest bedrooms each equipped with full shower bathrooms.",
       price: 1200.00
     },
@@ -93,7 +93,7 @@ module.exports = {
       country: 'United States',
       lat: 34.08847,
       lng: -118.42175,
-      name: 'Beverly Hills Estate With Breathtaking Views',
+      name: 'Beverly Hills Estate | Breathtaking Views',
       description: 'This new contemporary estate was constructed using the finest materials featuring breathtaking views of the city from DTLA to the ocean from nearly every room in the house. Designed to exemplify the beauty of organic elements, this architectural triumph is perched high up on the hillside in the coveted Beverly Hills area.',
       price: 6500.00
     },
@@ -129,7 +129,7 @@ module.exports = {
       country: 'United States',
       lat: 34.08832,
       lng: -118.39712,
-      name: 'White Modern Villa - with BBQ/pool',
+      name: 'White Modern Villa',
       description: "This stylish and cozy 5 bedroom, 4.5 bath home family-friendly villa located near Beverly Hills, Rodeo Dr and The Grove offers everything you need in a home. Equipped with open space kitchen, high ceilings, modern appliances, pool, a home décor with an attention to detail and everything your heart desires! 1 bedroom is in a separate guest house w/ kitchen with a private patio door that can lead to the pool. It's the perfect home for families & travelers looking for a clean and cozy home in LA.",
       price: 1499.00
     },
@@ -141,7 +141,7 @@ module.exports = {
       country: 'United States',
       lat: 34.13772,
       lng: -118.37352,
-      name: "Multi-Million Mulholland Dr Getaway w/ infinity pool",
+      name: "Multi-Million Mulholland Dr Getaway | Infinity Pool",
       description: "This is the house of your dreams with views of Los Angeles from both sides. Included in the house is a gym, high powered steam room, double driveways, and the perfect infinity pool. Our spacious outdoor area also has a BBQ station, dining table, and modern fireplaces. If your looking for style and comfort you are gonna want to stay here. We offer WIFI, indoor and outdoors TV with all your favorite streaming services, and a surround sound SONOS system.",
       price: 1624.00
     },
@@ -177,7 +177,7 @@ module.exports = {
       country: 'United States',
       lat: 34.12170,
       lng: -118.32312,
-      name: '♛ MODERN LUXURY W/ HUGE ROOFTOP, SHOPS, CULTURE ❀',
+      name: '♛ MODERN LUXURY ❀ | HUGE ROOFTOP | SHOPS | CULTURE',
       description: "Welcome to heaven! Escape to a 2,000 foot roof top deck with a BBQ for a night in the comfort of the home or to your backyard with a Cabana, a movie theatre, & Baja pool for the perfect relaxation. Complete with a smart home system, smart Sonos music and lighting, formal entry/gated. Furniture has been updated and a new movie theatre has been built since the photos were taken.",
       price: 2467.00
     },
@@ -189,7 +189,7 @@ module.exports = {
       country: 'United States',
       lat: 34.03207,
       lng: -118.68769,
-      name: "Oceanfront Villa with sauna and private beach",
+      name: "Oceanfront Villa | sauna and private beach",
       description: "Oceanfront Villa is located 20 minutes from the closest and most convenient private airport to Malibu. Featuring staggering panoramic ocean views and direct access to a quiet private beach. Behind the gate lies a private courtyard with a Panoramic View Barrel Sauna, a large jacuzzi, and 2 massive outdoor decks overlooking the Pacific Ocean with a large built-in fireplace on the rooftop deck.",
       price: 2500.00
     },

@@ -5,6 +5,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import DisplayAllSpots from "./components/AllSpots";
 import SingleSpot from "./components/SingleSpot";
+import Bookings from "./components/Bookings/Bookings";
+import Footer from './components/Footer/Footer';
 import './index.css';
 
 function App() {
@@ -26,8 +28,6 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {/* <div className="center">
-        <main> */}
       {isLoaded && (
         <Switch>
           <Route path='/spots/:spotId'>
@@ -36,26 +36,18 @@ function App() {
           <Route exact path='/'>
             <DisplayAllSpots />
           </Route>
+          <Route path='/user/:userId/trips'>
+            <Bookings />
+          </Route>
+          <Route path='/user/${sessionUser.id}/trips/:bookingId'>
+
+          </Route>
           <Route>
             Page Not Found!
           </Route>
         </Switch>
       )}
-      {/* </main>
-      </div> */}
-      <footer className="footer">
-        <div className="footer-about">
-          An Airbnb clone by James Lee
-        </div>
-        <div className="footer-links">
-          <a id="github" className="links-github" href="https://github.com/jameswonlee" target="_blank">
-            <i className="fa-brands fa-github fa-xl"></i>
-          </a>
-          <a id="linkedin" className="links-linkedin" href="https://www.linkedin.com/in/jameswonlee/" target="_blank">
-            <i className="fa-brands fa-linkedin fa-xl"></i>
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

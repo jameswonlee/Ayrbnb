@@ -11,9 +11,10 @@ function ReviewsForSpot() {
     const { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const reviewsData = useSelector(state => state.reviews.reviews);
+    const reviews = Object.values(reviewsData);
+    
     const girlNames = ["Jane", "Susan", "Jessica"];
 
-    const reviews = Object.values(reviewsData);
 
     useEffect(() => {
         dispatch(getReviewsBySpotId(spotId))

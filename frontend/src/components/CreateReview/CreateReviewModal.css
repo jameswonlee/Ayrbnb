@@ -1,12 +1,15 @@
 .create-review-button {
-    background-color: white;
+    background-color: rgb(217 11 101);
     border: 1px solid rgb(210, 210, 210);
-    height: 25px;
-    border-radius: 35px;
+    height: 28px;
+    border-radius: 6px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .create-review-button:hover {
-    background-color: rgb(244, 242, 242);
+    background-color: rgb(131, 7, 61);
     cursor: pointer;
 }
 
