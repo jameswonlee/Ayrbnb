@@ -55,7 +55,7 @@
 }
 
 .superhost {
-    font-weight: 400;
+    font-weight: 300;
     text-decoration: none;
 }
 
@@ -103,7 +103,7 @@
 
 .spot-bed-bath-count {
     font-size:0.95rem;
-    font-weight: 400;
+    font-weight: 300;
     color: rgb(1, 1, 1);
     margin-top: 8px;
 }
@@ -135,7 +135,7 @@
     padding-bottom: 25px;
     margin-top: 32px;
     font-size: 0.95rem;
-    font-weight: 400;
+    font-weight: 300;
     color: rgb(0, 0, 0);
 }
 
@@ -181,12 +181,12 @@
 
 .maps-heading-text {
     font-size: 1.3rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .maps-city-state {
     font-size: 0.95rem;
-    font-weight: 400;
+    font-weight: 300;
     color: rgb(30, 30, 30);
     margin-top: 20px;
 }
@@ -227,13 +227,13 @@
 
 .self-check-in-header {
     font-size: 0.97rem;
-    font-weight: 600;
+    font-weight: 500;
     color: rgb(56, 56, 56);
 }
 
 .self-check-in-description {
     font-size: 0.83rem;
-    color: rgb(67, 67, 67);
+    color: rgb(97, 97, 97);
     font-weight: 300;
     margin-top: 5px;
 }
@@ -257,8 +257,8 @@
 
 .superhost-header {
     font-size: 0.97rem;
-    font-weight: 600;
-    color: rgb(67, 67, 67);
+    font-weight: 500;
+    color: rgb(56, 56, 56);
 }
 
 .superhost-description {
@@ -287,8 +287,8 @@
 
 .free-cancellation-header {
     font-size: 0.97rem;
-    font-weight: 600;
-    color: rgb(67, 67, 67);
+    font-weight: 500;
+    color: rgb(56, 56, 56);
 }
 
 .free-cancellation-description {
@@ -312,9 +312,9 @@
 
 .aircover-description {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 400;
     margin-top: 15px;
-    color: rgb(65, 65, 65);
+    color: rgb(77, 76, 76);
 }
 
 .spot-details-and-booking-container {

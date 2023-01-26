@@ -74,16 +74,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 165px;
+    width: 167px;
+    border-right: solid;
+    border-right-color: rgb(205, 205, 205);
 }
 
 .create-booking-start-date-input {
     border: none;
     height: 27px;
-    width: 140px;
-    font-size: 0.85rem;
+    width: 147px;
+    font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(91, 91, 91);
+    color: rgb(47, 47, 47);
+}
+
+.create-booking-start-date-input:hover {
+    cursor: pointer;
 }
 
 .create-booking-end-date {
@@ -95,10 +101,14 @@
 .create-booking-end-date-input {
     border: none;
     height: 27px;
-    width: 140px;
-    font-size: 0.85rem;
+    width: 149px;
+    font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(91, 91, 91);
+    color: rgb(47, 47, 47);
+}
+
+.create-booking-end-date-input:hover {
+    cursor: pointer;
 }
 
 .create-booking-check-in {
@@ -115,11 +125,6 @@
     margin-left: 9px;
     color: rgb(65, 64, 64);
     margin-top: 4px;
-}
-
-.create-booking-start-date {
-    border-right: solid;
-    border-right-color: rgb(205, 205, 205);
 }
 
 .create-booking-guests {
@@ -141,12 +146,15 @@
 
 .create-booking-guests-select {
     font-size: 0.7rem;
-    width: 310px;
+    width: 314px;
     border: none;
     margin-left: 6px;
-    font-size: 0.85rem;
-    color: rgb(91, 91, 91);
+    font-size: 0.82rem;
+    color: rgb(47, 47, 47);
+}
 
+.create-booking-guests-select:hover {
+    cursor: pointer;
 }
 
 .create-booking-button-container {

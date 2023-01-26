@@ -24,7 +24,7 @@ const Maps = ({ apiKey, spot }) => {
     rotation: 0,
     scale: 2,
   }
-  
+
 
   return (
     <>
@@ -34,10 +34,10 @@ const Maps = ({ apiKey, spot }) => {
           center={center}
           zoom={15}
         >
-           <Marker
-      icon={svgMarker}
-      position={center}
-    />
+          <Marker
+            icon={svgMarker}
+            position={center}
+          />
         </GoogleMap>
       )}
     </>
