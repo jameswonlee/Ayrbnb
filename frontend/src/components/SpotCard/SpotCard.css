@@ -29,7 +29,7 @@
     font-size: 0.87rem;
     font-weight: 400;
     margin-top: -7px;
-    margin-right: -5px;
+    /* margin-right: -35px; */
 }
 
 .avg-rating p {
@@ -42,9 +42,7 @@
 
 .preview-spot-details-outer {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
-    margin-right: 30px;
     margin-left: 2px;
 }
 
