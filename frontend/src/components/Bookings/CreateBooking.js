@@ -35,6 +35,10 @@ function CreateBooking({ spot }) {
         return Number(Date.parse(endDate) - Date.parse(startDate)) / 86400000
     }
 
+    const priceWithCommas = (dollars) => {
+        return dollars.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     const submitHandler = async (e) => {
         e.preventDefault();
         const errors = [];
@@ -66,7 +70,7 @@ function CreateBooking({ spot }) {
         <div className="create-booking-outer-container">
             <div className="create-booking-top">
                 <div className="create-booking-spot-price-container">
-                    <span className="create-booking-spot-price">${spot.price}<span className="create-booking-spot-price-night"> night</span></span>
+                    <span className="create-booking-spot-price">${priceWithCommas(spot.price)}<span className="create-booking-spot-price-night"> night</span></span>
                 </div>
                 <div className="create-booking-spot-rating-container">
                     <span className="create-booking-average-rating">★ {spot.avgStarRating} ·&nbsp;
@@ -143,7 +147,7 @@ function CreateBooking({ spot }) {
             <div className="create-booking-bottom">
                 <div className="create-booking-nightly-rate-container">
                     <div className="create-booking-nightly-rate-text">
-                        <span className="create-booking-nightly-rate">${spot.price} x </span>
+                        <span className="create-booking-nightly-rate">${priceWithCommas(spot.price)} x </span>
                         {calculateNights() === 1
                             ?
                             <span>{calculateNights()} night</span>
@@ -152,7 +156,7 @@ function CreateBooking({ spot }) {
                         }
                     </div>
                     <div className="create-booking-nightly-rate-total">
-                        <span>${spot.price * calculateNights()}</span>
+                        <span>${priceWithCommas((spot.price) * calculateNights())}</span>
                     </div>
                 </div>
                 <div className="create-booking-cleaning-fee-container">
@@ -176,7 +180,7 @@ function CreateBooking({ spot }) {
                         Total before taxes
                     </div>
                     <div>
-                        ${(spot.price * calculateNights() + 500 + 489)}
+                        ${priceWithCommas((spot.price * calculateNights() + 500 + 489))}
                     </div>
                 </div>
             </div>

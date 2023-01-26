@@ -33,6 +33,7 @@ function CreateReviewForm({ spot, setShowModal }) {
             }
         }
     }
+    
 
     return (
         <div className="review-form">

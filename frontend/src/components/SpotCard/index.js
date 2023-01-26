@@ -6,6 +6,10 @@ import dayjs from 'dayjs';
 
 function SpotCard({ spot }) {
 
+    const priceWithCommas = (dollars) => {
+        return dollars.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     return (
         <NavLink to={`/spots/${spot.id}`} className="spot-card-outer-container">
             <div className="image-container">
@@ -24,7 +28,7 @@ function SpotCard({ spot }) {
                     <div className="spot-country">{spot.country}</div>
                     <div className="spot-available-dates">{dayjs().add(14, 'd').format("MMM D")}-{dayjs().add(19, 'd').format("MMM D")}</div>
                     <div className="spot=price-container">
-                        <div className="price">${spot.price}<span> night</span></div>
+                        <div className="price">${priceWithCommas(spot.price)}<span> night</span></div>
                     </div>
                 </div>
                 <div className="avg-rating">
