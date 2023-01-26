@@ -1,25 +1,35 @@
 .spot-card-outer-container {
-    width: 330px;
-    height: 395px;
+    width: 310px;
+    height: 375px;
     text-decoration: none;
     color:black;
     margin-right: 10px;
     padding-bottom: 20px;
+    margin-bottom: 40px;
+    margin-right: 30px;
 }
 
 .preview-image {
-    height: 290px;
-    width: 310px;
-    border-radius: 20px;
+    height: 300px;
+    width: 315px;
+    border-radius: 15px;
 }
 
 .city-price p {
-    margin: 6px 0px;
+    margin: 0px 0px;
+}
+
+.city-price {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2px;
 }
 
 .avg-rating {
     font-size: 0.87rem;
     font-weight: 400;
+    margin-top: -7px;
+    margin-right: -5px;
 }
 
 .avg-rating p {
@@ -35,25 +45,38 @@
     align-items: flex-start;
     justify-content: space-between;
     margin-right: 30px;
+    margin-left: 2px;
 }
 
 .city-state {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.93rem;
+    font-weight: 400;
 }
 
 .spot-country {
-    font-size: 0.9rem;
-    font-weight: 400;
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: rgb(98, 98, 98);
+}
+
+.spot-available-dates {
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: rgb(98, 98, 98);
+}
+
+.spot-price-container {
+    padding-top: 2px;
 }
 
 .price {
-    font-size: 0.9rem;
+    font-size: 0.93rem;
     font-weight: 500;
+    margin-top: 4px;
 }
 
 .price span {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 0.9rem;
 }
 

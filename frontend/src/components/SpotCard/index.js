@@ -1,6 +1,7 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './SpotCard.css';
-import React from 'react';
+import dayjs from 'dayjs';
 
 
 function SpotCard({ spot }) {
@@ -12,16 +13,19 @@ function SpotCard({ spot }) {
             </div>
             <div className="preview-spot-details-outer">
                 <div className="city-price">
-                    <p className="city-state">{spot.city},
+                    <div className="city-state">{spot.city},
                         {spot.state == "CA"
                             ?
                             <span> California</span>
                             :
                             <span>{spot.state}</span>
                         }
-                    </p>
-                    <p className="spot-country text-gray">{spot.country}</p>
-                    <p className="price">${spot.price}<span> night</span></p>
+                    </div>
+                    <div className="spot-country">{spot.country}</div>
+                    <div className="spot-available-dates">{dayjs().add(14, 'd').format("MMM D")}-{dayjs().add(19, 'd').format("MMM D")}</div>
+                    <div className="spot=price-container">
+                        <div className="price">${spot.price}<span> night</span></div>
+                    </div>
                 </div>
                 <div className="avg-rating">
                     {spot.avgRating
