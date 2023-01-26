@@ -33,7 +33,7 @@
 
 .create-booking-spot-price-night {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .create-booking-average-rating {
@@ -82,10 +82,11 @@
 .create-booking-start-date-input {
     border: none;
     height: 27px;
-    width: 147px;
+    width: 145px;
     font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(47, 47, 47);
+    color: rgb(75, 75, 75);
+    margin-left: 1px;
 }
 
 .create-booking-start-date-input:hover {
@@ -101,10 +102,11 @@
 .create-booking-end-date-input {
     border: none;
     height: 27px;
-    width: 149px;
+    width: 147px;
     font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(47, 47, 47);
+    color: rgb(75, 75, 75);
+    margin-left: 1px;
 }
 
 .create-booking-end-date-input:hover {
@@ -112,17 +114,17 @@
 }
 
 .create-booking-check-in {
-    font-size: 0.6rem;
-    font-weight: 700;
-    margin-left: 9px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-left: 10px;
     color: rgb(65, 64, 64);
     margin-top: 4px;
 }
 
 .create-booking-check-out {
-    font-size: 0.6rem;
-    font-weight: 700;
-    margin-left: 9px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-left: 10px;
     color: rgb(65, 64, 64);
     margin-top: 4px;
 }
@@ -137,20 +139,20 @@
 }
 
 .create-booking-guests-text {
-    font-size: 0.6rem;
-    font-weight: 700;
+    font-size: 0.65rem;
+    font-weight: 600;
     color: rgb(65, 64, 64);
     margin-top: 12px;
-    margin-left: 9px;
+    margin-left: 10px;
+    margin-bottom: -2px;
 }
 
 .create-booking-guests-select {
-    font-size: 0.7rem;
-    width: 314px;
+    font-size: 0.82rem;
+    width: 315px;
     border: none;
     margin-left: 6px;
-    font-size: 0.82rem;
-    color: rgb(47, 47, 47);
+    color: rgb(75, 75, 75);
 }
 
 .create-booking-guests-select:hover {
@@ -180,6 +182,7 @@
 .create-booking-wont-be-charged-yet {
     font-size: 0.85rem;
     margin-top: 15px;
+    font-weight: 300;
 }
 
 .create-booking-bottom {
@@ -222,33 +225,39 @@
     text-decoration: underline;
     text-decoration-color: rgb(50, 50, 50);
     color: rgb(50, 50, 50);
-    font-size: 0.93rem;
+    font-size: 0.95rem;
+    font-weight: 300;
 }
 
 .create-booking-nightly-rate-total {
-    font-size: 0.93rem;
+    font-size: 0.95rem;
+    font-weight: 300;
 }
 
 .create-booking-cleaning-fee-text {
-    font-size: 0.93rem;
+    font-size: 0.95rem;
+    font-weight: 300;
     text-decoration: underline;
     text-decoration-color: rgb(50, 50, 50);
     color: rgb(50, 50, 50);
 }
 
 .create-booking-cleaning-fee {
-    font-size: 0.93rem;
+    font-size: 0.95rem;
+    font-weight: 300;
 }
 
 .create-booking-service-fee-text {
-    font-size: 0.93rem;
+    font-size: 0.95rem;
+    font-weight: 300;
     text-decoration: underline;
     text-decoration-color: rgb(50, 50, 50);
     color: rgb(50, 50, 50);
 }
 
 .create-booking-service-fee {
-    font-size: 0.93rem;
+    font-size: 0.95rem;
+    font-weight: 300;
 }
 
 .create-booking-total-container {
