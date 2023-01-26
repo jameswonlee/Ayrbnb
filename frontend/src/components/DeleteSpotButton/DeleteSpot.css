@@ -1,16 +1,3 @@
-/* .delete-buttons {
-    display: flex;
-    justify-content: center;
-} */
-
-/* .delete-buttons > button {
-    margin-right: 1em;
-} */
-
-/* .delete-buttons > button:last-of-type {
-    margin-right: 0;
-} */
-
 .delete-spot {
     display: flex;
     flex-direction: column;
@@ -31,14 +18,14 @@
 .confirm-delete-button, .cancel-delete-button {
     height: 50px;
     width: 100%;
-    background-color: rgb(215, 4, 102);
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
     border: none;
     color: white;
     font-size: large;
+    font-weight: 500;
     border-radius: 6px;
     justify-content: space-between;
     margin-bottom: 14px;
-    /* margin-top: 50px; */
 }
 
 .confirm-delete-button {
@@ -49,10 +36,13 @@
     margin-left: 1px;
 }
 
-/* .delete-spot-question { */
-    /* padding-top: 50px; */
-    /* padding-bottom: 32px; */
-/* } */
+.confirm-delete-button:hover {
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
+}
+
+.cancel-delete-button:hover {
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
+}
 
 .delete-warning-message {
     margin-bottom: 30px;

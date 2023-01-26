@@ -76,7 +76,7 @@
     width: 100%;
     padding: 10px 0;
     border-radius: 6px;
-    background-color: rgb(215, 4, 102);
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 50%);
     color: white;
     font-size: 1em;
     border: none;
@@ -84,6 +84,7 @@
 
 .login-button:hover {
     cursor: pointer;
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
 }
 
 .login, .login a {
@@ -100,10 +101,12 @@
     border: none;
     height: 40px;
     font-size: 1em;
+    font-weight: 500;
 }
 
 .logout-button:hover {
     cursor: pointer;
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
 }
 
 .user-menu {

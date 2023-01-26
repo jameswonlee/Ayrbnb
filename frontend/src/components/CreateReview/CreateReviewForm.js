@@ -24,7 +24,6 @@ function CreateReviewForm({ spot, setShowModal }) {
         if (!errors.length) {
             try {
                 await dispatch(createReviewForSpot(review, stars, spot.id, sessionUser));
-                alert("Review successfully created!");
                 setShowModal(false);
             } catch(e) {
                 const response = await e.json();
@@ -39,10 +38,12 @@ function CreateReviewForm({ spot, setShowModal }) {
         <div className="review-form">
             <form onSubmit={submitHandler}>
                 <h2 className="write-review-title">Write your review</h2>
+                <div className="create-review-errors">
                 {validationErrors.length > 0 &&
-                validationErrors.map(error => 
-                    <li key={error}>{error}</li>
-                )}
+                    validationErrors.map(error =>
+                        <div className="create-review-errors-text" key={error}>{error}</div>
+                    )}
+            </div>
                 <input 
                 type="text"
                 onChange={e => {

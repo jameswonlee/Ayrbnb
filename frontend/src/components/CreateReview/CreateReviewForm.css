@@ -4,7 +4,9 @@
     justify-content: center;
     width: 500px;
     height: 300px;
-    padding: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .submit-review-button {
@@ -12,7 +14,7 @@
     height: 50px;
     border-radius: 6px;
     border: none;
-    background-color: rgb(215, 4, 102);
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
     color: white;
     font-size: 1em;
     margin-top: 30px;
@@ -20,9 +22,20 @@
 
 .submit-review-button:hover {
     cursor: pointer;
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
 }
 
 .write-review-title {
     padding-bottom: 18px;
     margin-bottom: 20px;
+}
+
+.create-review-errors {
+    margin-top: -27px;
+}
+
+.create-review-errors-text {
+    font-size: 0.8rem;
+    margin-top: -1px;
+    color: red;
 }

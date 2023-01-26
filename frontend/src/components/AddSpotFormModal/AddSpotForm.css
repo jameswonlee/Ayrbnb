@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 800px;
+    height: auto;
     width: 600px;
     padding: 25px;
 }
@@ -10,9 +10,10 @@
 .create-spot-button {
     width: 100%;
     height: 50px;
-    background-color: rgb(215, 4, 102);
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
     color: white;
     font-size: 1em;
+    font-weight: 500;
     border-radius: 6px;
     border: none;
     margin-top: 32px;
@@ -20,9 +21,25 @@
 
 .create-spot-button:hover {
     cursor: pointer;
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
+
 }
 
 .become-host-title {
-    margin-top: 0px;
+    margin-top: -10px;
     margin-bottom: 24px;
+}
+
+.create-spot-form > input {
+    height: 30px;
+}
+
+.create-spot-errors {
+    margin-top: -17px;
+}
+
+.create-spot-errors-text {
+    font-size: 0.8rem;
+    margin-top: -1px;
+    color: red;
 }

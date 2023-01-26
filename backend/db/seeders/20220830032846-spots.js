@@ -14,7 +14,7 @@ module.exports = {
     */
    await queryInterface.bulkInsert('Spots', [
     {
-      ownerId: 1,
+      ownerId: 2,
       address: '125 N Doheny Dr',
       city: 'West Hollywood',
       state: 'CA',
@@ -86,7 +86,7 @@ module.exports = {
       price: 1650.00
     },
     {
-      ownerId: 1,
+      ownerId: 2,
       address: '1105 San Ysidro Dr',
       city: 'Beverly Hills',
       state: 'CA',

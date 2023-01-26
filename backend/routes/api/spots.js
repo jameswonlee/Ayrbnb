@@ -473,7 +473,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
         })
     }
 
-    const { startDate, endDate } = req.body;
+    const { startDate, endDate, numGuests } = req.body;
 
     if (startDate >= endDate) {
         return res.status(400).json({
@@ -510,6 +510,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
         userId: req.user.id,
         startDate,
         endDate,
+        numGuests,
     })
 
     return res.json(newBooking);

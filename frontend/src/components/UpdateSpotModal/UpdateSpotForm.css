@@ -2,26 +2,44 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 880px;
+    height: auto;
     width: 700px;
-    padding: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
+
+.update-spot-form-container  input {
+    height: 30px;
 }
 
 .update-submit-button {
     height: 50px;
     width: 100%;
-    background-color: rgb(215, 4, 102);
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
     border: none;
     border-radius: 6px;
     color: white;
     font-size: 1em;
     margin-top: 32px;
+    font-weight: 500;
 }
 
 .update-submit-button:hover {
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
     cursor: pointer;
 }
 
-.edit-spot-title {
+.update-spot-title {
     padding-bottom: 20px;
+}
+
+.update-spot-errors {
+    margin-top: -37px;
+}
+
+.update-spot-errors-text {
+    font-size: 0.8rem;
+    margin-top: -1px;
+    color: red;
 }

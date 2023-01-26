@@ -39,10 +39,10 @@ const updateBooking = (updatedBooking) => {
     }
 }
 
-const removeBooking = (booking) => {
+const removeBooking = (bookingId) => {
     return {
         type: REMOVE_BOOKING,
-        booking: booking
+        bookingId: bookingId
     }
 }
 
@@ -110,4 +110,45 @@ export const deleteBooking = (bookingId) => async (dispatch) => {
 
 /* ------------------- Reducer --------------------- */
 
-const initialState = { bookings}
+const initialState = { bookings: {} };
+
+const bookingsReducer = (state=initialState, action) => {
+    let newState = {};
+
+    switch (action.type) {
+        case LOAD_USER_BOOKINGS:
+            newState = { ...state };
+            action.bookings.Bookings.forEach(booking => {
+                newState[booking.id] = booking;
+            })
+            return newState;
+
+        case LOAD_SPOT_BOOKINGS:
+            newState = { ...state };
+            action.bookings.Bookings.forEach(booking => {
+                newState[booking.id] = booking;
+            })
+            return newState;
+
+        case ADD_BOOKING:
+            newState = { ...state };
+            newState[action.booking.id] = action.booking;
+            return newState;
+
+        case UPDATE_BOOKING:
+            newState = { ...state };
+            newState[action.booking.id] = action.booking;
+            return newState;
+
+        case REMOVE_BOOKING:
+            newState = { ...state };
+            delete newState[action.bookingId];
+            return newState;
+
+        default:
+            return state;
+    }
+}
+
+
+export default bookingsReducer;

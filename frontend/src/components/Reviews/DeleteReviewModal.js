@@ -23,8 +23,6 @@ function DeleteReviewModal({ review }) {
     const deleteClickHandler = async () => {
         await dispatch(deleteReview(review.id));
         setShown(false);
-        alert('Review successfully deleted');
-        // history.push(`/spots/${spotId}`)
     }
 
     return (

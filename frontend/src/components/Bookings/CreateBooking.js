@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { getReviewsBySpotId } from '../../store/reviews';
+import { createBooking } from '../../store/bookings';
 import './CreateBooking.css';
 import dayjs from 'dayjs';
-import spotsReducer from '../../store/spots';
-
-
 
 
 
 function CreateBooking({ spot }) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const reviewsData = useSelector(state => state.reviews.reviews);
+    const sessionUser = useSelector(state => state.session.user);
     const reviewCount = Object.keys(reviewsData).length;
 
     const [startDate, setStartDate] = useState(dayjs().add(1, 'day').format("YYYY-MM-DD"));
     const [endDate, setEndDate] = useState(dayjs().add(2, 'day').format("YYYY-MM-DD"));
-    const [guests, setGuests] = useState(2);
+    const [numGuests, setNumGuests] = useState(2);
     const [validationErrors, setValidationErrors] = useState([]);
 
     const scrollToReviews = () => {
@@ -46,19 +47,18 @@ function CreateBooking({ spot }) {
 
         setValidationErrors(errors);
 
-        // if (!errors.length) {
-        //     const newReservationDetails = {
-        //         reservation_time: dayjs(`${date} ${time}`).utc().format("YYYY-MM-DD HH:mm:ss"),
-        //         party_size: partySize
-        //     }
-
-        // const updatedReservation = await dispatch(changeReservation(newReservationDetails, reservationId));
-        // if (updatedReservation) {
-        //     history.push(`/reservations/${reservationId}`)
-        // }
+        if (!errors.length) {
+            const newBookingData = {
+                startDate: dayjs(startDate).format("YYYY-MM-DD"),
+                endDate: dayjs(endDate).format("YYYY-MM-DD"),
+                numGuests: numGuests
+            }
+            const newBooking = await dispatch(createBooking(spot.id, newBookingData));
+            if (newBooking) {
+                // history.push(`/user/${sessionUser.id}`)
+            }
+        }
     }
-
-
 
 
 
@@ -92,6 +92,8 @@ function CreateBooking({ spot }) {
                                     setStartDate(e.target.value)
                                 }}
                                 value={startDate}
+                                min={dayjs().format("YYYY-MM-DD")}
+                                max={dayjs().add(6, 'months').format("YYYY-MM-DD")}
                                 placeholder="Start date"
                                 className="create-booking-start-date-input"
                             />
@@ -105,6 +107,7 @@ function CreateBooking({ spot }) {
                                     setEndDate(e.target.value)
                                 }}
                                 value={endDate}
+                                min={dayjs().format("YYYY-MM-DD")}
                                 placeholder="End date"
                                 className="create-booking-end-date-input"
                             />
@@ -115,7 +118,7 @@ function CreateBooking({ spot }) {
                             GUESTS
                         </div>
                         <div className="create-booking-guests-select-container">
-                            <select value={guests} onChange={e => setGuests(e.target.value)} className="create-booking-guests-select">
+                            <select value={numGuests} onChange={e => setNumGuests(e.target.value)} className="create-booking-guests-select">
                                 <option value="1">1 guest</option>
                                 <option value="2">2 guests</option>
                                 <option value="3">3 guests</option>

@@ -69,11 +69,13 @@ function AddSpotForm({ setShowModal }) {
 
     return (
         <form onSubmit={submitHandler} className="create-spot-form">
-            <h2 className="become-host-title">Open your door to hosting</h2>
-            {validationErrors.length > 0 &&
-                validationErrors.map(error =>
-                    <li key={error}>{error}</li>
-                )}
+            <h2 className="become-host-title">Ayrbnb your home</h2>
+            <div className="create-spot-errors">
+                {validationErrors.length > 0 &&
+                    validationErrors.map(error =>
+                        <div className="create-spot-errors-text" key={error}>{error}</div>
+                    )}
+            </div>
             <input
                 type="text"
                 onChange={e => {
@@ -132,7 +134,7 @@ function AddSpotForm({ setShowModal }) {
                     setName(e.target.value)
                 }}
                 value={name}
-                placeholder="Name" />
+                placeholder="Spot name" />
             <input
                 type="text"
                 onChange={e => {
@@ -149,7 +151,7 @@ function AddSpotForm({ setShowModal }) {
                 }}
                 value={price}
                 step="0.01"
-                placeholder="Price" />
+                placeholder="Price per night" />
             <input
                 type="text"
                 onChange={e => {

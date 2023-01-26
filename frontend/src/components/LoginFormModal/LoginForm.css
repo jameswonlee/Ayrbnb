@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    height: 430px;
+    height: auto;
     max-width: 500px;
-    /* margin: 20px; */
-    padding: 25px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
 }
 
 @media(min-width: 700px) {
@@ -16,7 +17,7 @@
 }
 
 .login-form-buttons {
-    background-color: rgb(215, 4, 102);
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 50%);
     color: white;
     height: 50px;
     width: 100%;
@@ -26,13 +27,14 @@
     margin-top: 6px;
 }
 
-.login-form-buttons {
+.login-form-buttons:hover {
     cursor: pointer;
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
 }
 
 .login-title {
     margin-top: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .continue {
@@ -44,7 +46,6 @@ input {
     height: 50px;
     border-radius: 6px;
     border-color: gray;
-    /* font-weight: bold; */
     font-size: large;
     margin-top: 12px;
     padding-left: 8px;
@@ -52,4 +53,12 @@ input {
     border: 1px solid rgb(164, 163, 163);
 }
 
+.login-errors {
+    margin-top: -17px;
+}
 
+.login-errors-text {
+    font-size: 0.8rem;
+    margin-top: -1px;
+    color: red;
+}

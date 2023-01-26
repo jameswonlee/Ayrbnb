@@ -7,7 +7,6 @@ import './UpdateSpotForm.css';
 
 function UpdateSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
-    // const history = useHistory();
     const { spotId } = useParams();
     const spot = useSelector(state => state.spots.spots[spotId])
 
@@ -52,9 +51,7 @@ function UpdateSpotForm({ setShowModal }) {
             }
             const updatedSpot = await dispatch(updateExistingSpot(spot.id, newSpotData));
             if (updatedSpot) {
-                alert("Spot successfully updated!");
                 setShowModal(false)
-                // history.push(`/spots/${updatedSpot.id}`);
             }
         }
     }
@@ -63,11 +60,13 @@ function UpdateSpotForm({ setShowModal }) {
     return (
         <div className="update-spot-form-container">
             <form onSubmit={submitHandler} className="edit-form">
-            <h1 className="edit-spot-title">Edit Spot Details</h1>
+            <h1 className="update-spot-title">Edit Spot Details</h1>
+            <div className="update-spot-errors">
                 {validationErrors.length > 0 &&
-                    validationErrors.map((error) =>
-                        <li key={error}>{error}</li>
+                    validationErrors.map(error =>
+                        <div className="update-spot-errors-text" key={error}>{error}</div>
                     )}
+            </div>
                 <input
                     type="text"
                     onChange={e => {

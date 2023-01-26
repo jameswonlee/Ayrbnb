@@ -37,20 +37,21 @@ function LoginForm({ setShowModal }) {
       <h2 className="login-title">
         Welcome to Ayrbnb
       </h2>
-      <ul>
+      <div className="login-errors">
         {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+          <div key={idx} className="login-errors-text">{error}</div>
         ))}
-      </ul>
+      </div>
       <div>
-
         <label className="user-login">
           <input
             type="text"
             value={credential}
-            onChange={(e) => setCredential(e.target.value)}
+            onChange={(e) => {
+              setErrors([])
+              setCredential(e.target.value)
+            }}
             placeholder="Username or email"
-            required
           />
         </label>
       </div>
@@ -60,8 +61,10 @@ function LoginForm({ setShowModal }) {
             type="password"
             value={password}
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            required
+            onChange={(e) => {
+              setErrors([])
+              setPassword(e.target.value)
+            }}
           />
         </label>
       </div>
