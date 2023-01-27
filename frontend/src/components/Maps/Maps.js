@@ -33,6 +33,7 @@ const Maps = ({ apiKey, spot }) => {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={15}
+          className="google-maps"
         >
           <Marker
             icon={svgMarker}

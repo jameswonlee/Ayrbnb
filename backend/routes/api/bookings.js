@@ -25,20 +25,20 @@ router.get('/current', requireAuth, async (req, res) => {
             attributes: {
                 exclude: ['description', 'createdAt', 'updatedAt'],
             },
-            include: [
-                {
-                    model: User,
-                    attributes: ['id', 'firstName', 'lastName'],
-                    as: 'Owner'
-                }
-            ],
-            raw: true
+            include: {
+                model: User,
+                attributes: ['id', 'firstName', 'lastName'],
+                as: 'Owner'
+            },
+            // raw: true
         });
-        const images = await SpotImage.findAll({ where: { spotId: spot.id } });
+        const images = await SpotImage.findAll({
+            where: { spotId: spot.id }, raw: true
+        });
 
         images.forEach(image => {
             if (image.preview === true || image.preview === 1) {
-                spot.previewImage = image.url
+                spot.dataValues.previewImage = image.url
             }
         });
         booking.Spot = spot;
@@ -115,7 +115,7 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
 // Delete a Booking
 router.delete('/:bookingId', requireAuth, async (req, res) => {
     const booking = await Booking.findByPk(req.params.bookingId);
-    
+
     if (!booking) {
         return res.status(404).json({
             message: "Booking couldn't be found",

@@ -57,7 +57,7 @@ function Bookings() {
                                             }
                                         </div>
                                         <div className="bookings-reservation-owner">
-                                            Entire home hosted by {booking.Spot['Owner.firstName']}
+                                            Entire home hosted by {booking.Spot.Owner.firstName}
                                         </div>
                                     </div>
                                     <div className="bookings-reservation-left-border-bottom">
@@ -102,7 +102,7 @@ function Bookings() {
                                 <div className="bookings-reservation-left">
                                     <div className="bookings-reservation-left-top">
                                         <div className="bookings-reservation-spot-name">
-                                            {booking.Spot.name.includes('|')
+                                            {booking.Spot?.name.includes('|')
                                                 ?
                                                 <div>
                                                     {booking.Spot.name.split('|')[0]}
@@ -115,7 +115,7 @@ function Bookings() {
                                         </div>
 
                                         <div className="bookings-reservation-owner">
-                                            Entire home hosted by {booking.Spot['Owner.firstName']}
+                                            Entire home hosted by {booking.Spot.Owner.firstName}
                                         </div>
                                     </div>
                                     <div className="bookings-reservation-left-border-bottom">

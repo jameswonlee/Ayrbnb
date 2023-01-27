@@ -68,15 +68,27 @@ function ProfileButton({ user }) {
     sessionLinks = (
       <div className="dropdown-menu">
         <div className="dropdown-menu-upper">
-          <div className="dropdown-menu-options">Profile: {user.firstName}</div>
-          <div className="dropdown-menu-options">Account: {user.email}</div>
-          <div>Username: {user.username}</div>
+          <div>
+            <span className="shift-right shift-down">Profile: {user.firstName}</span>
+          </div>
+          <div>
+            <span className="shift-right shift-down">Account: {user.email}</span>
+          </div>
+          <div>
+            <span className="shift-right shift-down">Username: {user.username}</span>
+          </div>
         </div>
         <div className="dropdown-menu-border-bottom"></div>
-        <div className="dropdown-menu-middle">
-          <div onClick={routeToUserBookings} className="dropdown-menu-options clickable-option">Trips</div>
-          <div className="dropdown-menu-options clickable-option">Airbnb your home</div>
-          <div className="logout-button" onClick={logout}>Log Out</div>
+        <div className="dropdown-menu-lower">
+          <div onClick={routeToUserBookings} className="dropdown-menu-options">
+            <span className="shift-right shift-down">Trips</span>
+          </div>
+          <div className="dropdown-menu-options">
+            <span className="shift-right shift-down">Airbnb your home</span>
+          </div>
+          <div className="dropdown-menu-options" onClick={logout}>
+            <span className="shift-right shift-down">Log Out</span>
+          </div>
         </div>
         {/* <div className="dropdown-menu-lower">
           <div></div>

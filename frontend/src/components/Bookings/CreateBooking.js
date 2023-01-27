@@ -59,7 +59,7 @@ function CreateBooking({ spot }) {
             }
             const newBooking = await dispatch(createBooking(spot.id, newBookingData));
             if (newBooking) {
-                // history.push(`/user/${sessionUser.id}`)
+                history.push(`/user/${sessionUser.id}/trips`)
             }
         }
     }

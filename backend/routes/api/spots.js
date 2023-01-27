@@ -457,7 +457,13 @@ router.get('/:spotId/reviews', async (req, res) => {
 
 // Create a Booking from a Spot based on the Spot's id 
 router.post('/:spotId/bookings', requireAuth, async (req, res) => {
-    const spot = await Spot.findByPk(req.params.spotId);
+    const spot = await Spot.findByPk(req.params.spotId, {
+        include: {
+            model: User,
+            attributes: ['id', 'firstName', 'lastName'],
+            as: 'Owner'
+        }
+    });
 
     if (!spot) {
         return res.status(404).json({
@@ -512,6 +518,11 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
         endDate,
         numGuests,
     })
+
+    // const owner = await User.findByPk()
+
+    newBooking.dataValues.Spot = spot;
+
 
     return res.json(newBooking);
 });

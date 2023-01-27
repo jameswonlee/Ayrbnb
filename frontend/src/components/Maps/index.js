@@ -20,7 +20,7 @@ const MapContainer = ({ spot }) => {
   }
 
   return (
-    <Maps apiKey={key} spot={spot} />
+    <Maps apiKey={key} spot={spot} className="googe-maps-container"/>
   );
 };
 
