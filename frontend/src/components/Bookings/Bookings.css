@@ -1,6 +1,6 @@
 .bookings-outer-container {
     height: auto;
-    margin-left: 178px;
+    margin-left: 78px;
     padding-bottom: 20px;
 }
 
@@ -117,5 +117,69 @@
 }
 
 .bookings-no-trips-container {
-    height: 1000px;
+    height: 600px;
+}
+
+.bookings-no-trips {
+    height: 270px;
+    width: 1340px;
+    border: solid;
+    border-color: rgb(216, 216, 216);
+    border-radius: 12px;
+    margin-top: 40px;
+    background-color: white;
+    display: flex;
+}
+
+.bookings-no-trips-left {
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.bookings-no-trips-hand-wave-icon {
+    height: 60px;
+}
+
+.bookings-no-trips-text {
+    font-size: 1.11rem;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.bookings-no-trips-text2 {
+    font-size: 0.83rem;
+    width: 350px;
+    font-weight: 300;
+    color: rgb(113, 113, 113);
+    margin-top: 10px;
+}
+
+.bookings-no-trips-start-searching-button {
+    height: 45px;
+    width: 165px;
+    border-radius: 8px;
+    color: white;
+    line-height: 2.8;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-top: 20px;
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 60%);
+}
+
+.bookings-no-trips-start-searching-button:hover {
+    cursor: pointer;
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
+}
+
+.bookings-no-trips-right {
+    margin-left: 70px;
+    margin-top: -1.2px;
+}
+
+.bookings-no-trips-family-photo {
+    height: 272px;
+    width: 900px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }

@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getUserBookings } from '../../store/bookings';
 import { getAllSpots } from '../../store/spots';
+import handWaveIcon from '../../icons/hand-wave.ico';
+import familyPhoto from '../../images/family-image.png';
 import './Bookings.css';
 import dayjs from 'dayjs';
 
@@ -149,12 +151,27 @@ function Bookings() {
                 </div>
             }
 
-            {!upcomingBookings && !pastBookings &&
+            {!upcomingBookings.length && !pastBookings.length &&
                 <div className="bookings-no-trips-container">
-                    
+                    <div className="bookings-no-trips">
+                        <div className="bookings-no-trips-left">
+                            <div className="bookings-no-trips-upper">
+                                <img src={handWaveIcon} className="bookings-no-trips-hand-wave-icon" />
+                            </div>
+                            <div className="bookings-no-trips-middle">
+                                <div className="bookings-no-trips-text">No trips booked...yet!</div>
+                                <div className="bookings-no-trips-text2">Time to dust off your bags and start planning your next adventure</div>
+                            </div>
+                            <div className="bookings-no-trips-lower">
+                                <div className="bookings-no-trips-start-searching-button">Start searching</div>
+                            </div>
+                        </div>
+                        <div className="bookings-no-trips-right">
+                            <img src={familyPhoto} className="bookings-no-trips-family-photo" />
+                        </div>
+                    </div>
                 </div>
             }
-
         </div>
     )
 }
