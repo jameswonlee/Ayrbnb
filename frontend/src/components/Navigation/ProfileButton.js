@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import { Modal } from '../../context/Modal';
+import { resetBookings } from "../../store/bookings";
 import * as sessionActions from '../../store/session';
 import LoginForm from '../LoginFormModal/LoginForm';
-import { Modal } from '../../context/Modal';
 import SignupFormPage from "../SignupFormPage";
 import './Navigation.css';
 
@@ -33,9 +34,12 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const logout = (e) => {
+  const logout = async (e) => {
     e.preventDefault();
-    dispatch(sessionActions.logout());
+    dispatch(resetBookings());
+
+    await dispatch(sessionActions.logout());
+    history.push('/')
   };
 
   const routeToUserBookings = () => {
@@ -68,32 +72,28 @@ function ProfileButton({ user }) {
     sessionLinks = (
       <div className="dropdown-menu">
         <div className="dropdown-menu-upper">
-          <div>
+          <div className="shift-down-1">
             <span className="shift-right shift-down">Profile: {user.firstName}</span>
           </div>
           <div>
             <span className="shift-right shift-down">Account: {user.email}</span>
           </div>
-          <div>
+          <div className="username-div">
             <span className="shift-right shift-down">Username: {user.username}</span>
           </div>
         </div>
         <div className="dropdown-menu-border-bottom"></div>
         <div className="dropdown-menu-lower">
-          <div onClick={routeToUserBookings} className="dropdown-menu-options">
+          <div onClick={routeToUserBookings} className="dropdown-menu-options shift-down-1">
             <span className="shift-right shift-down">Trips</span>
           </div>
           <div className="dropdown-menu-options">
             <span className="shift-right shift-down">Airbnb your home</span>
           </div>
-          <div className="dropdown-menu-options" onClick={logout}>
+          <div className="dropdown-menu-options logout-button shift-up-1" onClick={logout}>
             <span className="shift-right shift-down">Log Out</span>
           </div>
         </div>
-        {/* <div className="dropdown-menu-lower">
-          <div></div>
-          <div></div>
-        </div> */}
       </div>
     )
   }

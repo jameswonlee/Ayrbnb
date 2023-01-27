@@ -151,7 +151,7 @@ function Bookings() {
 
             {!upcomingBookings && !pastBookings &&
                 <div className="bookings-no-trips-container">
-
+                    
                 </div>
             }
 
