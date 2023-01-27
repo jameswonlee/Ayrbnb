@@ -30,6 +30,10 @@ function Bookings() {
         history.push(`/user/${sessionUser.id}/trips/${bookingId}`);
     }
 
+    const routeToAllSpots = () => {
+        history.push(`/`);
+    }
+
 
     return (
         <div className="bookings-outer-container">
@@ -163,7 +167,7 @@ function Bookings() {
                                 <div className="bookings-no-trips-text2">Time to dust off your bags and start planning your next adventure</div>
                             </div>
                             <div className="bookings-no-trips-lower">
-                                <div className="bookings-no-trips-start-searching-button">Start searching</div>
+                                <div onClick={routeToAllSpots}className="bookings-no-trips-start-searching-button">Start searching</div>
                             </div>
                         </div>
                         <div className="bookings-no-trips-right">
