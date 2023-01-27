@@ -12,6 +12,8 @@ import './index.css';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showAddSpotModal, setShowAddSpotModal] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -27,10 +29,10 @@ function App() {
   
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      <Navigation isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal}/>
       {isLoaded && (
         <Switch>
-          <Route path='/spots/:spotId'>
+          <Route path='/spot/:spotId'>
             <SingleSpot />
           </Route>
           <Route exact path='/'>

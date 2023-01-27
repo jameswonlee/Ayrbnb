@@ -6,12 +6,11 @@ import AddSpotForm from './AddSpotForm';
 import './AddSpotFormModal.css'
 
 
-function AddSpotFormModal() {
+function AddSpotFormModal({ showAddSpotModal, setShowAddSpotModal }) {
     const sessionUser = useSelector(state => state.session.user)
-    const [showModal, setShowModal] = useState(false);
 
     const clickHandler = () => {
-        setShowModal(true);
+        setShowAddSpotModal(true);
     }
 
     return (
@@ -20,11 +19,11 @@ function AddSpotFormModal() {
                 <button className="become-host-button" onClick={clickHandler}>
                     Ayrbnb your home
                 </button>
-                {showModal && (
-                    <Modal onClose={() => setShowModal(false)}>
+                {showAddSpotModal && (
+                    <Modal onClose={() => setShowAddSpotModal(false)}>
                         {sessionUser
                             ?
-                            <AddSpotForm setShowModal={setShowModal} />
+                            <AddSpotForm setShowAddSpotModal={setShowAddSpotModal} />
                             :
                             <LoginForm />
                         }

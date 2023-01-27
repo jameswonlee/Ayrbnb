@@ -8,7 +8,7 @@ import LoginForm from '../LoginFormModal/LoginForm';
 import SignupFormPage from "../SignupFormPage";
 import './Navigation.css';
 
-function ProfileButton({ user }) {
+function ProfileButton({ user, showAddSpotModal, setShowAddSpotModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
@@ -84,11 +84,11 @@ function ProfileButton({ user }) {
         </div>
         <div className="dropdown-menu-border-bottom"></div>
         <div className="dropdown-menu-lower">
-          <div onClick={routeToUserBookings} className="dropdown-menu-options shift-down-1">
+          <div onClick={routeToUserBookings} className="dropdown-menu-options shift-down-2">
             <span className="shift-right shift-down">Trips</span>
           </div>
           <div className="dropdown-menu-options">
-            <span className="shift-right shift-down">Airbnb your home</span>
+            <span onClick={() => setShowAddSpotModal(true)}className="shift-right shift-down">Airbnb your home</span>
           </div>
           <div className="dropdown-menu-options logout-button shift-up-1" onClick={logout}>
             <span className="shift-right shift-down">Log Out</span>

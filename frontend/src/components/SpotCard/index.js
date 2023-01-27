@@ -11,7 +11,7 @@ function SpotCard({ spot }) {
     }
 
     return (
-        <NavLink to={`/spots/${spot.id}`} className="spot-card-outer-container">
+        <NavLink to={`/spot/${spot.id}`} className="spot-card-outer-container">
             <div className="image-container">
                 <img className="preview-image" src={spot.previewImage} />
             </div>

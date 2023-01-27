@@ -64,6 +64,11 @@
 
 .shift-down-1 {
     padding-top: 5px;
+    margin-bottom: -1px;
+}
+
+.shift-down-2 {
+    padding-top: 5px;
 }
 
 .shift-up-1 {

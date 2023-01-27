@@ -7,7 +7,7 @@ import AddSpotFormModal from '../AddSpotFormModal/AddSpotFormModal';
 import './Navigation.css';
 import logo from '../../images/ayrbnb-logo.png';
 
-function Navigation({ isLoaded }) {
+function Navigation({ isLoaded, showAddSpotModal, setShowAddSpotModal }) {
   const sessionUser = useSelector(state => state.session.user);
 
   return (
@@ -21,10 +21,10 @@ function Navigation({ isLoaded }) {
           </div>
           <div className="menu">
             <div className="become-a-host">
-              <AddSpotFormModal />
+              <AddSpotFormModal showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal}/>
             </div>
             {isLoaded &&
-              <ProfileButton user={sessionUser} />}
+              <ProfileButton user={sessionUser} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal}/>}
           </div>
         </nav>
       </div>
