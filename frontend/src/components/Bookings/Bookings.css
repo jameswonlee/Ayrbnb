@@ -1,6 +1,6 @@
 .bookings-outer-container {
     height: auto;
-    margin-left: 78px;
+    margin-left: 158px;
     padding-bottom: 20px;
 }
 
@@ -122,7 +122,7 @@
 
 .bookings-no-trips {
     height: 270px;
-    width: 1340px;
+    width: 1244px;
     border: solid;
     border-color: rgb(216, 216, 216);
     border-radius: 12px;
@@ -179,7 +179,7 @@
 
 .bookings-no-trips-family-photo {
     height: 272px;
-    width: 900px;
+    width: 800px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }

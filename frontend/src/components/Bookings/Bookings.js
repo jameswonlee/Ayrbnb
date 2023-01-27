@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getUserBookings } from '../../store/bookings';
-import { getAllSpots } from '../../store/spots';
 import handWaveIcon from '../../icons/hand-wave.ico';
 import familyPhoto from '../../images/family-image.png';
 import './Bookings.css';
@@ -16,12 +15,9 @@ function Bookings() {
     const userBookings = useSelector(state => Object.values(state.bookings));
     const upcomingBookings = userBookings.filter(booking => dayjs().isBefore(booking.startDate))
     const pastBookings = userBookings.filter(booking => dayjs(booking.startDate).isBefore(dayjs()));
-    const spots = useSelector(state => Object.values(state.spots.spots));
-    // console.log('spots', spots)
 
     useEffect(() => {
         dispatch(getUserBookings());
-        dispatch(getAllSpots());
     }, [dispatch]);
 
     if (!userBookings) return null;
