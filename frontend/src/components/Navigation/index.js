@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import AddSpotFormModal from '../AddSpotFormModal/AddSpotFormModal';
 import logo from '../../images/ayrbnb-logo.png';
+import globeIcon from '../../icons/globe.png';
 import './Navigation.css';
 
 function Navigation({ isLoaded, showAddSpotModal, setShowAddSpotModal }) {
@@ -22,8 +23,15 @@ function Navigation({ isLoaded, showAddSpotModal, setShowAddSpotModal }) {
           <div className="become-a-host">
             <AddSpotFormModal showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />
           </div>
-          {isLoaded &&
-            <ProfileButton user={sessionUser} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />}
+          <div className="globe-icon-container">
+            <div>
+              <img src={globeIcon} className="globe-icon" />
+            </div>
+          </div>
+          <div>
+            {isLoaded &&
+              <ProfileButton user={sessionUser} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />}
+          </div>
         </div>
       </div>
     </nav>
