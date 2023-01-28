@@ -11,6 +11,7 @@
     border-radius: 35px;
     padding: 12px;
     color: black;
+    line-height: 1;
 }
 
 .become-host-button:hover {
