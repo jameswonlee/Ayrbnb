@@ -14,6 +14,16 @@ import selfCheckInIcon from '../../icons/self-check-in.ico';
 import superhostIcon from '../../icons/superhost.ico';
 import aircoverIcon from '../../icons/aircover.ico';
 import freeCancellationIcon from '../../icons/free-cancellation.ico';
+import skylineIcon from '../../icons/city-skyline-views.ico';
+import kitchenIcon from '../../icons/kitchen.ico';
+import poolIcon from '../../icons/pool.ico';
+import tvIcon from '../../icons/tv.ico';
+import bluetoothIcon from '../../icons/bluetooth-sound-system.ico';
+import wifiIcon from '../../icons/wifi.ico';
+import deskIcon from '../../icons/dedicated-workspace.ico';
+import carIcon from '../../icons/free-parking.ico';
+import hotTubIcon from '../../icons/hot-tub.ico';
+import washerIcon from '../../icons/washer.ico';
 import './SingleSpot.css';
 
 function SingleSpot() {
@@ -52,6 +62,13 @@ function SingleSpot() {
             behavior: 'smooth'
         });
     }
+
+    useEffect(() => {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('nav-bar-no-sticky');
+
+        return () => nav.classList.toggle('nav-bar-no-sticky');
+    }, []);
 
     // useEffect(() => {
     //     const nav = document.querySelector('nav');
@@ -181,7 +198,57 @@ function SingleSpot() {
                             <div className="description">
                                 <p>{spot.description}</p>
                             </div>
-
+                            <div className="spot-amenities-container">
+                                <div className="spot-amenities-header">
+                                    What this place offers
+                                </div>
+                                <div className="spot-amenities">
+                                    <div className="spot-amenities-left">
+                                        <div className="amenity-container">
+                                            <div><img src={skylineIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">City skyline views</div>
+                                        </div>
+                                        <div className="amenity-container">
+                                            <div><img src={kitchenIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">Kitchen</div>
+                                        </div>
+                                        <div className="amenity-container">
+                                            <div><img src={poolIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">Pool</div>
+                                        </div>
+                                        <div className="amenity-container">
+                                            <div><img src={tvIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">TV</div>
+                                        </div>
+                                        <div className="amenity-container">
+                                            <div><img src={bluetoothIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">Bluetooth sound system</div>
+                                        </div>
+                                    </div>
+                                    <div className="spot-amenities-right">
+                                        <div className="amenity-container">
+                                            <div><img src={wifiIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">Wifi</div>
+                                        </div>
+                                        <div className="amenity-container">
+                                            <div><img src={deskIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">Dedicated workspace</div>
+                                        </div>
+                                        <div className="amenity-container">
+                                            <div><img src={carIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">Free parking on premises</div>
+                                        </div>
+                                        <div className="amenity-container">
+                                            <div><img src={hotTubIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">Hot tub</div>
+                                        </div>
+                                        <div className="amenity-container">
+                                            <div><img src={washerIcon} className="amenity-icon" /></div>
+                                            <div className="amenity-text">Washer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="under-image-details-right">
                             <CreateBooking spot={spot} />

@@ -41,7 +41,7 @@ function App() {
           <Route path='/user/:userId/trips'>
             <Bookings />
           </Route>
-          <Route path='/user/${sessionUser.id}/trips/:bookingId'>
+          <Route path='/user/:userId/trips/:bookingId'>
 
           </Route>
           <Route>

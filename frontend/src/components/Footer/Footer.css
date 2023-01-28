@@ -9,6 +9,7 @@
     height: 10px;
     padding-bottom: 30px;
     padding-top: 30px;
+    z-index: 12;
 }
 
 .footer-about {

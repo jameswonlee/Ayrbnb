@@ -10,6 +10,10 @@
     }
 } */
 
+.nav-bar-no-sticky {
+    position: unset;
+}
+
 .images {
     display: flex;
     border-radius: 17px;
@@ -109,8 +113,8 @@
 }
 
 .under-image-details {
-    margin-top: 35px;
-    padding-bottom: 28px;
+    margin-top: 30px;
+    padding-bottom: 30px;
     border-bottom: solid;
     border-bottom-color: rgb(238, 235, 235);
     display: flex;
@@ -132,8 +136,8 @@
 .description {
     border-bottom: solid;
     border-bottom-color: rgb(238, 235, 235);
-    padding-bottom: 25px;
-    margin-top: 32px;
+    padding-bottom: 20px;
+    margin-top: 30px;
     font-size: 0.95rem;
     font-weight: 300;
     color: rgb(0, 0, 0);
@@ -212,10 +216,10 @@
 }
 
 .spot-features-container {
-    margin-top: 30px;
+    margin-top: 20px;
     border-bottom: solid;
     border-color: rgb(238, 235, 235);
-    padding-bottom: 23px;
+    padding-bottom: 20px;
 }
 
 .self-check-in-container {
@@ -301,10 +305,10 @@
 }
 
 .aircover-container {
-    margin-top: 25px;
+    margin-top: 35px;
     border-bottom: solid;
     border-color: rgb(238, 235, 235);
-    padding-bottom: 30px;
+    padding-bottom: 35px;
 }
 
 .aircover-icon {
@@ -329,4 +333,51 @@
     max-width: 1300px;
 } */
 
+.spot-amenities-container {
+    border-bottom: solid;
+    border-bottom-color: rgb(238, 235, 235);
+    padding-bottom: 25px;
+}
+
+.spot-amenities-header {
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-top: 30px;
+}
+
+.spot-amenities {
+    display: flex;
+    flex-direction: row;
+    /* background-color: pink; */
+    height: 190px;
+    margin-top: 20px;
+}
+
+.amenity-container {
+    display: flex;
+}
+
+.spot-amenities-right {
+    margin-left: 90px;
+}
+
+.spot-amenities-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.amenity-icon {
+    height: 30px;
+    width: 32px;
+}
+
+.amenity-text {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgb(83, 83, 83);
+    margin-left: 17px;
+    margin-top: 8px;
+
+}
 
