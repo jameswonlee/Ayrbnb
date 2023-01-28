@@ -157,14 +157,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 41px;
-    width: 77px;
+    height: 43px;
+    width: 75px;
     color: rgb(86, 84, 84);
     border-radius: 28px;
     border: 0.7px solid rgb(202, 201, 201);
     background-color: white;
-    /* z-index: 9; */
     position: absolute;
+    margin-top: -8px;
 }
 
 .user-menu:hover {
@@ -188,6 +188,10 @@ hr {
     color: black;
 }
 
+.become-a-host {
+    margin-top: -11px;
+}
+
 .globe-icon {
     height: 16px;
     margin-left: 13px;
@@ -203,7 +207,7 @@ hr {
     height: 43px;
     width: 43px;
     margin-right: 10px;
-    margin-top: 3px;
+    margin-top: -7px;
 }
 
 .globe-icon-container:hover {
