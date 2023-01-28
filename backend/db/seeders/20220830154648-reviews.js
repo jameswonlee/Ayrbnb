@@ -338,7 +338,7 @@ module.exports = {
     },
     {
       spotId: 14,
-      userId: 5,
+      userId: 6,
       review: "The communication with the host is unmatched! John went above and beyond for my family and I and we were highly satisfied and happy! Would absolutely rent from him again!",
       stars: 5
     },
