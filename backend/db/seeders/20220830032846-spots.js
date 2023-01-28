@@ -170,7 +170,7 @@ module.exports = {
       price: 1439.00
     },
     {
-      ownerId: 4,
+      ownerId: 5,
       address: '2867 Beldon Dr',
       city: 'Hollywood',
       state: 'CA',
