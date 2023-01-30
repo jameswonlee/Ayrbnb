@@ -157,7 +157,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 45px;
+    height: 43px;
     width: 78px;
     color: rgb(86, 84, 84);
     border-radius: 24px;
@@ -196,7 +196,7 @@ hr {
 
 .globe-icon {
     height: 16px;
-    margin-left: 13px;
+    margin-left: 13.5px;
     margin-top: 13px;
 }
 

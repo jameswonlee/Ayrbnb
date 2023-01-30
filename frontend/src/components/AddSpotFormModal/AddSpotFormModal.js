@@ -7,7 +7,7 @@ import './AddSpotFormModal.css'
 
 
 function AddSpotFormModal({ showAddSpotModal, setShowAddSpotModal }) {
-    const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session.user);
 
     const clickHandler = () => {
         setShowAddSpotModal(true);
