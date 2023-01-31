@@ -10,8 +10,6 @@ dayjs.extend(utc);
 
 
 
-
-
 function CreateBooking({ spot }) {
     const dispatch = useDispatch();
     const history = useHistory();

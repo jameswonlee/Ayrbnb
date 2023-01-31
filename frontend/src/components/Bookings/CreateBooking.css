@@ -88,7 +88,7 @@
     width: 145px;
     font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(75, 75, 75);
+    color: rgb(117, 117, 117);
     margin-left: 1px;
 }
 
@@ -108,7 +108,7 @@
     width: 147px;
     font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(75, 75, 75);
+    color: rgb(117, 117, 117);
     margin-left: 1px;
 }
 
@@ -155,7 +155,7 @@
     width: 315px;
     border: none;
     margin-left: 6px;
-    color: rgb(75, 75, 75);
+    color: rgb(117, 117, 117);
 }
 
 .create-booking-guests-select:hover {
