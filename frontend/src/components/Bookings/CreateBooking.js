@@ -65,12 +65,18 @@ function CreateBooking({ spot }) {
                     history.push(`/user/${sessionUser.id}/trips`)
                 }
 
-            } catch(res) {
+            } catch (res) {
                 const data = await res.json();
                 const errors = [];
-                console.log('data', data.message)
                 if (data && data.message) {
-                    errors.push(data.message);
+                    if (data.errors['startDate'] && data.errors['endDate']) {
+                        errors.push(data.errors['startDate']);
+                        errors.push(data.errors['endDate']);
+                    } else if (data.errors['startDate']) {
+                        errors.push(data.errors['startDate']);
+                    } else if (data.errors['endDate']) {
+                        errors.push(data.errors['endDate']);
+                    }
                 }
                 setValidationErrors(errors);
             }
