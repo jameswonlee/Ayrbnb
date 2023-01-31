@@ -59,9 +59,20 @@ function CreateBooking({ spot }) {
                 endDate: dayjs(endDate).utc().format("YYYY-MM-DD HH:mm:ss"),
                 numGuests: numGuests
             }
-            const newBooking = await dispatch(createBooking(spot.id, newBookingData));
-            if (newBooking) {
-                history.push(`/user/${sessionUser.id}/trips`)
+            try{
+                const newBooking = await dispatch(createBooking(spot.id, newBookingData));
+                if (newBooking) {
+                    history.push(`/user/${sessionUser.id}/trips`)
+                }
+
+            } catch (res) {
+                const data = await res.json();
+                const errors = [];
+                console.log('data', data.message)
+                if (data && data.message) {
+                    errors.push(data.message);
+                }
+                setValidationErrors(errors);
             }
         }
     }
