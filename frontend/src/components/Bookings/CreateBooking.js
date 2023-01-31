@@ -5,6 +5,10 @@ import { getReviewsBySpotId } from '../../store/reviews';
 import { createBooking } from '../../store/bookings';
 import './CreateBooking.css';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
+
+
 
 
 
@@ -15,8 +19,8 @@ function CreateBooking({ spot }) {
     const sessionUser = useSelector(state => state.session.user);
     const reviewCount = Object.keys(reviewsData).length;
 
-    const [startDate, setStartDate] = useState(dayjs().format("YYYY-MM-DD"));
-    const [endDate, setEndDate] = useState(dayjs().add(1, 'day').format("YYYY-MM-DD"));
+    const [startDate, setStartDate] = useState("");
+    const [endDate, setEndDate] = useState("");
     const [numGuests, setNumGuests] = useState(2);
     const [validationErrors, setValidationErrors] = useState([]);
 
@@ -45,7 +49,7 @@ function CreateBooking({ spot }) {
 
         if (!startDate) errors.push("Select a check-in date");
         if (!endDate) errors.push("Select a checkout date");
-        if (dayjs(startDate).isBefore(dayjs().subtract(1, 'd'))) errors.push("Please select a future start date");
+        // if (dayjs(startDate).isBefore(dayjs().subtract(1, 'd'))) errors.push("Please select a future start date");
         if (dayjs(startDate).isSame(dayjs(endDate))) errors.push("1 night minimum");
         if (dayjs(endDate).isBefore(dayjs(startDate))) errors.push("Please select valid start and end dates");
 
@@ -53,8 +57,8 @@ function CreateBooking({ spot }) {
 
         if (!errors.length) {
             const newBookingData = {
-                startDate: dayjs(startDate).format("YYYY-MM-DD"),
-                endDate: dayjs(endDate).format("YYYY-MM-DD"),
+                startDate: dayjs(startDate).utc().format("YYYY-MM-DD HH:mm:ss"),
+                endDate: dayjs(endDate).utc().format("YYYY-MM-DD HH:mm:ss"),
                 numGuests: numGuests
             }
             const newBooking = await dispatch(createBooking(spot.id, newBookingData));
@@ -96,7 +100,7 @@ function CreateBooking({ spot }) {
                                     setStartDate(e.target.value)
                                 }}
                                 value={startDate}
-                                min={dayjs().format("YYYY-MM-DD")}
+                                // min={dayjs().format("YYYY-MM-DD")}
                                 max={dayjs().add(6, 'months').format("YYYY-MM-DD")}
                                 className="create-booking-start-date-input"
                             />
@@ -110,7 +114,7 @@ function CreateBooking({ spot }) {
                                     setEndDate(e.target.value)
                                 }}
                                 value={endDate}
-                                min={dayjs().format("YYYY-MM-DD")}
+                                // min={dayjs().format("YYYY-MM-DD")}
                                 className="create-booking-end-date-input"
                             />
                         </div>

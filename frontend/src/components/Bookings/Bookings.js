@@ -6,6 +6,9 @@ import handWaveIcon from '../../icons/hand-wave.ico';
 import familyPhoto from '../../images/family-image.png';
 import './Bookings.css';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
+
 
 
 function Bookings() {
@@ -13,8 +16,8 @@ function Bookings() {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const userBookings = useSelector(state => Object.values(state.bookings));
-    const upcomingBookings = userBookings.filter(booking => dayjs().isBefore(booking.startDate))
-    const pastBookings = userBookings.filter(booking => dayjs(booking.startDate).isBefore(dayjs()));
+    const upcomingBookings = userBookings.filter(booking => dayjs().utc().isBefore(dayjs(booking.endDate).utc()))
+    const pastBookings = userBookings.filter(booking => dayjs(booking.endDate).utc().isBefore(dayjs().utc()) );
 
     useEffect(() => {
         dispatch(getUserBookings());
