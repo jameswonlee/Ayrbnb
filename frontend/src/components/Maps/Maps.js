@@ -1,22 +1,27 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
-const containerStyle = {
-  width: '1100px',
-  height: '460px',
-};
 
-const Maps = ({ apiKey, spot }) => {
+const Maps = ({ apiKey, spot, booking }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: apiKey,
   });
 
-  const center = {
-    lat: Number(spot.lat),
-    lng: Number(spot.lng)
+  let center;
+  if (spot) {
+    center = {
+      lat: Number(spot.lat),
+      lng: Number(spot.lng)
+    }
   }
-
+  if (booking) {
+    center = {
+      lat: Number(booking.Spot.lat),
+      lng: Number(booking.Spot.lng)
+    }
+  }
+  
   const svgMarker = {
     fillColor: "red",
     fillOpacity: 1,
@@ -24,7 +29,11 @@ const Maps = ({ apiKey, spot }) => {
     rotation: 0,
     scale: 2,
   }
-
+  
+  const containerStyle = {
+    width: '1100px',
+    height: '460px',
+  };
 
   return (
     <>

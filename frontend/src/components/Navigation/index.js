@@ -7,7 +7,7 @@ import logo from '../../images/ayrbnb-logo.png';
 import globeIcon from '../../icons/globe.png';
 import './Navigation.css';
 
-function Navigation({ isLoaded, showAddSpotModal, setShowAddSpotModal }) {
+function Navigation({ isLoaded, showAddSpotModal, setShowAddSpotModal, showSignInModal, setShowSignInModal }) {
   const sessionUser = useSelector(state => state.session.user);
 
   return (
@@ -30,7 +30,11 @@ function Navigation({ isLoaded, showAddSpotModal, setShowAddSpotModal }) {
           </div>
           <div>
             {isLoaded &&
-              <ProfileButton user={sessionUser} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />}
+              <ProfileButton 
+              user={sessionUser} 
+              setShowAddSpotModal={setShowAddSpotModal}
+              showSignInModal={showSignInModal} 
+              setShowSignInModal={setShowSignInModal} />}
           </div>
         </div>
       </div>

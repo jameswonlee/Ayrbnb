@@ -1,0 +1,9 @@
+.booking-confirmation-container {
+    display: flex;
+    min-height: 800px;
+}
+
+.booking-confirmation-spot-image {
+    height: 350px;
+    width: 500px;
+}

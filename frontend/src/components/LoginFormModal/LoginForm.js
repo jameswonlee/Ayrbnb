@@ -3,7 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css';
 
-function LoginForm({ setShowModal }) {
+function LoginForm({ setShowSignInModal }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +15,7 @@ function LoginForm({ setShowModal }) {
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
       .then(() => {
-        setShowModal(false)
+        setShowSignInModal(false)
       })
       .catch(
         async (res) => {
@@ -28,15 +28,15 @@ function LoginForm({ setShowModal }) {
   const demoUserLogin = (e) => {
     e.preventDefault();
     dispatch(sessionActions.login({ credential: 'demo-user', password: 'password' }));
-    setShowModal(false);
+    setShowSignInModal(false);
   }
 
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <h2 className="login-title">
+      <div className="login-title">
         Welcome to Ayrbnb
-      </h2>
+      </div>
       <div className="login-errors">
         {errors.map((error, idx) => (
           <div key={idx} className="login-errors-text">{error}</div>

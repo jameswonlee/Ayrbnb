@@ -25,6 +25,9 @@
 
 .welcome-header {
     margin-bottom: 32px;
+    padding-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .sign-up-errors {

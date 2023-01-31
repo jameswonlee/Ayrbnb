@@ -8,11 +8,11 @@ import LoginForm from '../LoginFormModal/LoginForm';
 import SignupFormPage from "../SignupFormPage";
 import './Navigation.css';
 
-function ProfileButton({ user, showAddSpotModal, setShowAddSpotModal }) {
+function ProfileButton({ user, setShowAddSpotModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showSignInModal, setShowSignInModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
   const girlNames = ["Jane", "Susan", "Jessica"];
@@ -53,7 +53,7 @@ function ProfileButton({ user, showAddSpotModal, setShowAddSpotModal }) {
         <div className="login">
           <button className="login-button" onClick={(e) => {
             e.stopPropagation();
-            setShowModal(true)
+            setShowSignInModal(true)
             closeMenu()
           }}>Log in</button>
         </div>
@@ -117,9 +117,9 @@ function ProfileButton({ user, showAddSpotModal, setShowAddSpotModal }) {
         }
 
       </button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <LoginForm setShowModal={setShowModal} />
+      {showSignInModal && (
+        <Modal onClose={() => setShowSignInModal(false)}>
+          <LoginForm setShowSignInModal={setShowSignInModal} />
         </Modal>
       )}
       {showSignUpModal && (

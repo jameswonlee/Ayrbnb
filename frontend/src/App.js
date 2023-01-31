@@ -7,12 +7,14 @@ import DisplayAllSpots from "./components/AllSpots";
 import SingleSpot from "./components/SingleSpot";
 import Bookings from "./components/Bookings/Bookings";
 import Footer from './components/Footer/Footer';
+import BookingConfirmation from "./components/Bookings/BookingConfirmation";
 import './index.css';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const [showAddSpotModal, setShowAddSpotModal] = useState(false);
+
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -29,23 +31,24 @@ function App() {
   
   return (
     <>
-      <Navigation isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal}/>
+      <Navigation 
+      isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal}/>
       {isLoaded && (
         <Switch>
-          <Route path='/spot/:spotId'>
-            <SingleSpot />
-          </Route>
           <Route exact path='/'>
             <DisplayAllSpots />
           </Route>
-          <Route path='/user/:userId/trips'>
+          <Route exact path='/spot/:spotId'>
+            <SingleSpot />
+          </Route>
+          <Route exact path='/user/:userId/trips'>
             <Bookings />
           </Route>
-          <Route path='/user/:userId/trips/:bookingId'>
-
+          <Route exact path='/booking/:bookingId'>
+            <BookingConfirmation />
           </Route>
           <Route>
-            Page Not Found!
+            <h1>Page Not Found!</h1>
           </Route>
         </Switch>
       )}

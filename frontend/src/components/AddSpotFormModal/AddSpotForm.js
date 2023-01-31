@@ -69,7 +69,7 @@ function AddSpotForm({ setShowModal }) {
 
     return (
         <form onSubmit={submitHandler} className="create-spot-form">
-            <h2 className="become-host-title">Ayrbnb your home</h2>
+            <div className="become-host-title">Ayrbnb your home</div>
             <div className="create-spot-errors">
                 {validationErrors.length > 0 &&
                     validationErrors.map(error =>
@@ -159,7 +159,7 @@ function AddSpotForm({ setShowModal }) {
                     setUrl(e.target.value)
                 }}
                 value={url}
-                placeholder="Image Url" />
+                placeholder="Image Url [.jpg, .jpeg, .png, or .heic]" />
             <button
                 disabled={!!validationErrors.length}
                 className="create-spot-button">

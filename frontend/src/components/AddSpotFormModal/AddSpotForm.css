@@ -28,6 +28,8 @@
 .become-host-title {
     margin-top: -10px;
     margin-bottom: 24px;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .create-spot-form > input {

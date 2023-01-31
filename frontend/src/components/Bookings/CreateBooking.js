@@ -47,12 +47,17 @@ function CreateBooking({ spot }) {
         e.preventDefault();
         const errors = [];
 
+        if (!sessionUser) errors.push("You must be signed in to book a spot");
         if (!startDate) errors.push("Select a check-in date");
         if (!endDate) errors.push("Select a checkout date");
         if (dayjs(startDate).isBefore(dayjs().subtract(1, 'd'))) errors.push("Please select a future start date");
         if (dayjs(startDate).isSame(dayjs(endDate))) errors.push("1 night minimum");
         if (dayjs(endDate).isBefore(dayjs(startDate))) errors.push("Please select valid start and end dates");
-        if (sessionUser.id === spot.ownerId) errors.push("You can not book your own spot")
+        if (sessionUser) {
+            if (sessionUser.id === spot.ownerId) {
+                errors.push("You can not book your own spot");
+            }
+        }
 
         setValidationErrors(errors);
 

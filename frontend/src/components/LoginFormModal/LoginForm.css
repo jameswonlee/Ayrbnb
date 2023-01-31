@@ -36,6 +36,8 @@
 .login-title {
     margin-top: 10px;
     margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .continue {
