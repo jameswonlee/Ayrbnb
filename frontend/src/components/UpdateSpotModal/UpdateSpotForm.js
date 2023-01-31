@@ -60,7 +60,7 @@ function UpdateSpotForm({ setShowModal }) {
     return (
         <div className="update-spot-form-container">
             <form onSubmit={submitHandler} className="edit-form">
-            <h1 className="update-spot-title">Edit Spot Details</h1>
+            <div className="update-spot-title">Update Spot Details</div>
             <div className="update-spot-errors">
                 {validationErrors.length > 0 &&
                     validationErrors.map(error =>

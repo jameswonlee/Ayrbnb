@@ -31,7 +31,10 @@
 }
 
 .update-spot-title {
-    padding-bottom: 20px;
+    padding-bottom: 60px;
+    padding-top: 20px;
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 
 .update-spot-errors {

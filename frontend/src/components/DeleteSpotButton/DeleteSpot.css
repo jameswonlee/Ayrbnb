@@ -68,3 +68,8 @@
 .cancel-delete-button:hover {
     cursor: pointer;
 }
+
+.delete-spot-question {
+    font-size: 1.3rem;
+    font-weight: 500;
+}

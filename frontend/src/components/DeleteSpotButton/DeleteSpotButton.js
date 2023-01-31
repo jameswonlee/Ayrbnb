@@ -34,7 +34,7 @@ function DeleteSpotButton() {
             {shown &&
                 <Modal onClose={hideModal}>
                     <div className="delete-spot">
-                        <h3 className="delete-spot-question">Are you sure you want to delete this spot?</h3>
+                        <div className="delete-spot-question">Are you sure you want to delete this spot?</div>
                         <p className="delete-warning-message">This action can't be undone.</p>
                         <div className='delete-buttons'>
                             <button className="confirm-delete-button" onClick={deleteClickHandler}>
