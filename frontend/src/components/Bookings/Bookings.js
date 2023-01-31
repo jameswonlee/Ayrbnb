@@ -25,7 +25,7 @@ function Bookings() {
 
     if (!userBookings) return null;
 
-    const routeToTripConfirmation = (bookingId) => {
+    const routeToTripDetails = (bookingId) => {
         history.push(`/user/${sessionUser.id}/trips/${bookingId}`);
     }
 
@@ -46,7 +46,7 @@ function Bookings() {
                     </div>
                     <div className="bookings-reservation-container">
                         {upcomingBookings.map(booking => (
-                            <div onClick={() => routeToTripConfirmation(booking.id)} className="bookings-reservation bookings-upcoming-reservation" key={booking.id}>
+                            <div onClick={() => routeToTripDetails(booking.id)} className="bookings-reservation bookings-upcoming-reservation" key={booking.id}>
                                 <div className="bookings-reservation-left">
                                     <div className="bookings-reservation-left-top">
                                         <div className="bookings-reservation-spot-name">
