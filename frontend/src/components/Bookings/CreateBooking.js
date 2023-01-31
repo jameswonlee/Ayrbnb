@@ -17,6 +17,8 @@ function CreateBooking({ spot }) {
     const sessionUser = useSelector(state => state.session.user);
     const reviewCount = Object.keys(reviewsData).length;
 
+    console.log('spot', spot)
+
     const [startDate, setStartDate] = useState(dayjs().format("YYYY-MM-DD"));
     const [endDate, setEndDate] = useState(dayjs().add(1, 'day').format("YYYY-MM-DD"));
     const [numGuests, setNumGuests] = useState(2);
@@ -50,6 +52,7 @@ function CreateBooking({ spot }) {
         if (dayjs(startDate).isBefore(dayjs().subtract(1, 'd'))) errors.push("Please select a future start date");
         if (dayjs(startDate).isSame(dayjs(endDate))) errors.push("1 night minimum");
         if (dayjs(endDate).isBefore(dayjs(startDate))) errors.push("Please select valid start and end dates");
+        if (sessionUser.id === spot.ownerId) errors.push("You can not book your own spot")
 
         setValidationErrors(errors);
 

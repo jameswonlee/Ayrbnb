@@ -26,7 +26,7 @@ module.exports = {
       price: 1629.00
     },
     {
-      ownerId: 11,
+      ownerId: 1,
       address: "3709 Ocean Blvd",
       city: "Newport Beach",
       state: "CA",
