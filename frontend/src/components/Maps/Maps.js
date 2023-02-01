@@ -14,8 +14,8 @@ const Maps = ({ apiKey, spot, booking }) => {
 
   if (spot) {
     center = {
-      lat: Number(spot.lat),
-      lng: Number(spot.lng)
+      lat: Number(spot?.lat),
+      lng: Number(spot?.lng)
     };
 
     containerStyle = {
