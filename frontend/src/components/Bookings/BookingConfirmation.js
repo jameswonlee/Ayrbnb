@@ -23,6 +23,8 @@ function BookingConfirmation() {
     const history = useHistory();
     const { bookingId } = useParams();
     const booking = useSelector(state => state.bookings[bookingId]);
+    const sessionUser = useSelector(state => state.session.user);
+    const girlNames = ["Jane", "Susan", "Jessica"];
     // console.log('booking', booking);
 
     useEffect(() => {
@@ -68,15 +70,28 @@ function BookingConfirmation() {
                 </div>
                 <div className="booking-confirmation-left-lower">
                     <div className="booking-confirmation-reservation-details-container">
-                        <div className="booking-confirmation-reservation-details-text">Reservation details</div>
-                        <div className="booking-confirmation-whos-coming-text">Who's coming</div>
-                        <div className="booking-confirmation-num-guests-text">
-                            {booking?.numGuests === 1
-                                ?
-                                <div>{booking?.numGuests} guest</div>
-                                :
-                                <div>{booking?.numGuests} guests</div>
-                            }
+                        <div className="booking-confirmation-reservation-details-user-profile">
+                            <div className="booking-confirmation-reservation-details-user-profile-left">
+                                <div className="booking-confirmation-reservation-details-text">Reservation details</div>
+                                <div className="booking-confirmation-whos-coming-text">Who's coming</div>
+                                <div className="booking-confirmation-num-guests-text">
+                                    {booking?.numGuests === 1
+                                        ?
+                                        <div>{booking?.numGuests} guest</div>
+                                        :
+                                        <div>{booking?.numGuests} guests</div>
+                                    }
+                                </div>
+                            </div>
+                            <div className="booking-confirmation-reservation-details-user-profile-right">
+                                <img
+                                    width={38}
+                                    height={38}
+                                    src={`https://randomuser.me/api/portraits/${girlNames.includes(sessionUser.firstName)
+                                        ? "women" : "men"}/${40}.jpg`}
+                                    className="booking-confirmation-user-profile-image">
+                                </img>
+                            </div>
                         </div>
                         <div className="booking-confirmation-confirmation-code-text">Confirmation code</div>
                         <div className="booking-confirmation-confirmation-code">HMXSRYNTFH</div>

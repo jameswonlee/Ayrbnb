@@ -10,7 +10,7 @@
 }
 
 .booking-confirmation-left-container {
-    background-color: rgb(244, 241, 241);
+    background-color: rgb(235, 235, 235);
     max-width: 600px;
     padding-right: 10px;
     padding-top: 10px;
@@ -24,9 +24,10 @@
 }
 
 .booking-confirmation-back-arrow {
-    position:absolute;
+    position: absolute;
     margin-top: -405px;
     margin-left: 20px;
+    height: 32px;
 }
 
 .booking-confirmation-back-arrow:hover {
@@ -82,8 +83,23 @@
 .booking-confirmation-left-lower {
     height: auto;
     background-color: white;
-    margin-top: 7px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.booking-confirmation-reservation-details-user-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid;
+    padding-bottom: 30px;
+    border-color: rgb(235, 235, 235);
+}
+
+.booking-confirmation-user-profile-image {
+    border-radius: 40px;
+    margin-top: 60px;
+    margin-right: 5px;
 }
 
 .booking-confirmation-air-cover-icon {
@@ -107,7 +123,7 @@
 .booking-confirmation-whos-coming-text {
     font-size: 0.95rem;
     font-weight: 500;
-    margin-top: 25px;
+    margin-top: 28px;
 }
 
 .booking-confirmation-num-guests-text {
@@ -115,9 +131,9 @@
     color: rgb(78, 78, 78);
     margin-top: 6px;
     font-weight: 400;
-    border-bottom: solid;
+    /* border-bottom: solid;
     padding-bottom: 35px;
-    border-color: rgb(235, 235, 235);
+    border-color: rgb(235, 235, 235); */
 }
 
 .booking-confirmation-confirmation-code-text {
@@ -180,6 +196,7 @@
     padding-top: 13px;
     padding-bottom: 13px;
 }
+
 .booking-confirmation-manage-booking-options:hover {
     background-color: rgb(248, 248, 248);
     cursor: pointer;
