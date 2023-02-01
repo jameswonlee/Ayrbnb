@@ -38,7 +38,6 @@ const Maps = ({ apiKey, spot, booking }) => {
     };
 
     zoom = 17
-
   }
 
   const svgMarker = {
