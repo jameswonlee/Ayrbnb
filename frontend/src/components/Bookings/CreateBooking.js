@@ -17,8 +17,6 @@ function CreateBooking({ spot }) {
     const sessionUser = useSelector(state => state.session.user);
     const reviewCount = Object.keys(reviewsData).length;
 
-    console.log('spot', spot)
-
     const [startDate, setStartDate] = useState(dayjs().format("YYYY-MM-DD"));
     const [endDate, setEndDate] = useState(dayjs().add(1, 'day').format("YYYY-MM-DD"));
     const [numGuests, setNumGuests] = useState(2);
@@ -119,7 +117,7 @@ function CreateBooking({ spot }) {
                             <input
                                 type="date"
                                 onChange={e => {
-                                    setValidationErrors("")
+                                    setValidationErrors([])
                                     setStartDate(e.target.value)
                                 }}
                                 value={startDate}
@@ -133,7 +131,7 @@ function CreateBooking({ spot }) {
                             <input
                                 type="date"
                                 onChange={e => {
-                                    setValidationErrors("")
+                                    setValidationErrors([])
                                     setEndDate(e.target.value)
                                 }}
                                 value={endDate}

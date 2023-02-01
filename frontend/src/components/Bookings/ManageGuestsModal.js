@@ -1,14 +1,22 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './ManageGuestsModal.css';
 
 
 
-function ManageGuestsModal({ booking, setShowManageGuestsModal }) {
+function ManageGuestsModal({ booking, showManageGuestsModal, setShowManageGuestsModal }) {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const girlNames = ["Jane", "Susan", "Jessica"];
-    console.log('booking', booking)
+
+    useEffect(() => {
+        if (!showManageGuestsModal) return;
+    
+        document.addEventListener('click', closeManageGuestsModal);
+    
+        return () => document.removeEventListener("click", closeManageGuestsModal);
+      }, [showManageGuestsModal]);
 
     const closeManageGuestsModal = () => {
         setShowManageGuestsModal(false);

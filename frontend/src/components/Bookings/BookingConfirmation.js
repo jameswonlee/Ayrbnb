@@ -50,6 +50,10 @@ function BookingConfirmation() {
         setShowManageGuestsModal(true);
     }
 
+    const routeToUpdateBooking = () => {
+        history.push(`/booking/${booking.id}/change`)
+    }
+
 
     return (
         <div className="booking-confirmation-container">
@@ -124,10 +128,12 @@ function BookingConfirmation() {
                         </div>
                         {showManageGuestsModal && (
                             <Modal>
-                                <ManageGuestsModal booking={booking} setShowManageGuestsModal={setShowManageGuestsModal}/>
+                                <ManageGuestsModal booking={booking}
+                                    showManageGuestsModal={showManageGuestsModal}
+                                    setShowManageGuestsModal={setShowManageGuestsModal} />
                             </Modal>
                         )}
-                        <div className="booking-confirmation-manage-booking-options">
+                        <div onClick={routeToUpdateBooking} className="booking-confirmation-manage-booking-options">
                             <div className="booking-confirmation-manage-booking-options-left">
                                 <div><img src={changeReservationIcon} className="booking-confirmation-manage-booking-icons" /></div>
                                 <div className="booking-confirmation-manage-booking-option">Change reservation</div>

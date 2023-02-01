@@ -1,18 +1,19 @@
 .update-booking-outer-container {
-    height: 755px;
+    height: 765px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .update-booking-left {
-    background-color: rgb(237, 237, 237);
-    width: 260px;
+    background-color: rgb(243, 243, 243);
+    min-width: 260px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-right: solid;
-    border-right-color: rgb(228, 228, 228);
+    border-right-color: rgb(235, 235, 235);
+    height: 100%;
 }
 
 .update-booking-favicon {
@@ -31,7 +32,7 @@
 
 .update-booking-change-reservation-text {
     margin-left: 15px;
-    margin-top: 12px;
+    margin-top: 14px;
     font-size: 1.05rem;
     font-weight: 500;
 }
@@ -52,11 +53,245 @@
 }
 
 .update-booking-middle {
-    width: auto;
+    width: 100%;
+    height: auto;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
 }
 
 .update-booking-right {
-    width: 364px;
+    min-width: 364px;
     border-left: solid;
     border-left-color: rgb(228, 228, 228);
+}
+
+.update-booking-middle-upper {
+    width: 505px;
+    margin-top: 40px;
+}
+
+.update-booking-heading {
+    font-size: 1.87rem;
+    font-weight: 600;
+}
+
+.update-booking-change-description {
+    font-size: 0.945rem;
+    font-weight: 300;
+    color: rgb(39, 39, 39);
+    margin-top: 10px;
+}
+
+.update-booking-spot-details-container {
+    height: 117px;
+    margin-top: 23px;
+    border: solid;
+    border-color: rgb(222, 221, 221);
+    border-radius: 7px;
+    display: flex;
+}
+
+.update-booking-spot-details-left {
+    margin-top: 25px;
+    margin-left: 24px;
+}
+
+.update-booking-spot-preview-image {
+    height: 67px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.update-booking-spot-details-right {
+    margin-top: 33px;
+    margin-left: 17px;
+}
+
+.update-booking-spot-name {
+    font-size: 0.94rem;
+    font-weight: 500;
+}
+
+.update-booking-spot-details {
+    font-size: 0.85rem;
+    font-weight: 300;
+    margin-top: 3px;
+}
+
+.update-booking-middle-middle {
+    width: 508px;
+}
+
+.update-booking-reservation-details-heading {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 50px;
+}
+
+.update-booking-dates-text {
+    font-size: 0.97rem;
+    font-weight: 500;
+    margin-top: 35px;
+}
+
+.update-booking-start-end-guests-container {
+    border: solid;
+    border-color: rgb(205, 205, 205);
+    border-radius: 8px;
+    width: 505px;
+    margin-top: 7px;
+}
+
+.update-booking-start-end-dates {
+    display: flex;
+}
+
+.update-booking-start-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 252px;
+    border-right: solid;
+    border-right-color: rgb(205, 205, 205);
+}
+
+.update-booking-start-date-input {
+    border: none;
+    height: 30px;
+    width: 230px;
+    font-size: 0.9rem;
+    margin-top: -3px;
+    color: rgb(31, 31, 31);
+    margin-left: 1px;
+}
+
+.update-booking-start-date-input:hover {
+    cursor: pointer;
+}
+
+.update-booking-end-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.update-booking-end-date-input {
+    border: none;
+    height: 30px;
+    width: 230px;
+    font-size: 0.9rem;
+    margin-top: -3px;
+    color: rgb(31, 31, 31);
+    margin-left: 1px;
+    padding-bottom: 5px;
+}
+
+.update-booking-end-date-input:hover {
+    cursor: pointer;
+}
+
+.update-booking-check-in {
+    font-size: 0.73rem;
+    font-weight: 400;
+    margin-left: 10px;
+    color: rgb(135, 135, 135);
+    margin-top: 6px;
+}
+
+.update-booking-check-out {
+    font-size: 0.73rem;
+    font-weight: 400;
+    margin-left: 10px;
+    color: rgb(135, 135, 135);
+    margin-top: 6px;
+}
+
+.update-booking-num-guests {
+    margin-top: 30px;
+}
+
+.update-booking-guests-heading {
+    font-size: 0.97rem;
+    font-weight: 500;
+}
+
+.update-booking-num-guests-container {
+    width: 505px;
+    height: 53px;
+    border: solid;
+    border-color: rgb(205, 205, 205);
+    border-radius: 8px;
+    margin-top: 7px;
+}
+
+.update-booking-num-guests-select {
+    border: none;
+    width: 487px;
+    height: 53px;
+    margin-left: 5px;
+    font-size: 0.9rem;
+    color: rgb(31, 31, 31);
+}
+
+.update-booking-num-guests-select:hover {
+    cursor: pointer;
+}
+
+.update-booking-middle-lower {
+    width: 508px;
+    margin-top: 37px;
+    margin-bottom: 50px;
+}
+
+.update-booking-cancellation-policy-heading {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.update-booking-cancellation-policy-text {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgb(39, 39, 39);
+    margin-top: 10px;
+    padding-bottom: 45px;
+}
+
+.update-booking-send-request-container {
+    width: 100%;
+    position: sticky;
+    z-index: 13;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items:flex-start;
+    border-top: solid;
+    border-color: rgb(239, 239, 239);
+    bottom: calc(6% - 25px);
+}
+
+.update-booking-button-container {
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.update-booking-send-request-button {
+    height: 33px;
+    width: 130px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
+    font-size: 0.85rem;
+    font-weight: 400;
+    /* margin-top: -3px; */
+}
+
+.update-booking-send-request-button:hover {
+    background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
+    cursor: pointer;
 }
