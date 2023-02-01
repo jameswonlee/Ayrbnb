@@ -15,12 +15,12 @@ module.exports = {
    await queryInterface.bulkInsert('Spots', [
     {
       ownerId: 2,
-      address: '125 N Doheny Dr',
+      address: '1378 N Doheny Dr',
       city: 'West Hollywood',
       state: 'CA',
       country: 'United States',
-      lat: 34.07598,
-      lng: -118.39019,
+      lat: 34.09601,
+      lng: -118.39167,
       name: 'Tomoko Home | Pool & Spa | Theater | City Views',
       description: "Tucked away in LA's peaceful Franklin Hills neighborhood, this modern 3 story estate is the perfect place for your next getaway. This lux 4BR home features a gourmet kitchen, home theater, modern gym and private backyard.",
       price: 1629.00

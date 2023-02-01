@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getKey } from '../../store/maps';
 import Maps from './Maps';
 
-const MapContainer = ({ spot }) => {
+const MapContainer = ({ spot, booking }) => {
   const key = useSelector((state) => state.maps.key);
   const dispatch = useDispatch();
 
@@ -13,14 +13,18 @@ const MapContainer = ({ spot }) => {
       dispatch(getKey());
     }
   }, [dispatch, key]);
-  
+
 
   if (!key) {
     return null;
   }
 
   return (
-    <Maps apiKey={key} spot={spot} className="googe-maps-container"/>
+    <Maps
+      apiKey={key}
+      spot={spot}
+      booking={booking}
+      className="googe-maps-container" />
   );
 };
 

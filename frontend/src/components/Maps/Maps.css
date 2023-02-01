@@ -5,3 +5,8 @@
 .google-maps-container {
     z-index: 5
 }
+
+.sticky-map {
+    position: sticky;
+    top: 0;
+}

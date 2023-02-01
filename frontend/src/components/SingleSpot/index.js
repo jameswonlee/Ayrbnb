@@ -8,7 +8,7 @@ import DeleteSpotButton from '../DeleteSpotButton/DeleteSpotButton';
 import { getReviewsBySpotId } from '../../store/reviews';
 import CreateBooking from '../Bookings/CreateBooking';
 import CreateReviewModal from '../CreateReview/CreateReviewModal';
-import MapContainer from '../Maps';
+import MapContainer from '../Maps/MapContainer';
 import superhostBadge from '../../images/superhost-badge.png';
 import selfCheckInIcon from '../../icons/self-check-in.ico';
 import superhostIcon from '../../icons/superhost.ico';
