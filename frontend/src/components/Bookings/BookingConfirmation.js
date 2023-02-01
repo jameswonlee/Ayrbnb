@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import { getUserBookings } from "../../store/bookings";
+import { Modal } from "../../context/Modal";
 import MapContainer from "../Maps/MapContainer";
 import backArrowIcon from '../../icons/back-arrow.png';
 import airCover from '../../icons/aircover.ico';
@@ -14,7 +15,7 @@ import receiptsIcon from '../../icons/get-receipts.ico';
 import rightArrowIcon from '../../icons/right-arrow.ico';
 import './BookingConfirmation.css';
 import dayjs from 'dayjs';
-
+import ManageGuestsModal from "./ManageGuestsModal";
 
 
 
@@ -26,6 +27,9 @@ function BookingConfirmation() {
     const sessionUser = useSelector(state => state.session.user);
     const girlNames = ["Jane", "Susan", "Jessica"];
     // console.log('booking', booking);
+
+    const [showManageGuestsModal, setShowManageGuestsModal] = useState(false);
+
 
     useEffect(() => {
         dispatch(getUserBookings())
@@ -40,7 +44,10 @@ function BookingConfirmation() {
 
     const routeToBookings = () => {
         history.goBack();
+    }
 
+    const openManageGuestsModal = () => {
+        setShowManageGuestsModal(true);
     }
 
 
@@ -108,13 +115,18 @@ function BookingConfirmation() {
                         <div className="booking-confirmation-cancellation-policy-dates">Free cancellation before 3:00 PM on {dayjs(booking?.startDate).subtract(1, 'day').format("MMM D")}.
                             Cancel before check-in at 3:00 PM on {dayjs(booking?.startDate).format("MMM D")} for a partial refund.</div>
                         <div className="booking-confirmation-cancellation-policy-read-more">Read more</div>
-                        <div className="booking-confirmation-manage-booking-options">
+                        <div onClick={openManageGuestsModal} className="booking-confirmation-manage-booking-options">
                             <div className="booking-confirmation-manage-booking-options-left">
                                 <div><img src={manageGuestsIcon} className="booking-confirmation-manage-booking-icons" /></div>
                                 <div className="booking-confirmation-manage-booking-option">Manage guests</div>
                             </div>
                             <div><img src={rightArrowIcon} className="booking-confirmation-manage-booking-right-arrow-icon" /></div>
                         </div>
+                        {showManageGuestsModal && (
+                            <Modal>
+                                <ManageGuestsModal booking={booking} setShowManageGuestsModal={setShowManageGuestsModal}/>
+                            </Modal>
+                        )}
                         <div className="booking-confirmation-manage-booking-options">
                             <div className="booking-confirmation-manage-booking-options-left">
                                 <div><img src={changeReservationIcon} className="booking-confirmation-manage-booking-icons" /></div>

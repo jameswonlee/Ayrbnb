@@ -1,0 +1,62 @@
+.update-booking-outer-container {
+    height: 755px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.update-booking-left {
+    background-color: rgb(237, 237, 237);
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: solid;
+    border-right-color: rgb(228, 228, 228);
+}
+
+.update-booking-favicon {
+    height: 36px;
+    width: 32px;
+    margin-left: 15px;
+    margin-top: 25px;
+}
+
+.updatre-booking-exit-text {
+    font-weight: 300;
+    margin-left: 18px;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+.update-booking-change-reservation-text {
+    margin-left: 15px;
+    margin-top: 12px;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.update-booking-left-lower {
+    display: flex;
+    width: 60px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.update-booking-left-lower:hover {
+    cursor: pointer;
+}
+
+.update-booking-exit-icon {
+    height: 24px;
+}
+
+.update-booking-middle {
+    width: auto;
+}
+
+.update-booking-right {
+    width: 364px;
+    border-left: solid;
+    border-left-color: rgb(228, 228, 228);
+}

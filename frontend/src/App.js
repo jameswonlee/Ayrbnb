@@ -8,6 +8,7 @@ import SingleSpot from "./components/SingleSpot";
 import Bookings from "./components/Bookings/Bookings";
 import Footer from './components/Footer/Footer';
 import BookingConfirmation from "./components/Bookings/BookingConfirmation";
+import UpdateBooking from "./components/Bookings/UpdateBooking";
 import './index.css';
 
 function App() {
@@ -28,26 +29,39 @@ function App() {
       window.location = "https://ayrbnb-james-lee.herokuapp.com"
     }
   }, []);
-  
+
   return (
     <>
-      <Navigation 
-      isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal}/>
+      {/* <Navigation
+        isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} /> */}
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
+            <Navigation
+              isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />
             <DisplayAllSpots />
           </Route>
           <Route exact path='/spot/:spotId'>
+            <Navigation
+              isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />
             <SingleSpot />
           </Route>
           <Route exact path='/user/:userId/trips'>
+            <Navigation
+              isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />
             <Bookings />
           </Route>
           <Route exact path='/booking/:bookingId'>
+            <Navigation
+              isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />
             <BookingConfirmation />
           </Route>
+          <Route exact path='/booking/:bookingId/change'>
+            <UpdateBooking />
+          </Route>
           <Route>
+            <Navigation
+              isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />
             <h1>Page Not Found!</h1>
           </Route>
         </Switch>

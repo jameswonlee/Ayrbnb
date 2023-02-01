@@ -1,0 +1,120 @@
+.manage-guests-modal-container {
+    height: 420px;
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+}
+
+.manage-guests-modal-x {
+    font-weight: 500;
+    margin-left: 25px;
+    margin-top: 5px;
+    color: rgb(78, 78, 78);
+}
+
+.manage-guests-modal-x:hover{
+    cursor: pointer;
+}
+
+.manage-guests-modal-upper {
+    border-bottom: solid;
+    padding-bottom: 20px;
+    border-bottom-color: rgb(241, 241, 241);
+    margin-left: -17px;
+    margin-right: -17px;
+}
+
+.manage-guests-modal-num-guests {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+.manage-guests-modal-guest-contact-text {
+    font-size: 0.94rem;
+    font-weight: 400;
+    color: rgb(91, 91, 91);
+    margin-top: 18px;
+}
+
+.manage-guests-modal-change-num-guests {
+    margin-top: 25px;
+    font-size: 0.94rem;
+    color: rgb(91, 91, 91);
+}
+
+.manage-guests-modal-change-reservation {
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
+}
+
+.manage-guests-modal-change-reservation:hover {
+    cursor: pointer;
+}
+
+.manage-guests-modal-middle {
+    border-bottom: solid;
+    padding-bottom: 20px;
+    border-bottom-color: rgb(232, 232, 232);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.manage-guests-modal-lower {
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid;
+    padding-bottom: 25px;
+    border-bottom-color: rgb(232, 232, 232);
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.manage-guests-modal-lower-left {
+    margin-left: 32px;
+    margin-top: 30px;
+}
+
+.manage-guests-modal-profile-image {
+    border-radius: 40px;
+}
+
+.manage-guests-modal-lower-right {
+    margin-top: 22px;
+    margin-left: 23px;
+}
+
+.manage-guests-modal-user-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.manage-guests-modal-you {
+    margin-top: 3px;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgb(60, 60, 60);
+}
+
+.manage-guests-modal-done-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.manage-guests-modal-done-button {
+    width: 535px;
+    height: 48px;
+    background-color: white;
+    border-radius: 8px;
+    border-color: rgb(119, 119, 119);
+    border-width: thin;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.manage-guests-modal-done-button:hover {
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
+}

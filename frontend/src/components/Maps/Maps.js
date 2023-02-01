@@ -48,15 +48,6 @@ const Maps = ({ apiKey, spot, booking }) => {
     scale: 2,
   }
 
-  // useEffect(() => {
-  //   if (booking) {
-  //     const map = document.getElementsByClassName('google-maps');
-  //     map.classList.toggle('sticky-map');
-
-  //     return () => map.classList.toggle('sticky-map');
-  //   }
-  // }, []);
-
 
 
   return (
