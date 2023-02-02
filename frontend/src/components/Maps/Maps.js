@@ -28,8 +28,8 @@ const Maps = ({ apiKey, spot, booking }) => {
 
   if (booking) {
     center = {
-      lat: Number(booking.Spot.lat),
-      lng: Number(booking.Spot.lng)
+      lat: Number(booking.Spot?.lat),
+      lng: Number(booking.Spot?.lng)
     };
 
     containerStyle = {

@@ -12,11 +12,11 @@ function ManageGuestsModal({ booking, showManageGuestsModal, setShowManageGuests
 
     useEffect(() => {
         if (!showManageGuestsModal) return;
-    
+
         document.addEventListener('click', closeManageGuestsModal);
-    
+
         return () => document.removeEventListener("click", closeManageGuestsModal);
-      }, [showManageGuestsModal]);
+    }, [showManageGuestsModal]);
 
     const closeManageGuestsModal = () => {
         setShowManageGuestsModal(false);
@@ -29,7 +29,9 @@ function ManageGuestsModal({ booking, showManageGuestsModal, setShowManageGuests
     return (
         <div className="manage-guests-modal-container">
             <div className="manage-guests-modal-upper">
-                <div onClick={closeManageGuestsModal} className="manage-guests-modal-x">X</div>
+                <div onClick={closeManageGuestsModal}className="manage-guests-modal-x-container">
+                    <div className="manage-guests-modal-x">x</div>
+                </div>
             </div>
             <div className="manage-guests-modal-middle">
                 <div className="manage-guests-modal-num-guests">{booking?.numGuests === 1
@@ -44,7 +46,7 @@ function ManageGuestsModal({ booking, showManageGuestsModal, setShowManageGuests
                 <div className="manage-guests-modal-change-num-guests">
                     <span>Need to change number of guests?&nbsp;
                         <span onClick={routeToModifyBooking} className="manage-guests-modal-change-reservation">
-                        Change reservation</span></span>
+                            Change reservation</span></span>
                 </div>
             </div>
             <div className="manage-guests-modal-lower">

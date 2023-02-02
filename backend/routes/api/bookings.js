@@ -67,47 +67,87 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
         });
     };
 
-    if (endDate < startDate) {
+    if (startDate >= endDate) {
         return res.status(400).json({
             message: "Validation error",
             statusCode: 400,
             errors: {
-                endDate: "endDate cannot come before startDate"
+                endDate: "End date cannot be on or before start date"
             }
         });
     };
 
     let spotId = booking.spotId;
-    const conflictBookings = await Booking.findAll({
-        where: {
-            spotId: spotId,
-            startDate: {
-                [Op.gte]: startDate,
-                [Op.lte]: endDate
-            },
-            endDate: {
-                [Op.lte]: endDate,
-                [Op.gte]: startDate
-            }
-        }
-    });
+    // const conflictBookings = await Booking.findAll({
+    //     where: {
+    //         spotId: spotId,
+    //         startDate: {
+    //             [Op.gte]: startDate,
+    //             [Op.lte]: endDate
+    //         },
+    //         endDate: {
+    //             [Op.lte]: endDate,
+    //             [Op.gte]: startDate
+    //         }
+    //     }
+    // });
 
-    if (conflictBookings.length) {
-        return res.status(403).json({
-            message: "Sorry, this spot is already booked for the specified dates",
-            statusCode: 403,
-            errors: {
-                startDate: "Start date conflicts with an existing booking",
-                endDate: "End date conflicts with an existing booking"
-            }
-        })
-    } else {
-        booking.startDate = startDate;
-        booking.endDate = endDate;
-        booking.numGuests = numGuests
-        await booking.update();
-        return res.json(booking);
-    };
+    // if (conflictBookings.length) {
+    //     return res.status(403).json({
+    //         message: "Sorry, this spot is already booked for the specified dates",
+    //         statusCode: 403,
+    //         errors: {
+    //             startDate: "Start date conflicts with an existing booking",
+    //             endDate: "End date conflicts with an existing booking"
+    //         }
+    //     })
+    const existingBookings = await Booking.findAll({
+        where: {
+            // spotId: req.params.spotId
+            spotId: booking.spotId
+        }
+    })
+
+    for (let existingBooking of existingBookings) {
+        if (Date.parse(startDate) >= Date.parse(existingBooking.startDate) &&
+            Date.parse(startDate) <= Date.parse(existingBooking.endDate)) {
+            return res.status(403).json({
+                message: "Sorry, this spot is already booked for the specified dates",
+                statusCode: 403,
+                errors: {
+                    startDate: "Start date conflicts with an existing booking"
+                }
+            })
+        } else if (Date.parse(startDate) <= Date.parse(existingBooking.startDate) &&
+            Date.parse(endDate) >= Date.parse(existingBooking.endDate)) {
+            return res.status(403).json({
+                message: "Sorry, this spot is already booked for the specified dates",
+                statusCode: 403,
+                errors: {
+                    startDate: "Start date conflicts with an existing booking",
+                    endDate: "End date conflicts with an existing booking"
+                }
+            })
+        } else if (Date.parse(endDate) >= Date.parse(existingBooking.startDate) &&
+            Date.parse(endDate) <= Date.parse(existingBooking.endDate)) {
+            return res.status(403).json({
+                message: "Sorry, this spot is already booked for the specified dates",
+                statusCode: 403,
+                errors: {
+                    endDate: "End date conflicts with an existing booking"
+                }
+            })
+        }
+
+
+        // else {
+            booking.startDate = startDate;
+            booking.endDate = endDate;
+            booking.numGuests = numGuests
+            await booking.update();
+            return res.json(booking);
+        // };
+    }
 });
 
 

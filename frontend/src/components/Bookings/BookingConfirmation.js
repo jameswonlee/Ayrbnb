@@ -60,7 +60,7 @@ function BookingConfirmation() {
             <div className="booking-confirmation-left-container">
                 <div className="booking-confirmation-left">
                     <div className="booking-confirmation-left-upper">
-                        <img src={booking?.Spot.previewImage} className="booking-confirmation-spot-image" />
+                        <img src={booking?.Spot?.previewImage} className="booking-confirmation-spot-image" />
                         <div>
                             <img src={backArrowIcon} onClick={routeToBookings} className="booking-confirmation-back-arrow" />
                         </div>

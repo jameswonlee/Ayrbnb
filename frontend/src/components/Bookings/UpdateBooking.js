@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { getUserBookings } from '../../store/bookings';
+import { editBooking, getUserBookings } from '../../store/bookings';
 import favicon from '../../icons/favicon.png';
 import exitIcon from '../../icons/exit.png';
 import './UpdateBooking.css';
@@ -16,13 +16,12 @@ function UpdateBooking() {
     const history = useHistory();
     const { bookingId } = useParams();
     const booking = useSelector(state => state.bookings[bookingId]);
-    console.log('booking', booking);
+    // console.log('booking', booking);
 
-    const [startDate, setStartDate] = useState(dayjs(booking.startDate).format("YYYY-MM-DD"));
-    const [endDate, setEndDate] = useState(dayjs(booking.endDate).format("YYYY-MM-DD"));
-    const [numGuests, setNumGuests] = useState(booking.numGuests);
+    const [startDate, setStartDate] = useState(dayjs(booking?.startDate).format("YYYY-MM-DD"));
+    const [endDate, setEndDate] = useState(dayjs(booking?.endDate).format("YYYY-MM-DD"));
+    const [numGuests, setNumGuests] = useState(booking?.numGuests);
     const [validationErrors, setValidationErrors] = useState([]);
-
 
     useEffect(() => {
         dispatch(getUserBookings())
@@ -30,6 +29,52 @@ function UpdateBooking() {
 
     const routeBackToBookingConfirmation = () => {
         history.goBack();
+    }
+
+    const submitNewBookingDetails = async (e) => {
+        e.preventDefault();
+        const errors = [];
+
+        if (!startDate) errors.push("Select a check-in date");
+        if (!endDate) errors.push("Select a checkout date");
+        if (dayjs(startDate).isBefore(dayjs().subtract(1, 'd'))) errors.push("Please select a future start date");
+        if (dayjs(startDate).isSame(dayjs(endDate))) errors.push("1 night minimum");
+        if (dayjs(endDate).isBefore(dayjs(startDate))) errors.push("Please select valid start and end dates");
+
+        setValidationErrors(errors);
+
+        if (!errors.length) {
+            const newBookingData = {
+                startDate: dayjs(startDate).utc().format("YYYY-MM-DD HH:mm:ss"),
+                endDate: dayjs(endDate).utc().format("YYYY-MM-DD HH:mm:ss"),
+                numGuests: numGuests
+            }
+            try {
+                const updatedBooking = await dispatch(editBooking(bookingId, newBookingData));
+                if (updatedBooking) {
+                    console.log('updatedBooking', updatedBooking);
+                    history.push(`/booking/${updatedBooking.id}`);
+                }
+
+            } catch (res) {
+                console.log('res', res)
+                const data = await res.json();
+                const errors = [];
+                if (data && data.message) {
+                    if (data.errors['startDate'] && data.errors['endDate']) {
+                        errors.push(data.errors['startDate']);
+                        errors.push(data.errors['endDate']);
+                    } else if (data.errors['startDate']) {
+                        errors.push(data.errors['startDate']);
+                    } else if (data.errors['endDate']) {
+                        errors.push(data.errors['endDate']);
+                    }
+                    console.log('data', data)
+                }
+                setValidationErrors(errors);
+            }
+        }
+
     }
 
 
@@ -53,20 +98,20 @@ function UpdateBooking() {
                 <div className="update-booking-middle-upper">
                     <div className="update-booking-heading">What do you want to change?</div>
                     <div className="update-booking-change-description">After making your desired changes, you can send a request to your
-                        host, {booking?.Spot.Owner.firstName}, to confirm the alterations to your reservation.</div>
+                        host, {booking?.Spot?.Owner.firstName}, to confirm the alterations to your reservation.</div>
                     <div className="update-booking-spot-details-container">
                         <div className="update-booking-spot-details-left">
-                            <img src={booking?.Spot.previewImage} className="update-booking-spot-preview-image" />
+                            <img src={booking?.Spot?.previewImage} className="update-booking-spot-preview-image" />
                         </div>
                         <div className="update-booking-spot-details-right">
-                            <div className="update-booking-spot-name">{booking?.Spot.name.includes('|')
+                            <div className="update-booking-spot-name">{booking?.Spot?.name.includes('|')
                                 ?
                                 <div>
-                                    {booking?.Spot.name.split('|')[0]}
+                                    {booking?.Spot?.name.split('|')[0]}
                                 </div>
                                 :
                                 <div>
-                                    {booking?.Spot.name}
+                                    {booking?.Spot?.name}
                                 </div>
                             }
                             </div>
@@ -77,6 +122,12 @@ function UpdateBooking() {
 
                 <div className="update-booking-middle-middle">
                     <div className="update-booking-reservation-details-heading">Reservation details</div>
+                    <div className="update-booking-validation-errors">
+                        {validationErrors.length > 0 &&
+                            validationErrors.map(error =>
+                                <div key={error}>{error}</div>
+                            )}
+                    </div>
                     <div className="update-booking-dates-text">Dates</div>
                     <div className="update-booking-start-end-guests-container">
                         <div className="update-booking-start-end-dates">
@@ -95,7 +146,7 @@ function UpdateBooking() {
                                 />
                             </div>
                             <div className="update-booking-end-date">
-                                <span className="update-booking-check-out">Checkout</span>
+                                <span className="update-booking-check-out">Check out</span>
                                 <input
                                     type="date"
                                     onChange={e => {
@@ -114,7 +165,7 @@ function UpdateBooking() {
                             Guests
                         </div>
                         <div className="update-booking-num-guests-container">
-                            <select value={numGuests} onChange={(e) => setNumGuests(e.target.value)}className="update-booking-num-guests-select">
+                            <select value={numGuests} onChange={(e) => setNumGuests(e.target.value)} className="update-booking-num-guests-select">
                                 <option value="1">1 guest</option>
                                 <option value="2">2 guests</option>
                                 <option value="3">3 guests</option>
@@ -136,7 +187,7 @@ function UpdateBooking() {
                 </div>
                 <div className="update-booking-send-request-container">
                     <div className="update-booking-button-container">
-                        <button className="update-booking-send-request-button">Send request</button>
+                        <button onClick={submitNewBookingDetails} className="update-booking-send-request-button">Send request</button>
                     </div>
                 </div>
             </div>

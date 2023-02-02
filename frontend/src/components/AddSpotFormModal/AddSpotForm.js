@@ -61,7 +61,6 @@ function AddSpotForm({ setShowModal }) {
             if (spot) {
                 await dispatch(addImageToSpot(spot.id, url, true));
                 setShowModal(false);
-                alert('Spot successfully created!');
                 history.push(`/spot/${spot.id}`);
             }
         }

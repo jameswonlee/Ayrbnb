@@ -70,7 +70,7 @@
 
 .update-booking-middle-upper {
     width: 505px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .update-booking-heading {
@@ -243,7 +243,7 @@
 
 .update-booking-middle-lower {
     width: 508px;
-    margin-top: 37px;
+    margin-top: 53px;
     margin-bottom: 50px;
 }
 
@@ -271,11 +271,12 @@
     align-items:flex-start;
     border-top: solid;
     border-color: rgb(239, 239, 239);
-    bottom: calc(6% - 25px);
+    bottom: calc(5% - 38px);
+    height: 60px;
 }
 
 .update-booking-button-container {
-    margin-top: 15px;
+    margin-top: 10px;
     margin-right: 20px;
 }
 
@@ -288,10 +289,17 @@
     background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
     font-size: 0.85rem;
     font-weight: 400;
-    /* margin-top: -3px; */
+    margin-bottom: 10px;
 }
 
 .update-booking-send-request-button:hover {
     background: linear-gradient(45deg, rgb(216 8 102), rgb(230 29 80));
     cursor: pointer;
+}
+
+.update-booking-validation-errors {
+    font-size: 0.85rem;
+    color: red;
+    margin-top: 10px;
+    margin-bottom: -10px;
 }
