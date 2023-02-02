@@ -123,40 +123,15 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
         });
     };
 
-    // let spotId = booking.spotId;
-    // const conflictBookings = await Booking.findAll({
-    //     where: {
-    //         spotId: spotId,
-    //         startDate: {
-    //             [Op.gte]: startDate,
-    //             [Op.lte]: endDate
-    //         },
-    //         endDate: {
-    //             [Op.lte]: endDate,
-    //             [Op.gte]: startDate
-    //         }
-    //     }
-    // });
-
-    // if (conflictBookings.length) {
-    //     return res.status(403).json({
-    //         message: "Sorry, this spot is already booked for the specified dates",
-    //         statusCode: 403,
-    //         errors: {
-    //             startDate: "Start date conflicts with an existing booking",
-    //             endDate: "End date conflicts with an existing booking"
-    //         }
-    //     })
     const existingBookings = await Booking.findAll({
         where: {
-            // spotId: req.params.spotId
             spotId: booking.spotId
         }
     })
 
     for (let existingBooking of existingBookings) {
         if (existingBooking.id === booking.id) continue;
-        
+
         if (Date.parse(startDate) >= Date.parse(existingBooking.startDate) &&
             Date.parse(startDate) <= Date.parse(existingBooking.endDate)) {
             return res.status(403).json({
@@ -187,14 +162,13 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
             })
         }
     }
-    // else {
-        booking.startDate = startDate;
-        booking.endDate = endDate;
-        booking.numGuests = numGuests
-        // await booking.update();
-        await booking.save();
-        return res.json(booking);
-    // };
+    
+    booking.startDate = startDate;
+    booking.endDate = endDate;
+    booking.numGuests = numGuests
+    // await booking.update();
+    await booking.save();
+    return res.json(booking);
 });
 
 
