@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { editBooking, getUserBookings } from '../../store/bookings';
+import { editBooking, getBookingById } from '../../store/bookings';
 import favicon from '../../icons/favicon.png';
 import exitIcon from '../../icons/exit.png';
 import './UpdateBooking.css';
@@ -23,9 +23,25 @@ function UpdateBooking() {
     const [numGuests, setNumGuests] = useState(booking?.numGuests);
     const [validationErrors, setValidationErrors] = useState([]);
 
+    const doEffect = async () => {
+        const currBooking = await dispatch(getBookingById(bookingId));
+        // console.log('currBooking', currBooking);
+        if (currBooking) {
+            setStartDate(dayjs(currBooking.startDate).format("YYYY-MM-DD"));
+            setEndDate(dayjs(currBooking.endDate).format("YYYY-MM-DD"));
+            setNumGuests(currBooking.numGuests);
+        }
+    }
+
     useEffect(() => {
-        dispatch(getUserBookings())
-    }, [])
+        doEffect();
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
+    }, [dispatch])
 
     const routeBackToBookingConfirmation = () => {
         history.goBack();
@@ -59,6 +75,7 @@ function UpdateBooking() {
             } catch (res) {
                 console.log('res', res)
                 const data = await res.json();
+                console.log('data', data)
                 const errors = [];
                 if (data && data.message) {
                     if (data.errors['startDate'] && data.errors['endDate']) {
@@ -98,7 +115,7 @@ function UpdateBooking() {
                 <div className="update-booking-middle-upper">
                     <div className="update-booking-heading">What do you want to change?</div>
                     <div className="update-booking-change-description">After making your desired changes, you can send a request to your
-                        host, {booking?.Spot?.Owner.firstName}, to confirm the alterations to your reservation.</div>
+                        host, {booking?.Spot?.Owner?.firstName}, to confirm the alterations to your reservation.</div>
                     <div className="update-booking-spot-details-container">
                         <div className="update-booking-spot-details-left">
                             <img src={booking?.Spot?.previewImage} className="update-booking-spot-preview-image" />

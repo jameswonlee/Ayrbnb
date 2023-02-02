@@ -3,14 +3,22 @@ import { csrfFetch } from "./csrf";
 
 /* ---------------- Action Types ----------------- */
 
+const LOAD_ONE_BOOKING = 'bookings/LOAD_ONE_BOOKING';
 const LOAD_USER_BOOKINGS = 'bookings/LOAD_USER_BOOKINGS';
 const LOAD_SPOT_BOOKINGS = 'bookings/LOAD_SPOT_BOOKINGS';
 const ADD_BOOKING = 'bookings/ADD_BOOKING';
 const UPDATE_BOOKING = 'bookings/UPDATE_BOOKING';
 const REMOVE_BOOKING = 'bookings/REMOVE_BOOKING';
-const RESET_BOOKINGS = 'bookings/RESET_BOOKINGS'
+const RESET_BOOKINGS = 'bookings/RESET_BOOKINGS';
 
 /* --------------- Action Creators --------------- */
+
+const loadOneBooking = (booking) => {
+    return {
+        type: LOAD_ONE_BOOKING,
+        booking: booking
+    }
+}
 
 const loadUserBookings = (bookings) => {
     return {
@@ -54,6 +62,17 @@ export const resetBookings = () => {
 }
 
 /* -------------- Thunk Action Creators -------------- */
+
+
+export const getBookingById = (bookingId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/bookings/${bookingId}`);
+
+    if (response.ok) {
+        const booking = await response.json();
+        dispatch(loadOneBooking(booking));
+        return booking;
+    }
+}
 
 export const getUserBookings = () => async (dispatch) => {
     const response = await csrfFetch('/api/bookings/current');
@@ -99,6 +118,7 @@ export const editBooking = (bookingId, bookingData) => async (dispatch) => {
     if (response.ok) {
         const updatedBookingData = await response.json();
         dispatch(updateBooking(updatedBookingData));
+        console.log('updatedBookingData', updatedBookingData)
         return updatedBookingData;
     }
 }
@@ -123,6 +143,10 @@ const bookingsReducer = (state = initialState, action) => {
     let newState = {};
 
     switch (action.type) {
+        case LOAD_ONE_BOOKING:
+            newState[action.booking.id] = action.booking;
+            return newState;
+
         case LOAD_USER_BOOKINGS:
             newState = { ...state };
             action.bookings.Bookings.forEach(booking => {

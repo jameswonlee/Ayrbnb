@@ -80,6 +80,7 @@
     width: 167px;
     border-right: solid;
     border-right-color: rgb(205, 205, 205);
+
 }
 
 .create-booking-start-date-input {
@@ -88,9 +89,13 @@
     width: 145px;
     font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(117, 117, 117);
+    /* color: rgb(117, 117, 117); */
     margin-left: 1px;
 }
+
+/* input {
+    color: red;
+} */
 
 .create-booking-start-date-input:hover {
     cursor: pointer;
@@ -108,7 +113,7 @@
     width: 147px;
     font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(117, 117, 117);
+    /* color: rgb(117, 117, 117); */
     margin-left: 1px;
 }
 

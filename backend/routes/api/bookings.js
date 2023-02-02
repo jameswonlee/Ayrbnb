@@ -7,6 +7,7 @@ const { User, Spot, SpotImage, Booking, Review, ReviewImage, sequelize } = requi
 const { Op } = require('sequelize');
 
 
+
 // Get all of the Current User's Bookings
 router.get('/current', requireAuth, async (req, res) => {
     const bookings = await Booking.findAll({
@@ -47,6 +48,51 @@ router.get('/current', requireAuth, async (req, res) => {
 });
 
 
+// Get booking by booking id
+router.get('/:bookingId', requireAuth, async (req, res) => {
+    const { bookingId } = req.params;
+
+    let booking = await Booking.findByPk(req.params.bookingId, {
+        include: [
+            {
+                model: Spot,
+                include: {
+                    model: User,
+                    attributes: ['id', 'firstName', 'lastName'],
+                    as: 'Owner'
+                },
+            },
+            {
+                model: User,
+                attributes: ['id', 'firstName', 'lastName'],
+                // as: 'Guest'
+            }
+        ]
+    })
+
+    if (!booking) {
+        return res.status(404).json({
+            message: "Booking couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    const spotImage = await SpotImage.findOne({
+        where: {
+            spotId: booking.spotId,
+            preview: true
+        },
+        attributes: ['url'],
+        raw: true
+    });
+
+    let bookingData = booking.toJSON();
+    bookingData.Spot.previewImage = spotImage.url;
+
+    return res.json(bookingData);
+})
+
+
 // Edit a Booking 
 router.put('/:bookingId', requireAuth, async (req, res) => {
     const { startDate, endDate, numGuests } = req.body;
@@ -66,7 +112,7 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
             statusCode: 403
         });
     };
-
+    console.log('HELLOOOOOOOOO')
     if (startDate >= endDate) {
         return res.status(400).json({
             message: "Validation error",
@@ -77,7 +123,7 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
         });
     };
 
-    let spotId = booking.spotId;
+    // let spotId = booking.spotId;
     // const conflictBookings = await Booking.findAll({
     //     where: {
     //         spotId: spotId,
@@ -109,6 +155,8 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
     })
 
     for (let existingBooking of existingBookings) {
+        if (existingBooking.id === booking.id) continue;
+        
         if (Date.parse(startDate) >= Date.parse(existingBooking.startDate) &&
             Date.parse(startDate) <= Date.parse(existingBooking.endDate)) {
             return res.status(403).json({
@@ -138,16 +186,15 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
                 }
             })
         }
-
-
-        // else {
-            booking.startDate = startDate;
-            booking.endDate = endDate;
-            booking.numGuests = numGuests
-            await booking.update();
-            return res.json(booking);
-        // };
     }
+    // else {
+        booking.startDate = startDate;
+        booking.endDate = endDate;
+        booking.numGuests = numGuests
+        // await booking.update();
+        await booking.save();
+        return res.json(booking);
+    // };
 });
 
 

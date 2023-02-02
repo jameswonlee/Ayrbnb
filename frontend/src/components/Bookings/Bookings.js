@@ -21,6 +21,12 @@ function Bookings() {
 
     useEffect(() => {
         dispatch(getUserBookings());
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        
     }, [dispatch]);
 
     if (!userBookings) return null;

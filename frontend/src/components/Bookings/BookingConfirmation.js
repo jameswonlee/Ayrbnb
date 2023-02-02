@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
-import { getUserBookings } from "../../store/bookings";
+import { getBookingById, getUserBookings } from "../../store/bookings";
 import { Modal } from "../../context/Modal";
 import MapContainer from "../Maps/MapContainer";
 import backArrowIcon from '../../icons/back-arrow.png';
@@ -26,13 +26,19 @@ function BookingConfirmation() {
     const booking = useSelector(state => state.bookings[bookingId]);
     const sessionUser = useSelector(state => state.session.user);
     const girlNames = ["Jane", "Susan", "Jessica"];
-    // console.log('booking', booking);
+    console.log('booking', booking);
 
     const [showManageGuestsModal, setShowManageGuestsModal] = useState(false);
 
 
     useEffect(() => {
-        dispatch(getUserBookings())
+        dispatch(getBookingById(bookingId));
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
     }, [bookingId]);
 
     useEffect(() => {
@@ -161,7 +167,7 @@ function BookingConfirmation() {
                             </div>
                             <div><img src={rightArrowIcon} className="booking-confirmation-manage-booking-right-arrow-icon" /></div>
                         </div>
-                        <div className="booking-confirmation-manage-booking-options booking-confirmation-not-allowed booking-confirmation-manage-booking-options-padding-bottom">
+                        <div className="booking-confirmation-manage-booking-options booking-confirmation-not-allowed">
                             <div className="booking-confirmation-manage-booking-options-left">
                                 <div><img src={receiptsIcon} className="booking-confirmation-manage-booking-icons" /></div>
                                 <div className="booking-confirmation-manage-booking-option">Get receipts and manage payments</div>
