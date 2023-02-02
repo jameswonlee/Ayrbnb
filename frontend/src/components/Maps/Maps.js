@@ -34,7 +34,7 @@ const Maps = ({ apiKey, spot, booking }) => {
 
     containerStyle = {
       width: '895px',
-      height: '1387px',
+      height: '674px',
     };
 
     zoom = 17

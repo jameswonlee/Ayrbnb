@@ -61,7 +61,7 @@ function BookingConfirmation() {
                 <div className="booking-confirmation-left">
                     <div className="booking-confirmation-left-upper">
                         <img src={booking?.Spot?.previewImage} className="booking-confirmation-spot-image" />
-                        <div>
+                        <div className="booking-confirmation-back-arrow-container">
                             <img src={backArrowIcon} onClick={routeToBookings} className="booking-confirmation-back-arrow" />
                         </div>
                     </div>
@@ -107,7 +107,7 @@ function BookingConfirmation() {
                         <div className="booking-confirmation-confirmation-code-text">Confirmation code</div>
                         <div className="booking-confirmation-confirmation-code">HMXSRYNTFH</div>
                         <div className="booking-confirmation-aicover-guarantee">
-                            <div>
+                            <div className="booking-confirmation-guarantee-text">
                                 <span>Your booking is protected by <span><img src={airCover} className="booking-confirmation-air-cover-icon" />
                                 </span></span>
                             </div>
@@ -161,7 +161,7 @@ function BookingConfirmation() {
                             </div>
                             <div><img src={rightArrowIcon} className="booking-confirmation-manage-booking-right-arrow-icon" /></div>
                         </div>
-                        <div className="booking-confirmation-manage-booking-options booking-confirmation-not-allowed">
+                        <div className="booking-confirmation-manage-booking-options booking-confirmation-not-allowed booking-confirmation-manage-booking-options-padding-bottom">
                             <div className="booking-confirmation-manage-booking-options-left">
                                 <div><img src={receiptsIcon} className="booking-confirmation-manage-booking-icons" /></div>
                                 <div className="booking-confirmation-manage-booking-option">Get receipts and manage payments</div>

@@ -2,7 +2,12 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 674px;;
+}
+
+.booking-confirmation-left-container {
     height: auto;
+    overflow: scroll;
 }
 
 .booking-confirmation-left {
@@ -11,27 +16,34 @@
 
 .booking-confirmation-left-container {
     background-color: rgb(235, 235, 235);
-    max-width: 600px;
+    max-width: 590px;
     padding-right: 10px;
     padding-top: 10px;
 }
 
 .booking-confirmation-spot-image {
-    height: 422px;
-    width: 600px;
+    height: 418px;
+    width: 591px;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
 }
 
+.booking-confirmation-back-arrow-container {
+    position: relative;
+    top: -400px;
+    left: 18px;
+}
+
 .booking-confirmation-back-arrow {
-    position: absolute;
-    margin-top: -405px;
-    margin-left: 20px;
     height: 32px;
 }
 
 .booking-confirmation-back-arrow:hover {
     cursor: pointer;
+}
+
+.booking-confirmation-left-upper {
+    height: 418px;
 }
 
 .booking-confirmation-left-middle {
@@ -40,12 +52,12 @@
     border-color: rgb(235, 235, 235);
     margin-left: 20px;
     margin-right: 20px;
-    height: 115px;
+    height: 120px;
 }
 
 .booking-confirmation-check-in-date {
     width: 255px;
-    padding-top: 20px;
+    margin-top: 28px;
 }
 
 .booking-confirmation-dates-border {
@@ -58,7 +70,8 @@
 
 .booking-confirmation-check-out-date {
     padding-left: 25px;
-    padding-top: 20px;
+    margin-top: 28px;
+
 }
 
 .booking-confirmation-checkin-checkout-text {
@@ -112,6 +125,7 @@
     margin-left: 22px;
     padding-top: 22px;
     margin-right: 22px;
+    padding-bottom: 20px;
 }
 
 .booking-confirmation-reservation-details-text {
@@ -131,9 +145,6 @@
     color: rgb(78, 78, 78);
     margin-top: 6px;
     font-weight: 400;
-    /* border-bottom: solid;
-    padding-bottom: 35px;
-    border-color: rgb(235, 235, 235); */
 }
 
 .booking-confirmation-confirmation-code-text {
@@ -154,6 +165,10 @@
 .booking-confirmation-aicover-guarantee {
     margin-top: 20px;
     font-size: 0.95rem;
+}
+
+.booking-confirmation-guarantee-text {
+    color: rgb(78, 78, 78);
 }
 
 .booking-confirmation-learn-more-text {
@@ -193,8 +208,12 @@
     justify-content: space-between;
     border-top: solid;
     border-color: rgb(235, 235, 235);
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.booking-confirmation-manage-booking-options-padding-bottom {
+    /* padding-bottom: 30px; */
 }
 
 .booking-confirmation-manage-booking-options:hover {
@@ -223,11 +242,12 @@
 }
 
 .booking-confirmation-manage-booking-right-arrow-icon {
-    height: 14px;
-    margin-left: -13px;
+    height: 13px;
+    width: 9px;
+    margin-left: -11px;
 }
 
 .booking-confirmation-right {
-    position: sticky;
-    top: 0;
+    height: 674px;
+    background-color: pink;
 }
