@@ -16,8 +16,14 @@ function Bookings() {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const userBookings = useSelector(state => Object.values(state.bookings));
-    const upcomingBookings = userBookings.filter(booking => dayjs().utc().isBefore(dayjs(booking.endDate).utc()))
-    const pastBookings = userBookings.filter(booking => dayjs(booking.endDate).utc().isBefore(dayjs().utc()) );
+
+    const upcomingBookings = userBookings
+        .filter(booking => dayjs().utc().isBefore(dayjs(booking.endDate).utc()))
+            .sort((bookingA, bookingB) => {
+                return dayjs(bookingA.startDate).valueOf() - dayjs(bookingB.startDate).valueOf()
+            })
+
+    const pastBookings = userBookings.filter(booking => dayjs(booking.endDate).utc().isBefore(dayjs().utc()));
 
     useEffect(() => {
         dispatch(getUserBookings());
@@ -26,7 +32,7 @@ function Bookings() {
             top: 0,
             behavior: 'smooth'
         });
-        
+
     }, [dispatch]);
 
     if (!userBookings) return null;
@@ -172,7 +178,7 @@ function Bookings() {
                                 <div className="bookings-no-trips-text2">Time to dust off your bags and start planning your next adventure</div>
                             </div>
                             <div className="bookings-no-trips-lower">
-                                <div onClick={routeToAllSpots}className="bookings-no-trips-start-searching-button">Start searching</div>
+                                <div onClick={routeToAllSpots} className="bookings-no-trips-start-searching-button">Start searching</div>
                             </div>
                         </div>
                         <div className="bookings-no-trips-right">
