@@ -16,7 +16,6 @@ function UpdateBooking() {
     const history = useHistory();
     const { bookingId } = useParams();
     const booking = useSelector(state => state.bookings[bookingId]);
-    // console.log('booking', booking);
 
     const [startDate, setStartDate] = useState(dayjs(booking?.startDate).format("YYYY-MM-DD"));
     const [endDate, setEndDate] = useState(dayjs(booking?.endDate).format("YYYY-MM-DD"));
@@ -25,7 +24,6 @@ function UpdateBooking() {
 
     const doEffect = async () => {
         const currBooking = await dispatch(getBookingById(bookingId));
-        // console.log('currBooking', currBooking);
         if (currBooking) {
             setStartDate(dayjs(currBooking.startDate).format("YYYY-MM-DD"));
             setEndDate(dayjs(currBooking.endDate).format("YYYY-MM-DD"));
@@ -68,15 +66,13 @@ function UpdateBooking() {
             try {
                 const updatedBooking = await dispatch(editBooking(bookingId, newBookingData));
                 if (updatedBooking) {
-                    console.log('updatedBooking', updatedBooking);
                     history.push(`/booking/${updatedBooking.id}`);
                 }
 
             } catch (res) {
-                console.log('res', res)
                 const data = await res.json();
-                console.log('data', data)
                 const errors = [];
+
                 if (data && data.message) {
                     if (data.errors['startDate'] && data.errors['endDate']) {
                         errors.push(data.errors['startDate']);
@@ -86,12 +82,10 @@ function UpdateBooking() {
                     } else if (data.errors['endDate']) {
                         errors.push(data.errors['endDate']);
                     }
-                    console.log('data', data)
                 }
                 setValidationErrors(errors);
             }
         }
-
     }
 
 

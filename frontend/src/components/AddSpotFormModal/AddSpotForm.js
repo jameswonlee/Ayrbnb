@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import './AddSpotForm.css';
 
 
-function AddSpotForm({ setShowModal }) {
+function AddSpotForm({ setShowAddSpotModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -60,7 +60,7 @@ function AddSpotForm({ setShowModal }) {
             const spot = await dispatch(createSpot(newSpotDetails));
             if (spot) {
                 await dispatch(addImageToSpot(spot.id, url, true));
-                setShowModal(false);
+                setShowAddSpotModal(false);
                 history.push(`/spot/${spot.id}`);
             }
         }

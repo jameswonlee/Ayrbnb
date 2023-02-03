@@ -22,7 +22,6 @@ function DeleteSpotButton() {
 
     const deleteClickHandler = (e) => {
         dispatch(deleteSpot(spotId));
-        alert('Spot successfully deleted');
         history.push('/');
     }
 

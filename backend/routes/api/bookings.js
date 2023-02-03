@@ -105,14 +105,14 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
         });
     };
 
-    if (Date.parse(startDate) < new Date() ||
-        Date.parse(endDate) < new Date()) {
-        return res.status(403).json({
-            message: "Past bookings can't be modified",
-            statusCode: 403
-        });
-    };
-    console.log('HELLOOOOOOOOO')
+    // if (Date.parse(startDate) < new Date() ||
+    //     Date.parse(endDate) < new Date()) {
+    //     return res.status(403).json({
+    //         message: "Past bookings can't be modified",
+    //         statusCode: 403
+    //     });
+    // };
+
     if (startDate >= endDate) {
         return res.status(400).json({
             message: "Validation error",

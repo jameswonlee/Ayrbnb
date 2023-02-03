@@ -26,7 +26,6 @@ function BookingConfirmation() {
     const booking = useSelector(state => state.bookings[bookingId]);
     const sessionUser = useSelector(state => state.session.user);
     const girlNames = ["Jane", "Susan", "Jessica"];
-    console.log('booking', booking);
 
     const [showManageGuestsModal, setShowManageGuestsModal] = useState(false);
 

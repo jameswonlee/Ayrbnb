@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 674px;;
+    height: 100%;
 }
 
 .booking-confirmation-left-container {
-    height: auto;
+    height: 100%;
     overflow: scroll;
 }
 
@@ -244,6 +244,8 @@
 }
 
 .booking-confirmation-right {
-    height: 674px;
-    background-color: pink;
+    height: 739px;
+    position: sticky;
+    top: 0;
+    bottom: 0;
 }

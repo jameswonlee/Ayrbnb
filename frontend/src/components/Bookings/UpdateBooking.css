@@ -1,5 +1,5 @@
 .update-booking-outer-container {
-    height: 765px;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -13,7 +13,9 @@
     justify-content: space-between;
     border-right: solid;
     border-right-color: rgb(235, 235, 235);
-    height: 100%;
+    height: calc(100% - 130px);
+    position: sticky;
+    top: 0;
 }
 
 .update-booking-favicon {
@@ -63,14 +65,15 @@
 }
 
 .update-booking-right {
-    min-width: 364px;
+    width: 564px;
+    position: sticky;
     border-left: solid;
     border-left-color: rgb(228, 228, 228);
 }
 
 .update-booking-middle-upper {
     width: 505px;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 
 .update-booking-heading {
@@ -243,8 +246,9 @@
 
 .update-booking-middle-lower {
     width: 508px;
-    margin-top: 53px;
+    margin-top: 50px;
     margin-bottom: 50px;
+    padding-bottom: 100px;
 }
 
 .update-booking-cancellation-policy-heading {
@@ -262,7 +266,7 @@
 
 .update-booking-send-request-container {
     width: 100%;
-    position: sticky;
+    position: fixed;
     z-index: 13;
     background-color: white;
     display: flex;
@@ -271,8 +275,10 @@
     align-items:flex-start;
     border-top: solid;
     border-color: rgb(239, 239, 239);
-    bottom: calc(5% - 38px);
-    height: 60px;
+    /* bottom: calc(5% - 31px); */
+    bottom: 60px;
+    margin-right: 650px;
+    height: 70px;
 }
 
 .update-booking-button-container {

@@ -118,7 +118,6 @@ export const editBooking = (bookingId, bookingData) => async (dispatch) => {
     if (response.ok) {
         const updatedBookingData = await response.json();
         dispatch(updateBooking(updatedBookingData));
-        console.log('updatedBookingData', updatedBookingData)
         return updatedBookingData;
     }
 }
