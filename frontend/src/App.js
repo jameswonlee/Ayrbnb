@@ -9,6 +9,7 @@ import Bookings from "./components/Bookings/Bookings";
 import Footer from './components/Footer/Footer';
 import BookingConfirmation from "./components/Bookings/BookingConfirmation";
 import UpdateBooking from "./components/Bookings/UpdateBooking";
+import CancelBooking from "./components/Bookings/CancelBooking";
 import './index.css';
 
 function App() {
@@ -25,8 +26,8 @@ function App() {
   // - because on mobile, users were unable to login to account from HTTP website:
 
   useEffect(() => {
-    if (window.location.protocol === "http:" && window.location.host === "ayrbnb-james-lee.herokuapp.com") {
-      window.location = "https://ayrbnb-james-lee.herokuapp.com"
+    if (window.location.protocol === "http:" && window.location.host === "ayrbnb.herokuapp.com") {
+      window.location = "https://ayrbnb.herokuapp.com"
     }
   }, []);
 
@@ -58,6 +59,11 @@ function App() {
           </Route>
           <Route exact path='/booking/:bookingId/change'>
             <UpdateBooking />
+          </Route>
+          <Route exact path='/booking/:bookingId/cancel'>
+            <Navigation
+              isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />
+            <CancelBooking />
           </Route>
           <Route>
             <Navigation

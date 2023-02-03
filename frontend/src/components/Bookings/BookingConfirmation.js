@@ -56,7 +56,11 @@ function BookingConfirmation() {
     }
 
     const routeToUpdateBooking = () => {
-        history.push(`/booking/${booking.id}/change`)
+        history.push(`/booking/${bookingId}/change`);
+    }
+
+    const routeToCancelBooking = () => {
+        history.push(`/booking/${bookingId}/cancel`);
     }
 
 
@@ -145,7 +149,7 @@ function BookingConfirmation() {
                             </div>
                             <div><img src={rightArrowIcon} className="booking-confirmation-manage-booking-right-arrow-icon" /></div>
                         </div>
-                        <div className="booking-confirmation-manage-booking-options">
+                        <div onClick={routeToCancelBooking}className="booking-confirmation-manage-booking-options">
                             <div className="booking-confirmation-manage-booking-options-left">
                                 <div><img src={cancelReservationIcon} className="booking-confirmation-manage-booking-icons" /></div>
                                 <div className="booking-confirmation-manage-booking-option">Cancel reservation</div>
