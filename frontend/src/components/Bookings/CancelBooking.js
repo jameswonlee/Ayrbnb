@@ -1,12 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
-
+import { deleteBooking, getBookingById } from '../../store/bookings';
 import backArrow from '../../icons/cancel-booking-back-arrow.ico';
-import { getBookingById } from '../../store/bookings';
 import './CancelBooking.css';
 import dayjs from 'dayjs';
-
 
 
 function CancelBooking() {
@@ -30,6 +28,11 @@ function CancelBooking() {
 
     const routeBackToBookingConfirmation = () => {
         history.goBack();
+    }
+
+    const deleteBookingThenRouteToHome = async () => {
+        await dispatch(deleteBooking(bookingId));
+        history.push(`/`);
     }
 
 
@@ -62,7 +65,7 @@ function CancelBooking() {
                             <span className="cancel-booking-back-text"><img src={backArrow} className="cancel-booking-back-arrow" />Back</span></div>
                         <div></div>
                         <div className="cancel-booking-cancel-button-container">
-                            <button className="cancel-booking-cancel-button">Cancel</button>
+                            <button onClick={deleteBookingThenRouteToHome} className="cancel-booking-cancel-button">Cancel</button>
                         </div>
                     </div>
                 </div>

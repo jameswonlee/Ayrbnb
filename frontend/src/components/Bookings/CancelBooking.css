@@ -66,6 +66,10 @@
     font-weight: 400;
 }
 
+.cancel-booking-cancel-button:hover {
+    cursor: pointer;
+}
+
 .cancel-booking-back {
     font-size: 1rem;
     font-weight: 300;

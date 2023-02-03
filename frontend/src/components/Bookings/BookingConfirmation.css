@@ -181,6 +181,10 @@
     border-color: rgb(235, 235, 235);
 }
 
+.booking-confirmation-learn-more-text:hover {
+    cursor: not-allowed;
+}
+
 .booking-confirmation-cancellation-policy {
     font-size: 1rem;
     font-weight: 500;
@@ -200,6 +204,10 @@
     text-decoration: underline;
     margin-top: 5px;
     margin-bottom: 20px;
+}
+
+.booking-confirmation-cancellation-policy-read-more:hover {
+    cursor: not-allowed;
 }
 
 .booking-confirmation-manage-booking-options {
