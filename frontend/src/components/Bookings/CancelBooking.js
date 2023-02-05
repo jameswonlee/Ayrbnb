@@ -12,11 +12,14 @@ function CancelBooking() {
     const dispatch = useDispatch();
     const { bookingId } = useParams();
     const booking = useSelector(state => state.bookings[bookingId]);
+    const sessionUser = useSelector(state => state.session.user);
 
 
     useEffect(() => {
         dispatch(getBookingById(bookingId));
     }, [dispatch])
+
+    if (!sessionUser) return null;
 
     const calculateNights = () => {
         return Number(Date.parse(booking?.endDate) - Date.parse(booking?.startDate)) / 86400000
@@ -30,9 +33,9 @@ function CancelBooking() {
         history.goBack();
     }
 
-    const deleteBookingThenRouteToHome = async () => {
+    const deleteBookingThenRouteToConfirmation = async () => {
         await dispatch(deleteBooking(bookingId));
-        history.push(`/`);
+        history.push(`/user/${sessionUser.id}/trips`);
     }
 
 
@@ -65,7 +68,7 @@ function CancelBooking() {
                             <span className="cancel-booking-back-text"><img src={backArrow} className="cancel-booking-back-arrow" />Back</span></div>
                         <div></div>
                         <div className="cancel-booking-cancel-button-container">
-                            <button onClick={deleteBookingThenRouteToHome} className="cancel-booking-cancel-button">Cancel</button>
+                            <button onClick={deleteBookingThenRouteToConfirmation} className="cancel-booking-cancel-button">Cancel</button>
                         </div>
                     </div>
                 </div>

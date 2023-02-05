@@ -16,7 +16,8 @@ function UpdateBooking() {
     const history = useHistory();
     const { bookingId } = useParams();
     const booking = useSelector(state => state.bookings[bookingId]);
-
+    const sessionUser = useSelector(state => state.session.user);
+    
     const [startDate, setStartDate] = useState(dayjs(booking?.startDate).format("YYYY-MM-DD"));
     const [endDate, setEndDate] = useState(dayjs(booking?.endDate).format("YYYY-MM-DD"));
     const [numGuests, setNumGuests] = useState(booking?.numGuests);
@@ -40,6 +41,8 @@ function UpdateBooking() {
         });
 
     }, [dispatch])
+
+    if (!sessionUser) return null;
 
     const routeBackToBookingConfirmation = () => {
         history.goBack();

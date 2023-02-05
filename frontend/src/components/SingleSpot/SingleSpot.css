@@ -115,7 +115,7 @@
 .under-image-details {
     margin-top: 30px;
     padding-bottom: 30px;
-    border-bottom: solid;
+    border-bottom: 1px solid;
     border-bottom-color: rgb(238, 235, 235);
     display: flex;
     justify-content: space-between;
@@ -134,7 +134,7 @@
 }
 
 .description {
-    border-bottom: solid;
+    border-bottom: 1px solid;
     border-bottom-color: rgb(238, 235, 235);
     padding-bottom: 20px;
     margin-top: 30px;
@@ -170,7 +170,7 @@
 
 .review-outer-container {
     margin-top: 40px;
-    border-bottom: solid;
+    border-bottom: 1px solid;
     border-color: rgb(238, 235, 235);
     padding-bottom: 20px;
 }
@@ -217,7 +217,7 @@
 
 .spot-features-container {
     margin-top: 20px;
-    border-bottom: solid;
+    border-bottom: 1px solid;
     border-color: rgb(238, 235, 235);
     padding-bottom: 20px;
 }
@@ -306,7 +306,7 @@
 
 .aircover-container {
     margin-top: 35px;
-    border-bottom: solid;
+    border-bottom: 1px solid;
     border-color: rgb(238, 235, 235);
     padding-bottom: 35px;
 }
@@ -334,7 +334,7 @@
 } */
 
 .spot-amenities-container {
-    border-bottom: solid;
+    border-bottom: 1px solid;
     border-bottom-color: rgb(238, 235, 235);
     padding-bottom: 25px;
 }

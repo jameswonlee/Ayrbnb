@@ -47,6 +47,10 @@ function BookingConfirmation() {
         return () => nav.classList.toggle('nav-bar-no-sticky');
     }, []);
 
+    if (!sessionUser) {
+        return null;
+    }
+
     const routeToBookings = () => {
         history.goBack();
     }

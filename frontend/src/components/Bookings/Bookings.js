@@ -37,6 +37,8 @@ function Bookings() {
 
     if (!userBookings) return null;
 
+    if (!sessionUser) return null;
+
     const routeToBookingConfirmation = (bookingId) => {
         history.push(`/booking/${bookingId}`);
     }
