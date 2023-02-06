@@ -193,5 +193,13 @@ function Bookings() {
     )
 }
 
+// <a id="github" className="links-github" href="https://github.com/jameswonlee" target="_blank">
+// <i class="fa-brands fa-github"></i>                    </a>
+// <a id="linkedin" className="links-linkedin" href="https://www.linkedin.com/in/jameswonlee/" target="_blank">
+// <i class="fa-brands fa-linkedin"></i>                    </a>
+// <a id="angel-list" className="links-angellist" href="https://angel.co/u/jameswonlee/" target="_blank">
+// <i class="fa-brands fa-angellist"></i>
+// </a>
+
 
 export default Bookings;

@@ -1,24 +1,36 @@
 .footer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     position: sticky;
     bottom: 0;
     background-color: rgb(250, 250, 250);
-    height: 10px;
-    padding-bottom: 30px;
-    padding-top: 30px;
+    height: 3px;
+    padding-bottom: 25px;
+    padding-top: 25px;
     z-index: 12;
+    border-top: 1px solid rgb(221, 221, 221);
 }
 
-.footer-about {
-    margin-top: 5px;
+.footer-left {
+    margin-left: 80px;
+    font-size: 0.88rem;
+    color: rgb(87, 87, 87);
+}
+
+.footer-right {
+    margin-right: 70px;
+}
+
+.copyright-icon {
+    height: 12px;
+    margin-bottom: -1px;
 }
 
 .footer-links {
     margin-top: 5px;
-    margin-right: 10px;
+    margin-right: 15px;
     width: 60px;
     display: flex;
     flex-direction: row;
@@ -28,9 +40,23 @@
 .links-github {
     text-decoration: none;
     color: black;
+    margin-right: 10px;
 }
 
 .links-linkedin {
     text-decoration: none;
     color: #0a66c2;
+    margin-right: 10px;
+}
+
+.angel-list-icon {
+    height: 24px;
+}
+
+.airbnb-link {
+    color: rgb(0, 0, 0);
+}
+
+.portfolio-link {
+    color: rgb(0, 0, 0);
 }
