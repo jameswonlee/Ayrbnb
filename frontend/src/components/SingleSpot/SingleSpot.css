@@ -115,7 +115,7 @@
 .under-image-details {
     margin-top: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid;
+    border-bottom: 1.5px solid;
     border-bottom-color: rgb(238, 235, 235);
     display: flex;
     justify-content: space-between;

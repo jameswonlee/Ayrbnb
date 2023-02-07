@@ -17,7 +17,7 @@
     background: linear-gradient(45deg, rgb(230 29 80), rgb(216 8 102) 40%);
     color: white;
     font-size: 0.9em;
-    margin-top: 30px;
+    margin-top: 20px;
     font-weight: 500;
 }
 
@@ -29,6 +29,9 @@
 .write-review-title {
     padding-bottom: 18px;
     margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 20px;
 }
 
 .create-review-errors {
@@ -39,4 +42,26 @@
     font-size: 0.8rem;
     margin-top: -1px;
     color: red;
+}
+
+.create-review-select {
+    width: 502px;
+    border-radius: 6px;
+    border-color: gray;
+    font-size: 1.7rem;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    color: rgb(216, 8, 102);
+}
+
+.create-review-text-area {
+    height: 100px;
+    width: 495px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border-color: gray;
+    font-size: 1rem;
+
 }
