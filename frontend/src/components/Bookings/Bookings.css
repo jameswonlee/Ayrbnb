@@ -13,7 +13,7 @@
 .bookings-reservations-container {
     margin-top: 40px;
     height: auto;
-    border-bottom: solid;
+    border-bottom: 1.7px solid;
     padding-bottom: 50px;
     margin-right: 100px;
     border-color: rgb(227, 227, 227);

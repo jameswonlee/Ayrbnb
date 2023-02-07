@@ -67,7 +67,7 @@
 
 .create-booking-start-end-guests-container {
     background-color: white;
-    border: 1px solid;
+    border: 1.5px solid;
     border-color: rgb(205, 205, 205);
     border-radius: 8px;
     width: 330px;
@@ -78,7 +78,7 @@
     flex-direction: column;
     justify-content: center;
     width: 167px;
-    border-right: 1px solid;
+    border-right: 1.5px solid;
     border-right-color: rgb(205, 205, 205);
 
 }
@@ -136,7 +136,7 @@
 .create-booking-guests {
     background-color: white;
     height: 55px;
-    border-top: 1px solid;
+    border-top: 1.5px solid;
     border-top-color: rgb(205, 205, 205);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -221,8 +221,8 @@
     justify-content: space-between;
     margin-left: 20px;
     margin-right: 20px;
-    border-bottom: 1px solid;
-    border-color: rgb(205, 205, 205);
+    border-bottom: 1.7px solid;
+    border-color: rgb(238, 235, 235);
     padding-bottom: 23px;
 }
 
