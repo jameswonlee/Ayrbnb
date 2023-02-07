@@ -1,6 +1,7 @@
 import copyrightIcon from '../../icons/copyright-icon.png';
 import angelList from '../../icons/angel-list.png';
 import './Footer.css';
+import dayjs from 'dayjs';
 
 
 function Footer() {
@@ -8,7 +9,7 @@ function Footer() {
     return (
         <footer className="footer">
             <div className="footer-left">
-                <span><img src={copyrightIcon} className="copyright-icon" /> 2023 Ayrbnb, Inc. · An</span>
+                <span><img src={copyrightIcon} className="copyright-icon" /> {dayjs().format("YYYY")} Ayrbnb, Inc.&nbsp; · &nbsp;An</span>
                 <a id="airbnb" className="airbnb-link" href="https://www.airbnb.com" target="_blank" rel="noreferrer">
                     &nbsp;<span className="footer-name-text">Airbnb</span>&nbsp;
                 </a>
