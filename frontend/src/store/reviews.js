@@ -6,7 +6,7 @@ import { csrfFetch } from "./csrf";
 const LOAD_REVIEWS = 'reviews/LOAD_REVIEWS';
 const ADD_REVIEW = "reviews/ADD_REVIEW"
 const REMOVE_REVIEW = 'review/REMOVE_REVIEW';
-// const UPDATE_REVIEW = 'reviews/UPDATE_REVIEW';
+const UPDATE_REVIEW = 'reviews/UPDATE_REVIEW';
 
 
 /* --------------- Action Creators --------------- */
@@ -33,12 +33,12 @@ const removeReview = (reviewId) => {
     }
 }
 
-// const updateReview = (updatedReview) => {
-//     return {
-//         type: UPDATE_REVIEW,
-//         review: updatedReview
-//     }
-// }
+const updateReview = (updatedReview) => {
+    return {
+        type: UPDATE_REVIEW,
+        review: updatedReview
+    }
+}
 
 
 /* -------------- Thunk Action Creators -------------- */
@@ -64,6 +64,20 @@ export const createReviewForSpot = (review, stars, spotId, sessionUser) => async
         const newReview = await response.json();
         dispatch(addReview(newReview, sessionUser))
         return newReview;
+    }
+}
+
+export const editReview = (reviewId, review, stars) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ review, stars })
+    })
+
+    if (response.ok) {
+        const updatedReview = await response.json();
+        dispatch(updateReview(updatedReview));
+        return updatedReview;
     }
 }
 
@@ -129,6 +143,18 @@ const reviewsReducer = (state = initialState, action) => {
                 }
             }
             return newState;
+
+        case UPDATE_REVIEW:
+            newState = {
+                ...state,
+                reviews: {
+                    ...state.reviews, [action.review.id]: {
+                        ...action.review,
+                    }
+                }
+            }
+            return newState;
+
         default:
             return state;
     }

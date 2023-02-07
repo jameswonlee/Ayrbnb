@@ -15,6 +15,7 @@ function ReviewsForSpot() {
     
     const girlNames = ["Jane", "Susan", "Jessica"];
 
+
     useEffect(() => {
         dispatch(getReviewsBySpotId(spotId))
     }, []);

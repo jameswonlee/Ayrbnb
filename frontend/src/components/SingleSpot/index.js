@@ -50,11 +50,14 @@ function SingleSpot() {
     useEffect(() => {
         doEffect();
 
+    }, [spotId, reviewCount]);
+
+    useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
-    }, [spotId, reviewCount]);
+    }, [])
 
     const scrollToReviews = () => {
         window.scrollTo({

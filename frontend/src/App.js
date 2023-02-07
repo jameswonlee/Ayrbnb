@@ -11,6 +11,7 @@ import BookingConfirmation from "./components/Bookings/BookingConfirmation";
 import UpdateBooking from "./components/Bookings/UpdateBooking";
 import CancelBooking from "./components/Bookings/CancelBooking";
 import './index.css';
+import UpdateOrDeleteReviewModal from "./components/Reviews/UpdateOrDeleteReviewModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,9 @@ function App() {
             <Navigation
               isLoaded={isLoaded} showAddSpotModal={showAddSpotModal} setShowAddSpotModal={setShowAddSpotModal} />
             <SingleSpot />
+          </Route>
+          <Route exact path='/spot/:spotId/review/:reviewId'>
+            <UpdateOrDeleteReviewModal />
           </Route>
           <Route exact path='/user/:userId/trips'>
             <Navigation

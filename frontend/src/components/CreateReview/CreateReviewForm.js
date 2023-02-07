@@ -19,7 +19,6 @@ function CreateReviewForm({ spot, setShowModal }) {
 
         if (!review.length) errors.push("Review is required");
         if (review.length > 500) errors.push("Review can not exceed 500 characters")
-        if (!stars || stars < 0 || stars > 5) errors.push("Star rating must be between 1 and 5");
 
         setValidationErrors(errors);
 

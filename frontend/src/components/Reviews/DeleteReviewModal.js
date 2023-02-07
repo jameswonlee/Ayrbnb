@@ -28,7 +28,7 @@ function DeleteReviewModal({ review }) {
     return (
         <div className="delete-review-outer">
             <button className="delete-review-button" onClick={showModal}>
-                Delete your review
+                Delete review
             </button>
             {shown && (
                 <Modal onClose={hideModal}>
