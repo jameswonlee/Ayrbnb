@@ -137,7 +137,7 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    border-bottom: solid;
+    border-bottom: 1.2px solid;
     padding-bottom: 10px;
     border-color: rgb(219, 219, 219);
 }
@@ -184,7 +184,7 @@
     margin-right: 20px;
     display: flex;
     flex-direction: column;
-    border-bottom: solid;
+    border-bottom: 1.2px solid;
     padding-bottom: 15px;
     border-color: rgb(219, 219, 219);
 }
@@ -214,7 +214,7 @@
     margin-right: 20px;
     margin-top: 15px;
     padding-bottom: 15px;
-    border-bottom: solid;
+    border-bottom: 1.2px solid;
     border-color: rgb(219, 219, 219);
     font-size: 0.97rem;
     font-weight: 300;
