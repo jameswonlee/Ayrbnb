@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createReviewForSpot } from '../../store/reviews';
 import './CreateReviewForm.css';
-import backArrow from '../../icons/back-arrow.png';
 
 
 function CreateReviewForm({ spot, setShowCreateReviewModal, userReview, setUserReview, userStars, setUserStars }) {

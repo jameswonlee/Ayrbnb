@@ -36,8 +36,8 @@ function SingleSpot() {
     const userHasReview = Object.values(reviews).find(review => review.userId === sessionUser?.id);
 
     const [notFound, setNotFound] = useState(false);
-    const [userReview, setUserReview] = useState("");
-    const [userStars, setUserStars] = useState("");
+    const [userReview, setUserReview] = useState();
+    const [userStars, setUserStars] = useState();
 
     const doEffect = async () => {
         try {
@@ -52,11 +52,11 @@ function SingleSpot() {
 
     useEffect(() => {
         doEffect();
-
+        console.log('userHasReview', userHasReview)
         setUserReview(userHasReview?.review || "");
         setUserStars(userHasReview?.stars || 5);
 
-    }, [spotId, reviewCount]);
+    }, [spotId, userHasReview?.review, userHasReview?.stars]);
 
     useEffect(() => {
         window.scrollTo({
@@ -64,6 +64,7 @@ function SingleSpot() {
             behavior: 'smooth'
         });
     }, [])
+
 
     const scrollToReviews = () => {
         window.scrollTo({

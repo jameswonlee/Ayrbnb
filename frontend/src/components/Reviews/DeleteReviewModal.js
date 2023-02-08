@@ -20,7 +20,7 @@ function DeleteReviewModal({ review, setUserReview, setUserStars }) {
     const deleteClickHandler = async () => {
         await dispatch(deleteReview(review.id));
         setUserReview("");
-        setUserStars("");
+        setUserStars(5);
         setShowDeleteModal(false);
     }
 
