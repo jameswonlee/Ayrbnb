@@ -1,7 +1,7 @@
 import { Modal } from "../../context/Modal";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { deleteReview, getReviewsBySpotId } from "../../store/reviews";
+import { deleteReview } from "../../store/reviews";
 import './Reviews.css';
 
 

@@ -52,7 +52,6 @@ function SingleSpot() {
 
     useEffect(() => {
         doEffect();
-        console.log('userHasReview', userHasReview)
         setUserReview(userHasReview?.review || "");
         setUserStars(userHasReview?.stars || 5);
 

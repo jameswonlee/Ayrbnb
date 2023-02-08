@@ -12,8 +12,6 @@ function UpdateReviewModal({ review, userReview, setUserReview, userStars, setUs
 
     const submitHandler = async (e) => {
 
-        console.log('userReview', userReview);
-        console.log('userStars', userStars);
         e.preventDefault();
         const errors = [];
 
@@ -27,9 +25,7 @@ function UpdateReviewModal({ review, userReview, setUserReview, userStars, setUs
                 await dispatch(editReview(review.id, userReview, userStars));
                 setShowUpdateModal(false);
             } catch(e) {
-                console.log('e', e)
                 const response = await e.json();
-                console.log('response', response)
             }
         }
     }
