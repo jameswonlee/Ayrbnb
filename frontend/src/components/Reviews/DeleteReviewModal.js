@@ -1,36 +1,35 @@
 import { Modal } from "../../context/Modal";
 import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import { deleteReview } from "../../store/reviews";
+import { deleteReview, getReviewsBySpotId } from "../../store/reviews";
 import './Reviews.css';
 
 
-function DeleteReviewModal({ review }) {
+function DeleteReviewModal({ review, setUserReview, setUserStars }) {
     const dispatch = useDispatch();
-    const history = useHistory();
-    const { spotId } = useParams();
-    const [shown, setShown] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     const showModal = () => {
-        setShown(true);
+        setShowDeleteModal(true);
     }
 
     const hideModal = () => {
-        setShown(false);
+        setShowDeleteModal(false);
     }
 
     const deleteClickHandler = async () => {
         await dispatch(deleteReview(review.id));
-        setShown(false);
+        setUserReview("");
+        setUserStars("");
+        setShowDeleteModal(false);
     }
 
     return (
         <div className="delete-review-outer">
-            <button className="delete-review-button" onClick={showModal}>
+            <button className="review-buttons" onClick={showModal}>
                 Delete review
             </button>
-            {shown && (
+            {showDeleteModal && (
                 <Modal onClose={hideModal}>
                     <div className="confirm-delete-review">
                         <h2 className="confirm-delete-question">

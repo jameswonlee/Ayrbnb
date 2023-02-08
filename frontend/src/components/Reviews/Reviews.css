@@ -100,9 +100,12 @@
 
 .delete-review-modal {
     margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
 
-.delete-review-button {
+.review-buttons {
     background-color: rgb(217 11 101);
     border: 1px solid rgb(210, 210, 210);
     border-radius: 6px;
@@ -111,9 +114,14 @@
     color: white;
     font-size: 0.8rem;
     font-weight: 500;
+    width: 105px;
 }
 
-.delete-review-button:hover {
+.review-buttons:hover {
     background-color: rgb(131, 7, 61);
     cursor: pointer;
+}
+
+.delete-review-component {
+    margin-left: 5px;
 }

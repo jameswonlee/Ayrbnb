@@ -4,19 +4,25 @@ import CreateReviewForm from "./CreateReviewForm";
 import './CreateReviewModal.css';
 
 
-function CreateReviewModal({ spot }) {
-    const [showModal, setShowModal] = useState(false);
+function CreateReviewModal({ spot, userReview, setUserReview, userStars, setUserStars }) {
+    const [showCreateReviewModal, setShowCreateReviewModal] = useState(false);
 
     const clickHandler = () => {
-        setShowModal(true);
+        setShowCreateReviewModal(true);
     }
 
     return (
         <div className="create-review-container">
             <button onClick={clickHandler} className="create-review-button">Write a review</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <CreateReviewForm setShowModal={setShowModal} spot={spot}/>
+            {showCreateReviewModal && (
+                <Modal onClose={() => setShowCreateReviewModal(false)}>
+                    <CreateReviewForm
+                        setShowCreateReviewModal={setShowCreateReviewModal}
+                        spot={spot}
+                        userReview={userReview}
+                        setUserReview={setUserReview}
+                        userStars={userStars}
+                        setUserStars={setUserStars} />
                 </Modal>
             )}
         </div>

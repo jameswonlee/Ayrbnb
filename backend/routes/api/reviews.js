@@ -56,6 +56,21 @@ router.get('/current', requireAuth, async (req, res) => {
 });
 
 
+// Get a review by reviewId
+router.get('/:reviewId', requireAuth, async (req, res) => {
+    const review = Review.findByPk(req.params.reviewId);
+
+    if (!review) {
+        return res.status(404).json({
+            message: "Review could not be found",
+            statusCode: 404
+        })
+    } else {
+        return res.json(review);
+    }
+})
+
+
 
 
 // Add an Image to a Review based on the Review's id 
@@ -107,24 +122,24 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
 // Edit a Review 
 router.put('/:reviewId', requireAuth, async (req, res, next) => {
     const { review, stars } = req.body;
+    
+    const reviewToUpdate = await Review.findByPk(req.params.reviewId);
 
-    const editReview = await Review.findByPk(req.params.reviewId);
-
-    if (!editReview) {
+    if (!reviewToUpdate) {
         return res.status(404).json({
             message: "Review couldn't be found",
             statusCode: 404
         })
     }
 
-    if (editReview.userId === req.user.id) {
-
+    if (reviewToUpdate.userId === req.user.id) {
+        
         if (review && stars) {
-            editReview.review = review;
-            editReview.stars = stars;
+            reviewToUpdate.review = review;
+            reviewToUpdate.stars = stars;
 
-            await editReview.save();
-            return res.json(editReview)
+            await reviewToUpdate.save();
+            return res.json(reviewToUpdate)
 
         } else {
             const err = {};
@@ -134,8 +149,8 @@ router.put('/:reviewId', requireAuth, async (req, res, next) => {
             if (!stars) err.errors.stars = "Stars must be an integer from 1 to 5";
 
             err.title = "Validation Error",
-            err.message = "Validation Error",
-            err.status = 400;
+                err.message = "Validation Error",
+                err.status = 400;
             return next(err);
         }
 

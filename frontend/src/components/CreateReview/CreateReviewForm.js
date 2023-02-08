@@ -5,28 +5,26 @@ import './CreateReviewForm.css';
 import backArrow from '../../icons/back-arrow.png';
 
 
-function CreateReviewForm({ spot, setShowModal }) {
+function CreateReviewForm({ spot, setShowCreateReviewModal, userReview, setUserReview, userStars, setUserStars }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
-    const [review, setReview] = useState("");
-    const [stars, setStars] = useState(5);
     const [validationErrors, setValidationErrors] = useState([]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
         const errors = [];
 
-        if (!review.length) errors.push("Review is required");
-        if (review.length > 500) errors.push("Review can not exceed 500 characters")
+        if (!userReview.length) errors.push("Review is required");
+        if (userReview.length > 500) errors.push("Review can not exceed 500 characters");
 
         setValidationErrors(errors);
 
         if (!errors.length) {
             try {
-                await dispatch(createReviewForSpot(review, stars, spot.id, sessionUser));
-                setShowModal(false);
-            } catch (e) {
+                await dispatch(createReviewForSpot(userReview, userStars, spot.id, sessionUser));
+                setShowCreateReviewModal(false);
+            } catch(e) {
                 const response = await e.json();
                 const otherErrors = errors.slice();
                 otherErrors.push(response.message);
@@ -46,10 +44,10 @@ function CreateReviewForm({ spot, setShowModal }) {
                             <div className="create-review-errors-text" key={error}>{error}</div>
                         )}
                 </div>
-                <select value={stars}
+                <select value={userStars}
                     onChange={e => {
                         setValidationErrors([])
-                        setStars(e.target.value)
+                        setUserStars(e.target.value)
                     }}
                     className="create-review-select">
                     <option value="5">★ ★ ★ ★ ★</option>
@@ -62,9 +60,9 @@ function CreateReviewForm({ spot, setShowModal }) {
                     type="text"
                     onChange={e => {
                         setValidationErrors([])
-                        setReview(e.target.value)
+                        setUserReview(e.target.value)
                     }}
-                    value={review}
+                    value={userReview}
                     placeholder="Your review here..."
                     className="create-review-text-area"
                 />

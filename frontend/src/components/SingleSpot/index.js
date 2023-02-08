@@ -33,8 +33,11 @@ function SingleSpot() {
     const spot = useSelector(state => state.spots.spots[spotId]);
     const reviews = useSelector(state => state.reviews.reviews);
     const reviewCount = Object.keys(reviews).length;
+    const userHasReview = Object.values(reviews).find(review => review.userId === sessionUser?.id);
+
     const [notFound, setNotFound] = useState(false);
-    const userHasReview = Object.values(reviews).find(review => review.User?.id === sessionUser?.id);
+    const [userReview, setUserReview] = useState("");
+    const [userStars, setUserStars] = useState("");
 
     const doEffect = async () => {
         try {
@@ -49,6 +52,9 @@ function SingleSpot() {
 
     useEffect(() => {
         doEffect();
+
+        setUserReview(userHasReview?.review || "");
+        setUserStars(userHasReview?.stars || 5);
 
     }, [spotId, reviewCount]);
 
@@ -261,7 +267,7 @@ function SingleSpot() {
                         {spot.avgStarRating
                             ?
                             <div className="avgRating-reviewCount">
-                                ★ {Number(spot.avgStarRating).toFixed(1)} • {reviewCount} reviews
+                                ★ {Number(spot.avgStarRating).toFixed(1)} · {reviewCount} reviews
                             </div>
                             :
                             <div className="avgRating-reviewCount">
@@ -272,10 +278,20 @@ function SingleSpot() {
                     <div className="review-outer-container">
                         {sessionUser && spot.Owner?.id !== sessionUser.id && !userHasReview &&
                             <div>
-                                <CreateReviewModal spot={spot} />
+                                <CreateReviewModal
+                                    spot={spot}
+                                    userReview={userReview}
+                                    setUserReview={setUserReview}
+                                    userStars={userStars}
+                                    setUserStars={setUserStars} />
                             </div>
                         }
-                        <ReviewsForSpot reviews={reviews} spot={spot} />
+                        <ReviewsForSpot
+                            reviews={reviews}
+                            userReview={userReview}
+                            setUserReview={setUserReview}
+                            userStars={userStars}
+                            setUserStars={setUserStars} />
                     </div>
                     <div className="maps-outer-container">
                         <div>

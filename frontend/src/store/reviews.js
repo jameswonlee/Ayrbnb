@@ -4,7 +4,8 @@ import { csrfFetch } from "./csrf";
 /* ---------------- Action Types ----------------- */
 
 const LOAD_REVIEWS = 'reviews/LOAD_REVIEWS';
-const ADD_REVIEW = "reviews/ADD_REVIEW"
+const LOAD_ONE_REVIEW = 'reviews/LOAD_ONE_REVIEW';
+const ADD_REVIEW = 'reviews/ADD_REVIEW';
 const REMOVE_REVIEW = 'review/REMOVE_REVIEW';
 const UPDATE_REVIEW = 'reviews/UPDATE_REVIEW';
 
@@ -15,6 +16,13 @@ const loadReviews = (reviews) => {
     return {
         type: LOAD_REVIEWS,
         reviews: reviews
+    }
+}
+
+const loadReview = (review) => {
+    return {
+        type: LOAD_ONE_REVIEW,
+        review: review
     }
 }
 
@@ -50,6 +58,16 @@ export const getReviewsBySpotId = (spotId) => async (dispatch) => {
         const reviews = await response.json();
         dispatch(loadReviews(reviews.Reviews));
         return reviews;
+    }
+}
+
+export const getReviewByReviewId = (reviewId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews/${reviewId}`);
+
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(loadReview(review));
+        return review;
     }
 }
 
@@ -108,29 +126,12 @@ const reviewsReducer = (state = initialState, action) => {
             newState = { ...state, reviews: newReviews };
             return newState;
         }
-        case REMOVE_REVIEW:
-            // This delete causes bugs in STATE:
-            // delete newState.reviews[action.reviewId];
 
-            // Alternative remove method:
-            const { [action.reviewId]: deletedReview, ...rest } = state.reviews;
-            newState = {
-                ...state,
-                reviews: rest
-            }
-
-            // Alternative remove method2:
-            // let newReviews = {};
-            // const reviewIdKeys = Object.keys(newState.reviews);
-            // const filteredReviewIdKeys = reviewIdKeys.filter((reviewId) => {
-            //     return reviewId != action.reviewId
-            // });
-            // filteredReviewIdKeys.forEach(reviewIdKey => {
-            //     newReviews[reviewIdKey] = newState.reviews[reviewIdKey]
-            // })
-            // newState = { ...state, reviews: newReviews}
-
+        case LOAD_ONE_REVIEW:
+            newState = { ...state };
+            newState[action.review.id] = action.review
             return newState;
+
         case ADD_REVIEW:
             newState = { ...state }
             newState = {
@@ -145,14 +146,40 @@ const reviewsReducer = (state = initialState, action) => {
             return newState;
 
         case UPDATE_REVIEW:
+            newState = { ...state };
             newState = {
-                ...state,
                 reviews: {
                     ...state.reviews, [action.review.id]: {
                         ...action.review,
                     }
                 }
             }
+            return newState;
+
+        case REMOVE_REVIEW:
+            // This delete causes bugs in STATE:
+            // delete newState.reviews.reviews[action.reviewId];
+            // return newState;
+
+            // Alternative remove method:
+            const { [action.reviewId]: deletedReview, ...rest } = state.reviews;
+            newState = {
+                ...state,
+                reviews: rest
+            }
+
+        
+            // Alternative remove method2:
+            // let newReviews = {};
+            // const reviewIdKeys = Object.keys(newState.reviews);
+            // const filteredReviewIdKeys = reviewIdKeys.filter((reviewId) => {
+            //     return reviewId != action.reviewId
+            // });
+            // filteredReviewIdKeys.forEach(reviewIdKey => {
+            //     newReviews[reviewIdKey] = newState.reviews[reviewIdKey]
+            // })
+            // newState = { ...state, reviews: newReviews}
+
             return newState;
 
         default:

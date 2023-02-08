@@ -23,7 +23,7 @@ const Maps = ({ apiKey, spot, booking }) => {
       height: '460px',
     };
 
-    zoom = 15
+    zoom = 12
   }
 
   if (booking) {
