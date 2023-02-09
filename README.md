@@ -55,9 +55,12 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 
 # Sample Features
 
-- ### Log in as Demo User (desktop)
+![splash-page]
 
-![desktop-login](https://imgur.com/pa3ATgw.gif)
+[splash-page]: ./misc/assets/splash-page.png
+
+
+
 
 <br>
 
@@ -68,32 +71,29 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 
 <br>
 
+<!-- - ### Log in as Demo User (desktop) -->
+
+<!-- ![desktop-login](https://imgur.com/pa3ATgw.gif) -->
+
 ---------------------------------------------------------------
 ## Roadmap of Features:
 - [x] Spots
     - [x] Load all spots
     - [x] Load details of single spot
     - [x] Create a spot
-    - [ ] List current user's spots
     - [x] Update current user's spot
     - [x] Delete current user's spot
-- [ ] Reviews
+- [x] Reviews
     - [x] Load all reviews for a spot
     - [x] Create a review
-    - [ ] Update a review
+    - [x] Update a review
     - [x] Delete a review
-    - [ ] List all reviews of current user
-- [ ] Bookings
-    - [ ] Create a booking for a spot
-    - [ ] List current user's bookings
-    - [ ] List all bookings for a spot
-    - [ ] Update current user's booking
-    - [ ] Delete current user's booking
-- [ ] Images
-    - [x] Add an image to a spot
-    - [ ] Add an image to a review
-    - [ ] Delete a spot image
-    - [ ] Delete a review image
+- [x] Bookings
+    - [x] Create a booking for a spot
+    - [x] List current user's bookings
+    - [x] Update current user's booking
+    - [x] Delete current user's booking
+- [x] Google Maps API
 - [ ] Search
 
 -------------------------------------------------------------------
