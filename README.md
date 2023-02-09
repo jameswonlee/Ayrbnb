@@ -55,9 +55,42 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 
 # Sample Features
 
+### Desktop
+
+
 ![splash-page]
 
 [splash-page]: ./misc/assets/splash-page.png
+
+
+![single-spot] 
+
+[single-spot]: ./misc/assets/single-spot.png
+
+
+![bookings]
+
+[bookings]: ./misc/assets/bookings.png
+
+
+![google-maps]
+
+[google-maps]: ./misc/assets/google-maps-API.png
+
+
+![booking-confirmation]
+
+[booking-confirmation]: ./misc/assets/booking-confirmation.png
+
+
+![update-booking]
+
+[update-booking]: ./misc/assets/update-booking.png
+
+
+![cancel-booking]
+
+[cancel-booking]: ./misc/assets/cancel-booking.png
 
 
 
@@ -65,7 +98,7 @@ Ayrbnb is a fullstack application 'clone' inspired by the [Airbnb](http://www.ai
 
 <br>
 
-- ### Log in as Demo User (mobile)
+### Mobile
 
 ![mobile-login-large](https://imgur.com/0xIYfpc.gif)
 <!-- ![mobile-login-small](https://imgur.com/GwLHuwG.gif) -->
