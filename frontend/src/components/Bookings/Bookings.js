@@ -9,6 +9,11 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
 
+var isSameOrBefore = require('dayjs/plugin/isSameOrBefore');
+dayjs.extend(isSameOrBefore);
+
+var isSameOrAfter = require('dayjs/plugin/isSameOrAfter');
+dayjs.extend(isSameOrAfter);
 
 
 function Bookings() {
@@ -18,12 +23,17 @@ function Bookings() {
     const userBookings = useSelector(state => Object.values(state.bookings));
 
     const upcomingBookings = userBookings
-        .filter(booking => dayjs().utc().isBefore(dayjs(booking.endDate).utc()))
-            .sort((bookingA, bookingB) => {
-                return dayjs(bookingA.startDate).valueOf() - dayjs(bookingB.startDate).valueOf()
-            })
+        .filter(booking => dayjs().subtract(1, 'd').utc().isBefore(dayjs(booking.startDate).utc()))
+        .sort((bookingA, bookingB) => {
+            return dayjs(bookingA.startDate).valueOf() - dayjs(bookingB.startDate).valueOf()
+        })
 
-    const pastBookings = userBookings.filter(booking => dayjs(booking.endDate).utc().isBefore(dayjs().utc()));
+    const pastBookings = userBookings
+        .filter(booking => dayjs(booking.startDate).utc().isBefore(dayjs().subtract(1, 'd').utc()))
+        .sort((bookingA, bookingB) => {
+            return dayjs(bookingB.startDate).valueOf() - dayjs(bookingA.startDate).valueOf()
+        })
+
 
     useEffect(() => {
         dispatch(getUserBookings());
@@ -35,8 +45,7 @@ function Bookings() {
 
     }, [dispatch]);
 
-    if (!userBookings) return null;
-
+    if (!userBookings) return null
     if (!sessionUser) return null;
 
     const routeToBookingConfirmation = (bookingId) => {

@@ -87,8 +87,8 @@ function ProfileButton({ user, setShowAddSpotModal }) {
           <div onClick={routeToUserBookings} className="dropdown-menu-options shift-down-2">
             <span className="shift-right shift-down">Trips</span>
           </div>
-          <div className="dropdown-menu-options">
-            <span onClick={() => setShowAddSpotModal(true)}className="shift-right shift-down">Airbnb your home</span>
+          <div onClick={() => setShowAddSpotModal(true)} className="dropdown-menu-options">
+            <span className="shift-right shift-down">Airbnb your home</span>
           </div>
           <div className="dropdown-menu-options logout-button shift-up-1" onClick={logout}>
             <span className="shift-right shift-down">Log Out</span>
