@@ -48,7 +48,7 @@ function CreateBooking({ spot }) {
         if (!sessionUser) errors.push("You must be signed in to book a spot");
         if (!startDate) errors.push("Select a check-in date");
         if (!endDate) errors.push("Select a checkout date");
-        // if (dayjs(startDate).isBefore(dayjs().subtract(1, 'd'))) errors.push("Please select a future start date");
+        if (dayjs(startDate).isBefore(dayjs().subtract(1, 'd'))) errors.push("Please select a future start date");
         if (dayjs(startDate).isSame(dayjs(endDate))) errors.push("1 night minimum");
         if (dayjs(endDate).isBefore(dayjs(startDate))) errors.push("Please select valid start and end dates");
         if (sessionUser) {
@@ -121,7 +121,7 @@ function CreateBooking({ spot }) {
                                     setStartDate(e.target.value)
                                 }}
                                 value={startDate}
-                                // min={dayjs().format("YYYY-MM-DD")}
+                                min={dayjs().format("YYYY-MM-DD")}
                                 max={dayjs().add(6, 'months').format("YYYY-MM-DD")}
                                 className="create-booking-start-date-input"
                             />
