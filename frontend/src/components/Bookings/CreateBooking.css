@@ -89,8 +89,9 @@
     width: 145px;
     font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(117, 117, 117);
+    color: rgb(59, 59, 59);
     margin-left: 1px;
+    -webkit-text-fill-color: rgb(59, 59, 59);
 }
 
 .create-booking-start-date-input:hover {
@@ -109,7 +110,7 @@
     width: 147px;
     font-size: 0.82rem;
     margin-top: -2px;
-    color: rgb(117, 117, 117);
+    color: rgb(59, 59, 59);
     margin-left: 1px;
 }
 
@@ -153,12 +154,12 @@
 
 .create-booking-guests-select {
     font-size: 0.82rem;
-    width: 315px;
+    width: 312px;
     border: none;
     margin-left: 10px;
-    color: rgb(117, 117, 117);
+    color: rgb(59, 59, 59);
     background-color: white;
-    appearance: none;
+    /* appearance: none; */
 }
 
 .create-booking-guests-select:hover {

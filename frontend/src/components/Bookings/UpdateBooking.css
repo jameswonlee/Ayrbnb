@@ -168,8 +168,7 @@
     width: 230px;
     font-size: 0.9rem;
     margin-top: -3px;
-    /* color: rgb(31, 31, 31); */
-    color: rgb(117, 117, 117);
+    -webkit-text-fill-color: rgb(31, 31, 31);
     margin-left: 1px;
 }
 
@@ -189,8 +188,7 @@
     width: 230px;
     font-size: 0.9rem;
     margin-top: -3px;
-    /* color: rgb(31, 31, 31); */
-    color: rgb(117, 117, 117);
+    color: rgb(31, 31, 31);
     margin-left: 1px;
     padding-bottom: 5px;
 }
@@ -203,8 +201,7 @@
     font-size: 0.73rem;
     font-weight: 400;
     margin-left: 10px;
-    /* color: rgb(135, 135, 135); */
-    color: rgb(31, 31, 31);
+    color: rgb(135, 135, 135);
     margin-top: 6px;
 }
 
@@ -212,8 +209,7 @@
     font-size: 0.73rem;
     font-weight: 400;
     margin-left: 10px;
-    /* color: rgb(135, 135, 135); */
-    color: rgb(31, 31, 31);
+    color: rgb(135, 135, 135);
     margin-top: 6px;
 }
 
@@ -241,8 +237,7 @@
     height: 53px;
     margin-left: 5px;
     font-size: 0.9rem;
-    /* color: rgb(31, 31, 31); */
-    color: rgb(117, 117, 117);
+    color: rgb(31, 31, 31);
 }
 
 .update-booking-num-guests-select:hover {
@@ -277,7 +272,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items:flex-start;
+    align-items: flex-start;
     border-top: solid;
     border-color: rgb(239, 239, 239);
     /* bottom: calc(5% - 31px); */
