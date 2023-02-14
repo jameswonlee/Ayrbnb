@@ -44,6 +44,7 @@ router.get('/current', requireAuth, async (req, res) => {
         });
         booking.Spot = spot;
     };
+    console.log('bookings#######################', bookings)
     return res.json({ Bookings: bookings });
 });
 

@@ -10,8 +10,8 @@ import Footer from './components/Footer/Footer';
 import BookingConfirmation from "./components/Bookings/BookingConfirmation";
 import UpdateBooking from "./components/Bookings/UpdateBooking";
 import CancelBooking from "./components/Bookings/CancelBooking";
+import UpdateReviewModal from "./components/Reviews/UpdateReviewModal";
 import './index.css';
-import UpdateOrDeleteReviewModal from "./components/Reviews/UpdateOrDeleteReviewModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ function App() {
             <SingleSpot />
           </Route>
           <Route exact path='/spot/:spotId/review/:reviewId'>
-            <UpdateOrDeleteReviewModal />
+            <UpdateReviewModal />
           </Route>
           <Route exact path='/user/:userId/trips'>
             <Navigation

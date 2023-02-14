@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getReviewsBySpotId } from '../../store/reviews';
 import { createBooking } from '../../store/bookings';
+import downCaret from '../../icons/down-caret.ico';
 import './CreateBooking.css';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -145,6 +146,7 @@ function CreateBooking({ spot }) {
                             GUESTS
                         </div>
                         <div className="create-booking-guests-select-container">
+                            <img src={downCaret} className="create-booking-guests-down-caret"/>
                             <select value={numGuests} onChange={e => setNumGuests(e.target.value)} className="create-booking-guests-select">
                                 <option value="1">1 guest</option>
                                 <option value="2">2 guests</option>
