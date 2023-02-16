@@ -68,7 +68,7 @@
 }
 
 .bookings-reservation-left-border-bottom {
-    border-bottom: solid;
+    border-bottom: 1.5px solid;
     width: 380px;
     border-color: rgb(227, 227, 227);
     margin-left: 20px;
@@ -83,7 +83,7 @@
 }
 
 .bookings-reservation-left-border-right {
-    border-right: solid;
+    border-right: 1.5px solid;
     height: 60px;
     margin-left: 20px;
     margin-top: 16px;
