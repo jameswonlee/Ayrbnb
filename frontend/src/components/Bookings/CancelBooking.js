@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { deleteBooking, getBookingById } from '../../store/bookings';
 import backArrow from '../../icons/cancel-booking-back-arrow.ico';
+import downCaret from '../../icons/down-caret.ico';
 import './CancelBooking.css';
 import dayjs from 'dayjs';
 
@@ -46,17 +47,19 @@ function CancelBooking() {
                     <div className="cancel-booking-heading">Why do you need to cancel?</div>
                     <div className="cancel-booking-cancellation-reason-container">
                         <div className="cancel-booking-select-reason-text">Please select a reason</div>
-                        <select className="cancel-booking-cancellation-reason-select">
-                            <option>I no longer need accommodations</option>
-                            <option>I made the reservation by accident</option>
-                            <option>My host needs to cancel</option>
-                            <option>I'm uncomfortable with the host</option>
-                            <option>My travel dates changed</option>
-                            <option>Other</option>
-                        </select>
+                        <div className="cancel-booking-select-reason-container">
+                            <img src={downCaret} className="cancel-booking-select-reason-down-caret"/>
+                            <select className="cancel-booking-cancellation-reason-select">
+                                <option>I no longer need accommodations</option>
+                                <option>I made the reservation by accident</option>
+                                <option>My host needs to cancel</option>
+                                <option>I'm uncomfortable with the host</option>
+                                <option>My travel dates changed</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-
                 <div className="cancel-booking-left-lower">
                     <div className="cancel-booking-left-lower-border">
                         <div className="cancel-booking-lower-border"></div>

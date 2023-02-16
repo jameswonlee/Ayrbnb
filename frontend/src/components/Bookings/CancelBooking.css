@@ -44,7 +44,7 @@
 }
 
 .cancel-booking-lower-border {
-    border-top: solid;
+    border-top: 2px solid;
     border-color: rgb(219, 219, 219);
     height: 5px;
     width: 170px;
@@ -110,6 +110,11 @@
     height: 54px;
 }
 
+.cancel-booking-select-reason-container {
+    display: flex;
+    position: relative;
+}
+
 .cancel-booking-select-reason-text {
     font-size: 0.73rem;
     font-weight: 300;
@@ -117,14 +122,29 @@
     margin-top: 8px;
     margin-left: 10px;
     margin-bottom: -3px;
+    /* position: absolute; */
 }
 
 .cancel-booking-cancellation-reason-select {
     border: none;
     font-size: 0.93rem;
     width: 515px;
-    margin-left: 6px;
+    /* height: 30px; */
+    margin-left: 10px;
     color: rgb(83, 83, 83);
+    appearance: none;
+    position: relative;
+    z-index: 7;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.cancel-booking-select-reason-down-caret {
+    height: 12px;
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    margin-right: 10px;
+    
 }
 
 .cancel-booking-cancellation-reason-select:hover {

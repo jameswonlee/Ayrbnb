@@ -62,8 +62,8 @@
 
 .booking-confirmation-dates-border {
     height: 70px;
-    border-right: solid;
-    margin-top: 15px;
+    border-right: 1.5px solid;
+    margin-top: 25px;
     margin-bottom: 15px;
     border-color: rgb(235, 235, 235);
 }
@@ -104,7 +104,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: solid;
+    border-bottom: 1.5px solid;
     padding-bottom: 30px;
     border-color: rgb(235, 235, 235);
 }
@@ -156,7 +156,7 @@
 .booking-confirmation-confirmation-code {
     font-size: 1.01rem;
     color: rgb(78, 78, 78);
-    border-bottom: solid;
+    border-bottom: 1.5px solid;
     padding-bottom: 23px;
     border-color: rgb(235, 235, 235);
     margin-top: 5px;
@@ -165,7 +165,7 @@
 .booking-confirmation-aicover-guarantee {
     margin-top: 20px;
     font-size: 0.95rem;
-    border-bottom: solid;
+    border-bottom: 1.5px solid;
     border-color: rgb(235, 235, 235);
 }
 
@@ -216,7 +216,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top: solid;
+    border-top: 1.5px solid;
     border-color: rgb(235, 235, 235);
     padding-top: 14px;
     padding-bottom: 14px;

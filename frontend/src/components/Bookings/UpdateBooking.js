@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { editBooking, getBookingById } from '../../store/bookings';
 import favicon from '../../icons/favicon.png';
 import exitIcon from '../../icons/exit.png';
+import downCaret from '../../icons/down-caret.ico';
 import './UpdateBooking.css';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -179,6 +180,7 @@ function UpdateBooking() {
                             Guests
                         </div>
                         <div className="update-booking-num-guests-container">
+                            <img src={downCaret} className="update-booking-num-guests-down-caret"/>
                             <select value={numGuests} onChange={(e) => setNumGuests(e.target.value)} className="update-booking-num-guests-select">
                                 <option value="1">1 guest</option>
                                 <option value="2">2 guests</option>
