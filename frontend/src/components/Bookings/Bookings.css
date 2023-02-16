@@ -58,8 +58,8 @@
 
 .bookings-reservation-owner {
     font-size: 0.85rem;
-    color: rgb(92, 91, 91);
-}
+    font-weight: 300;
+    color: rgb(40, 40, 40);}
 
 .bookings-reservation-left-bottom {
     display: flex;
@@ -79,7 +79,8 @@
     margin-top: 16px;
     margin-left: 22px;
     font-size: 0.85rem;
-    color: rgb(92, 91, 91);
+    font-weight: 400;
+    color: rgb(40, 40, 40);
 }
 
 .bookings-reservation-left-border-right {
@@ -105,14 +106,14 @@
 
 .bookings-reservation-city-state {
     font-size: 1.05rem;
-    color: rgb(72, 72, 72);
+    color: rgb(40, 40, 40);
     margin-left: 20px;
     margin-top: 20px;
 }
 
 .bookings-reservation-country {
     font-size: 0.9rem;
-    color: rgb(92, 91, 91);
+    color: rgb(40, 40, 40);
     margin-left: 20px;
 }
 
