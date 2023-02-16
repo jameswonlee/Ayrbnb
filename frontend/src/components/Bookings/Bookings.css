@@ -58,7 +58,7 @@
 
 .bookings-reservation-owner {
     font-size: 0.85rem;
-    color: gray;
+    color: rgb(92, 91, 91);
 }
 
 .bookings-reservation-left-bottom {
@@ -79,7 +79,7 @@
     margin-top: 16px;
     margin-left: 22px;
     font-size: 0.85rem;
-    color: gray;
+    color: rgb(92, 91, 91);
 }
 
 .bookings-reservation-left-border-right {
@@ -112,7 +112,7 @@
 
 .bookings-reservation-country {
     font-size: 0.9rem;
-    color: gray;
+    color: rgb(92, 91, 91);
     margin-left: 20px;
 }
 
