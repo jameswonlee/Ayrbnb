@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Modal } from "../../context/Modal";
 import { editReview } from "../../store/reviews";
+import downCaret from '../../icons/down-caret.ico';
 
 
 function UpdateReviewModal({ review, userReview, setUserReview, userStars, setUserStars }) {
@@ -45,18 +46,21 @@ function UpdateReviewModal({ review, userReview, setUserReview, userStars, setUs
                                         <div className="create-review-errors-text" key={error}>{error}</div>
                                     )}
                             </div>
-                            <select value={userStars}
-                                onChange={e => {
-                                    setValidationErrors([])
-                                    setUserStars(e.target.value)
-                                }}
-                                className="create-review-select">
-                                <option value="5">★ ★ ★ ★ ★</option>
-                                <option value="4">★ ★ ★ ★</option>
-                                <option value="3">★ ★ ★</option>
-                                <option value="2">★ ★</option>
-                                <option value="1">★</option>
-                            </select>
+                            <div className="create-review-star-select-container">
+                    <img src={downCaret} className="create-review-select-star-down-caret"/>
+                    <select value={userStars}
+                        onChange={e => {
+                            setValidationErrors([])
+                            setUserStars(e.target.value)
+                        }}
+                        className="create-review-star-select">
+                        <option value="5">★ ★ ★ ★ ★</option>
+                        <option value="4">★ ★ ★ ★</option>
+                        <option value="3">★ ★ ★</option>
+                        <option value="2">★ ★</option>
+                        <option value="1">★</option>
+                    </select>
+                </div>
                             <textarea
                                 type="text"
                                 onChange={e => {

@@ -1,6 +1,6 @@
 .create-review-button {
     background-color: rgb(217 11 101);
-    border: 1px solid rgb(210, 210, 210);
+    border: none;
     height: 28px;
     border-radius: 6px;
     color: white;
@@ -18,3 +18,4 @@
     margin-bottom: 20px;
     margin-left: 0px;
 }
+

@@ -36,11 +36,11 @@ function DeleteReviewModal({ review, setUserReview, setUserStars }) {
                             Are you sure you want to delete your review?
                         </h2>
                         <div className="review-delete-buttons">
-                            <button className="review-delete-button" onClick={deleteClickHandler}>
-                                Confirm Delete
-                            </button>
                             <button className="review-delete-cancel" onClick={hideModal}>
                                 Cancel
+                            </button>
+                            <button className="review-delete-button" onClick={deleteClickHandler}>
+                                Confirm Delete
                             </button>
                         </div>
                     </div>

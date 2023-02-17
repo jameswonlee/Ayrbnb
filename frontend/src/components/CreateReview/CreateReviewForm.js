@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createReviewForSpot } from '../../store/reviews';
+import downCaret from '../../icons/down-caret.ico';
 import './CreateReviewForm.css';
 
 
@@ -23,7 +24,7 @@ function CreateReviewForm({ spot, setShowCreateReviewModal, userReview, setUserR
             try {
                 await dispatch(createReviewForSpot(userReview, userStars, spot.id, sessionUser));
                 setShowCreateReviewModal(false);
-            } catch(e) {
+            } catch (e) {
                 const response = await e.json();
                 const otherErrors = errors.slice();
                 otherErrors.push(response.message);
@@ -43,18 +44,21 @@ function CreateReviewForm({ spot, setShowCreateReviewModal, userReview, setUserR
                             <div className="create-review-errors-text" key={error}>{error}</div>
                         )}
                 </div>
-                <select value={userStars}
-                    onChange={e => {
-                        setValidationErrors([])
-                        setUserStars(e.target.value)
-                    }}
-                    className="create-review-select">
-                    <option value="5">★ ★ ★ ★ ★</option>
-                    <option value="4">★ ★ ★ ★</option>
-                    <option value="3">★ ★ ★</option>
-                    <option value="2">★ ★</option>
-                    <option value="1">★</option>
-                </select>
+                <div className="create-review-star-select-container">
+                    <img src={downCaret} className="create-review-select-star-down-caret"/>
+                    <select value={userStars}
+                        onChange={e => {
+                            setValidationErrors([])
+                            setUserStars(e.target.value)
+                        }}
+                        className="create-review-star-select">
+                        <option value="5">★ ★ ★ ★ ★</option>
+                        <option value="4">★ ★ ★ ★</option>
+                        <option value="3">★ ★ ★</option>
+                        <option value="2">★ ★</option>
+                        <option value="1">★</option>
+                    </select>
+                </div>
                 <textarea
                     type="text"
                     onChange={e => {

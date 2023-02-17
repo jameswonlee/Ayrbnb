@@ -44,7 +44,12 @@
     color: red;
 }
 
-.create-review-select {
+.create-review-star-select-container {
+    display: flex;
+    align-items: center;
+}
+
+.create-review-star-select {
     width: 502px;
     border-radius: 6px;
     border-color: gray;
@@ -54,14 +59,33 @@
     display: flex;
     justify-content: center;
     color: rgb(216, 8, 102);
+    appearance: none;
+    position: relative;
+    padding-left: 10px;
+    z-index: 7;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.create-review-star-select:hover {
+    cursor: pointer;
+}
+
+.create-review-select-star-down-caret {
+    height: 12px;
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    margin-right: 60px;
+    margin-top: 10px;
 }
 
 .create-review-text-area {
     height: 100px;
-    width: 496px;
+    width: 485px;
     border-radius: 6px;
     margin-top: 10px;
     border-color: gray;
     font-size: 1rem;
+    padding-left: 10px;
 
 }

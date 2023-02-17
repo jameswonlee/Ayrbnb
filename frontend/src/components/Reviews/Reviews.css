@@ -55,7 +55,7 @@
 } 
 
 .review-delete-button {
-  margin-right: 2px;
+  margin-left: 2px;
 }
 
 .review-delete-button:hover {
@@ -64,7 +64,7 @@
 }
 
 .review-delete-cancel {
-    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .review-delete-cancel:hover {
@@ -107,7 +107,7 @@
 
 .review-buttons {
     background-color: rgb(217 11 101);
-    border: 1px solid rgb(210, 210, 210);
+    border: none;
     border-radius: 6px;
     height: 28px;
     margin-left: -3px;
