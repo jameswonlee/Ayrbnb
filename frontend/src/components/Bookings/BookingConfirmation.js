@@ -52,7 +52,7 @@ function BookingConfirmation() {
     }
 
     const routeToBookings = () => {
-        history.goBack();
+        history.push(`/user/${sessionUser.id}/trips`);
     }
 
     const openManageGuestsModal = () => {
