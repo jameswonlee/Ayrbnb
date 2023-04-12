@@ -67,7 +67,7 @@ function BookingConfirmation() {
         history.push(`/booking/${bookingId}/cancel`);
     }
 
-
+    
     return (
         <div className="booking-confirmation-container">
             <div className="booking-confirmation-left-container">
